@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="r3mus_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'r3mus_DB.dbo.Announcements' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Announcements">
+          <Key>
+            <PropertyRef Name="Category" />
+            <PropertyRef Name="Topic" />
+            <PropertyRef Name="Post" />
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="Category" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="Topic" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="Date" Type="datetime2" Precision="0" />
+          <Property Name="Post" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Avatar" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityContainer Name="r3mus_DBModelStoreContainer">
+          <EntitySet Name="Announcements" EntityType="Self.Announcements" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Announcements].[Category] AS [Category], 
+    [Announcements].[Topic] AS [Topic], 
+    [Announcements].[Date] AS [Date], 
+    [Announcements].[Post] AS [Post], 
+    [Announcements].[UserName] AS [UserName], 
+    [Announcements].[Avatar] AS [Avatar]
+    FROM [dbo].[Announcements] AS [Announcements]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="r3mus_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Announcement">
+          <Key>
+            <PropertyRef Name="Category" />
+            <PropertyRef Name="Topic" />
+            <PropertyRef Name="Post" />
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="Category" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Topic" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Post" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="r3musDB" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Announcements" EntityType="Self.Announcement" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="r3mus_DBModelStoreContainer" CdmEntityContainer="r3musDB">
+          <EntitySetMapping Name="Announcements">
+            <EntityTypeMapping TypeName="r3mus_DBModel.Announcement">
+              <MappingFragment StoreEntitySet="Announcements">
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Topic" ColumnName="Topic" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Post" ColumnName="Post" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
