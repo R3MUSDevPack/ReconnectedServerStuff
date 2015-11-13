@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="r3musModelsStoreContainer" CdmEntityContainer="ApplicantEntities">
+    <EntitySetMapping Name="ApplicantLists">
+      <EntityTypeMapping TypeName="r3mus.Models.ApplicantList">
+        <MappingFragment StoreEntitySet="ApplicantList">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="ApiKey" ColumnName="ApiKey" />
+          <ScalarProperty Name="VerificationCode" ColumnName="VerificationCode" />
+          <ScalarProperty Name="Information" ColumnName="Information" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="ToonAge" ColumnName="ToonAge" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="Applied" ColumnName="Applied" />
+          <ScalarProperty Name="LastStatusUpdate" ColumnName="LastStatusUpdate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DateTimeCreated" ColumnName="DateTimeCreated" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

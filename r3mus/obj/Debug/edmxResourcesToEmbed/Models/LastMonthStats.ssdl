@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="r3mus.ViewModels.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'r3mus_DB.dbo.LastMonthsMailStats' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="LastMonthsMailStats">
+    <Key>
+      <PropertyRef Name="Mailer" />
+    </Key>
+    <Property Name="Id" Type="bigint" />
+    <Property Name="Mailer" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Mailed" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'r3mus_DB.dbo.LastMonthsSubmissionStats' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="LastMonthsSubmissionStats">
+    <Key>
+      <PropertyRef Name="Submitter" />
+    </Key>
+    <Property Name="Id" Type="bigint" />
+    <Property Name="Submitter" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Submitted" Type="int" />
+  </EntityType>
+  <EntityContainer Name="r3musViewModelsStoreContainer">
+    <EntitySet Name="LastMonthsMailStats" EntityType="Self.LastMonthsMailStats" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [LastMonthsMailStats].[Id] AS [Id], 
+    [LastMonthsMailStats].[Mailer] AS [Mailer], 
+    [LastMonthsMailStats].[Mailed] AS [Mailed]
+    FROM [dbo].[LastMonthsMailStats] AS [LastMonthsMailStats]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="LastMonthsSubmissionStats" EntityType="Self.LastMonthsSubmissionStats" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [LastMonthsSubmissionStats].[Id] AS [Id], 
+    [LastMonthsSubmissionStats].[Submitter] AS [Submitter], 
+    [LastMonthsSubmissionStats].[Submitted] AS [Submitted]
+    FROM [dbo].[LastMonthsSubmissionStats] AS [LastMonthsSubmissionStats]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

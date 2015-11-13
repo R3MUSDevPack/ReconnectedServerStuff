@@ -1,0 +1,7 @@
+C:\temp\r3mus\r3mus\r3mus_DB\bin\Debug\r3mus_DB.dacpac
+C:\temp\r3mus\r3mus\r3mus_DB\obj\Debug\Model.xml
+C:\temp\r3mus\r3mus\r3mus_DB\obj\Debug\refactor.xml
+C:\temp\r3mus\r3mus\r3mus_DB\obj\Debug\postdeploy.sql
+C:\temp\r3mus\r3mus\r3mus_DB\obj\Debug\predeploy.sql
+C:\temp\r3mus\r3mus\r3mus_DB\obj\Debug\r3mus_DB.dll
+C:\temp\r3mus\r3mus\r3mus_DB\obj\Debug\r3mus_DB.pdb

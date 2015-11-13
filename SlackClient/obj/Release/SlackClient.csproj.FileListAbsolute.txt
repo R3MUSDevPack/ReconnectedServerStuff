@@ -1,0 +1,7 @@
+C:\temp\r3mus\r3mus\SlackClient\bin\Release\SlackClient.dll
+C:\temp\r3mus\r3mus\SlackClient\bin\Release\SlackClient.pdb
+C:\temp\r3mus\r3mus\SlackClient\bin\Release\Newtonsoft.Json.dll
+C:\temp\r3mus\r3mus\SlackClient\bin\Release\Newtonsoft.Json.xml
+C:\temp\r3mus\r3mus\SlackClient\obj\Release\SlackClient.csprojResolveAssemblyReference.cache
+C:\temp\r3mus\r3mus\SlackClient\obj\Release\SlackClient.dll
+C:\temp\r3mus\r3mus\SlackClient\obj\Release\SlackClient.pdb

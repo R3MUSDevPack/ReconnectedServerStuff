@@ -1,0 +1,8 @@
+C:\temp\r3mus\r3mus\JKON.EveWho\bin\Debug\JKON.EveWho.dll
+C:\temp\r3mus\r3mus\JKON.EveWho\bin\Debug\JKON.EveWho.pdb
+C:\temp\r3mus\r3mus\JKON.EveWho\bin\Debug\EveAI.Live.dll
+C:\temp\r3mus\r3mus\JKON.EveWho\bin\Debug\EveAI.Core.dll
+C:\temp\r3mus\r3mus\JKON.EveWho\bin\Debug\Ionic.Zip.Reduced.dll
+C:\temp\r3mus\r3mus\JKON.EveWho\obj\Debug\JKON.EveWho.dll
+C:\temp\r3mus\r3mus\JKON.EveWho\obj\Debug\JKON.EveWho.pdb
+C:\temp\r3mus\r3mus\JKON.EveWho\obj\Debug\JKON.EveApi.csprojResolveAssemblyReference.cache

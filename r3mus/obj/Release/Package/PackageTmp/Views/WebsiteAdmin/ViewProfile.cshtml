@@ -1,0 +1,139 @@
+﻿@model r3mus.ViewModels.UserProfileViewModel
+
+@{
+    ViewBag.Title = "View Profile";
+}
+
+<h2>View Profile</h2>
+
+<div>
+    <h4>@Model.UserName</h4>
+	<hr />
+    @if(ViewBag.Message != null)
+    {
+    <h4>@ViewBag.Message</h4>
+    }
+    <hr />
+    @if (Model.Avatar != null)
+    {
+        <img src="@Model.Avatar" />
+    }
+    else
+    {
+        <span>Image Not Yet Available</span>
+    }
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MemberType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MemberType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Titles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Titles)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MemberSince)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MemberSince)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastLogon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastLogon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShipType)
+        </dd>
+
+    </dl>
+
+    @if(User.IsInRole("Admin") || User.IsInRole("Director") || User.IsInRole("CEO"))
+    {
+        Html.RenderPartial("_RoleManagement");
+    }
+
+    <h4>API Details</h4>    
+    @Html.ActionLink("Create", "CreateApi", new { id = Model.Id }, new { @class = "btn btn-default" })
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ApiKeys[0].ApiKey)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApiKeys[0].VerificationCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApiKeys[0].AccessMask)
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var api in Model.ApiKeys)
+        {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => api.ApiKey)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => api.VerificationCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => api.AccessMask)
+                    </td>
+                    <td>                      
+                        @if (User.IsInRole("Admin") || User.IsInRole("Director") || User.IsInRole("CEO"))
+                        {
+                            <table>
+                                <tr>
+                                    <td>
+                                        @Html.ActionLink("Edit", "EditApi", new { id = api.Id }, new { @class = "btn btn-danger" })
+                                    </td>
+                                    <td>                                             
+                                        @Html.ActionLink("Delete", "DeleteApi", new { id = api.Id, userId = Model.Id }, new { @class = "btn btn-danger" }) 
+                                    </td>
+                                </tr>
+                            </table>
+                        }
+                    </td>
+                </tr>
+        }
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Import from Eve", "UpdateApiDetails", new { id=Model.Id, originator="ViewProfile" }, new { @class = "btn btn-default" })
+    @Html.ActionLink("Back to Profile", "ViewUsers", null, new { @class = "btn btn-default" })
+</p>

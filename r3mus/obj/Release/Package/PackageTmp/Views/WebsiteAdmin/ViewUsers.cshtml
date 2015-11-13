@@ -1,0 +1,101 @@
+﻿@model IEnumerable<r3mus.ViewModels.UserProfileViewModel>
+
+@{
+    ViewBag.Title = "ViewUsers";
+}
+
+<h2>View Users</h2>
+
+@if(User.IsInRole("Admin"))
+{
+    <div class="row">
+        @Html.ActionLink("Test Slack", "TestSlack", null, new { @class = "btn btn-default" })
+    </div>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Avatar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MemberName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MemberType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Titles)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MemberSince)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastLogon)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @if(item.Id != 0.ToString())
+            { 
+                <a href="@Url.Action("ViewProfile", "WebsiteAdmin", new { id = @item.Id })">
+                    @if (item.Avatar != null)
+                    {
+                        <img src="@item.Avatar" />
+                    }
+                    else
+                    {
+                        <span>Image Not Yet Available</span>
+                    }
+                </a>
+            }
+            else
+            {
+                    if (item.Avatar != null)
+                    {
+                        <img src="@item.Avatar" />
+                    }
+                    else
+                    {
+                        <span>Image Not Yet Available</span>
+                    }
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MemberName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MemberType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Titles)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MemberSince)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastLogon)
+        </td>
+        <td>            
+            @if(item.Id != 0.ToString())
+            {
+                @Html.ActionLink("Import from Eve", "UpdateApiDetails", new { id = item.Id, originator = "ViewUsers" }, new { @class = "btn btn-default" })
+            }
+            else
+            {
+                <span>Import Not Available</span>
+            }
+        </td>
+    </tr>
+}
+
+</table>

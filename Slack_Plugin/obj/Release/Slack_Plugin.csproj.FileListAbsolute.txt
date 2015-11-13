@@ -1,0 +1,10 @@
+C:\temp\r3mus\r3mus\Slack_Plugin\bin\Release\Slack_Plugin.dll.config
+C:\temp\r3mus\r3mus\Slack_Plugin\bin\Release\Slack_Plugin.dll
+C:\temp\r3mus\r3mus\Slack_Plugin\bin\Release\Slack_Plugin.pdb
+C:\temp\r3mus\r3mus\Slack_Plugin\bin\Release\SlackClient.dll
+C:\temp\r3mus\r3mus\Slack_Plugin\bin\Release\Newtonsoft.Json.dll
+C:\temp\r3mus\r3mus\Slack_Plugin\bin\Release\SlackClient.pdb
+C:\temp\r3mus\r3mus\Slack_Plugin\bin\Release\Newtonsoft.Json.xml
+C:\temp\r3mus\r3mus\Slack_Plugin\obj\Release\Slack_Plugin.csprojResolveAssemblyReference.cache
+C:\temp\r3mus\r3mus\Slack_Plugin\obj\Release\Slack_Plugin.dll
+C:\temp\r3mus\r3mus\Slack_Plugin\obj\Release\Slack_Plugin.pdb

@@ -1,0 +1,17 @@
+C:\temp\r3mus\r3mus\RandomQuoteBot\bin\Debug\RandomQuoteBot.exe.config
+C:\temp\r3mus\r3mus\RandomQuoteBot\bin\Debug\RandomQuoteBot.exe
+C:\temp\r3mus\r3mus\RandomQuoteBot\bin\Debug\RandomQuoteBot.pdb
+C:\temp\r3mus\r3mus\RandomQuoteBot\bin\Debug\Hipchat_Plugin.dll
+C:\temp\r3mus\r3mus\RandomQuoteBot\bin\Debug\SlackClient.dll
+C:\temp\r3mus\r3mus\RandomQuoteBot\bin\Debug\Slack_Plugin.dll
+C:\temp\r3mus\r3mus\RandomQuoteBot\bin\Debug\HipchatApiV2.dll
+C:\temp\r3mus\r3mus\RandomQuoteBot\bin\Debug\Newtonsoft.Json.dll
+C:\temp\r3mus\r3mus\RandomQuoteBot\bin\Debug\ServiceStack.Text.dll
+C:\temp\r3mus\r3mus\RandomQuoteBot\bin\Debug\Hipchat_Plugin.pdb
+C:\temp\r3mus\r3mus\RandomQuoteBot\bin\Debug\SlackClient.pdb
+C:\temp\r3mus\r3mus\RandomQuoteBot\bin\Debug\Slack_Plugin.pdb
+C:\temp\r3mus\r3mus\RandomQuoteBot\bin\Debug\Newtonsoft.Json.xml
+C:\temp\r3mus\r3mus\RandomQuoteBot\bin\Debug\ServiceStack.Text.xml
+C:\temp\r3mus\r3mus\RandomQuoteBot\obj\Debug\RandomQuoteBot.csprojResolveAssemblyReference.cache
+C:\temp\r3mus\r3mus\RandomQuoteBot\obj\Debug\RandomQuoteBot.exe
+C:\temp\r3mus\r3mus\RandomQuoteBot\obj\Debug\RandomQuoteBot.pdb

@@ -1,0 +1,7 @@
+C:\temp\r3mus\r3mus\Teamspeak+Plugin\bin\Release\Teamspeak+Plugin.dll
+C:\temp\r3mus\r3mus\Teamspeak+Plugin\bin\Release\Teamspeak+Plugin.pdb
+C:\temp\r3mus\r3mus\Teamspeak+Plugin\bin\Release\TentacleSoftware.TeamSpeakQuery.dll
+C:\temp\r3mus\r3mus\Teamspeak+Plugin\bin\Release\TentacleSoftware.Telnet.dll
+C:\temp\r3mus\r3mus\Teamspeak+Plugin\obj\Release\Teamspeak_Plugin.csprojResolveAssemblyReference.cache
+C:\temp\r3mus\r3mus\Teamspeak+Plugin\obj\Release\Teamspeak+Plugin.dll
+C:\temp\r3mus\r3mus\Teamspeak+Plugin\obj\Release\Teamspeak+Plugin.pdb

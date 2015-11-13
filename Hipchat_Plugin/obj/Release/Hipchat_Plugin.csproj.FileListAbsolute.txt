@@ -1,0 +1,9 @@
+C:\temp\r3mus\r3mus\Hipchat_Plugin\bin\Release\Hipchat_Plugin.dll.config
+C:\temp\r3mus\r3mus\Hipchat_Plugin\bin\Release\Hipchat_Plugin.dll
+C:\temp\r3mus\r3mus\Hipchat_Plugin\bin\Release\Hipchat_Plugin.pdb
+C:\temp\r3mus\r3mus\Hipchat_Plugin\bin\Release\HipchatApiV2.dll
+C:\temp\r3mus\r3mus\Hipchat_Plugin\bin\Release\ServiceStack.Text.dll
+C:\temp\r3mus\r3mus\Hipchat_Plugin\bin\Release\ServiceStack.Text.xml
+C:\temp\r3mus\r3mus\Hipchat_Plugin\obj\Release\Hipchat_Plugin.csprojResolveAssemblyReference.cache
+C:\temp\r3mus\r3mus\Hipchat_Plugin\obj\Release\Hipchat_Plugin.dll
+C:\temp\r3mus\r3mus\Hipchat_Plugin\obj\Release\Hipchat_Plugin.pdb

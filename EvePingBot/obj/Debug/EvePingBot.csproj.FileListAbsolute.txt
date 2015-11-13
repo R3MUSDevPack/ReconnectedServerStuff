@@ -1,0 +1,12 @@
+C:\temp\r3mus\r3mus\EvePingBot\bin\Debug\EvePingBot.exe.config
+C:\temp\r3mus\r3mus\EvePingBot\bin\Debug\EvePingBot.exe
+C:\temp\r3mus\r3mus\EvePingBot\bin\Debug\EvePingBot.pdb
+C:\temp\r3mus\r3mus\EvePingBot\bin\Debug\Newtonsoft.Json.dll
+C:\temp\r3mus\r3mus\EvePingBot\bin\Debug\SlackClient.dll
+C:\temp\r3mus\r3mus\EvePingBot\bin\Debug\Slack_Plugin.dll
+C:\temp\r3mus\r3mus\EvePingBot\bin\Debug\SlackClient.pdb
+C:\temp\r3mus\r3mus\EvePingBot\bin\Debug\Slack_Plugin.pdb
+C:\temp\r3mus\r3mus\EvePingBot\bin\Debug\Newtonsoft.Json.xml
+C:\temp\r3mus\r3mus\EvePingBot\obj\Debug\EvePingBot.csprojResolveAssemblyReference.cache
+C:\temp\r3mus\r3mus\EvePingBot\obj\Debug\EvePingBot.exe
+C:\temp\r3mus\r3mus\EvePingBot\obj\Debug\EvePingBot.pdb

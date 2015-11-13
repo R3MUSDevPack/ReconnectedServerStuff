@@ -1,0 +1,96 @@
+﻿@*@model IEnumerable<r3mus.Models.ApiInfo>*@
+@model r3mus.ViewModels.WelcomeViewModel
+@{
+    ViewBag.Title = "Index";
+}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
+<div class="row">
+    @*@{Html.RenderPartial("_News", Model.LatestInternalNewsItem);}*@
+    @{Html.RenderPartial("_LiveWardecs", Model.LiveWardecs);}
+</div>
+@if (ViewBag.Message != string.Empty)
+{
+    <table>
+        <thead>
+            @ViewBag.Message
+        </thead>
+        @if (ViewBag.ErrorMessage != string.Empty)
+        {
+            <tr>
+                @ViewBag.ErrorMessage
+            </tr>
+        }
+    </table>
+}
+<div id="tabs" class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+    <ul>
+        <li class="ui-state-default ui-corner-top"><a href="#NewsTab">Latest News</a></li>
+        <li class="ui-state-default ui-corner-top"><a href="#APITab">Api Keys</a></li>
+        <li class="ui-state-default ui-corner-top"><a href="#TSTab">Teamspeak</a></li>
+        @*<li class="ui-state-default ui-corner-top"><a href="#HipchatTab">Hipchat</a></li>*@
+        <li class="ui-state-default ui-corner-top"><a href="#SlackTab">Slack</a></li>
+        <li class="ui-state-default ui-corner-top"><a href="#MoodleTab">Training</a></li>
+        <li class="ui-state-default ui-corner-top"><a href="#ForumTab">Forums</a></li>
+    </ul>
+    <div id="NewsTab" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
+        @{Html.RenderPartial("_News", Model.LatestInternalNewsItem);}
+    </div>
+    <div id="APITab" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
+        <p style="font-family:Arial; font-size:small; font-weight:600">
+            @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-default" })
+        </p>
+        <div class="col-md-12" style="font-family:Arial; font-size:small; font-weight:600">
+            @foreach (var item in Model.Apis)
+            {
+                <div class="row">
+                    <div class="col-md-1">
+                        @Html.DisplayNameFor(model => item.ApiKey):
+                        <br />
+                        @Html.DisplayFor(modelItem => item.ApiKey)
+                    </div>
+                    <div class="col-md-6">
+                        @Html.DisplayNameFor(model => item.VerificationCode):
+                        <br />
+                        @Html.DisplayFor(modelItem => item.VerificationCode)
+                    </div>
+                    <div class="col-md-1">
+                        @Html.DisplayNameFor(model => item.AccessMask):
+                        <br />
+                        @Html.DisplayFor(modelItem => item.AccessMask)
+                    </div>
+                    <div class="col-md-1">
+                        @Html.ActionLink("Edit", "Edit", new { apiKey = item.ApiKey }, new { @class = "btn btn-default" })
+                    </div>
+                    <div class="col-md-1">
+                        @Html.ActionLink("Delete", "Delete", new { apiKey = item.ApiKey }, new { @class = "btn btn-default" })
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div id="TSTab" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
+        @Html.Partial("_RegisterForTeamspeak")
+    </div>
+    @*<div id="HipchatTab" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
+            @Html.Partial("_RegisterForHipchat")
+        </div>*@
+    <div id="SlackTab" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
+        @Html.Partial("_RegisterForSlack")
+    </div>
+    <div id="MoodleTab" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
+        @Html.Partial("_RegisterForMoodle")
+    </div>
+    <div id="ForumTab" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
+        @Html.Partial("_RegisterForForums")
+    </div>
+</div>
+<script>
+        $(function () {
+            $("#tabs").tabs({
+                event: "click"
+            });
+        });
+</script>

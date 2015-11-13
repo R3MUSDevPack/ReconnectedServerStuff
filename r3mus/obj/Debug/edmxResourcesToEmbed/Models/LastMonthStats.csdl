@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="r3mus.ViewModels" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="LastMonthsMailStat">
+    <Key>
+      <PropertyRef Name="Mailer" />
+    </Key>
+    <Property Name="Id" Type="Int64" />
+    <Property Name="Mailer" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Mailed" Type="Int32" />
+  </EntityType>
+  <EntityType Name="LastMonthsSubmissionStat">
+    <Key>
+      <PropertyRef Name="Submitter" />
+    </Key>
+    <Property Name="Id" Type="Int64" />
+    <Property Name="Submitter" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Submitted" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="r3mus_MonthRecruitmentStatEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="LastMonthsMailStats" EntityType="Self.LastMonthsMailStat" />
+    <EntitySet Name="LastMonthsSubmissionStats" EntityType="Self.LastMonthsSubmissionStat" />
+  </EntityContainer>
+</Schema>

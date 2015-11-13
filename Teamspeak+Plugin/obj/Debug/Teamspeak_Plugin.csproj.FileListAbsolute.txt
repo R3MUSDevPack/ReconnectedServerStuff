@@ -1,0 +1,6 @@
+C:\temp\r3mus\r3mus\Teamspeak+Plugin\bin\Debug\Teamspeak+Plugin.dll
+C:\temp\r3mus\r3mus\Teamspeak+Plugin\bin\Debug\Teamspeak+Plugin.pdb
+C:\temp\r3mus\r3mus\Teamspeak+Plugin\bin\Debug\TentacleSoftware.TeamSpeakQuery.dll
+C:\temp\r3mus\r3mus\Teamspeak+Plugin\bin\Debug\TentacleSoftware.Telnet.dll
+C:\temp\r3mus\r3mus\Teamspeak+Plugin\obj\Debug\Teamspeak+Plugin.dll
+C:\temp\r3mus\r3mus\Teamspeak+Plugin\obj\Debug\Teamspeak+Plugin.pdb

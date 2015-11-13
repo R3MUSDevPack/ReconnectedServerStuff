@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="r3mus_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'r3mus_DB.dbo.Announcements' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Announcements">
+    <Key>
+      <PropertyRef Name="Category" />
+      <PropertyRef Name="Topic" />
+      <PropertyRef Name="Post" />
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="Category" Type="nvarchar" MaxLength="450" Nullable="false" />
+    <Property Name="Topic" Type="nvarchar" MaxLength="450" Nullable="false" />
+    <Property Name="Date" Type="datetime2" Precision="0" />
+    <Property Name="Post" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Avatar" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityContainer Name="r3mus_DBModelStoreContainer">
+    <EntitySet Name="Announcements" EntityType="Self.Announcements" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Announcements].[Category] AS [Category], 
+    [Announcements].[Topic] AS [Topic], 
+    [Announcements].[Date] AS [Date], 
+    [Announcements].[Post] AS [Post], 
+    [Announcements].[UserName] AS [UserName], 
+    [Announcements].[Avatar] AS [Avatar]
+    FROM [dbo].[Announcements] AS [Announcements]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
