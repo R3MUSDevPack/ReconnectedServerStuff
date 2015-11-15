@@ -8,3 +8,13 @@ C:\temp\r3mus\r3mus\Slack_Plugin\obj\Debug\Slack_Plugin.dll
 C:\temp\r3mus\r3mus\Slack_Plugin\obj\Debug\Slack_Plugin.pdb
 C:\temp\r3mus\r3mus\Slack_Plugin\bin\Debug\Newtonsoft.Json.dll
 C:\temp\r3mus\r3mus\Slack_Plugin\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Slack_Plugin\bin\Debug\Slack_Plugin.dll.config
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Slack_Plugin\bin\Debug\Slack_Plugin.dll
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Slack_Plugin\bin\Debug\Slack_Plugin.pdb
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Slack_Plugin\bin\Debug\SlackClient.dll
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Slack_Plugin\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Slack_Plugin\bin\Debug\SlackClient.pdb
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Slack_Plugin\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Slack_Plugin\obj\Debug\Slack_Plugin.csprojResolveAssemblyReference.cache
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Slack_Plugin\obj\Debug\Slack_Plugin.dll
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Slack_Plugin\obj\Debug\Slack_Plugin.pdb

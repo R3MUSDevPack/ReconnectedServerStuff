@@ -49,17 +49,13 @@ namespace r3mus.Controllers
             {
                 ViewBag.ErrorMessage = TempData["ErrorMessage"].ToString();
             }
-            //List<ApiInfo> apis = currentUser.ApiKeys.GroupBy(api => api.ApiKey).Select(api => api.First()).ToList();
-            //var latestNewsItem = new LatestNews().LatestNewsItem.Where(newsItem => newsItem.Category == "Internal News").FirstOrDefault();
-
             var vm = new WelcomeViewModel()
             {
                 LatestInternalNewsItem = db.LatestNewsItem.Where(newsItem => newsItem.Category == "Internal News").FirstOrDefault(),
                 Apis = currentUser.ApiKeys.GroupBy(api => api.ApiKey).Select(api => api.First()).ToList(),
                 LiveWardecs = db.LiveWardecs.ToList()
             };
-
-            //return View(apis);
+            
             return View(vm);
         }
 
@@ -82,8 +78,6 @@ namespace r3mus.Controllers
         [OverrideAuthorization]
         public ActionResult Create(string userId = "")
         {
-            //ApiInfo info = new ApiInfo() { User = UserManager.FindById(User.Identity.GetUserId()) };
-            //return View(info);
             if (TempData["Message"] != null)
             {
                 ViewBag.Message = TempData["Message"]; 
@@ -127,16 +121,17 @@ namespace r3mus.Controllers
         // GET: /LoggedInHome/Edit/5
         public ActionResult Edit(int apiKey)
         {
-            if (apiKey == null)
+            if (apiKey == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ApiInfo apiinfo = db.ApiInfoes.Find(apiKey);
-            if (apiinfo == null)
+
+            var apiInfo = db.ApiInfoes.Where(api => api.ApiKey == apiKey).FirstOrDefault();
+            if (apiInfo == null)
             {
-                return HttpNotFound();
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            return View(apiinfo);
+            return View(apiInfo);
         }
 
         // POST: /LoggedInHome/Edit/5
@@ -247,10 +242,7 @@ namespace r3mus.Controllers
                 else if (nameComponents.Length == 3){
                     mUser.lastname = string.Concat(nameComponents[1], " ", nameComponents[2]);
                 };
-                //List<MoodleUser> userList = new List<MoodleUser>();
-                //userList.Add(mUser);
-                //Array arrUsers = userList.ToArray();
- 
+
                 String postData = String.Format("users[0][username]={0}&users[0][password]={1}&users[0][firstname]={2}&users[0][lastname]={3}&users[0][email]={4}", mUser.username, mUser.password, mUser.firstname, mUser.lastname, mUser.email);
                 string createRequest = string.Format("{0}?wstoken={1}&wsfunction={2}&moodlewsrestformat=json", moodleURL,  Properties.Settings.Default.MoodleToken, function);
 
@@ -291,7 +283,7 @@ namespace r3mus.Controllers
                 TempData.Add("Message", "An error occurred: Please contact Clyde en Marland with this message; ");
                 TempData.Add("ErrorMessage", ex.Message);
             }
-            //return View("Index#MoodleTab");
+
             return RedirectToAction("Index");
         }
 
@@ -422,12 +414,6 @@ namespace r3mus.Controllers
         public ActionResult RegisterForSlack()
         {
             var result = string.Empty;
-            //string URI = string.Format(Properties.Settings.Default.SlackInviteURL, UserManager.FindById(User.Identity.GetUserId()).EmailAddress, Properties.Settings.Default.SlackToken);
-            //using(WebClient client = new WebClient())
-            //{
-            //    byte[] response = client.DownloadData(URI);
-            //    result = System.Text.Encoding.UTF8.GetString(response);
-            //}
 
             using (var client = new HttpClient())
             {
