@@ -359,6 +359,7 @@ namespace r3mus.Controllers
                         Password = string.Concat("R3MUSUser_", useName),
                         Email = siteUser.EmailAddress,
                         PasswordSalt = string.Concat("R3MUS_", useName),
+                        Avatar = siteUser.Avatar,
                         IsApproved = true,
                         IsLockedOut = false,
                         CreateDate = DateTime.Now,

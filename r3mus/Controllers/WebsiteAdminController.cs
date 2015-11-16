@@ -336,11 +336,11 @@ namespace r3mus.Controllers
 
                 if (User.Identity.Name.IndexOf(" ") != -1)
                 {
-                    useName = User.Identity.Name.Substring(0, User.Identity.Name.IndexOf(" "));
+                    useName = user.UserName.Substring(0, User.Identity.Name.IndexOf(" "));
                 }
                 else
                 {
-                    useName = User.Identity.Name;
+                    useName = user.UserName;
                 }
 
                 var result = await userManager.ResetPasswordAsync(userId, token, string.Concat("R3MUSUser_", useName));

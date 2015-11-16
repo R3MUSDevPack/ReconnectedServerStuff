@@ -3,8 +3,8 @@
     <div class="col-md-12">
         <h3>@Html.DisplayFor(model => model.Topic)</h3>
         <hr />
-        <div class="col-md-8">@Html.Raw(Model.Post)</div>
-        <div class="col-md-4">
+        <div class="col-md-8" style="text-align:right;">@Html.Raw(Model.Post)</div>
+        <div class="col-md-4" style="text-align:right;">
             <img src="@Model.Avatar" />
             <br />
             @Html.DisplayFor(model => model.UserName)
