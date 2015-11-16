@@ -203,8 +203,10 @@ namespace r3mus.Controllers
             }
             else if (UserManager.FindById(User.Identity.GetUserId()).MemberType == ApplicationUser.IDType.SharedComms.ToString())
             {
-                groupName = UserManager.FindById(User.Identity.GetUserId()).CorpId.Value.ToString();
-                lookupName = groupName;
+                var user = UserManager.FindById(User.Identity.GetUserId());
+                user.IsValid();
+                groupName = user.CorpTicker;
+                lookupName = user.CorpTicker;
             }
             lookupName = string.Concat("[", lookupName, "] ", User.Identity.Name);
 

@@ -94,7 +94,7 @@ namespace r3mus.Models
                         MemberType = IDType.Corporation.ToString();
                         result = apiInfo.ValidateAccessMask(IDType.Corporation);
                     }
-                    else if (clientAllianceId == hostAllianceID)
+                    else if ((clientAllianceId == hostAllianceID) && (clientAllianceId > 0) && (hostAllianceID > 0))
                     {
                         MemberType = IDType.Alliance.ToString();
                         result = apiInfo.ValidateAccessMask(IDType.Alliance);
