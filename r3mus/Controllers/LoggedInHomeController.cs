@@ -191,15 +191,20 @@ namespace r3mus.Controllers
             string lookupName = string.Empty;
             string groupName = string.Empty;
 
-            if (UserManager.FindById(User.Identity.GetUserId()).MemberType == "Corporation")
+            if (UserManager.FindById(User.Identity.GetUserId()).MemberType == ApplicationUser.IDType.Corporation.ToString())
             {
                 groupName = Properties.Settings.Default.TS_CorpGroup;
                 lookupName = Properties.Settings.Default.CorpTicker;
             }
-            else if (UserManager.FindById(User.Identity.GetUserId()).MemberType == "Alliance")
+            else if (UserManager.FindById(User.Identity.GetUserId()).MemberType == ApplicationUser.IDType.Alliance.ToString())
             {
                 groupName = Properties.Settings.Default.TS_AlliGroup;
                 lookupName = Properties.Settings.Default.AllianceTicker;
+            }
+            else if (UserManager.FindById(User.Identity.GetUserId()).MemberType == ApplicationUser.IDType.SharedComms.ToString())
+            {
+                groupName = UserManager.FindById(User.Identity.GetUserId()).CorpId.Value.ToString();
+                lookupName = groupName;
             }
             lookupName = string.Concat("[", lookupName, "] ", User.Identity.Name);
 

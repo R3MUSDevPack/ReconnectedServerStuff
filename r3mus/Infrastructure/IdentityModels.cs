@@ -25,6 +25,10 @@ namespace r3mus.Models
         public bool Errored { get; set; }
         [NotMapped]
         public string ErrorMessage { get; set; }
+        [NotMapped]
+        public long? CorpId { get; set; }
+        [NotMapped]
+        public string CorpTicker { get; set; }
 
         public IList<Title> Titles { get; set; }
 
@@ -40,6 +44,7 @@ namespace r3mus.Models
         public enum IDType
         {
             Corporation,
+            SharedComms,
             Alliance,
             Plus10,
             [Display(Name="Honoured Guest")]
@@ -246,8 +251,6 @@ namespace r3mus.Models
                 }
 
                 var cList = cKey.Corporation.GetContactList().Result;
-                //var corpList = cList.CorporationContacts;
-                //var allList = cList.AllianceContacts;
 
                 var contactList = cList.CorporationContacts.Concat(cList.AllianceContacts);
 
@@ -265,42 +268,6 @@ namespace r3mus.Models
                         break;
                     }
                 }
-
-                //eZet.EveLib.Modules.Models.Corporation.ContactList.Contact contact = corpList.Where(c => c.ContactName == checkName).FirstOrDefault();
-                //eZet.EveLib.Modules.Models.Corporation.ContactList.Contact contactCorp = corpList.Where(c => c.ContactName == checkName).FirstOrDefault();
-                //eZet.EveLib.Modules.Models.Corporation.ContactList.Contact contactAlliance = corpList.Where(c => c.ContactName == checkName).FirstOrDefault();
-
-                //if (contact != null)
-                //{
-                //    result = (contact.Standing == 10);
-                //}
-                //else if (contactCorp != null)
-                //{
-                //    result = (contactAlliance.Standing == 10);
-                //}
-                //else if (contactAlliance != null)
-                //{
-                //    result = (contactCorp.Standing == 10);
-                //}
-                //else
-                //{
-                //    contact = allList.Where(c => c.ContactName == checkName).FirstOrDefault();
-                //    contactCorp = allList.Where(c => c.ContactName == checkName).FirstOrDefault();
-                //    contactAlliance = allList.Where(c => c.ContactName == checkName).FirstOrDefault();
-                //}
-
-                //if (contact != null)
-                //{
-                //    result = (contact.Standing == 10);
-                //}
-                //else if (contactCorp != null)
-                //{
-                //    result = (contactAlliance.Standing == 10);
-                //}
-                //else if (contactAlliance != null)
-                //{
-                //    result = (contactCorp.Standing == 10);
-                //}
             }
             catch(Exception ex)
             { }
@@ -308,6 +275,15 @@ namespace r3mus.Models
             if(result)
             {
                 MemberType = IDType.Plus10.ToString();
+                foreach(var value in Properties.Settings.Default.SharedCommsCorpIDs)
+                {
+                    if(value.Contains(checkCorpId.ToString()))
+                    {
+                        MemberType = IDType.SharedComms.ToString();
+                        CorpId = checkCorpId;
+                        CorpTicker = value.Split(new string[] { ":" }, StringSplitOptions.RemoveEmptyEntries)[0];
+                    }
+                }
             }
             else
             {
