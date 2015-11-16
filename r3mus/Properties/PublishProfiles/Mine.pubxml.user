@@ -129,7 +129,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/19/2015 13:15:22</publishTime>
     </File>
     <File Include="bin/r3mus.dll">
-      <publishTime>11/16/2015 10:15:41</publishTime>
+      <publishTime>11/16/2015 14:08:49</publishTime>
     </File>
     <File Include="bin/ServiceStack.Text.dll">
       <publishTime>10/19/2015 13:15:39</publishTime>
@@ -353,6 +353,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Images/Querious_Tac_Map.png">
       <publishTime>10/19/2015 13:45:41</publishTime>
     </File>
+    <File Include="Images/r3mus structure.png">
+      <publishTime>11/16/2015 13:11:43</publishTime>
+    </File>
     <File Include="Models/ApplicantList.edmx.diagram">
       <publishTime>10/19/2015 13:46:11</publishTime>
     </File>
@@ -441,7 +444,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/19/2015 13:49:09</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
-      <publishTime>10/19/2015 13:49:14</publishTime>
+      <publishTime>11/16/2015 13:07:23</publishTime>
     </File>
     <File Include="Views/Home/Contact.cshtml">
       <publishTime>10/19/2015 13:49:14</publishTime>
@@ -545,6 +548,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/Shared/_AuthenticatedMenu.cshtml">
       <publishTime>10/19/2015 13:49:39</publishTime>
     </File>
+    <File Include="Views/Shared/_CorpStructure.cshtml">
+      <publishTime>11/16/2015 13:07:37</publishTime>
+    </File>
     <File Include="Views/Shared/_IntServicesMenu.cshtml">
       <publishTime>10/19/2015 13:49:43</publishTime>
     </File>
@@ -567,7 +573,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/19/2015 13:49:50</publishTime>
     </File>
     <File Include="Views/Shared/_ServicesMenu.cshtml">
-      <publishTime>11/15/2015 18:25:30</publishTime>
+      <publishTime>11/16/2015 10:50:34</publishTime>
     </File>
     <File Include="Views/Shared/_SharedMenu.cshtml">
       <publishTime>10/19/2015 13:49:51</publishTime>

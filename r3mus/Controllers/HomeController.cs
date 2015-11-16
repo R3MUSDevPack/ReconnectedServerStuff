@@ -16,17 +16,13 @@ namespace r3mus.Controllers
         {
             if ((User == null) || (User.Identity.IsAuthenticated == false))
             {
-                var latestNewsItem = new ApplicationDbContext().LatestNewsItem.FirstOrDefault();
+                var latestNewsItem = new ApplicationDbContext().LatestNewsItem.Where(newsItem => newsItem.Category == "External News").FirstOrDefault();
 
                 if(TempData["Message"] != null)
                 {
                     ViewBag.Message = TempData["Message"].ToString();
                 }
-
-                //ViewBag.NewsTitle = "Raised By Wolves lives!";
-                //ViewBag.NewsDate = new DateTime(2015, 04, 17);
-                //ViewBag.NewsArticle = "Yeah, we're here. Suck it up!";
-
+                
                 ViewBag.NewsTitle = latestNewsItem.Topic;
                 ViewBag.NewsDate = latestNewsItem.Date;
 

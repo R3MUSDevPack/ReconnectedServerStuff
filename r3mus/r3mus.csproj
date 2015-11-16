@@ -463,6 +463,7 @@
     <Content Include="Images\Querious_Tac_Map.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\r3mus structure.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Properties\Settings.settings">
@@ -617,6 +618,7 @@
     <Content Include="Views\Home\LatestNews.cshtml" />
     <Content Include="Views\Shared\_News.cshtml" />
     <Content Include="Views\Shared\_LiveWardecs.cshtml" />
+    <Content Include="Views\Shared\_CorpStructure.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Filters\fonts\glyphicons-halflings-regular.woff" />
