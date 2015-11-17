@@ -346,6 +346,7 @@ namespace SiteUpdateBot
                 ann.Post = Regex.Replace(ann.Post, @"<[^>]+>|&nbsp;", "").Trim();
                 ann.Post = Regex.Replace(ann.Post, @"\s{2,}", " ");
                 SendMessage(HyperFormatKillMessage(ann), Properties.Settings.Default.NewsRoomName);
+                SendMessage(HyperFormatKillMessage(ann), Properties.Settings.Default.MainRoomName);
             });
             if (announcements.Count() > 0)
             { 

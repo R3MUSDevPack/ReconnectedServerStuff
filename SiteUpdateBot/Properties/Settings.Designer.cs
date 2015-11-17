@@ -127,5 +127,14 @@ namespace SiteUpdateBot.Properties {
                 return ((string)(this["NewsRoomName"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("den")]
+        public string MainRoomName {
+            get {
+                return ((string)(this["MainRoomName"]));
+            }
+        }
     }
 }
