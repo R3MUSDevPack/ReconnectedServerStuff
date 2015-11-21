@@ -10,9 +10,3 @@
                 <li>Keep yourself up to date with news by reading in-game bulletin boards and in-game mails.</li>
                 <li>Do not participate in highsec ganking unless specifically permitted to do so by a Fleet Commander from our corp.</li>
             </ul>
-            
-            Turbine Cycle Conditions and Correction Factors
-R72
-
-
-    <object data="http://evemaps.dotlan.net/svg/Delve.svg" type="image/svg+xml" width="1000" height="1000" />
