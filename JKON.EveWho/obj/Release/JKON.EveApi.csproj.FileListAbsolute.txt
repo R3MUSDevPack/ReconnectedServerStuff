@@ -6,3 +6,10 @@ C:\temp\r3mus\r3mus\JKON.EveWho\bin\Release\Ionic.Zip.Reduced.dll
 C:\temp\r3mus\r3mus\JKON.EveWho\obj\Release\JKON.EveApi.csprojResolveAssemblyReference.cache
 C:\temp\r3mus\r3mus\JKON.EveWho\obj\Release\JKON.EveWho.dll
 C:\temp\r3mus\r3mus\JKON.EveWho\obj\Release\JKON.EveWho.pdb
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\JKON.EveWho\bin\Release\JKON.EveWho.dll
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\JKON.EveWho\bin\Release\JKON.EveWho.pdb
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\JKON.EveWho\bin\Release\EveAI.Core.dll
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\JKON.EveWho\bin\Release\Ionic.Zip.Reduced.dll
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\JKON.EveWho\obj\Release\JKON.EveApi.csprojResolveAssemblyReference.cache
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\JKON.EveWho\obj\Release\JKON.EveWho.dll
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\JKON.EveWho\obj\Release\JKON.EveWho.pdb

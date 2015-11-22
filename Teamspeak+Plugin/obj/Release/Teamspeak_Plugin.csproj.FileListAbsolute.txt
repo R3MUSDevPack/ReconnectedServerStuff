@@ -5,3 +5,10 @@ C:\temp\r3mus\r3mus\Teamspeak+Plugin\bin\Release\TentacleSoftware.Telnet.dll
 C:\temp\r3mus\r3mus\Teamspeak+Plugin\obj\Release\Teamspeak_Plugin.csprojResolveAssemblyReference.cache
 C:\temp\r3mus\r3mus\Teamspeak+Plugin\obj\Release\Teamspeak+Plugin.dll
 C:\temp\r3mus\r3mus\Teamspeak+Plugin\obj\Release\Teamspeak+Plugin.pdb
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Teamspeak+Plugin\bin\Release\Teamspeak+Plugin.dll
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Teamspeak+Plugin\bin\Release\Teamspeak+Plugin.pdb
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Teamspeak+Plugin\bin\Release\TentacleSoftware.TeamSpeakQuery.dll
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Teamspeak+Plugin\bin\Release\TentacleSoftware.Telnet.dll
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Teamspeak+Plugin\obj\Release\Teamspeak_Plugin.csprojResolveAssemblyReference.cache
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Teamspeak+Plugin\obj\Release\Teamspeak+Plugin.dll
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Teamspeak+Plugin\obj\Release\Teamspeak+Plugin.pdb
