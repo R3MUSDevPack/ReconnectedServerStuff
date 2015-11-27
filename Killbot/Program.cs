@@ -59,8 +59,8 @@ namespace Killbot
             string killKey = "StartDate_Kills";
             string lossKey = "StartDate_Losses";
 
-            DateTime LatestKill = Convert.ToDateTime(ConfigurationSettings.AppSettings[killKey]).AddMinutes(1);
-            DateTime LatestLoss = Convert.ToDateTime(ConfigurationSettings.AppSettings[lossKey]).AddMinutes(1);
+            DateTime LatestKill = Convert.ToDateTime(ConfigurationSettings.AppSettings[killKey]).AddSeconds(1);
+            DateTime LatestLoss = Convert.ToDateTime(ConfigurationSettings.AppSettings[lossKey]).AddSeconds(1);
             
             KeyValuePair<DateTime, List<ZkbResponse.ZkbKill>> Kills;
             KeyValuePair<DateTime, List<ZkbResponse.ZkbKill>> Losses;
