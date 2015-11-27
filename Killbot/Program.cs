@@ -29,38 +29,120 @@ namespace Killbot
 
         static void Main(string[] args)
         {
-            try
+            if (args[0].Contains("lol"))
             {
-                MessagePayload p = new MessagePayload();
-                p.Attachments = new List<MessagePayloadAttachment>();
-
-                if ((Properties.Settings.Default.CorpId == null) || (Properties.Settings.Default.CorpId == string.Empty))
+                args.ToList().Skip(1).ToList().ForEach(arg =>
                 {
-                    CorporationSheet corpSheet = GetCorpDetails();
-                    if (Properties.Settings.Default.Debug)
+                    try
                     {
-                        SendPM(string.Format("Corpsheet for {0} obtained.", corpSheet.Ticker));
+                        SendMessage(HyperFormatLolMessage(arg));
                     }
-                    CheckKills(corpSheet.Ticker, corpSheet.CorporationID);
-                }
-                else
-                {
-                    CheckKills(Properties.Settings.Default.CorpTicker, Convert.ToInt64(Properties.Settings.Default.CorpId));
-                }
+                    catch (Exception ex)
+                    {
+                        SendPM(ex.Message);
+                    }
+                });
             }
-            catch(Exception ex)
+            else
             {
-                SendPM(ex.Message);
+                try
+                {
+                    MessagePayload p = new MessagePayload();
+                    p.Attachments = new List<MessagePayloadAttachment>();
+
+                    if ((Properties.Settings.Default.CorpId == null) || (Properties.Settings.Default.CorpId == string.Empty))
+                    {
+                        CorporationSheet corpSheet = GetCorpDetails();
+                        if (Properties.Settings.Default.Debug)
+                        {
+                            SendPM(string.Format("Corpsheet for {0} obtained.", corpSheet.Ticker));
+                        }
+                        CheckKills(corpSheet.Ticker, corpSheet.CorporationID);
+                    }
+                    else
+                    {
+                        CheckKills(Properties.Settings.Default.CorpTicker, Convert.ToInt64(Properties.Settings.Default.CorpId));
+                    }
+                }
+                catch (Exception ex)
+                {
+                    SendPM(ex.Message);
+                }
+                try
+                {
+                    if (args[0].Contains("lol"))
+                    {
+                        HyperFormatLolMessage(args[2]);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    SendPM(ex.Message);
+                }
             }
         }
+
+        //private static void CheckKills()
+        //{
+        //    //string killKey = "StartDate_Kills";
+        //    //string lossKey = "StartDate_Losses";
+
+        //    //DateTime LatestKill = Convert.ToDateTime(ConfigurationSettings.AppSettings[killKey]).AddSeconds(1);
+        //    //DateTime LatestLoss = Convert.ToDateTime(ConfigurationSettings.AppSettings[lossKey]).AddSeconds(1);
+
+        //    //KeyValuePair<DateTime, List<ZkbResponse.ZkbKill>> Kills;
+        //    //KeyValuePair<DateTime, List<ZkbResponse.ZkbKill>> Losses;
+
+        //    try
+        //    {
+        //        Kills = GetZKBResponse(corpId, LatestKill, ZKBType.Kill);
+        //        if (Kills.Value.Count() > 0)
+        //        {
+        //            Kills.Value.ForEach(kill => {
+        //                //Console.WriteLine(FormatKillMessage(kill, corpName, corpId));
+        //                SendMessage(HyperFormatKillMessage(kill, corpName, corpId));
+        //            });
+
+        //            UpdateRunTime(Kills.Key, killKey);
+        //        }
+        //    }
+        //    catch (Exception Ex)
+        //    {
+        //        if (Properties.Settings.Default.Debug)
+        //        {
+        //            SendPM(Ex.Message);
+        //        }
+        //    }
+
+        //    try
+        //    {
+        //        Losses = GetZKBResponse(corpId, LatestLoss, ZKBType.Loss);
+        //        if (Losses.Value.Count() > 0)
+        //        {
+        //            Losses.Value.ForEach(kill => {
+        //                //Console.WriteLine(FormatKillMessage(kill, corpName, corpId));
+        //                SendMessage(HyperFormatKillMessage(kill, corpName, corpId));
+        //            });
+
+        //            UpdateRunTime(Losses.Key, lossKey);
+        //        }
+        //    }
+        //    catch (Exception Ex)
+        //    {
+        //        if (Properties.Settings.Default.Debug)
+        //        {
+        //            SendPM(Ex.Message);
+        //        }
+        //    }
+        //}
 
         private static void CheckKills(string corpName, long corpId)
         {
             string killKey = "StartDate_Kills";
             string lossKey = "StartDate_Losses";
 
-            DateTime LatestKill = Convert.ToDateTime(ConfigurationSettings.AppSettings[killKey]).AddSeconds(1);
-            DateTime LatestLoss = Convert.ToDateTime(ConfigurationSettings.AppSettings[lossKey]).AddSeconds(1);
+            DateTime LatestKill = Convert.ToDateTime(ConfigurationSettings.AppSettings[killKey]).AddMinutes(1);
+            DateTime LatestLoss = Convert.ToDateTime(ConfigurationSettings.AppSettings[lossKey]).AddMinutes(1);
             
             KeyValuePair<DateTime, List<ZkbResponse.ZkbKill>> Kills;
             KeyValuePair<DateTime, List<ZkbResponse.ZkbKill>> Losses;
@@ -203,6 +285,49 @@ namespace Killbot
             {
                 Slack.SendPM(message, "ClydeenMarland", Properties.Settings.Default.SlackWebhook);
             }
+        }
+
+        private static MessagePayload HyperFormatLolMessage(string name)
+        {
+            MessagePayload message = new MessagePayload();
+            message.Attachments = new List<MessagePayloadAttachment>();
+
+            string type;
+            List<string> messageLines = new List<string>();
+            
+            type = "KILL";
+            
+            string killTitle = string.Format(Properties.Settings.Default.MessageFormatLine1, "R3MUS", type, DateTime.Now.AddMinutes(-10).ToString());
+            //messageLines.Add(killTitle);
+            string killLine1 = string.Format("{0} lost a capsule", name, "", "Jita", "The Forge");
+            messageLines.Add(killLine1);
+            
+            messageLines.Add(string.Format(Properties.Settings.Default.MessageFormatLine3, "The Mittani", "Procurer"));
+            
+            messageLines.Add(string.Format(Properties.Settings.Default.MessageFormatLine4, "stelios102", "Venture"));
+            messageLines.Add(string.Format(Properties.Settings.Default.MessageFormatLine4, "Vas Enyo", "Gallente Shuttle"));
+
+            messageLines.Add(string.Format(Properties.Settings.Default.MessageFormatLine5, "200,000,000"));
+            messageLines.Add(string.Empty);
+
+            message.Attachments.Add(new MessagePayloadAttachment()
+            {
+                Text = String.Join("\n", messageLines.ToArray()),
+                TitleLink = "http://www.troll.me/images/pissed-off-obama/you-have-been-pwned-by-the-troll-king.jpg",
+                Title = killTitle,
+                ThumbUrl = string.Empty
+            });
+
+            if (type == "KILL")
+            {
+                message.Attachments.First().Colour = "#00FF00";
+            }
+            else if (type == "LOSS")
+            {
+                message.Attachments.First().Colour = "#FF0000";
+            }
+
+            return message;
         }
 
         private static MessagePayload HyperFormatKillMessage(ZkbResponse.ZkbKill kill, string corpName, long corpId)
