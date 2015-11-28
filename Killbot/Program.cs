@@ -29,7 +29,7 @@ namespace Killbot
 
         static void Main(string[] args)
         {
-            if (args[0].Contains("lol"))
+            if ((args.Length > 0) && (args[0].Contains("lol")))
             {
                 args.ToList().Skip(1).ToList().ForEach(arg =>
                 {

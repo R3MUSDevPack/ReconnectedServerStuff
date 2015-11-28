@@ -15,3 +15,4 @@ C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Hipchat_Plugin\bin\Debug\Serv
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Hipchat_Plugin\bin\Debug\ServiceStack.Text.xml
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Hipchat_Plugin\obj\Debug\Hipchat_Plugin.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Hipchat_Plugin\obj\Debug\Hipchat_Plugin.pdb
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Hipchat_Plugin\obj\Debug\Hipchat_Plugin.csprojResolveAssemblyReference.cache
