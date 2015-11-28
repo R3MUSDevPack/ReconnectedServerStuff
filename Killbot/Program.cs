@@ -68,17 +68,6 @@ namespace Killbot
                 {
                     SendPM(ex.Message);
                 }
-                try
-                {
-                    if (args[0].Contains("lol"))
-                    {
-                        HyperFormatLolMessage(args[2]);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    SendPM(ex.Message);
-                }
             }
         }
 
