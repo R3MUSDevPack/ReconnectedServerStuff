@@ -1,6 +1,7 @@
 ﻿using EveAI.Live;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -100,6 +101,7 @@ namespace JKON.EveApi.Corporation.Models
         public string Roles { get; set; }
         public string GrantableRoles { get; set; }
 
+        [NotMapped]
         public string Avatar
         {
             get

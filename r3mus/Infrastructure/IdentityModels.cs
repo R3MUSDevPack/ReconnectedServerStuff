@@ -12,6 +12,7 @@ using EveAI.Live;
 using System.IO;
 //using eZet.EveLib.EveWhoModule.Models;
 using eZet.EveLib.EveXmlModule;
+using JKON.EveApi.Corporation.Models;
 
 namespace r3mus.Models
 {
@@ -496,6 +497,9 @@ namespace r3mus.Models
         public System.Data.Entity.DbSet<r3mus.Models.Application> Applications { get; set; }
 
         public System.Data.Entity.DbSet<r3mus.Models.Title> Titles { get;set; }
+
+        public DbSet<Member> CorpMembers { get; set; }
+
         public DbSet<Wardec> LiveWardecs { get; set; }
     }
 }

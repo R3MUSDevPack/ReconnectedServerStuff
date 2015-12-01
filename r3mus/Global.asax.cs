@@ -8,6 +8,9 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using r3mus.Models;
 using System.Web.Http;
+using Quartz;
+using Quartz.Impl;
+using r3mus.CRONJobs;
 
 namespace r3mus
 {
@@ -15,19 +18,36 @@ namespace r3mus
     {
         protected void Application_Start()
         {
-            //Database.SetInitializer(new DropCreateDatabaseAlways<ApplicationDbContext>());
-            //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<ApplicationDbContext>());
-
             Database.SetInitializer<ApplicationDbContext>(null);
 
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            //WebApiConfig.Register(GlobalConfiguration.Configuration);
 
             GlobalConfiguration.Configure(WebApiConfig.Register);
 
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            StartCronJobs();
+        }
+
+        private void StartCronJobs()
+        {
+            IScheduler sched;
+            IJobDetail job;
+            ITrigger trigger;
+
+            sched = new StdSchedulerFactory().GetScheduler();
+            sched.Start();
+            job = JobBuilder.Create<CorpMemberUpdateJob>()
+                .WithIdentity("MemberUpdateInstance", "MemberUpdateGroup")
+                .Build();
+            trigger = TriggerBuilder.Create()
+                .WithIdentity("MemberUpdateTrigger", "MemberUpdateTriggerGroup")
+                .StartNow()
+                .WithSimpleSchedule(x => x.WithIntervalInSeconds(900).RepeatForever())
+                .Build();
+            sched.ScheduleJob(job, trigger);
         }
     }
 }
