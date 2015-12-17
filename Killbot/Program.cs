@@ -16,6 +16,8 @@ using Hipchat_Plugin;
 using Slack_Plugin;
 using System.Text.RegularExpressions;
 using JKON.Slack;
+using eZet.EveLib.StaticDataModule;
+using eZet.EveLib.StaticDataModule.Models;
 
 namespace Killbot
 {
@@ -403,7 +405,9 @@ namespace Killbot
             ZkbResponse.ZkbStats stats = kill.Stats;
 
             messageLines.Add(string.Format(Properties.Settings.Default.MessageFormatLine1, corpName, type, kill.KillTime.ToString()));
-            messageLines.Add(string.Format(Properties.Settings.Default.MessageFormatLine2, kill.Victim.CharacterName, GetProductType(kill.Victim.ShipTypeId).Name, system.Name, system.Region.Name));
+            messageLines.Add(string.Format(Properties.Settings.Default.MessageFormatLine2, kill.Victim.CharacterName, 
+                GetProductType(kill.Victim.ShipTypeId).Name, 
+                system.Name, system.Region.Name));
 
             foreach (ZkbResponse.ZkbAttacker Attacker in kill.Attackers)
             {
@@ -459,8 +463,9 @@ namespace Killbot
             return API.GetCorporationSheet();
         }
 
-        private static void GetProductType1(int productId)
+        private static InvType GetProductType1(int productId)
         {
+            return new EveStaticData().GetInvType(productId);
         }
 
         private static ProductType GetProductType(int shipTypeId)

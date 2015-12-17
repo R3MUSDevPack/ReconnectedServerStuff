@@ -47,3 +47,5 @@ C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Killbot\bin\Debug\ServiceStac
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Killbot\obj\Debug\Killbot.csprojResolveAssemblyReference.cache
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Killbot\obj\Debug\Killbot.exe
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Killbot\obj\Debug\Killbot.pdb
+C:\temp\r3mus\r3mus\Killbot\bin\Debug\EveLib.StaticData.dll
+C:\temp\r3mus\r3mus\Killbot\bin\Debug\EveLib.StaticData.xml
