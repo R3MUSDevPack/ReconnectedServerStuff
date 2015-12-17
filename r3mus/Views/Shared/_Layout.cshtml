@@ -40,7 +40,14 @@
     <div class="container body-content">
 
     <div class="jumbotron">
-        <img src="@Url.Content("~/Images/logo.png")" alt="R3MUS" style="width:250px; height: 250px; float:right;" />
+        @if (DateTime.Now.Month < 12)
+        {
+            <img src="@Url.Content("~/Images/logo.png")" alt="R3MUS" style="width:250px; height: 250px; float:right;" />
+        }
+        else
+        {
+            <img src="@Url.Content("~/Images/xmaslogo.png")" alt="R3MUS" style="width:280px; height: 320px; position:relative; top: -40px; float:right;" />
+        }
         <h1 style="font-family:Xirod">Raised By Wolves Inc</h1>
         <p class="lead">A Nullsec Sovereignty warfare & pilot training corporation in Eve Online.</p>
         <br />

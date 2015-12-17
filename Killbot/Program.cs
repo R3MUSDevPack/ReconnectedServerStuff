@@ -459,6 +459,10 @@ namespace Killbot
             return API.GetCorporationSheet();
         }
 
+        private static void GetProductType1(int productId)
+        {
+        }
+
         private static ProductType GetProductType(int shipTypeId)
         {
             EveApi API;
@@ -486,7 +490,6 @@ namespace Killbot
             }
 
             return PType;
-
         }
         
         private static string LookupShipName(int shipTypeId)

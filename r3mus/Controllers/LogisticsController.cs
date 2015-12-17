@@ -95,6 +95,31 @@ namespace r3mus.Controllers
                     }
                 });
                 
+                if((DateTime.Now.Month == 12) && (DateTime.Now.Day > 17) && (DateTime.Now.Day < 25))
+                {
+                    
+                    var id = JKON.EveWho.Api.GetCharacterID(User.Identity.Name);
+                    var toon1 = JKON.EveWho.Api.GetCharacter(id);
+                    var toon2 = JKON.EveWho.Api.GetCorpMembers(Convert.ToInt64(Properties.Settings.Default.CorpAPI), Properties.Settings.Default.VCode).Where(member => member.ID == id).FirstOrDefault();
+                    var station = new EveAI.DataCore().Stations.Where(station1 => station1.Name == toon2.Location).FirstOrDefault();
+
+                    Names.Add(id, toon1);
+                    Names.Add(-1, new EveCharacter() { result = new JKON.EveWho.EveCharacter.Models.result() { characterID = -1, characterName = "Hauled By Reindeer (corp)" } });
+
+                    Contracts.Add(new EveAI.Live.Utility.Contract()
+                    {
+                        StartStation = new EveAI.SpaceStation.Station() {
+                            Name = "Lapland VI - Santas Workshop",
+                            SolarSystem = new EveAI.Map.SolarSystem() { Name = "North Pole" }
+                        },
+                        EndStation = station,
+                        DateIssued = new DateTime(2015, 12, 15),
+                        DateAccepted = new DateTime(2015, 12, 17),
+                        AcceptorID = -1,
+                        Status = GetStatus(),
+                        Title = "Christmas Presents"
+                    });
+                }
             }
             catch(Exception ex)
             {
@@ -102,6 +127,18 @@ namespace r3mus.Controllers
             }
 
             return View(new LogisticsContractsViewModel() { DisplayContracts = Contracts, CharacterInfos = Names });
+        }
+
+        private EveAI.Live.Utility.Contract.ContractStatus GetStatus()
+        {
+            if(DateTime.Now.Day < 24)
+            {
+                return EveAI.Live.Utility.Contract.ContractStatus.Outstanding;
+            }
+            else
+            {
+                return EveAI.Live.Utility.Contract.ContractStatus.InProgress;
+            }
         }
 	}
 }

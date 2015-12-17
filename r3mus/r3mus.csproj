@@ -478,6 +478,7 @@
     </Content>
     <Content Include="Images\r3mus structure.png" />
     <Content Include="Images\r3mus structure.jpg" />
+    <Content Include="Images\xmaslogo.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Properties\Settings.settings">
