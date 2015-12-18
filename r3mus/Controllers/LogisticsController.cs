@@ -1,5 +1,6 @@
 ﻿using EveAI.Live;
 using EveAI.Live.Account;
+using EveAI.SpaceStation;
 using JKON.EveWho.Models;
 using JKON.EveWho.Stations;
 using Microsoft.AspNet.Identity;
@@ -100,15 +101,20 @@ namespace r3mus.Controllers
                     
                     var id = JKON.EveWho.Api.GetCharacterID(User.Identity.Name);
                     var toon1 = JKON.EveWho.Api.GetCharacter(id);
-                    var toon2 = JKON.EveWho.Api.GetCorpMembers(Convert.ToInt64(Properties.Settings.Default.CorpAPI), Properties.Settings.Default.VCode).Where(member => member.ID == id).FirstOrDefault();
-                    var station = new EveAI.DataCore().Stations.Where(station1 => station1.Name == toon2.Location).FirstOrDefault();
-
+                    var toon2 = JKON.EveWho.Api.GetCorpMembers(Convert.ToInt64(Properties.Settings.Default.CorpAPI), Properties.Settings.Default.VCode).Where(member => member.Name == User.Identity.Name).FirstOrDefault();
+                    var station = new Station()
+                    { 
+                        Name = toon2.Location
+                    };
+                    
                     Names.Add(id, toon1);
                     Names.Add(-1, new EveCharacter() { result = new JKON.EveWho.EveCharacter.Models.result() { characterID = -1, characterName = "Hauled By Reindeer (corp)" } });
+                    Names.Add(-2, new EveCharacter() { result = new JKON.EveWho.EveCharacter.Models.result() { characterID = -2, characterName = "Santa Claus" } });
 
-                    Contracts.Add(new EveAI.Live.Utility.Contract()
+                    var contract = new EveAI.Live.Utility.Contract()
                     {
-                        StartStation = new EveAI.SpaceStation.Station() {
+                        StartStation = new EveAI.SpaceStation.Station()
+                        {
                             Name = "Lapland VI - Santas Workshop",
                             SolarSystem = new EveAI.Map.SolarSystem() { Name = "North Pole" }
                         },
@@ -116,14 +122,25 @@ namespace r3mus.Controllers
                         DateIssued = new DateTime(2015, 12, 15),
                         DateAccepted = new DateTime(2015, 12, 17),
                         AcceptorID = -1,
+                        IssuerID = -2,
                         Status = GetStatus(),
-                        Title = "Christmas Presents"
-                    });
+                        Volume = 10000,
+                        Title = string.Format("Christmas Presents for {0}", toon2.Name)
+                    };
+
+                    if (contract.Status == EveAI.Live.Utility.Contract.ContractStatus.Outstanding)
+                    {
+                        Contracts.Insert(0, contract);
+                    }
+                    else if(contract.Status == EveAI.Live.Utility.Contract.ContractStatus.InProgress)
+                    {
+                        var index = Contracts.Where(c => c.Status == EveAI.Live.Utility.Contract.ContractStatus.Outstanding).Count();
+                        Contracts.Insert(index, contract);
+                    }
                 }
             }
             catch(Exception ex)
             {
-
             }
 
             return View(new LogisticsContractsViewModel() { DisplayContracts = Contracts, CharacterInfos = Names });
