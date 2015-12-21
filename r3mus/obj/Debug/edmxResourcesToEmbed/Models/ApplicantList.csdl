@@ -15,14 +15,28 @@
     <Property Name="Age" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="ToonAge" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Source" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Applied" Type="DateTime" Precision="3" />
-    <Property Name="LastStatusUpdate" Type="DateTime" Precision="3" />
+    <Property Name="Applied" Type="DateTime" Precision="3" Nullable="false" />
+    <Property Name="LastStatusUpdate" Type="DateTime" Precision="3" Nullable="false" />
     <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="DateTimeCreated" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
   <EntityContainer Name="ApplicantEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="ApplicantLists" EntityType="Self.ApplicantList" />
+    <FunctionImport Name="MarkRecruitmentMailees" ReturnType="Collection(r3mus.Models.MarkRecruitmentMailees_Result)">
+      <Parameter Name="UserID" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
+  <ComplexType Name="MarkRecruitmentMailees_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" />
+    <Property Type="DateTime" Name="Submitted" Nullable="false" />
+    <Property Type="DateTime" Name="Mailed" Nullable="true" Precision="23" />
+    <Property Type="String" Name="SubmitterId" Nullable="true" />
+    <Property Type="String" Name="MailerId" Nullable="true" />
+    <Property Type="Int64" Name="CorpId_AtLastCheck" Nullable="false" />
+    <Property Type="DateTime" Name="DateOfBirth" Nullable="true" />
+    <Property Type="DateTime" Name="LastUpdated" Nullable="true" />
+  </ComplexType>
 </Schema>

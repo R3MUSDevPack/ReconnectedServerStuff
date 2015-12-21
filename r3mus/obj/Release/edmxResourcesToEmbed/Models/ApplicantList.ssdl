@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="r3mus.Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="r3mus.Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <!--Errors Found During Generation:
 warning 6002: The table/view 'r3mus_DB.dbo.ApplicantList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="ApplicantList">
@@ -17,13 +17,16 @@ warning 6002: The table/view 'r3mus_DB.dbo.ApplicantList' does not have a primar
     <Property Name="Age" Type="nvarchar(max)" />
     <Property Name="ToonAge" Type="nvarchar(max)" />
     <Property Name="Source" Type="nvarchar(max)" />
-    <Property Name="Applied" Type="datetime" />
-    <Property Name="LastStatusUpdate" Type="datetime" />
+    <Property Name="Applied" Type="datetime" Nullable="false" />
+    <Property Name="LastStatusUpdate" Type="datetime" Nullable="false" />
     <Property Name="Status" Type="nvarchar(max)" />
     <Property Name="DateTimeCreated" Type="datetime" Nullable="false" />
     <Property Name="Notes" Type="nvarchar(max)" />
-    <Property Name="UserName" Type="nvarchar(max)" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
   </EntityType>
+  <Function Name="MarkRecruitmentMailees" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="nvarchar(max)" Mode="In" />
+  </Function>
   <EntityContainer Name="r3musModelsStoreContainer">
     <EntitySet Name="ApplicantList" EntityType="Self.ApplicantList" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 

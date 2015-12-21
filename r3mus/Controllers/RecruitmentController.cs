@@ -61,15 +61,17 @@ namespace r3mus.Controllers
         [Authorize(Roles = "Recruiter, Screener, Director, CEO, Admin")]
         public ActionResult GetNames()
         {
-            var recruitmentDBEnt = new ApplicationDbContext();
-            var mailees = recruitmentDBEnt.RecruitmentMailees.Where(m =>
-                (m.MailerId == null && !m.Name.Contains("Citizen") && !m.Name.Contains("Trader") && !m.Name.Contains("Miner"))).ToList()
-            .Where(m =>
-                ((m.InNPCCorp)
-                && (m.DateOfBirthInRange))).Take(20).ToList();
-            
-            mailees.ToList().ForEach(m => m.MailerId = User.Identity.GetUserId());
-            recruitmentDBEnt.SaveChanges();
+            //var recruitmentDBEnt = new ApplicationDbContext();
+            //var mailees = recruitmentDBEnt.RecruitmentMailees.Where(m =>
+            //    (m.MailerId == null && !m.Name.Contains("Citizen") && !m.Name.Contains("Trader") && !m.Name.Contains("Miner"))).ToList()
+            //.Where(m =>
+            //    ((m.InNPCCorp)
+            //    && (m.DateOfBirthInRange))).Take(20).ToList();
+
+            //mailees.ToList().ForEach(m => m.MailerId = User.Identity.GetUserId());
+            //recruitmentDBEnt.SaveChanges();
+
+            var mailees = appent.MarkRecruitmentMailees(User.Identity.GetUserId());
 
             ViewBag.Mailees = string.Join(",", mailees.Select(m => m.Name).ToArray());
 

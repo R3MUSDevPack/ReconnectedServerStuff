@@ -22,5 +22,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="MarkRecruitmentMailees" FunctionName="r3mus.Models.Store.MarkRecruitmentMailees">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="r3mus.Models.MarkRecruitmentMailees_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Submitted" ColumnName="Submitted" />
+          <ScalarProperty Name="Mailed" ColumnName="Mailed" />
+          <ScalarProperty Name="SubmitterId" ColumnName="SubmitterId" />
+          <ScalarProperty Name="MailerId" ColumnName="MailerId" />
+          <ScalarProperty Name="CorpId_AtLastCheck" ColumnName="CorpId_AtLastCheck" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

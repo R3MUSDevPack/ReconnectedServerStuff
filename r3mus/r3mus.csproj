@@ -398,6 +398,9 @@
     </Compile>
     <Compile Include="Models\LatestNew.cs" />
     <Compile Include="Models\LiveWardecs.cs" />
+    <Compile Include="Models\MarkRecruitmentMailees_Result.cs">
+      <DependentUpon>ApplicantList.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\MembershipRole.cs" />
     <Compile Include="Models\MembershipUser.cs" />
     <Compile Include="Models\MembershipUsersInRole.cs" />

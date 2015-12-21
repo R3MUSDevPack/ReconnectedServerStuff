@@ -4,14 +4,17 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="r3mus.Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="r3mus.Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--Errors Found During Generation:
 warning 6002: The table/view 'r3mus_DB.dbo.ApplicantList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ApplicantList">
           <Key>
             <PropertyRef Name="Id" />
             <PropertyRef Name="ApiKey" />
+            
+            
             <PropertyRef Name="DateTimeCreated" />
+            
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar(max)" />
@@ -22,13 +25,16 @@ warning 6002: The table/view 'r3mus_DB.dbo.ApplicantList' does not have a primar
           <Property Name="Age" Type="nvarchar(max)" />
           <Property Name="ToonAge" Type="nvarchar(max)" />
           <Property Name="Source" Type="nvarchar(max)" />
-          <Property Name="Applied" Type="datetime" />
-          <Property Name="LastStatusUpdate" Type="datetime" />
+          <Property Name="Applied" Type="datetime" Nullable="false" />
+          <Property Name="LastStatusUpdate" Type="datetime" Nullable="false" />
           <Property Name="Status" Type="nvarchar(max)" />
           <Property Name="DateTimeCreated" Type="datetime" Nullable="false" />
           <Property Name="Notes" Type="nvarchar(max)" />
-          <Property Name="UserName" Type="nvarchar(max)" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
         </EntityType>
+        <Function Name="MarkRecruitmentMailees" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="nvarchar(max)" Mode="In" />
+        </Function>
         <EntityContainer Name="r3musModelsStoreContainer">
           <EntitySet Name="ApplicantList" EntityType="Self.ApplicantList" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -50,8 +56,7 @@ warning 6002: The table/view 'r3mus_DB.dbo.ApplicantList' does not have a primar
     FROM [dbo].[ApplicantList] AS [ApplicantList]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="r3mus.Models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -70,16 +75,30 @@ warning 6002: The table/view 'r3mus_DB.dbo.ApplicantList' does not have a primar
           <Property Name="Age" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ToonAge" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Source" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Applied" Type="DateTime" Precision="3" />
-          <Property Name="LastStatusUpdate" Type="DateTime" Precision="3" />
+          <Property Name="Applied" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="LastStatusUpdate" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="DateTimeCreated" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityContainer Name="ApplicantEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ApplicantLists" EntityType="Self.ApplicantList" />
+          <FunctionImport Name="MarkRecruitmentMailees" ReturnType="Collection(r3mus.Models.MarkRecruitmentMailees_Result)">
+            <Parameter Name="UserID" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
+        <ComplexType Name="MarkRecruitmentMailees_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" />
+          <Property Type="DateTime" Name="Submitted" Nullable="false" />
+          <Property Type="DateTime" Name="Mailed" Nullable="true" Precision="23" />
+          <Property Type="String" Name="SubmitterId" Nullable="true" />
+          <Property Type="String" Name="MailerId" Nullable="true" />
+          <Property Type="Int64" Name="CorpId_AtLastCheck" Nullable="false" />
+          <Property Type="DateTime" Name="DateOfBirth" Nullable="true" />
+          <Property Type="DateTime" Name="LastUpdated" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -107,6 +126,21 @@ warning 6002: The table/view 'r3mus_DB.dbo.ApplicantList' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="MarkRecruitmentMailees" FunctionName="r3mus.Models.Store.MarkRecruitmentMailees">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="r3mus.Models.MarkRecruitmentMailees_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Submitted" ColumnName="Submitted" />
+                <ScalarProperty Name="Mailed" ColumnName="Mailed" />
+                <ScalarProperty Name="SubmitterId" ColumnName="SubmitterId" />
+                <ScalarProperty Name="MailerId" ColumnName="MailerId" />
+                <ScalarProperty Name="CorpId_AtLastCheck" ColumnName="CorpId_AtLastCheck" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
