@@ -37,5 +37,7 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CloseRecruitmentMailees" FunctionName="r3mus.Models.Store.CloseRecruitmentMailees" />
+    <FunctionImportMapping FunctionImportName="UnlockRecruitmentMailees" FunctionName="r3mus.Models.Store.UnlockRecruitmentMailees" />
   </EntityContainerMapping>
 </Mapping>

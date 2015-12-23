@@ -61,16 +61,6 @@ namespace r3mus.Controllers
         [Authorize(Roles = "Recruiter, Screener, Director, CEO, Admin")]
         public ActionResult GetNames()
         {
-            //var recruitmentDBEnt = new ApplicationDbContext();
-            //var mailees = recruitmentDBEnt.RecruitmentMailees.Where(m =>
-            //    (m.MailerId == null && !m.Name.Contains("Citizen") && !m.Name.Contains("Trader") && !m.Name.Contains("Miner"))).ToList()
-            //.Where(m =>
-            //    ((m.InNPCCorp)
-            //    && (m.DateOfBirthInRange))).Take(20).ToList();
-
-            //mailees.ToList().ForEach(m => m.MailerId = User.Identity.GetUserId());
-            //recruitmentDBEnt.SaveChanges();
-
             var mailees = appent.MarkRecruitmentMailees(User.Identity.GetUserId());
 
             ViewBag.Mailees = string.Join(",", mailees.Select(m => m.Name).ToArray());
@@ -83,19 +73,16 @@ namespace r3mus.Controllers
         [r3mus.Filters.ApiKeyAttribute.MultipleButton(Name = "GetNames", Argument = "sent")]
         public ActionResult UpdateNamesAfterMailing(FormCollection form)
         {
-            string names = string.Concat("'", form["mailees"].ToString().Replace(",", "','"), "'");
+            //string names = string.Concat("'", form["mailees"].ToString().Replace(",", "','"), "'");
 
-            //var mailees = (from RecruitmentMailee in db.RecruitmentMailees
-            //               where names.Contains(RecruitmentMailee.Name)
-            //               select RecruitmentMailee);
-            //mailees.ToList().ForEach(m => m.Mailed = DateTime.Now);
-            //db.SaveChanges();            
+            //var recruitmentDBEnt = new ApplicationDbContext();
+            //var mailees = recruitmentDBEnt.RecruitmentMailees.Where(mailee =>
+            //    names.Contains(mailee.Name)).ToList();
+            //mailees.ForEach(m => m.Mailed = DateTime.Now);
+            //recruitmentDBEnt.SaveChanges();
 
-            var recruitmentDBEnt = new ApplicationDbContext();
-            var mailees = recruitmentDBEnt.RecruitmentMailees.Where(mailee =>
-                names.Contains(mailee.Name)).ToList();
-            mailees.ForEach(m => m.Mailed = DateTime.Now);
-            recruitmentDBEnt.SaveChanges();
+            var names = form["mailees"].ToString();
+            appent.CloseRecruitmentMailees(names);
 
             return RedirectToAction("Home");
         }
@@ -105,14 +92,17 @@ namespace r3mus.Controllers
         [r3mus.Filters.ApiKeyAttribute.MultipleButton(Name = "GetNames", Argument = "unlock")]
         public ActionResult UnlockNames(FormCollection form)
         {
-            string names = string.Concat("'", form["mailees"].ToString().Replace(",", "','"), "'");
+            //    string names = string.Concat("'", form["mailees"].ToString().Replace(",", "','"), "'");
 
-            var mailees = (from RecruitmentMailee in db.RecruitmentMailees
-                           where names.Contains(RecruitmentMailee.Name)
-                           select RecruitmentMailee);
+            //    var mailees = (from RecruitmentMailee in db.RecruitmentMailees
+            //                   where names.Contains(RecruitmentMailee.Name)
+            //                   select RecruitmentMailee);
 
-            mailees.ToList().ForEach(m => m.MailerId = null);
-            db.SaveChanges();
+            //    mailees.ToList().ForEach(m => m.MailerId = null);
+            //    db.SaveChanges();
+
+            var names = form["mailees"].ToString();
+            appent.UnlockRecruitmentMailees(names);
 
             return RedirectToAction("Home");
         }

@@ -27,6 +27,12 @@
     <FunctionImport Name="MarkRecruitmentMailees" ReturnType="Collection(r3mus.Models.MarkRecruitmentMailees_Result)">
       <Parameter Name="UserID" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="CloseRecruitmentMailees">
+      <Parameter Name="Names" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UnlockRecruitmentMailees">
+      <Parameter Name="Names" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="MarkRecruitmentMailees_Result">
     <Property Type="Int32" Name="Id" Nullable="false" />

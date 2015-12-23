@@ -49,6 +49,30 @@ public partial class ApplicantEntities : DbContext
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<MarkRecruitmentMailees_Result>("MarkRecruitmentMailees", userIDParameter);
     }
 
+
+    public virtual int CloseRecruitmentMailees(string names)
+    {
+
+        var namesParameter = names != null ?
+            new ObjectParameter("Names", names) :
+            new ObjectParameter("Names", typeof(string));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CloseRecruitmentMailees", namesParameter);
+    }
+
+
+    public virtual int UnlockRecruitmentMailees(string names)
+    {
+
+        var namesParameter = names != null ?
+            new ObjectParameter("Names", names) :
+            new ObjectParameter("Names", typeof(string));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UnlockRecruitmentMailees", namesParameter);
+    }
+
 }
 
 }

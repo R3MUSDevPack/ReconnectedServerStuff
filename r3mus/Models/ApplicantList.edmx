@@ -32,8 +32,14 @@ warning 6002: The table/view 'r3mus_DB.dbo.ApplicantList' does not have a primar
           <Property Name="Notes" Type="nvarchar(max)" />
           <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
         </EntityType>
+        <Function Name="CloseRecruitmentMailees" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Names" Type="nvarchar(max)" Mode="In" />
+        </Function>
         <Function Name="MarkRecruitmentMailees" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="UserID" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="UnlockRecruitmentMailees" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Names" Type="nvarchar(max)" Mode="In" />
         </Function>
         <EntityContainer Name="r3musModelsStoreContainer">
           <EntitySet Name="ApplicantList" EntityType="Self.ApplicantList" store:Type="Views" store:Schema="dbo">
@@ -85,7 +91,13 @@ warning 6002: The table/view 'r3mus_DB.dbo.ApplicantList' does not have a primar
         <EntityContainer Name="ApplicantEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ApplicantLists" EntityType="Self.ApplicantList" />
           <FunctionImport Name="MarkRecruitmentMailees" ReturnType="Collection(r3mus.Models.MarkRecruitmentMailees_Result)">
-            <Parameter Name="UserID" Mode="In" Type="String" />
+          <Parameter Name="UserID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="CloseRecruitmentMailees">
+            <Parameter Name="Names" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UnlockRecruitmentMailees">
+            <Parameter Name="Names" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="MarkRecruitmentMailees_Result">
@@ -141,6 +153,8 @@ warning 6002: The table/view 'r3mus_DB.dbo.ApplicantList' does not have a primar
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="CloseRecruitmentMailees" FunctionName="r3mus.Models.Store.CloseRecruitmentMailees" />
+          <FunctionImportMapping FunctionImportName="UnlockRecruitmentMailees" FunctionName="r3mus.Models.Store.UnlockRecruitmentMailees" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
