@@ -165,6 +165,13 @@
       <HintPath>..\packages\Quartz.2.3.1\lib\net40\Quartz.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="R3MUS.Devpack.Discord">
+      <HintPath>..\..\..\R3MUS.Devpack.Discord\bin\Debug\R3MUS.Devpack.Discord.dll</HintPath>
+    </Reference>
+    <Reference Include="R3MUS.Devpack.Slack, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\R3MUS.Devpack.Slack\R3MUS.Devpack.Slack\bin\Debug\R3MUS.Devpack.Slack.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -275,6 +282,7 @@
     <Compile Include="Controllers\RecruitmentController.cs" />
     <Compile Include="Controllers\WebsiteAdminController.cs" />
     <Compile Include="CRONJobs\CorpMemberUpdateJob.cs" />
+    <Compile Include="CRONJobs\GotgDiscordMessageJob.cs" />
     <Compile Include="Extensions\HtmlExtensions.cs" />
     <Compile Include="Filters\CustomAttributes.cs" />
     <Compile Include="Filters\Extensions.cs" />
@@ -353,6 +361,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ApplicantList.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CRONJob.cs">
+      <DependentUpon>r3musDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Forum.cs" />
     <Compile Include="Models\LastMonthsMailStat.cs">
       <DependentUpon>LastMonthStats.tt</DependentUpon>
@@ -405,6 +416,21 @@
     <Compile Include="Models\MembershipUser.cs" />
     <Compile Include="Models\MembershipUsersInRole.cs" />
     <Compile Include="Models\Post.cs" />
+    <Compile Include="Models\r3musDBModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>r3musDBModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\r3musDBModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>r3musDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\r3musDBModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>r3musDBModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\r3musForumDBContext.cs" />
     <Compile Include="Models\RecruitmentHelper.cs" />
     <Compile Include="Models\RecruitmentMailee.cs" />
@@ -475,6 +501,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\favicon.ico" />
+    <Content Include="Images\jarvis.png" />
     <Content Include="Images\logo.png" />
     <Content Include="Images\Querious_Tac_Map.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -482,6 +509,16 @@
     <Content Include="Images\r3mus structure.png" />
     <Content Include="Images\r3mus structure.jpg" />
     <Content Include="Images\xmaslogo.png" />
+    <Content Include="Models\r3musDBModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>r3musDBModel.edmx</DependentUpon>
+      <LastGenOutput>r3musDBModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\r3musDBModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>r3musDBModel.edmx</DependentUpon>
+      <LastGenOutput>r3musDBModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Properties\Settings.settings">
@@ -548,6 +585,13 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\fonts\xirod.ttf" />
+    <EntityDeploy Include="Models\r3musDBModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>r3musDBModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\r3musDBModel.edmx.diagram">
+      <DependentUpon>r3musDBModel.edmx</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\Mine.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

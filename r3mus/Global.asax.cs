@@ -34,20 +34,41 @@ namespace r3mus
         private void StartCronJobs()
         {
             IScheduler sched;
-            IJobDetail job;
+            IJobDetail jobDetail;
             ITrigger trigger;
 
-            sched = new StdSchedulerFactory().GetScheduler();
-            sched.Start();
-            job = JobBuilder.Create<CorpMemberUpdateJob>()
-                .WithIdentity("MemberUpdateInstance", "MemberUpdateGroup")
-                .Build();
-            trigger = TriggerBuilder.Create()
-                .WithIdentity("MemberUpdateTrigger", "MemberUpdateTriggerGroup")
-                .StartNow()
-                .WithSimpleSchedule(x => x.WithIntervalInSeconds(900).RepeatForever())
-                .Build();
-            sched.ScheduleJob(job, trigger);
+            var cronJobs = new r3mus_DBEntities().CRONJobs.Where(cronJob => cronJob.Enabled == true);
+
+            cronJobs.ToList().ForEach(cronJob =>
+            {
+                sched = new StdSchedulerFactory().GetScheduler();
+                sched.Start();
+
+                sched = new StdSchedulerFactory().GetScheduler();
+                sched.Start();
+
+                jobDetail = JobBuilder.Create(Type.GetType(string.Concat("r3mus.CRONJobs.", cronJob.JobName)))
+                    .WithIdentity(string.Format("{0}Instance", cronJob.JobName), string.Format("{0}Group", cronJob.JobName))
+                    .Build();
+                trigger = TriggerBuilder.Create()
+                    .WithIdentity(string.Format("{0}Trigger", cronJob.JobName), string.Format("{0}TriggerGroup", cronJob.JobName))
+                    .StartNow()
+                    .WithSimpleSchedule(x => x.WithIntervalInMinutes(cronJob.Schedule).RepeatForever())
+                    .Build();
+                sched.ScheduleJob(jobDetail, trigger);
+            });
+
+            //sched = new StdSchedulerFactory().GetScheduler();
+            //sched.Start();
+            //job = JobBuilder.Create<CorpMemberUpdateJob>()
+            //    .WithIdentity("MemberUpdateInstance", "MemberUpdateGroup")
+            //    .Build();
+            //trigger = TriggerBuilder.Create()
+            //    .WithIdentity("MemberUpdateTrigger", "MemberUpdateTriggerGroup")
+            //    .StartNow()
+            //    .WithSimpleSchedule(x => x.WithIntervalInSeconds(900).RepeatForever())
+            //    .Build();
+            //sched.ScheduleJob(job, trigger);
         }
     }
 }
