@@ -75,8 +75,7 @@ namespace r3mus.Models
 
         [StringLength(60)]
         public string Facebook { get; set; }
-
-        [StringLength(500)]
+        
         public string Avatar { get; set; }
 
         [StringLength(300)]

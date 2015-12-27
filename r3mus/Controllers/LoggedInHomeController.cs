@@ -358,7 +358,7 @@ namespace r3mus.Controllers
                 }
                 else
                 {
-
+                    var len = siteUser.Avatar.Length;
                     forumUser = new MembershipUser()
                     {
                         Id = new Guid(siteUser.Id),
