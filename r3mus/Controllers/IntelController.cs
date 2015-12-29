@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace r3mus.Controllers
 {
+    [Authorize]
     public class IntelController : Controller
     {
         public enum Map

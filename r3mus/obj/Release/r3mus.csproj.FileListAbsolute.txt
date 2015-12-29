@@ -235,8 +235,6 @@ C:\temp\r3mus\r3mus\r3mus\bin\Quartz.dll
 C:\temp\r3mus\r3mus\r3mus\bin\Common.Logging.xml
 C:\temp\r3mus\r3mus\r3mus\bin\Common.Logging.Core.xml
 C:\temp\r3mus\r3mus\r3mus\bin\Quartz.xml
-C:\temp\r3mus\r3mus\r3mus\bin\R3MUS.Devpack.Discord.dll
-C:\temp\r3mus\r3mus\r3mus\bin\R3MUS.Devpack.Slack.dll
 C:\temp\r3mus\r3mus\r3mus\bin\R3MUS.Devpack.Discord.pdb
 C:\temp\r3mus\r3mus\r3mus\bin\R3MUS.Devpack.Slack.pdb
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\r3mus\bin\Common.Logging.Core.dll
@@ -249,3 +247,7 @@ C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\r3mus\bin\Common.Logging.Core
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\r3mus\bin\Quartz.xml
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\r3mus\bin\R3MUS.Devpack.Discord.pdb
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\r3mus\bin\R3MUS.Devpack.Slack.pdb
+C:\temp\r3mus\r3mus\r3mus\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\temp\r3mus\r3mus\r3mus\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\temp\r3mus\r3mus\r3mus\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\temp\r3mus\r3mus\r3mus\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
