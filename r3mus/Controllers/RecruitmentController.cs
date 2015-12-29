@@ -13,6 +13,7 @@ using Hipchat_Plugin;
 using Slack_Plugin;
 using JKON.Slack;
 using JKON.EveWho;
+using System.Threading.Tasks;
 
 namespace r3mus.Controllers
 {
@@ -73,18 +74,16 @@ namespace r3mus.Controllers
         [r3mus.Filters.ApiKeyAttribute.MultipleButton(Name = "GetNames", Argument = "sent")]
         public ActionResult UpdateNamesAfterMailing(FormCollection form)
         {
-            //string names = string.Concat("'", form["mailees"].ToString().Replace(",", "','"), "'");
-
-            //var recruitmentDBEnt = new ApplicationDbContext();
-            //var mailees = recruitmentDBEnt.RecruitmentMailees.Where(mailee =>
-            //    names.Contains(mailee.Name)).ToList();
-            //mailees.ForEach(m => m.Mailed = DateTime.Now);
-            //recruitmentDBEnt.SaveChanges();
-
             var names = form["mailees"].ToString();
-            appent.CloseRecruitmentMailees(names);
+            //appent.CloseRecruitmentMailees(names);
+            CloseRecruitmentMailees(names);
 
             return RedirectToAction("Home");
+        }
+
+        private async Task CloseRecruitmentMailees(string names)
+        {
+            await Task.Run(() => appent.CloseRecruitmentMailees(names));
         }
 
         [HttpPost]
@@ -92,15 +91,6 @@ namespace r3mus.Controllers
         [r3mus.Filters.ApiKeyAttribute.MultipleButton(Name = "GetNames", Argument = "unlock")]
         public ActionResult UnlockNames(FormCollection form)
         {
-            //    string names = string.Concat("'", form["mailees"].ToString().Replace(",", "','"), "'");
-
-            //    var mailees = (from RecruitmentMailee in db.RecruitmentMailees
-            //                   where names.Contains(RecruitmentMailee.Name)
-            //                   select RecruitmentMailee);
-
-            //    mailees.ToList().ForEach(m => m.MailerId = null);
-            //    db.SaveChanges();
-
             var names = form["mailees"].ToString();
             appent.UnlockRecruitmentMailees(names);
 

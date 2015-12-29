@@ -1,6 +1,7 @@
 ﻿using EveAI.Live;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.IO;
 using System.Linq;
@@ -91,6 +92,8 @@ namespace JKON.EveApi.Corporation.Models
 
     public class Member
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public long ID { get; set; }
         public string Name { get; set; }
         public string Title { get; set; }

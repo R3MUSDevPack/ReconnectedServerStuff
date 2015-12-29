@@ -5,7 +5,10 @@
 }*@
 
 @{Html.RenderPartial("_RecruitmentMenu");}
-@*@{Html.RenderPartial("_IntServicesMenu");}*@
+@if (User.IsInRole("Admin"))
+{
+    Html.RenderPartial("_IntServicesMenu");
+}
 @{Html.RenderPartial("_ServicesMenu");}
 @{Html.RenderPartial("_AdminMenu");}
 

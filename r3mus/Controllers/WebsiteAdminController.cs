@@ -93,7 +93,6 @@ namespace r3mus.Controllers
                                 if (chars.Any(toon => toon.CharacterName == member.Name))
                                 {
                                     user = api.User;
-                                    //member.Title = member.Title.Replace(user.Id.ToString(), "").Trim().Trim(',');
                                     return;
                                 }
                             }
@@ -404,6 +403,6 @@ namespace r3mus.Controllers
             db.SaveChanges();            
 
             return RedirectToAction("ViewProfile", new { id = userId });
-        }
+        }        
 	}
 }

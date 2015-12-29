@@ -82,7 +82,7 @@ function fixMail() {
     para.appendChild(createHoldingDiv([createParagraphHead("Who we are")]));
     para.appendChild(createHoldingDiv([redThisUp("Raised By Wolves Inc"), createTextSpan(" is a PVP-centric corporation that lives in sov null space which welcomes both new and new to PVP players as well as more experienced combat pilots.")]));
 
-    para.appendChild(createHoldingDiv([stripBreaks(createTextSpan("We are proud members of the "), 2), redThisUp("Blades of Grass [2TGTHR] alliance and the Guardians of the Galaxy coalition"), createTextSpan(", and need your help to support our alliance and coalition brothers and sisters in one of the most active and fun regions in the game.")]));
+    para.appendChild(createHoldingDiv([stripBreaks(createTextSpan("We are proud members of the "), 2), redThisUp("Blades of Grass [2GTHR] alliance and the Guardians of the Galaxy coalition"), createTextSpan(", and need your help to support our alliance and coalition brothers and sisters in one of the most active and fun regions in the game.")]));
 
     para.appendChild(createHoldingDiv([createParagraphHead("What we can offer")]));
     para.appendChild(createHoldingDiv([stripBreaks(createTextSpan("Our focus is on building combat-capable pilots who are able to have fun PVPing but importantly a place where you are treated as a member of a community rather than just a number in a fleet. There are great income opportunities in our space to fund your PvP habit and you will get "), 2),

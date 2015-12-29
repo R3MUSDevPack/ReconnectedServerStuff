@@ -5,6 +5,7 @@ using System;
 using System.Linq;
 using System.Data.Entity.Migrations;
 using JKON.EveApi.Corporation.Models;
+using System.Collections.Generic;
 
 namespace r3mus.CRONJobs
 {
@@ -26,7 +27,16 @@ namespace r3mus.CRONJobs
                         db.CorpMembers.AddOrUpdate(member)
                     );
                     db.SaveChanges();
-                    var membersToDelete = db.CorpMembers.Where(existingMember => !members.Any(member => member.ID == existingMember.ID)).ToList();
+
+                    var membersToDelete = new List<Member>();
+                    db.CorpMembers.ToList().ForEach(member =>
+                    {
+                        if(!members.Any(mem => mem.ID == member.ID))
+                        {
+                            membersToDelete.Add(member);
+                        }
+                    });
+
                     membersToDelete.ForEach(member =>
                         db.CorpMembers.Remove(member)
                     );

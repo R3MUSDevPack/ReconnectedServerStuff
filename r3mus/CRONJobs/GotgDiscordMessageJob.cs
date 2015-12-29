@@ -22,7 +22,6 @@ namespace r3mus.CRONJobs
             var name = MethodBase.GetCurrentMethod().DeclaringType.Name;
             var db = new r3mus_DBEntities();
             CrossPost(db.CRONJobs.Where(job => job.JobName == name).FirstOrDefault());
-            db.SaveChanges();
         }
 
         private void CrossPost(CRONJob settings)
@@ -42,8 +41,6 @@ namespace r3mus.CRONJobs
                             payload.Attachments = new List<MessagePayloadAttachment>();
                             payload.Attachments.Add(new MessagePayloadAttachment()
                             {
-                                //AuthorName = msg.author.username,
-                                //AuthorIcon = "http://www.r3mus.org/Images/jarvis.png",
                                 Text = msg.content.Replace("@everyone", "@channel"),
                                 Title = string.Format("{0}: Message from {1}", msg.timestamp.ToString("yyyy-MM-dd HH:mm:ss"), msg.author.username),
                                 Colour = "#ff6600"

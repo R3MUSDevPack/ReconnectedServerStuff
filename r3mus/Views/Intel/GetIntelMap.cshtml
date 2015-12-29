@@ -1,0 +1,119 @@
+﻿@model r3mus.ViewModels.IntelViewModel
+
+@{
+    ViewBag.Title = "Intel Map";
+}
+
+<h2>@ViewBag.Title - @Model.Title</h2>
+<h3>Status: <label id="status" style="color: orangered;">Connecting to Hub</label></h3>
+
+    <div class="col-md-2" style="text-align: left; left: -100px; width: 500px;">
+        <ul id="log">
+        </ul>
+    </div>
+    <div class="col-md-12" style="text-align:right; right: -200px;">
+        <object data="@Model.Map" id="map" type="image/svg+xml" width="100%" height="75%" />
+    </div>
+
+    @section scripts {
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.2.0.min.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script>
+
+        var regionName, elements, svgDoc, orig, chat;
+
+        $(window).load(function () {
+            $('.jumbotron').attr('style', 'display: none;');
+	        orig = 'fill: #ffffe5;';
+	        LoadSVG();
+            try{
+                Connect();
+            }
+            catch (e) { alert(e.message);}
+        });
+
+        function Connect() {
+            var conn = $.connection;
+            chat = $.connection.intelHub;
+
+            chat.client.pingIntel = function (time, name, msg) {
+                var splitMsg = msg.split(' ');
+
+                $.each(splitMsg, function (index, value) {
+                    Flash(value);
+                });
+
+                $('#log').prepend('<li>' + time + '<br />' + name + '<br />' + msg + '</li>')
+            };
+
+            $.connection.hub.start().done(function () {
+                $('#status').text('Connected to Hub');
+                $('#status').attr('style', 'color: green;');
+            });
+        }
+
+        function LoadSVG () {
+	        svgDoc = document.getElementById("map").contentDocument;
+
+	        for(var i = 0; i < $(svgDoc.getElementsByTagName('symbol')).length; i++)
+	        {
+		        try{
+		        var elem = $(svgDoc.getElementsByTagName('symbol'))[i].getElementsByTagName('a')[0].getElementsByTagName('text')[0].previousElementSibling;
+		        $(elem).attr('style', orig);
+		        }
+		        catch(e){
+		        }
+	        }
+        }
+
+        function GetRegionName() {
+	        regionName = svgDoc.getElementById('legend').getElementsByTagName('text')[0].textContent;
+        }
+        
+        function Flash(sysName){
+	        for(var i = 0; i < $(svgDoc.getElementsByTagName('symbol')).length; i++)
+	        {
+		        try{
+		            if ($(svgDoc.getElementsByTagName('symbol'))[i].getElementsByTagName('a')[0].getElementsByTagName('text')[0].textContent.indexOf(sysName) > -1)
+			        {
+			            SetFlashy($(svgDoc.getElementsByTagName('symbol'))[i].getElementsByTagName('a')[0].getElementsByTagName('text')[0].previousElementSibling);
+			        }
+		        }
+	            catch (e) { }
+	        }
+
+        }
+
+        function SetFlashy(sys){
+	        counter = 0;
+
+	        var interval = setInterval(function(){
+		        if(counter < 10)
+		        {
+			        if(($(sys)).attr('style') != 'fill: #ff0000')
+			        {
+					        ($(sys)).attr('style', 'fill: #ff0000');
+			        }
+			        else
+			        {
+					        ($(sys)).attr('style', 'fill: #ff8080');
+			        }
+			        counter++;
+		        }
+		        else
+		        {
+			        ($(sys)).attr('style', 'fill: #ff8080');
+			        clearInterval(interval);
+			        interval = setTimeout(function(){
+				        ($(sys)).attr('style', 'fill: #ff944d');
+				        interval = setTimeout(function(){
+					        ($(sys)).attr('style', orig);
+				        }, 10000);
+			        }, 10000);
+		        }
+	        }, 1000);
+        }
+
+    </script>
+}

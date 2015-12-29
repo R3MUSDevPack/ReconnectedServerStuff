@@ -56,19 +56,7 @@ namespace r3mus
                     .WithSimpleSchedule(x => x.WithIntervalInMinutes(cronJob.Schedule).RepeatForever())
                     .Build();
                 sched.ScheduleJob(jobDetail, trigger);
-            });
-
-            //sched = new StdSchedulerFactory().GetScheduler();
-            //sched.Start();
-            //job = JobBuilder.Create<CorpMemberUpdateJob>()
-            //    .WithIdentity("MemberUpdateInstance", "MemberUpdateGroup")
-            //    .Build();
-            //trigger = TriggerBuilder.Create()
-            //    .WithIdentity("MemberUpdateTrigger", "MemberUpdateTriggerGroup")
-            //    .StartNow()
-            //    .WithSimpleSchedule(x => x.WithIntervalInSeconds(900).RepeatForever())
-            //    .Build();
-            //sched.ScheduleJob(job, trigger);
+            });            
         }
     }
 }
