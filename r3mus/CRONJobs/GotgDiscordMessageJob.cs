@@ -26,57 +26,62 @@ namespace r3mus.CRONJobs
 
         private void CrossPost(CRONJob settings)
         {
-            try
+            if (settings.Enabled)
             {
-                var client = new Client { UserName = DiscordEmail, Password = DiscordPassword };
-                if(client.Logon())
+                try
                 {
-                    var messages = client.GetMessages(DiscordChannel);
+                    var client = new Client { UserName = DiscordEmail, Password = DiscordPassword };
+                    if (client.Logon())
+                    {
+                        var messages = client.GetMessages(DiscordChannel);
 
-                    if(settings.LastRun == null)
-                    {
-                        messages = messages.OrderBy(msg => msg.timestamp).ToList();
-                        messages.Where(msg => ((DateTime.Now - msg.timestamp).Days < 1) && (msg.content.Contains("To: coalition_pings"))).ToList().ForEach(msg => {
-                            var payload = new MessagePayload();
-                            payload.Attachments = new List<MessagePayloadAttachment>();
-                            payload.Attachments.Add(new MessagePayloadAttachment()
+                        if (settings.LastRun == null)
+                        {
+                            messages = messages.OrderBy(msg => msg.timestamp).ToList();
+                            messages.Where(msg => ((DateTime.Now - msg.timestamp).Days < 1) && (msg.content.Contains("To: coalition_pings"))).ToList().ForEach(msg =>
                             {
-                                Text = msg.content.Replace("@everyone", "@channel"),
-                                Title = string.Format("{0}: Message from {1}", msg.timestamp.ToString("yyyy-MM-dd HH:mm:ss"), msg.author.username),
-                                Colour = "#ff6600"
+                                var payload = new MessagePayload();
+                                payload.Attachments = new List<MessagePayloadAttachment>();
+                                payload.Attachments.Add(new MessagePayloadAttachment()
+                                {
+                                    Text = msg.content.Replace("@everyone", "@channel"),
+                                    Title = string.Format("{0}: Message from {1}", msg.timestamp.ToString("yyyy-MM-dd HH:mm:ss"), msg.author.username),
+                                    Colour = "#ff6600"
+                                });
+                                Plugin.SendToRoom(payload, SlackRoom, Properties.Settings.Default.SlackWebhook, msg.author.username);
                             });
-                            Plugin.SendToRoom(payload, SlackRoom, Properties.Settings.Default.SlackWebhook, msg.author.username);
-                        });
-                    }
-                    else
-                    {
-                        messages = messages.OrderBy(msg => msg.timestamp).ToList();
-                        messages.Where(msg => 
-                        (msg.timestamp.AddMilliseconds(-msg.timestamp.Millisecond) > settings.LastRun.Value.AddMilliseconds(-settings.LastRun.Value.Millisecond)
-                        &&
-                        (msg.content.Contains("To: coalition_pings"))
-                        )).ToList().ForEach(msg => {
-                            var payload = new MessagePayload();
-                            payload.Attachments = new List<MessagePayloadAttachment>();
-                            payload.Attachments.Add(new MessagePayloadAttachment()
+                        }
+                        else
+                        {
+                            messages = messages.OrderBy(msg => msg.timestamp).ToList();
+                            messages.Where(msg =>
+                            (msg.timestamp.AddMilliseconds(-msg.timestamp.Millisecond) > settings.LastRun.Value.AddMilliseconds(-settings.LastRun.Value.Millisecond)
+                            &&
+                            (msg.content.Contains("To: coalition_pings"))
+                            )).ToList().ForEach(msg =>
                             {
+                                var payload = new MessagePayload();
+                                payload.Attachments = new List<MessagePayloadAttachment>();
+                                payload.Attachments.Add(new MessagePayloadAttachment()
+                                {
                                 //AuthorName = msg.author.username,
                                 //AuthorIcon = "http://www.r3mus.org/Images/jarvis.png",
                                 Text = msg.content.Replace("@everyone", "@channel"),
-                                Title = string.Format("{0}: Message from {1}", msg.timestamp.ToString("yyyy-MM-dd HH:mm:ss"), msg.author.username),
-                                Colour = "#ff6600"
+                                    Title = string.Format("{0}: Message from {1}", msg.timestamp.ToString("yyyy-MM-dd HH:mm:ss"), msg.author.username),
+                                    Colour = "#ff6600"
+                                });
+                                Plugin.SendToRoom(payload, SlackRoom, Properties.Settings.Default.SlackWebhook, msg.author.username);
                             });
-                            Plugin.SendToRoom(payload, SlackRoom, Properties.Settings.Default.SlackWebhook, msg.author.username);
-                        });
+                        }
+                        settings.LastRun = messages.LastOrDefault().timestamp.AddMinutes(1);
+
+                        client.LogOut();
                     }
-                    settings.LastRun = messages.LastOrDefault().timestamp;
-
-                    client.LogOut();
                 }
-            }
-            catch(Exception ex)
-            {
+                catch (Exception ex)
+                {
 
+                }
             }
         }
     }

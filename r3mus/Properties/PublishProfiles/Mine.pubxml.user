@@ -150,7 +150,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/23/2015 13:05:08</publishTime>
     </File>
     <File Include="bin/r3mus.dll">
-      <publishTime>12/30/2015 14:36:03</publishTime>
+      <publishTime>12/30/2015 16:08:46</publishTime>
     </File>
     <File Include="bin/ServiceStack.Text.dll">
       <publishTime>12/30/2015 11:27:14</publishTime>

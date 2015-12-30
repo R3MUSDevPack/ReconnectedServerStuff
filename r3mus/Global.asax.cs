@@ -28,7 +28,7 @@ namespace r3mus
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            StartCronJobs();
+            //StartCronJobs();
         }
 
         private void StartCronJobs()
