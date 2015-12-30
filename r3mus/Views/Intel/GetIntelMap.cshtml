@@ -21,7 +21,7 @@
     <script src="~/signalr/hubs"></script>
     <script>
 
-        var regionName, elements, svgDoc, orig, chat;
+        var regionName, elements, svgDoc, orig, chat, messages;
 
         $(window).load(function () {
             $('.jumbotron').attr('style', 'display: none;');
@@ -36,15 +36,23 @@
         function Connect() {
             var conn = $.connection;
             chat = $.connection.intelHub;
+            messages = new Array();
 
-            chat.client.pingIntel = function (time, name, msg) {
-                var splitMsg = msg.split(' ');
+            chat.client.pingIntel = function (message) {
+                if (messages.indexOf(message) == -1) {
+                    $('#log').prepend('<li>' + message.LogDateTime + '<br />' + Message.UserName + '<br />' + message.Message + '</li>')
+                    messages.push(message);
+                    var splitMsg = message.Message.split(' ');
 
-                $.each(splitMsg, function (index, value) {
-                    Flash(value);
-                });
+                    $.each(splitMsg, function (index, value) {
+                        Flash(value);
+                    });
 
-                $('#log').prepend('<li>' + time + '<br />' + name + '<br />' + msg + '</li>')
+                    if($('#log').length > 20)
+                    {
+                        $('#logli:last').remove();
+                    }
+                }
             };
 
             $.connection.hub.start().done(function () {
@@ -89,7 +97,7 @@
 	        counter = 0;
 
 	        var interval = setInterval(function(){
-		        if(counter < 10)
+		        if(counter < 20)
 		        {
 			        if(($(sys)).attr('style') != 'fill: #ff0000')
 			        {
@@ -109,8 +117,8 @@
 				        ($(sys)).attr('style', 'fill: #ff944d');
 				        interval = setTimeout(function(){
 					        ($(sys)).attr('style', orig);
-				        }, 10000);
-			        }, 10000);
+				        }, 300000);
+			        }, 300000);
 		        }
 	        }, 1000);
         }

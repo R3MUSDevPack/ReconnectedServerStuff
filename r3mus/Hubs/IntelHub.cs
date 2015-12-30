@@ -10,7 +10,7 @@ namespace r3mus.Hubs
     {
         public void ReportIntel(LogLine message)
         {
-            Clients.All.pingIntel(message.LogDateTime.ToString("yyyy-MM-dd HH:mm:ss"), message.UserName, message.Message);
+            Clients.All.pingIntel(message);
         }
     }
 
@@ -20,12 +20,8 @@ namespace r3mus.Hubs
         public string UserName { get; set; }
         public string Message { get; set; }
 
-        public LogLine(string line)
+        public LogLine()
         {
-            var split = line.Split(new string[] { " ] " }, StringSplitOptions.RemoveEmptyEntries);
-            LogDateTime = Convert.ToDateTime(split[0].Replace("[ ", ""));
-            split = split[1].Split(new string[] { " > " }, StringSplitOptions.RemoveEmptyEntries);
-            UserName = split[0];
         }
     }
 }
