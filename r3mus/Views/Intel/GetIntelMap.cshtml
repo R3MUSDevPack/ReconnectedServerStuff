@@ -25,7 +25,7 @@
 
         $(window).load(function () {
             $('.jumbotron').attr('style', 'display: none;');
-	        orig = 'fill: #ffffe5;';
+            orig = 'fill: #ffffe5;';
 	        LoadSVG();
             try{
                 Connect();
@@ -87,14 +87,18 @@
 
         function LoadSVG () {
 	        svgDoc = document.getElementById("map").contentDocument;
-
 	        for(var i = 0; i < $(svgDoc.getElementsByTagName('symbol')).length; i++)
 	        {
-		        try{
-		        var elem = $(svgDoc.getElementsByTagName('symbol'))[i].getElementsByTagName('a')[0].getElementsByTagName('text')[0].previousElementSibling;
-		        $(elem).attr('style', orig);
+	            try {
+	                //var elem = $(svgDoc.getElementsByTagName('symbol'))[i].getElementsByTagName('a')[0].getElementsByTagName('text')[0].previousElementSibling;
+	                var elem1 = $(svgDoc.getElementsByTagName('symbol'))[i];
+	                var elem2 = elem1.getElementsByTagName('a')[0];
+	                var elem3 = elem2.getElementsByTagName('text')[0];
+	                var elem4 = elem3.previousElementSibling;
+	                $(elem4).attr('style', orig);
+	                $(elem3).text($(elem3).text());
 		        }
-		        catch(e){
+	            catch (e) {
 		        }
 	        }
         }
@@ -131,6 +135,7 @@
 			        {
 					        ($(sys)).attr('style', 'fill: #ff8080');
 			        }
+			        ($(sys).next().text($(sys).next().text()))
 			        counter++;
 		        }
 		        else
