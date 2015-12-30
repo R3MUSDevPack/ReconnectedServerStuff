@@ -38,9 +38,6 @@
     </div>
 
     <div class="container body-content">
-
-        @if (!Url.Action().Contains("Intel"))
-        {
             <div class="jumbotron">
                 @if (DateTime.Now.Month < 12)
                 {
@@ -54,7 +51,6 @@
                 <p class="lead">A Nullsec Sovereignty warfare & pilot training corporation in Eve Online.</p>
                 <br />
             </div>
-        }
 
         @RenderBody()
         <hr />

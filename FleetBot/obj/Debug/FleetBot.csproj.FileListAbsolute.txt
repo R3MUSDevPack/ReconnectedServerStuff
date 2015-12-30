@@ -3,3 +3,4 @@ C:\temp\r3mus\r3mus\FleetBot\bin\Debug\FleetBot.exe
 C:\temp\r3mus\r3mus\FleetBot\bin\Debug\FleetBot.pdb
 C:\temp\r3mus\r3mus\FleetBot\obj\Debug\FleetBot.exe
 C:\temp\r3mus\r3mus\FleetBot\obj\Debug\FleetBot.pdb
+C:\temp\r3mus\r3mus\FleetBot\obj\Debug\FleetBot.csprojResolveAssemblyReference.cache

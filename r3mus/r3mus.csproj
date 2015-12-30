@@ -697,6 +697,7 @@
     <Content Include="Views\Shared\_News.cshtml" />
     <Content Include="Views\Shared\_LiveWardecs.cshtml" />
     <Content Include="Views\Shared\_CorpStructure.cshtml" />
+    <Content Include="Views\Shared\_MapLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Filters\fonts\glyphicons-halflings-regular.woff" />

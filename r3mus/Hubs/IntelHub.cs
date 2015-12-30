@@ -10,6 +10,7 @@ namespace r3mus.Hubs
     {
         public void ReportIntel(LogLine message)
         {
+            Console.WriteLine(string.Concat(message.LogDateTime.ToString("yyyy-MM-dd HH:mm:ss"), " > ", message.UserName, " > ", message.Message));
             Clients.All.pingIntel(message);
         }
     }

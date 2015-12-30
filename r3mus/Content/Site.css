@@ -60,6 +60,10 @@ ul.listRoles li
   border: 1px solid Black;
   border-radius: 5px;
 }
+.container-full {
+  margin: 0 auto;
+  width: 90%;
+}
 
 @font-face {
     font-family: 'Xirod';

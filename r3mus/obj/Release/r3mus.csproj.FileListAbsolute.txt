@@ -235,8 +235,6 @@ C:\temp\r3mus\r3mus\r3mus\bin\Quartz.dll
 C:\temp\r3mus\r3mus\r3mus\bin\Common.Logging.xml
 C:\temp\r3mus\r3mus\r3mus\bin\Common.Logging.Core.xml
 C:\temp\r3mus\r3mus\r3mus\bin\Quartz.xml
-C:\temp\r3mus\r3mus\r3mus\bin\R3MUS.Devpack.Discord.pdb
-C:\temp\r3mus\r3mus\r3mus\bin\R3MUS.Devpack.Slack.pdb
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\r3mus\bin\Common.Logging.Core.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\r3mus\bin\Common.Logging.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\r3mus\bin\Quartz.dll

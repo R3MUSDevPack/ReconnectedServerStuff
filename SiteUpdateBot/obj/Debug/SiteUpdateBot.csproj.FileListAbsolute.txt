@@ -82,5 +82,5 @@ C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\Common.Logging.Core.xml
 C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\Common.Logging.xml
 C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\R3MUS.Devpack.Discord.dll
 C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\R3MUS.Devpack.Slack.dll
-C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\R3MUS.Devpack.Discord.pdb
-C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\R3MUS.Devpack.Slack.pdb
+C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\Microsoft.AspNet.SignalR.Core.dll
+C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\Microsoft.AspNet.SignalR.Core.xml
