@@ -112,7 +112,7 @@
 	        for(var i = 0; i < $(svgDoc.getElementsByTagName('symbol')).length; i++)
 	        {
 		        try{
-		            if ($(svgDoc.getElementsByTagName('symbol'))[i].getElementsByTagName('a')[0].getElementsByTagName('text')[0].textContent.indexOf(sysName) > -1)
+		            if ($(svgDoc.getElementsByTagName('symbol'))[i].getElementsByTagName('a')[0].getElementsByTagName('text')[0].textContent.indexOf(sysName.replace('*', '')) > -1)
 		            {
 			            SetFlashy($(svgDoc.getElementsByTagName('symbol'))[i].getElementsByTagName('a')[0].getElementsByTagName('text')[0].previousElementSibling);
 			        }
