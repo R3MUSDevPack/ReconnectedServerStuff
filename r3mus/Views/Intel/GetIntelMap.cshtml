@@ -129,23 +129,25 @@
 		        {
 			        if(($(sys)).attr('style') != 'fill: #ff0000')
 			        {
-					        ($(sys)).attr('style', 'fill: #ff0000');
+			            ($(sys)).attr('style', 'fill: #ff0000');
 			        }
 			        else
 			        {
-					        ($(sys)).attr('style', 'fill: #ff8080');
+			            ($(sys)).attr('style', 'fill: #ff8080');
 			        }
 			        ($(sys).next().text($(sys).next().text()))
 			        counter++;
 		        }
 		        else
 		        {
-			        ($(sys)).attr('style', 'fill: #ff8080');
+		            ($(sys)).attr('style', 'fill: #ff8080');
+		            ($(sys).next().text($(sys).next().text()))
 			        clearInterval(interval);
 			        interval = setTimeout(function(){
 				        ($(sys)).attr('style', 'fill: #ff944d');
 				        interval = setTimeout(function(){
-					        ($(sys)).attr('style', orig);
+				            ($(sys)).attr('style', orig);
+				            ($(sys).next().text($(sys).next().text()))
 				        }, 300000);
 			        }, 300000);
 		        }
