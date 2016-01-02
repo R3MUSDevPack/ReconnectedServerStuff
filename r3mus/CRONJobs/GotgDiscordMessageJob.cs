@@ -22,6 +22,7 @@ namespace r3mus.CRONJobs
             var name = MethodBase.GetCurrentMethod().DeclaringType.Name;
             var db = new r3mus_DBEntities();
             CrossPost(db.CRONJobs.Where(job => job.JobName == name).FirstOrDefault());
+            db.SaveChanges();
         }
 
         private void CrossPost(CRONJob settings)

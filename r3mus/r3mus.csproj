@@ -519,7 +519,13 @@
     <Content Include="Images\r3mus structure.png" />
     <Content Include="Images\r3mus structure.jpg" />
     <Content Include="Images\xmaslogo.png" />
+    <Content Include="Maps\Catch.svg" />
+    <Content Include="Maps\Detorid.svg" />
+    <Content Include="Maps\Feythabolis.svg" />
     <Content Include="Maps\Immensea.svg" />
+    <Content Include="Maps\Impass.svg" />
+    <Content Include="Maps\Omist.svg" />
+    <Content Include="Maps\Providence.svg" />
     <Content Include="Maps\Tenerifis.svg" />
     <Content Include="Models\r3musDBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

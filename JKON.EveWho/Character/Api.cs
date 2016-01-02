@@ -162,8 +162,8 @@ namespace JKON.EveWho
 
             try
             {
-                //string reqURL = string.Concat(c_URL, c_CORPMEMBERSURL, "?", string.Format(c_API, apiKey, vCode), c_EXT);
-                string reqURL = "http://localhost/membertracking.xml";
+                string reqURL = string.Concat(c_URL, c_CORPMEMBERSURL, "?", string.Format(c_API, apiKey, vCode), c_EXT);
+                //string reqURL = "http://localhost/membertracking.xml";
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(reqURL);
                 request.UserAgent = "JKON.EveWho-Clyde-en-Marland";
                 WebResponse response = request.GetResponse();

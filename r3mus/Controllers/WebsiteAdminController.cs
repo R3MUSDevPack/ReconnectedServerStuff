@@ -61,7 +61,7 @@ namespace r3mus.Controllers
             return View();
         }
 
-        [OutputCache(Duration = 3600)]
+        //[OutputCache(Duration = 3600)]
         public ActionResult ViewUsers(r3mus.Models.ApplicationUser.IDType memberType = r3mus.Models.ApplicationUser.IDType.Corporation)
         {
             var users = db.Users.Where(user => user.MemberType == memberType.ToString()).ToList<ApplicationUser>();
@@ -118,7 +118,7 @@ namespace r3mus.Controllers
                 }
                 int titleIsId;
                 int.TryParse(member.Title, out titleIsId);
-                if (titleIsId != null)
+                if ((titleIsId > 0) && (titleIsId != null))
                 {
                     try
                     {

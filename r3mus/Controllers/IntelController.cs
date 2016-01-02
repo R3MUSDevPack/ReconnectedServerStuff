@@ -15,7 +15,13 @@ namespace r3mus.Controllers
     {
         public enum Map
         {
+            Catch,
+            Detorid,
+            Feythabolis,
             Immensea,
+            Impass,
+            Omist,
+            Providence,
             Tenerifis
         }
 
@@ -23,7 +29,6 @@ namespace r3mus.Controllers
         // GET: /Intel/
         public ActionResult GetIntelMap(Map map)
         {
-
             var vm = new IntelViewModel() { Title = map.ToString(), Map = string.Concat("/maps/", map.ToString(), ".svg") };
             
             return View(vm);

@@ -28,7 +28,7 @@ namespace r3mus
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            //StartCronJobs();
+            StartCronJobs();
         }
 
         private void StartCronJobs()
@@ -37,7 +37,7 @@ namespace r3mus
             IJobDetail jobDetail;
             ITrigger trigger;
 
-            var cronJobs = new r3mus_DBEntities().CRONJobs.Where(cronJob => cronJob.Enabled == true);
+            var cronJobs = new r3mus_DBEntities().CRONJobs; //.Where(cronJob => cronJob.Enabled == true);
 
             cronJobs.ToList().ForEach(cronJob =>
             {
