@@ -38,6 +38,31 @@ namespace r3mus.Hubs
                 OnlineUsers.Where(user => user.LoggerName == loggerName).FirstOrDefault().LastKnownDateTime = DateTime.Now;
             }
 
+            Cleanup();
+
+            //var past = DateTime.Now.AddMinutes(-10);
+
+            //OnlineUsers.Where(user =>
+            //    user.LastKnownDateTime < past
+            //    ).ToList().ForEach(user =>
+            //        OnlineUsers.Remove(user)
+            //    );
+            
+            //MessageHistory.Where(msg =>
+            //    msg.LogDateTime < past
+            //    ).ToList().ForEach(msg =>
+            //        MessageHistory.Remove(msg)
+            //    );
+            db.SaveChanges();
+            //Clients.Caller.pingUserCount(db.OnlineUsers.Count());
+            SendUserCount();
+        }
+
+        private void Cleanup()
+        {
+            var OnlineUsers = db.OnlineUsers;
+            var MessageHistory = db.LogMessages;
+
             var past = DateTime.Now.AddMinutes(-10);
 
             OnlineUsers.Where(user =>
@@ -45,15 +70,13 @@ namespace r3mus.Hubs
                 ).ToList().ForEach(user =>
                     OnlineUsers.Remove(user)
                 );
-            
+
             MessageHistory.Where(msg =>
                 msg.LogDateTime < past
                 ).ToList().ForEach(msg =>
                     MessageHistory.Remove(msg)
                 );
-            db.SaveChangesAsync();
-            //Clients.Caller.pingUserCount(db.OnlineUsers.Count());
-            SendUserCount();
+            db.SaveChanges();
         }
 
         public void SendUserCount()
@@ -63,6 +86,7 @@ namespace r3mus.Hubs
         }
         public void SendHistory()
         {
+            Cleanup();
             db.LogMessages.ToList().ForEach(message =>
                 Clients.Caller.pingIntel(message)
             );

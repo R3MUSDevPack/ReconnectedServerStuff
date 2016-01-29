@@ -125,3 +125,4 @@ C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\r3mus\obj\Release\r3mus.Migra
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\r3mus\obj\Release\r3mus.csproj.GenerateResource.Cache
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\r3mus\obj\Release\r3mus.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\r3mus\obj\Release\r3mus.pdb
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\r3mus\obj\Release\r3mus.csprojResolveAssemblyReference.cache
