@@ -419,12 +419,18 @@
     </Compile>
     <Compile Include="Models\LatestNew.cs" />
     <Compile Include="Models\LiveWardecs.cs" />
+    <Compile Include="Models\LogMessage.cs">
+      <DependentUpon>r3musDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\MarkRecruitmentMailees_Result.cs">
       <DependentUpon>ApplicantList.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MembershipRole.cs" />
     <Compile Include="Models\MembershipUser.cs" />
     <Compile Include="Models\MembershipUsersInRole.cs" />
+    <Compile Include="Models\OnlineUser.cs">
+      <DependentUpon>r3musDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\r3musDBModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -523,10 +529,12 @@
     <Content Include="Maps\Detorid.svg" />
     <Content Include="Maps\Feythabolis.svg" />
     <Content Include="Maps\Immensea.svg" />
+    <Content Include="Maps\Immensea_noJB.svg" />
     <Content Include="Maps\Impass.svg" />
     <Content Include="Maps\Omist.svg" />
     <Content Include="Maps\Providence.svg" />
     <Content Include="Maps\Tenerifis.svg" />
+    <Content Include="Maps\Tenerifis_noJB.svg" />
     <Content Include="Models\r3musDBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>r3musDBModel.edmx</DependentUpon>

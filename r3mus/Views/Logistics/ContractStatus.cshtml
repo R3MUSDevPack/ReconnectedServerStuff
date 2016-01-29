@@ -12,7 +12,7 @@
         <strong>Pick up/Drop Off Locations: </strong><br />
         <ul>
             <li>Amarr VIII (Oris) - Emperor Family Academy</li>
-            <li>08-N7Q IV - Haitekk's House of Hot Drop</li>
+            <li>CKX-RW VII - Intergalactic Sparkle Dragon Den</li>
         </ul>
         <strong>Restrictions:</strong><br />
         <ul>
@@ -93,7 +93,7 @@
                     {
                         <tr>
                             <td><strong>Value: </strong></td>
-                            @{ var correctReward = (contract.Volume * 300); }
+                            @{ var correctReward = (contract.Volume * 500); }
                             <td>@Html.DisplayFor(c => contract.Reward) (should be @Html.DisplayFor(c => correctReward))</td>
                         </tr>
                         <tr>
@@ -110,7 +110,7 @@
     function calculate() {
         try {
             if (!isNaN($('#volume').val())) {
-                $('#cost').text(($('#volume').val() * 300).toString() + ' isk');
+                $('#cost').text(($('#volume').val() * 500).toString() + ' isk');
             }
             else {
                 $('#cost').text('Error - please check your volume');

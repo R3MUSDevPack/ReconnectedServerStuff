@@ -15,8 +15,27 @@
           <Property Name="LastRun" Type="datetime" />
           <Property Name="Enabled" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="LogMessages">
+          <Key>
+            <PropertyRef Name="LogDateTime" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="Message" />
+          </Key>
+          <Property Name="LogDateTime" Type="datetime" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Message" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OnlineUsers">
+          <Key>
+            <PropertyRef Name="LoggerName" />
+          </Key>
+          <Property Name="LoggerName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="LastKnownDateTime" Type="datetime" />
+        </EntityType>
         <EntityContainer Name="r3mus_DBModelStoreContainer">
           <EntitySet Name="CRONJobs" EntityType="Self.CRONJobs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LogMessages" EntityType="Self.LogMessages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OnlineUsers" EntityType="Self.OnlineUsers" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -34,7 +53,26 @@
         </EntityType>
         <EntityContainer Name="r3mus_DBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CRONJobs" EntityType="Self.CRONJob" />
+          <EntitySet Name="OnlineUsers" EntityType="r3mus_DBModel.OnlineUser" />
+          <EntitySet Name="LogMessages" EntityType="r3mus_DBModel.LogMessage" />
         </EntityContainer>
+        <EntityType Name="OnlineUser">
+          <Key>
+            <PropertyRef Name="LoggerName" />
+          </Key>
+          <Property Name="LoggerName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="LastKnownDateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="LogMessage">
+          <Key>
+            <PropertyRef Name="LogDateTime" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="Message" />
+          </Key>
+          <Property Name="LogDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Message" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -49,6 +87,23 @@
                 <ScalarProperty Name="Schedule" ColumnName="Schedule" />
                 <ScalarProperty Name="ScheduleUnits" ColumnName="ScheduleUnits" />
                 <ScalarProperty Name="LastRun" ColumnName="LastRun" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OnlineUsers">
+            <EntityTypeMapping TypeName="r3mus_DBModel.OnlineUser">
+              <MappingFragment StoreEntitySet="OnlineUsers">
+                <ScalarProperty Name="LastKnownDateTime" ColumnName="LastKnownDateTime" />
+                <ScalarProperty Name="LoggerName" ColumnName="LoggerName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LogMessages">
+            <EntityTypeMapping TypeName="r3mus_DBModel.LogMessage">
+              <MappingFragment StoreEntitySet="LogMessages">
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="LogDateTime" ColumnName="LogDateTime" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -5,8 +5,15 @@
     ViewBag.Title = "Intel Map";
 }
 
-<h2>@ViewBag.Title - @Model.Title</h2>
-<h3>Status: <label id="status" style="color: orangered;">Connecting to Hub</label></h3>
+<div class="col-md-6">
+    <h2>@ViewBag.Title - @Model.Title</h2>
+    <h3>Status: <label id="status" style="color: orangered;">Connecting to Hub</label></h3>
+</div>
+<div class="col-md-6">
+    <h4>Number of Contributors Logging</h4>
+    <h4><label id="loggerCount">0</label></h4>
+</div>
+
 <div class="row">
     <div class="col-lg-10" style="text-align:right; left: -10vh;">
         <object data="@Model.Map" id="map" type="image/svg+xml" width="95%" height="85%"></object>
@@ -63,9 +70,15 @@
                 }
             };
 
+            chat.client.pingUserCount = function (userCount) {
+                $('#loggerCount').text(userCount);
+            }
+
             $.connection.hub.start().done(function () {
                 $('#status').text('Connected to Hub');
                 $('#status').attr('style', 'color: green;');
+                chat.server.sendUserCount();
+                chat.server.sendHistory();
             });
         }
 

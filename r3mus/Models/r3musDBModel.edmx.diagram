@@ -6,6 +6,8 @@
     <edmx:Diagrams>
       <Diagram DiagramId="de2dc6f9fc514b568bfff12d39c8a815" Name="Diagram1">
         <EntityTypeShape EntityType="r3mus_DBModel.CRONJob" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="r3mus_DBModel.OnlineUser" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="r3mus_DBModel.LogMessage" Width="1.5" PointX="3.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

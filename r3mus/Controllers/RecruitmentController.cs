@@ -17,7 +17,7 @@ using System.Threading.Tasks;
 
 namespace r3mus.Controllers
 {
-    [Authorize(Roles = "Line Member, Recruiter, Screener, Director, CEO, Admin")]
+    [Authorize(Roles = "Crew, Recruiter, Screener, Director, CEO, Admin")]
     public class RecruitmentController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -97,13 +97,16 @@ namespace r3mus.Controllers
             return RedirectToAction("Home");
         }
 
+        [Authorize()]
         public ActionResult AddNames()
         {
             return View();
         }
 
         [HttpPost]
+        [Authorize()]
         [ActionName("AddNames")]
+        [Authorize()]
         public ActionResult AddNamesToDB(FormCollection form)
         {
             string[] names = form["names"].ToString().Split(new string[]{Environment.NewLine}, StringSplitOptions.None).Distinct().ToArray();
@@ -257,6 +260,7 @@ namespace r3mus.Controllers
 
         [HttpPost]
         [ActionName("ReviewApplication")]
+        [Authorize(Roles = "Screener, Director, CEO, Admin")]
         public ActionResult SubmitNewReviewItem(ApplicationReviewViewModel model)
         {            
             UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));

@@ -26,5 +26,7 @@ namespace r3mus.Models
         }
     
         public virtual DbSet<CRONJob> CRONJobs { get; set; }
+        public virtual DbSet<OnlineUser> OnlineUsers { get; set; }
+        public virtual DbSet<LogMessage> LogMessages { get; set; }
     }
 }
