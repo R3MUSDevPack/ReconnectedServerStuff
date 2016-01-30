@@ -40,21 +40,8 @@ namespace r3mus.Hubs
 
             Cleanup();
 
-            //var past = DateTime.Now.AddMinutes(-10);
-
-            //OnlineUsers.Where(user =>
-            //    user.LastKnownDateTime < past
-            //    ).ToList().ForEach(user =>
-            //        OnlineUsers.Remove(user)
-            //    );
-            
-            //MessageHistory.Where(msg =>
-            //    msg.LogDateTime < past
-            //    ).ToList().ForEach(msg =>
-            //        MessageHistory.Remove(msg)
-            //    );
             db.SaveChanges();
-            //Clients.Caller.pingUserCount(db.OnlineUsers.Count());
+
             SendUserCount();
         }
 
@@ -63,7 +50,7 @@ namespace r3mus.Hubs
             var OnlineUsers = db.OnlineUsers;
             var MessageHistory = db.LogMessages;
 
-            var past = DateTime.Now.AddMinutes(-10);
+            var past = DateTime.Now.AddMinutes(-5);
 
             OnlineUsers.Where(user =>
                 user.LastKnownDateTime < past

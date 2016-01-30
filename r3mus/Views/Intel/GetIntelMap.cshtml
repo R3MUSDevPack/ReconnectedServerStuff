@@ -5,21 +5,17 @@
     ViewBag.Title = "Intel Map";
 }
 
-<div class="col-md-6">
-    <h2>@ViewBag.Title - @Model.Title</h2>
-    <h3>Status: <label id="status" style="color: orangered;">Connecting to Hub</label></h3>
-</div>
-<div class="col-md-6">
-    <h4>Number of Contributors Logging</h4>
-    <h4><label id="loggerCount">0</label></h4>
-</div>
-
 <div class="row">
     <div class="col-lg-10" style="text-align:right; left: -10vh;">
         <object data="@Model.Map" id="map" type="image/svg+xml" width="95%" height="85%"></object>
     </div>
-    <div class="col-lg-2" style="text-align: left; overflow-y: scroll; min-height: 80vh; height: 80vh; max-height: 80vh; min-width: 25vh;">
-        <ul id="log"></ul>
+    <div class="col-lg-2">
+        <h4>@ViewBag.Title - @Model.Title</h4>
+        <h5>Status: <label id="status" style="color: orangered;">Connecting to Hub</label></h5>
+        <h5>Number of Contributors Logging: <label id="loggerCount">0</label></h5>
+        <div id="log" style="text-align: left; overflow-y: scroll; min-height: 80vh; height: 80vh; max-height: 80vh; min-width: 25vh;">
+            @*<ul id="log"></ul>*@
+        </div>
     </div>
 </div>
 @section scripts {
@@ -48,9 +44,9 @@
             chat.client.pingIntel = function (message) {
                 if (!messageExists(message, messages)) {
                     try {
-                        //alert(JSON.stringify(message));
                         messages.push(message);
-                        $('#log').prepend('<li>' + message.LogDateTime + '<br />' + message.UserName + '<br /><strong>' + message.Message + '</strong></li>');
+                        //$('#log').prepend('<li>' + message.LogDateTime + '<br />' + message.UserName + '<br /><strong>' + message.Message + '</strong></li>');
+                        $('#log').prepend('<h5>' + message.LogDateTime + '<br />' + message.UserName + '<br /><strong>' + message.Message + '</strong></h5>');
                         var splitMsg = message.Message.split(' ');
 
                         $.each(splitMsg, function (index, value) {
@@ -60,11 +56,9 @@
                         });
 
                         if ($('#log li').length > 20) {
-                            //alert('Trying to remove');
                             $('#log li:last').remove();
                             messages.shift();
                         }
-                        //}
                     }
                     catch (e) { alert(e.message); }
                 }
@@ -104,7 +98,6 @@
 	        for(var i = 0; i < $(svgDoc.getElementsByTagName('symbol')).length; i++)
 	        {
 	            try {
-	                //var elem = $(svgDoc.getElementsByTagName('symbol'))[i].getElementsByTagName('a')[0].getElementsByTagName('text')[0].previousElementSibling;
 	                var elem1 = $(svgDoc.getElementsByTagName('symbol'))[i];
 	                var elem2 = elem1.getElementsByTagName('a')[0];
 	                var elem3 = elem2.getElementsByTagName('text')[0];

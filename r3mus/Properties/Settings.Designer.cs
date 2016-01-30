@@ -88,7 +88,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("yKHcHIkT")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string TS_Password {
             get {
                 return ((string)(this["TS_Password"]));
@@ -115,7 +115,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("k05sP8cuu2MwPwBsXXXje0yJXRrxypE6q6SzlsQV")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string HipchatToken {
             get {
                 return ((string)(this["HipchatToken"]));
@@ -124,7 +124,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("xoxp-4459251457-4460324675-10475473043-239b3cc333")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string SlackToken {
             get {
                 return ((string)(this["SlackToken"]));
@@ -161,7 +161,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://hooks.slack.com/services/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")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string SlackWebhook {
             get {
                 return ((string)(this["SlackWebhook"]));

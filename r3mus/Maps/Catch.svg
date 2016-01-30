@@ -84,7 +84,7 @@
 </style>
 
 <g id="map" transform="translate(0,0) scale(1)">
-<g id="legend">
+<!--<g id="legend">
 <rect x="860.5" y="575.5" width="160" height="188" class="lb"/>
 <rect x="860.5" y="860.5" width="160" height="20" class="lbt"/>
 <text x="942.5" y="590.5" class="lt" text-anchor="middle">Catch</text>
@@ -112,7 +112,7 @@
 <rect x="947" y="710.8" height="11" width="11" class="o"/><polygon points="958,710.8 952.5,716.3 958,721.8 958,710.8" class="v2"/><rect x="947" y="710.8" height="11" width="11" class="oo"/><text x="963" y="718.8" class="l" text-anchor="start">= Cloning</text>
 <rect x="945" y="726.2" rx="5.5" ry="5.5" width="15.4" height="11" class="sl" style="fill: #ffa0ff;"/><text x="963" y="734.2" class="l" text-anchor="start">= Contested</text>
 
-</g>
+</g>-->
 
 <defs>
   <symbol id="def30001221">
