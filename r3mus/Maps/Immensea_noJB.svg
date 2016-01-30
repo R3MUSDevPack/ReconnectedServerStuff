@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="svgdoc" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1024" height="768" viewBox="0 0 1024 768" style="stroke-width: 0px; background: #808080;" onload="init(evt)">
+<svg version="1.1" id="svgdoc" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1024" height="768" viewBox="0 0 1024 768" style="stroke-width: 0px; background: #000000;" onload="init(evt)">
 
 
 <style type="text/css">
 <![CDATA[
 /* jumps */
-.j	{ stroke: #000000; stroke-width: 1; }
+.j	{ stroke: #808080; stroke-width: 1; }
 .jc	{ stroke: #FF0000; stroke-width: 1; }
 .jr	{ stroke: #800080; stroke-width: 1; }
-.jx	{ stroke: #000000; stroke-width: 3; }
+.jx	{ stroke: #808080; stroke-width: 3; }
 .jxc	{ stroke: #FF0000; stroke-width: 3; }
 .jxr	{ stroke: #800080; stroke-width: 3; }
 .jb	{ stroke: #0000FF; stroke-width: 3; fill: none; }
@@ -17,27 +17,27 @@
 /* external system */
 .eh	{ stroke: #00B000; stroke-width: 1; fill: #CCCCCC; }
 .el	{ stroke: #F00000; stroke-width: 1; stroke-dasharray: 8, 4; fill: #CCCCCC; }
-.e	{ stroke: #000000; stroke-width: 1; fill: #CCCCCC; }
+.e	{ stroke: #808080; stroke-width: 1; fill: #CCCCCC; }
 .exh	{ stroke: #00B000; stroke-width: 2; fill: #CCCCCC; }
 .exl	{ stroke: #F00000; stroke-width: 2; stroke-dasharray: 8, 3; fill: #CCCCCC; }
-.ex	{ stroke: #000000; stroke-width: 2; fill: #CCCCCC; }
+.ex	{ stroke: #808080; stroke-width: 2; fill: #CCCCCC; }
 
 /* external system text */
-.es	{ font-size: 9px; font-family: Arial, Helvetica, sans-serif; fill: #000000; }
-.er	{ font-weight: bold; font-size: 7px; font-family: verdana, Arial, sans-serif; fill: #000000; }
+.es	{ font-size: 9px; font-family: Arial, Helvetica, sans-serif; fill: #808080; }
+.er	{ font-weight: bold; font-size: 7px; font-family: verdana, Arial, sans-serif; fill: #808080; }
 
 /* system */
 .sh	{ stroke: #00B000; stroke-width: 1; }
 .sl	{ stroke: #F00000; stroke-width: 1; stroke-dasharray: 8, 3; }
-.s	{ stroke: #000000; stroke-width: 1; }
+.s	{ stroke: #808080; stroke-width: 1; }
 .sc	{ stroke-width: 1.2; stroke-dasharray: 4, 3; }
 .sx	{ stroke-width: 2.5; }
 
 .scl	{ stroke: transparent; stroke-width: 2; fill: transparent; }
 
 /* system text */
-.ss	{ font-family: Arial, Helvetica, sans-serif; font-size: 9px; fill: #000000; }
-.st	{ font-weight: bold; font-size: 7px; font-family: verdana, Arial, sans-serif; fill: #000000; }
+.ss	{ font-family: Arial, Helvetica, sans-serif; font-size: 9px; fill: #808080; }
+.st	{ font-weight: bold; font-size: 7px; font-family: verdana, Arial, sans-serif; fill: #808080; }
 .so	{ fill: #ff0000; }
 .i	{ stroke: #0080FF; stroke-width: 1; fill: none; }
 
@@ -47,9 +47,9 @@
 .oa	{ fill: #FFDC00; }
 .og	{ fill: #00FF00; }
 .om	{ fill: #FF0000; }
-.o1	{ fill: #ffffff; stroke-width: 0.5; stroke: #000000; }
-.o2	{ fill: #ffffff; stroke-width: 0.5; stroke: #000000; }
-.oo	{ fill: none; stroke: #000000; stroke-width: 1; }
+.o1	{ fill: #ffffff; stroke-width: 0.5; stroke: #808080; }
+.o2	{ fill: #ffffff; stroke-width: 0.5; stroke: #808080; }
+.oo	{ fill: none; stroke: #808080; stroke-width: 1; }
 
 /* station services */
 .v1	{ fill: #FF0000; }
@@ -58,14 +58,14 @@
 .v4	{ fill: #0000FF; }
 
 /* legend */
-.lb	{ stroke-width: 1; stroke: #000000; fill: #ffffff; }
-.lbt	{ stroke-width: 1; stroke: #000000; fill: #ffffff; }
-.lt	{ fill: #000000; font-family: Arial, Helvetica, sans-serif; font-weight: bold; font-size: 12px; }
-.lc	{ fill: #000000; font-family: Arial, Helvetica, sans-serif; font-size: 11px; }
-.l	{ fill: #000000; font-family: Arial, Helvetica, sans-serif; font-size: 10px; }
+.lb	{ stroke-width: 1; stroke: #808080; fill: #ffffff; }
+.lbt	{ stroke-width: 1; stroke: #808080; fill: #ffffff; }
+.lt	{ fill: #808080; font-family: Arial, Helvetica, sans-serif; font-weight: bold; font-size: 12px; }
+.lc	{ fill: #808080; font-family: Arial, Helvetica, sans-serif; font-size: 11px; }
+.l	{ fill: #808080; font-family: Arial, Helvetica, sans-serif; font-size: 10px; }
 
 /* highlight */
-.h	{ fill: none; stroke-width: 3; stroke: #000000; }
+.h	{ fill: none; stroke-width: 3; stroke: #808080; }
 .hw	{ fill: none; stroke-width: 2; stroke: #00AA00; }
 .hl	{ fill: none; stroke-width: 2; stroke: #F00000; }
 .hg	{ fill: none; stroke-width: 2; stroke: #00B000; }
@@ -84,35 +84,6 @@
 </style>
 
 <g id="map" transform="translate(0,0) scale(1)">
-<!--<g id="legend">
-<rect x="860.5" y="575.5" width="160" height="188" class="lb"/>
-<rect x="860.5" y="860.5" width="160" height="20" class="lbt"/>
-<text x="942.5" y="590.5" class="lt" text-anchor="middle">Immensea</text>
-<rect x="860.5" y="595.5" width="160" height="148" class="lb"/>
-<rect x="860.5" y="743.5" width="160" height="20" class="lb"/>
-<text x="942.5" y="757.5" class="lc" text-anchor="middle"> 	© by Wollari &amp; CCP</text>
-
-<rect x="875" y="600" rx="11" ry="11" width="50" height="22" class="s" style="fill: #FFFFFF;"/><text x="900" y="611" class="ss" text-anchor="middle">XXXXX</text><text x="900" y="618.7" class="st so" text-anchor="middle">YYYYY (Z)</text>
-<rect x="920.6" y="605.5" height="11" width="11" class="o"/><polygon points="922.8,611 929.4,607.7 929.4,614.3 922.8,611" class="o1"/><rect x="920.6" y="605.5" height="11" width="11" class="oo"/>
-<text x="877" y="639.4" class="l" text-anchor="start">X</text><text x="890" y="639.4" class="l" text-anchor="start">= System</text>
-<text x="877" y="654.8" class="l" text-anchor="start">Y</text><text x="890" y="654.8" class="l" text-anchor="start">= Alliance</text>
-<text x="877" y="670.2" class="l" text-anchor="start">Z</text><text x="890" y="670.2" class="l" text-anchor="start">= Sov. Lvl</text>
-<rect x="874" y="679.8" height="11" width="11" class="o"/><polygon points="876.2,685.3 882.8,682 882.8,688.6 876.2,685.3" class="o1"/><rect x="874" y="679.8" height="11" width="11" class="oo"/><text x="890" y="687.8" class="l" text-anchor="start">= Outpost</text>
-<rect x="874" y="695.2" height="11" width="11" class="o"/><rect x="877.3" y="698.5" height="4.4" width="4.4" class="o2"/><rect x="874" y="695.2" height="11" width="11" class="oo"/><text x="890" y="703.2" class="l" text-anchor="start">= Cq Stat.</text>
-<rect x="874" y="710.6" height="11" width="11" class="o"/><rect x="874" y="710.6" height="11" width="11" class="oo"/><text x="890" y="718.6" class="l" text-anchor="start">= NPC Stat.</text>
-<rect x="872" y="726" rx="5.5" ry="5.5" width="15.4" height="11" class="i"/><text x="890" y="734" class="l" text-anchor="start">= Icebelt</text>
-
-<rect x="947" y="603" height="11" width="11" class="om"/><polygon points="949.2,608.5 955.8,605.2 955.8,611.8 949.2,608.5" class="o1"/><rect x="947" y="603" height="11" width="11" class="oo"/><text x="963" y="611" class="l" text-anchor="start">= Refinery</text>
-<rect x="947" y="618.4" height="11" width="11" class="oa"/><polygon points="949.2,623.9 955.8,620.6 955.8,627.2 949.2,623.9" class="o1"/><rect x="947" y="618.4" height="11" width="11" class="oo"/><text x="963" y="626.4" class="l" text-anchor="start">= Factory</text>
-<rect x="947" y="633.8" height="11" width="11" class="oc"/><polygon points="949.2,639.3 955.8,636 955.8,642.6 949.2,639.3" class="o1"/><rect x="947" y="633.8" height="11" width="11" class="oo"/><text x="963" y="641.8" class="l" text-anchor="start">= Research</text>
-<rect x="947" y="649.2" height="11" width="11" class="og"/><polygon points="949.2,654.7 955.8,651.4 955.8,658 949.2,654.7" class="o1"/><rect x="947" y="649.2" height="11" width="11" class="oo"/><text x="963" y="657.2" class="l" text-anchor="start">= Offices</text>
-<rect x="947" y="664.6" height="11" width="11" class="o"/><polygon points="947,664.6 958,664.6 952.5,670.1 947,664.6" class="v1"/><rect x="947" y="664.6" height="11" width="11" class="oo"/><text x="963" y="672.6" class="l" text-anchor="start">= Refining</text>
-<rect x="947" y="680" height="11" width="11" class="o"/><polygon points="958,691 952.5,685.5 947,691 958,691" class="v3"/><rect x="947" y="680" height="11" width="11" class="oo"/><text x="963" y="688" class="l" text-anchor="start">= Industry</text>
-<rect x="947" y="695.4" height="11" width="11" class="o"/><polygon points="947,706.4 952.5,700.9 947,695.4 947,706.4" class="v4"/><rect x="947" y="695.4" height="11" width="11" class="oo"/><text x="963" y="703.4" class="l" text-anchor="start">= Research</text>
-<rect x="947" y="710.8" height="11" width="11" class="o"/><polygon points="958,710.8 952.5,716.3 958,721.8 958,710.8" class="v2"/><rect x="947" y="710.8" height="11" width="11" class="oo"/><text x="963" y="718.8" class="l" text-anchor="start">= Cloning</text>
-<rect x="945" y="726.2" rx="5.5" ry="5.5" width="15.4" height="11" class="sl" style="fill: #ffa0ff;"/><text x="963" y="734.2" class="l" text-anchor="start">= Contested</text>
-
-</g>-->
 
 <defs>
   <symbol id="def30002131">
