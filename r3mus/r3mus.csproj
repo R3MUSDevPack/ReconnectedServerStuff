@@ -475,6 +475,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\MapStyle.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -527,7 +528,9 @@
     <Content Include="Images\xmaslogo.png" />
     <Content Include="Maps\Catch.svg" />
     <Content Include="Maps\Detorid.svg" />
-    <Content Include="Maps\Feythabolis.svg" />
+    <Content Include="Maps\Feythabolis.svg">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Maps\Immensea.svg" />
     <Content Include="Maps\Immensea_noJB.svg" />
     <Content Include="Maps\Impass.svg" />
