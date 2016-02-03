@@ -371,6 +371,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ApplicantList.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ArchiveModels.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ArchiveModels.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ArchiveModels.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ArchiveModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ArchiveModels.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ArchiveModels.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\CRONJob.cs">
       <DependentUpon>r3musDBModel.tt</DependentUpon>
     </Compile>
@@ -449,7 +464,9 @@
     </Compile>
     <Compile Include="Models\r3musForumDBContext.cs" />
     <Compile Include="Models\RecruitmentHelper.cs" />
-    <Compile Include="Models\RecruitmentMailee.cs" />
+    <Compile Include="Models\RecruitmentMailee.cs">
+      <DependentUpon>ArchiveModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Thread.cs" />
     <Compile Include="Models\Wardec.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -538,6 +555,16 @@
     <Content Include="Maps\Providence.svg" />
     <Content Include="Maps\Tenerifis.svg" />
     <Content Include="Maps\Tenerifis_noJB.svg" />
+    <Content Include="Models\ArchiveModels.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ArchiveModels.edmx</DependentUpon>
+      <LastGenOutput>ArchiveModels.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ArchiveModels.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ArchiveModels.edmx</DependentUpon>
+      <LastGenOutput>ArchiveModels.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\r3musDBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>r3musDBModel.edmx</DependentUpon>
@@ -620,6 +647,13 @@
     </EntityDeploy>
     <Content Include="Models\r3musDBModel.edmx.diagram">
       <DependentUpon>r3musDBModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\ArchiveModels.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ArchiveModels.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ArchiveModels.edmx.diagram">
+      <DependentUpon>ArchiveModels.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\Mine.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

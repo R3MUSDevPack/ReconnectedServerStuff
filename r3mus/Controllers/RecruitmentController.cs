@@ -111,10 +111,11 @@ namespace r3mus.Controllers
         {
             string[] names = form["names"].ToString().Split(new string[]{Environment.NewLine}, StringSplitOptions.None).Distinct().ToArray();
             IList<RecruitmentMailee> mailees = new List<RecruitmentMailee>();
+            var archive = new r3mus_ArchiveDBEntities().RecruitmentMailees;
             
             foreach (string name in names)
             {
-                if (db.RecruitmentMailees.Where(m => m.Name == name).Any() == false)
+                if ((db.RecruitmentMailees.Where(m => m.Name == name).Any() == false) && (archive.Where(m => m.Name == name).Any()))
                 {
                     RecruitmentMailee mailee = new RecruitmentMailee() { Name = name, Submitted = DateTime.Now };
                     //mailee.IsInNPCCorp();
