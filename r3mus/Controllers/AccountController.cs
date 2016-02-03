@@ -48,7 +48,7 @@ namespace r3mus.Controllers
             if (ModelState.IsValid)
             {
                 var user = await UserManager.FindAsync(model.UserName, model.Password);
-                if ((user != null) && (user.IsValid()))
+                if ((user != null) && ((Properties.Settings.Default.Debug) || (user.IsValid())))
                 {
                     await SignInAsync(user, model.RememberMe);
 

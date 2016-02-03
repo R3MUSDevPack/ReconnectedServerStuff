@@ -30,7 +30,8 @@ namespace r3mus.Controllers
         public ActionResult GetIntelMap(Map map)
         {
             var vm = new IntelViewModel() { Title = map.ToString(), Map = string.Concat("/maps/", map.ToString(), ".svg") };
-            
+            //var vm = new IntelViewModel() { Title = map.ToString(), Map = string.Concat("/maps/Immensea_noJB.svg") };
+
             return View(vm);
         }
 	}

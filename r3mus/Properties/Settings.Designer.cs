@@ -277,5 +277,14 @@ namespace r3mus.Properties {
                 return ((global::System.Collections.Specialized.StringCollection)(this["SharedCommsCorpIDs"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Debug {
+            get {
+                return ((bool)(this["Debug"]));
+            }
+        }
     }
 }
