@@ -446,6 +446,7 @@
     <Compile Include="Models\OnlineUser.cs">
       <DependentUpon>r3musDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PartialRecruitmentMailee.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\r3musDBModel.Context.cs">
       <AutoGen>True</AutoGen>

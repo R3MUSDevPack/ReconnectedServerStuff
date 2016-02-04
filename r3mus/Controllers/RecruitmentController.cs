@@ -115,7 +115,7 @@ namespace r3mus.Controllers
             
             foreach (string name in names)
             {
-                if ((db.RecruitmentMailees.Where(m => m.Name == name).Any() == false) && (archive.Where(m => m.Name == name).Any()))
+                if ((db.RecruitmentMailees.Where(m => m.Name == name).Any() == false) && (archive.Where(m => m.Name == name).Any() == false))
                 {
                     RecruitmentMailee mailee = new RecruitmentMailee() { Name = name, Submitted = DateTime.Now };
                     //mailee.IsInNPCCorp();
