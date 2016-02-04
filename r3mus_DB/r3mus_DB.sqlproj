@@ -61,6 +61,7 @@
     <Folder Include="dbo\Tables\" />
     <Folder Include="dbo\Views\" />
     <Folder Include="Security\" />
+    <Folder Include="dbo\Stored Procedures\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\RecruitmentMailees.sql" />
@@ -79,7 +80,43 @@
     <Build Include="dbo\Views\ApplicantList.sql" />
     <Build Include="dbo\Tables\Threads.sql" />
     <Build Include="dbo\Tables\Posts.sql" />
-    <Build Include="dbo\Tables\Forums.sql" />
-    <Build Include="Security\RoleMemberships.sql" />
+    <Build Include="dbo\Tables\OnlineUsers.sql" />
+    <Build Include="dbo\Tables\MembershipUsersInRoles.sql" />
+    <Build Include="dbo\Tables\MembershipUser.sql" />
+    <Build Include="dbo\Tables\MembershipRole.sql" />
+    <Build Include="dbo\Tables\Members.sql" />
+    <Build Include="dbo\Tables\LogMessages.sql" />
+    <Build Include="dbo\Tables\CRONJobs.sql" />
+    <Build Include="dbo\Views\Wardecs.sql" />
+    <Build Include="dbo\Views\LatestNews.sql" />
+    <Build Include="dbo\Views\LastMonthsSubmissionStats.sql" />
+    <Build Include="dbo\Views\LastMonthsMailStats.sql" />
+    <Build Include="dbo\Views\GetRecruitmentMailees.sql" />
+    <Build Include="dbo\Views\Announcements.sql" />
+    <Build Include="dbo\Stored Procedures\UnlockRecruitmentMailees.sql" />
+    <Build Include="dbo\Stored Procedures\MarkRecruitmentMailees.sql" />
+    <Build Include="dbo\Stored Procedures\CloseRecruitmentMailees.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <ArtifactReference Include="..\r3mus_ArchiveDB\bin\Debug\r3mus_ArchiveDB.dacpac">
+      <HintPath>..\r3mus_ArchiveDB\bin\Debug\r3mus_ArchiveDB.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseSqlCmdVariable>r3mus_ArchiveDB</DatabaseSqlCmdVariable>
+    </ArtifactReference>
+    <ArtifactReference Include="..\r3mus_ForumDB\bin\Debug\r3mus_ForumDB.dacpac">
+      <HintPath>..\r3mus_ForumDB\bin\Debug\r3mus_ForumDB.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseSqlCmdVariable>r3mus_ForumDB</DatabaseSqlCmdVariable>
+    </ArtifactReference>
+  </ItemGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="r3mus_ArchiveDB">
+      <DefaultValue>r3mus_ArchiveDB</DefaultValue>
+      <Value>$(SqlCmdVar__2)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="r3mus_ForumDB">
+      <DefaultValue>r3mus_Forum</DefaultValue>
+      <Value>$(SqlCmdVar__3)</Value>
+    </SqlCmdVariable>
   </ItemGroup>
 </Project>

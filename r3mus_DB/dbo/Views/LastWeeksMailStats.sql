@@ -1,5 +1,6 @@
 ﻿
 
+
 CREATE VIEW [dbo].[LastWeeksMailStats]
 AS
 	SELECT DISTINCT
@@ -131,4 +132,6 @@ Begin DesignProperties =
    End
 End
 ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'LastWeeksMailStats';
+
+
 

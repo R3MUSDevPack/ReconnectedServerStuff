@@ -4,6 +4,7 @@
 
 
 
+
 CREATE VIEW [dbo].[ApplicantList]
 AS
 	SELECT 
@@ -22,22 +23,22 @@ AS
 		[Applications].[DateTimeCreated],
 		[Applications].[Notes],
 		ISNULL([Reviewer].[UserName], '') AS [UserName]
-	FROM [r3mus_DB].[dbo].[Applicants] AS [Applicants] WITH (NOLOCK)	
-	INNER JOIN [r3mus_DB].[dbo].[Applications] AS [Applications] WITH (NOLOCK)
+	FROM [dbo].[Applicants] AS [Applicants] WITH (NOLOCK)	
+	INNER JOIN [dbo].[Applications] AS [Applications] WITH (NOLOCK)
 		ON [Applicants].[Id] = [Applications].[ApplicantId]
 		AND [Applications].[DateTimeCreated] = 
 		(
 			SELECT MAX([DateTimeCreated])
-			FROM [r3mus_DB].[dbo].[Applications]
+			FROM [dbo].[Applications]
 			WHERE [Applicants].[Id] = [Applications].[ApplicantId]
 		)		
-	INNER JOIN [r3mus_DB].[dbo].[Applications] AS [Applied] WITH (NOLOCK)
+	INNER JOIN [dbo].[Applications] AS [Applied] WITH (NOLOCK)
 		ON [Applicants].[Id] = [Applied].[ApplicantId]
 		AND [Applied].[DateTimeCreated] = 
 		(
 			SELECT MIN([DateTimeCreated])
-			FROM [r3mus_DB].[dbo].[Applications]
+			FROM [dbo].[Applications]
 			WHERE [Applicants].[Id] = [Applications].[ApplicantId]
 		)
-	LEFT OUTER JOIN [r3mus_DB].[dbo].[AspNetUsers] AS [Reviewer] WITH (NOLOCK)
+	LEFT OUTER JOIN [dbo].[AspNetUsers] AS [Reviewer] WITH (NOLOCK)
 		ON [Reviewer].[Id] = [Applications].[Reviewer_Id]
