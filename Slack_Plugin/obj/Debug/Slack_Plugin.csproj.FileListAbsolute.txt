@@ -18,3 +18,5 @@ C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Slack_Plugin\bin\Debug\Newton
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Slack_Plugin\obj\Debug\Slack_Plugin.csprojResolveAssemblyReference.cache
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Slack_Plugin\obj\Debug\Slack_Plugin.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Slack_Plugin\obj\Debug\Slack_Plugin.pdb
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Slack_Plugin\bin\Debug\Slack_Plugin.dll.CodeAnalysisLog.xml
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Slack_Plugin\bin\Debug\Slack_Plugin.dll.lastcodeanalysissucceeded

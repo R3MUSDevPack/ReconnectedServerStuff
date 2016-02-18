@@ -92,6 +92,8 @@ namespace JKON.EveApi.Corporation.Models
 
     public class Member
     {
+        private string avatar;
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public long ID { get; set; }
@@ -113,26 +115,29 @@ namespace JKON.EveApi.Corporation.Models
             }
             set
             {
-
+                avatar = value;
             }
         }
 
         public string GetAvatar()
         {
-            string result = string.Empty;
-            try
+            string result = avatar;
+            if (result == string.Empty)
             {
-                var tempAvatar = ImageServer.DownloadCharacterImage(ID, ImageServer.ImageSize.Size128px);
-                using (var stream = new MemoryStream())
+                try
                 {
-                    tempAvatar.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
-                    result = string.Format("data:image/png;base64,{0}", Convert.ToBase64String(stream.ToArray()));
+                    var tempAvatar = ImageServer.DownloadCharacterImage(ID, ImageServer.ImageSize.Size128px);
+                    using (var stream = new MemoryStream())
+                    {
+                        tempAvatar.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
+                        result = string.Format("data:image/png;base64,{0}", Convert.ToBase64String(stream.ToArray()));
+                    }
+                    tempAvatar.Dispose();
                 }
-                tempAvatar.Dispose();
-            }
-            catch(Exception ex)
-            {
+                catch (Exception ex)
+                {
 
+                }
             }
             return result;
         }

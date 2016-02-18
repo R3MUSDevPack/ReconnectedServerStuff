@@ -10,3 +10,17 @@ C:\temp\r3mus\r3mus\EvePingBot\bin\Debug\Newtonsoft.Json.xml
 C:\temp\r3mus\r3mus\EvePingBot\obj\Debug\EvePingBot.csprojResolveAssemblyReference.cache
 C:\temp\r3mus\r3mus\EvePingBot\obj\Debug\EvePingBot.exe
 C:\temp\r3mus\r3mus\EvePingBot\obj\Debug\EvePingBot.pdb
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\EvePingBot\bin\Debug\EvePingBot.exe.config
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\EvePingBot\bin\Debug\EvePingBot.exe
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\EvePingBot\bin\Debug\EvePingBot.pdb
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\EvePingBot\bin\Debug\EvePingBot.exe.CodeAnalysisLog.xml
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\EvePingBot\bin\Debug\EvePingBot.exe.lastcodeanalysissucceeded
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\EvePingBot\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\EvePingBot\bin\Debug\SlackClient.dll
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\EvePingBot\bin\Debug\Slack_Plugin.dll
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\EvePingBot\bin\Debug\SlackClient.pdb
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\EvePingBot\bin\Debug\Slack_Plugin.pdb
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\EvePingBot\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\EvePingBot\obj\Debug\EvePingBot.csprojResolveAssemblyReference.cache
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\EvePingBot\obj\Debug\EvePingBot.exe
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\EvePingBot\obj\Debug\EvePingBot.pdb

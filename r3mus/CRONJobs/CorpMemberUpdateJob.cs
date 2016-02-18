@@ -6,45 +6,52 @@ using System.Linq;
 using System.Data.Entity.Migrations;
 using JKON.EveApi.Corporation.Models;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace r3mus.CRONJobs
 {
     public class CorpMemberUpdateJob : IJob
     {
-        public void Execute(IJobExecutionContext context)   
+        public void Execute(IJobExecutionContext context)
         {
-            SyncCorpMembers();
+            var name = MethodBase.GetCurrentMethod().DeclaringType.Name;
+            var db = new r3mus_DBEntities();
+            SyncCorpMembers(db.CRONJobs.Where(job => job.JobName == name).FirstOrDefault());
         }
 
-        private void SyncCorpMembers()
+        private void SyncCorpMembers(CRONJob settings)
         {
-            try
+            if (settings.Enabled)
             {
-                var members = Api.GetCorpMembers(Convert.ToInt64(Properties.Settings.Default.CorpAPI), Properties.Settings.Default.VCode);
-                using (var db = new ApplicationDbContext())
+                try
                 {
-                    members.ForEach(member =>
-                        db.CorpMembers.AddOrUpdate(member)
-                    );
-                    db.SaveChanges();
-
-                    var membersToDelete = new List<Member>();
-                    db.CorpMembers.ToList().ForEach(member =>
+                    var members = Api.GetCorpMembers(Convert.ToInt64(Properties.Settings.Default.CorpAPI), Properties.Settings.Default.VCode);
+                    using (var db = new ApplicationDbContext())
                     {
-                        if(!members.Any(mem => mem.ID == member.ID))
-                        {
-                            membersToDelete.Add(member);
-                        }
-                    });
+                        members.ForEach(member =>
+                            db.CorpMembers.AddOrUpdate(member)
+                        );
+                        db.SaveChanges();
 
-                    membersToDelete.ForEach(member =>
-                        db.CorpMembers.Remove(member)
-                    );
-                    db.SaveChanges();
+                        var membersToDelete = new List<Member>();
+                        db.CorpMembers.ToList().ForEach(member =>
+                        {
+                            if (!members.Any(mem => mem.ID == member.ID))
+                            {
+                                membersToDelete.Add(member);
+                            }
+                        });
+
+                        membersToDelete.ForEach(member =>
+                            db.CorpMembers.Remove(member)
+                        );
+                        settings.LastRun = DateTime.UtcNow;
+                        db.SaveChanges();
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
+                catch (Exception ex)
+                {
+                }
             }
         }
     }

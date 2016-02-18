@@ -11,3 +11,5 @@ C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Teamspeak+Plugin\bin\Debug\Te
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Teamspeak+Plugin\obj\Debug\Teamspeak_Plugin.csprojResolveAssemblyReference.cache
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Teamspeak+Plugin\obj\Debug\Teamspeak+Plugin.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Teamspeak+Plugin\obj\Debug\Teamspeak+Plugin.pdb
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Teamspeak+Plugin\bin\Debug\Teamspeak+Plugin.dll.CodeAnalysisLog.xml
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Teamspeak+Plugin\bin\Debug\Teamspeak+Plugin.dll.lastcodeanalysissucceeded

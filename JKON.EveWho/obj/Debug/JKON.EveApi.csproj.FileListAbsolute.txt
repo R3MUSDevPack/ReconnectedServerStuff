@@ -11,3 +11,5 @@ C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\JKON.EveWho\obj\Debug\JKON.Ev
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\JKON.EveWho\obj\Debug\JKON.EveWho.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\JKON.EveWho\obj\Debug\JKON.EveWho.pdb
 C:\temp\r3mus\r3mus\JKON.EveWho\obj\Debug\JKON.EveApi.csprojResolveAssemblyReference.cache
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\JKON.EveWho\bin\Debug\JKON.EveWho.dll.CodeAnalysisLog.xml
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\JKON.EveWho\bin\Debug\JKON.EveWho.dll.lastcodeanalysissucceeded

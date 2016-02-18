@@ -15,6 +15,7 @@ using Microsoft.Owin.Security.DataProtection;
 using Microsoft.AspNet.Identity.Owin;
 using JKON.Slack;
 using JKON.EveWho;
+using JKON.EveApi.Corporation.Models;
 
 namespace r3mus.Controllers
 {
@@ -61,90 +62,105 @@ namespace r3mus.Controllers
             return View();
         }
 
-        //[OutputCache(Duration = 3600)]
-        public ActionResult ViewUsers(r3mus.Models.ApplicationUser.IDType memberType = r3mus.Models.ApplicationUser.IDType.Corporation)
+        [OutputCache(Duration = 3600)]
+        public ActionResult ViewUsers(r3mus.Models.ApplicationUser.IDType memberType = r3mus.Models.ApplicationUser.IDType.Corporation, int page = 1)
         {
             var users = db.Users.Where(user => user.MemberType == memberType.ToString()).ToList<ApplicationUser>();
+
+            var members = db.CorpMembers.ToList<Member>();
 
             var userModels = new List<UserProfileViewModel>();
 
             List<ApiInfo> apis = new List<ApiInfo>();
 
-            var members = Api.GetCorpMembers(Convert.ToInt64(Properties.Settings.Default.CorpAPI), Properties.Settings.Default.VCode);
-            var resortModels = members.Where(member => member.Title.Contains("CEO")).ToList();
-            members.Where(member => member.Title.Contains("Director") && !member.Title.Contains("CEO")).OrderBy(member => member.Title).OrderBy(member => member.MemberSince).ToList().ForEach(member => resortModels.Add(member));
-            members.Where(member => (member.Title != string.Empty && (!member.Title.Contains("CEO") && !member.Title.Contains("Director")))).OrderBy(member => member.Title).OrderByDescending(member => member.LastLogonDateTime).ToList().ForEach(member => resortModels.Add(member));
-            members.Where(member => member.Title == string.Empty).OrderByDescending(member => member.LastLogonDateTime).ToList().ForEach(member => resortModels.Add(member));
+            //var members = Api.GetCorpMembers(Convert.ToInt64(Properties.Settings.Default.CorpAPI), Properties.Settings.Default.VCode);
+            var resortModels_All = members.Where(member => member.Title.Contains("CEO")).ToList();
+            members.Where(member => member.Title.Contains("Director") && !member.Title.Contains("CEO")).OrderBy(member => member.Title).OrderBy(member => member.MemberSince).ToList().ForEach(member => resortModels_All.Add(member));
+            members.Where(member => (member.Title != string.Empty && (!member.Title.Contains("CEO") && !member.Title.Contains("Director")))).OrderBy(member => member.Title).OrderByDescending(member => member.LastLogonDateTime).ToList().ForEach(member => resortModels_All.Add(member));
+            members.Where(member => member.Title == string.Empty).OrderByDescending(member => member.LastLogonDateTime).ToList().ForEach(member => resortModels_All.Add(member));
+
+            int minNo = ((page - 1) * 20);
+            int maxNo = (page * 20);
+
+            var resortModels = new List<Member>();
+
+            resortModels = resortModels_All.Skip(minNo).Take(20).ToList();
+
+            ViewBag.MemberType = memberType;
+            ViewBag.PreviousPage = (page - 1);
+            ViewBag.NextPage = (page + 1);
+            ViewBag.ShowPrevious = (minNo > 0);
+            ViewBag.ShowNext = ((resortModels.Count == 20) && (minNo <= (resortModels_All.Count - 20)));
 
             resortModels.ForEach(member =>
             {
-                member.Title = member.Title.Replace(member.ID.ToString(), "").Trim().Trim(',');
-                var user = users.Where(usr => usr.UserName == member.Name).FirstOrDefault();
-                if (user == null)
-                {
-                    if (apis.Count() == 0)
+                    member.Title = member.Title.Replace(member.ID.ToString(), "").Trim().Trim(',');
+                    var user = users.Where(usr => usr.UserName == member.Name).FirstOrDefault();
+                    if (user == null)
                     {
-                        apis = db.ApiInfoes.ToList();
-                    }
-                    apis.ForEach(api =>
+                        if (apis.Count() == 0)
                         {
-                            try
+                            apis = db.ApiInfoes.ToList();
+                        }
+                        apis.ForEach(api =>
                             {
-                                var chars = api.GetDetails();
-                                if (chars.Any(toon => toon.CharacterName == member.Name))
+                                try
                                 {
-                                    user = api.User;
-                                    return;
+                                    var chars = api.GetDetails();
+                                    if (chars.Any(toon => toon.CharacterName == member.Name))
+                                    {
+                                        user = api.User;
+                                        return;
+                                    }
                                 }
-                            }
-                            catch (Exception ex) { }
-                        });
-                    if(user == null)
-                    {
-                        user = new ApplicationUser()
+                                catch (Exception ex) { }
+                            });
+                        if (user == null)
                         {
-                            Id = 0.ToString(),
-                            UserName = "Not Registered",
-                            EmailAddress = "Not Registered",
-                            MemberType = "Not Registered",
-                            MemberSince = member.MemberSince,
-                            Titles = new List<Title>()
-                        };
+                            user = new ApplicationUser()
+                            {
+                                Id = 0.ToString(),
+                                UserName = "Not Registered",
+                                EmailAddress = "Not Registered",
+                                MemberType = "Not Registered",
+                                MemberSince = member.MemberSince,
+                                Titles = new List<Title>()
+                            };
+                        }
+                        //try
+                        //{
+                        //    user.Avatar = ApplicationUser.GetAvatar(JKON.EveWho.Api.GetCharacterID(member.Name), EveAI.Live.ImageServer.ImageSize.Size128px);
+                        //}
+                        //catch (Exception ex) { }
                     }
-                    try
+                    int titleIsId;
+                    int.TryParse(member.Title, out titleIsId);
+                    if ((titleIsId > 0) && (titleIsId != null))
                     {
-                        user.Avatar = ApplicationUser.GetAvatar(JKON.EveWho.Api.GetCharacterID(member.Name), EveAI.Live.ImageServer.ImageSize.Size128px);
+                        try
+                        {
+                            var chkUser = Api.GetCharacter(titleIsId);
+                            member.Title = member.Title.Replace(titleIsId.ToString(), string.Format("This is {0}", chkUser.result.characterName));
+                        }
+                        catch (Exception ex1) { }
                     }
-                    catch (Exception ex) { }
-                }
-                int titleIsId;
-                int.TryParse(member.Title, out titleIsId);
-                if ((titleIsId > 0) && (titleIsId != null))
-                {
-                    try
-                    {
-                        var chkUser = Api.GetCharacter(titleIsId);
-                        member.Title = member.Title.Replace(titleIsId.ToString(), string.Format("This is {0}", chkUser.result.characterName));
-                    }
-                    catch (Exception ex1) { }
-                }
 
-                userModels.Add(new UserProfileViewModel()
-                {
-                    Id = user.Id,
-                    MemberName = member.Name,
-                    UserName = user.UserName,
-                    EmailAddress = user.EmailAddress,
-                    MemberSince = Convert.ToDateTime(member.MemberSince),
-                    MemberType = user.MemberType,
-                    Titles = member.Title,
-                    WebsiteRoles = string.Join(", ", user.Roles.Select(role => role.RoleId).ToList()),
-                    Avatar = user.Avatar,
-                    CurrentLocation = member.Location,
-                    LastLogon = Convert.ToDateTime(member.LastLogonDateTime),
-                    ShipType = member.ShipType,
-                    UserRoles = member.Roles.Split(new string[] { ", " }, StringSplitOptions.RemoveEmptyEntries).ToList()
-                });
+                    userModels.Add(new UserProfileViewModel()
+                    {
+                        Id = user.Id,
+                        MemberName = member.Name,
+                        UserName = user.UserName,
+                        EmailAddress = user.EmailAddress,
+                        MemberSince = Convert.ToDateTime(member.MemberSince),
+                        MemberType = user.MemberType,
+                        Titles = member.Title,
+                        WebsiteRoles = string.Join(", ", user.Roles.Select(role => role.RoleId).ToList()),
+                        Avatar = user.Avatar,
+                        CurrentLocation = member.Location,
+                        LastLogon = Convert.ToDateTime(member.LastLogonDateTime),
+                        ShipType = member.ShipType,
+                        UserRoles = member.Roles.Split(new string[] { ", " }, StringSplitOptions.RemoveEmptyEntries).ToList()
+                    });
             });
 
             return View(userModels);
