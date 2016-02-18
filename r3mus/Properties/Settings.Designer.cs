@@ -286,5 +286,17 @@ namespace r3mus.Properties {
                 return ((bool)(this["Debug"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+  <string>https://hooks.slack.com/services/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</string>
+</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection DiscordLinkSlackWebhooks {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["DiscordLinkSlackWebhooks"]));
+            }
+        }
     }
 }

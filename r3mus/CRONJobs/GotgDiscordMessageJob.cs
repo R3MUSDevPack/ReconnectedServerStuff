@@ -50,6 +50,11 @@ namespace r3mus.CRONJobs
                                     Colour = "#ff6600"
                                 });
                                 Plugin.SendToRoom(payload, SlackRoom, Properties.Settings.Default.SlackWebhook, msg.author.username);
+                                
+                                foreach(var webhook in Properties.Settings.Default.DiscordLinkSlackWebhooks)
+                                {
+                                    Plugin.SendToRoom(payload, SlackRoom, Properties.Settings.Default.SlackWebhook, msg.author.username);
+                                }
                             });
                         }
                         else
@@ -72,6 +77,10 @@ namespace r3mus.CRONJobs
                                     Colour = "#ff6600"
                                 });
                                 Plugin.SendToRoom(payload, SlackRoom, Properties.Settings.Default.SlackWebhook, msg.author.username);
+                                foreach (var webhook in Properties.Settings.Default.DiscordLinkSlackWebhooks)
+                                {
+                                    Plugin.SendToRoom(payload, SlackRoom, Properties.Settings.Default.SlackWebhook, msg.author.username);
+                                }
                             });
                         }
                         settings.LastRun = messages.LastOrDefault().timestamp.AddMinutes(1);
