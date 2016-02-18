@@ -25,7 +25,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("4285630")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string CorpAPI {
             get {
                 return ((string)(this["CorpAPI"]));
@@ -34,7 +34,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("hmZDX0Ptrvb33GscSJVfeRy6rogh06XcymVI9GdueMahoRxZDvh0lWsOeGiBaKbS")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string VCode {
             get {
                 return ((string)(this["VCode"]));
@@ -133,8 +133,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://{2}.slack.com/api/users.admin.invite?email={0}&token={1}&set_active=true&_" +
-            "attempts=1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string SlackInviteURL {
             get {
                 return ((string)(this["SlackInviteURL"]));
@@ -280,7 +279,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool Debug {
             get {
                 return ((bool)(this["Debug"]));

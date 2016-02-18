@@ -53,7 +53,7 @@ namespace r3mus.CRONJobs
                                 
                                 foreach(var webhook in Properties.Settings.Default.DiscordLinkSlackWebhooks)
                                 {
-                                    Plugin.SendToRoom(payload, SlackRoom, Properties.Settings.Default.SlackWebhook, msg.author.username);
+                                    Plugin.SendToRoom(payload, SlackRoom, webhook, msg.author.username);
                                 }
                             });
                         }
@@ -79,7 +79,7 @@ namespace r3mus.CRONJobs
                                 Plugin.SendToRoom(payload, SlackRoom, Properties.Settings.Default.SlackWebhook, msg.author.username);
                                 foreach (var webhook in Properties.Settings.Default.DiscordLinkSlackWebhooks)
                                 {
-                                    Plugin.SendToRoom(payload, SlackRoom, Properties.Settings.Default.SlackWebhook, msg.author.username);
+                                    Plugin.SendToRoom(payload, SlackRoom, webhook, msg.author.username);
                                 }
                             });
                         }
