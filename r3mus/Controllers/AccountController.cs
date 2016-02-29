@@ -47,7 +47,7 @@ namespace r3mus.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = await UserManager.FindAsync(model.UserName, model.Password);
+                var user = await UserManager.FindAsync(model.UserName.Replace(@"'", ""), model.Password);
                 if ((user != null) && ((Properties.Settings.Default.Debug) || (user.IsValid())))
                 {
                     await SignInAsync(user, model.RememberMe);
@@ -109,7 +109,7 @@ namespace r3mus.Controllers
             if (ModelState.IsValid)
             {
 
-                var user = new ApplicationUser() { UserName = model.UserName, EmailAddress = model.Email };
+                var user = new ApplicationUser() { UserName = model.UserName.Replace(@"'", ""), EmailAddress = model.Email };
                 user.AddApiInfo(model.ApiKey, model.VerificationCode);
                 
                 if (user.IsValid())

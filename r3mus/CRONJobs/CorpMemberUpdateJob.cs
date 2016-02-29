@@ -26,27 +26,30 @@ namespace r3mus.CRONJobs
                 try
                 {
                     var members = Api.GetCorpMembers(Convert.ToInt64(Properties.Settings.Default.CorpAPI), Properties.Settings.Default.VCode);
-                    using (var db = new ApplicationDbContext())
+                    if ((members != null) && (members.Count > 0))
                     {
-                        members.ForEach(member =>
-                            db.CorpMembers.AddOrUpdate(member)
-                        );
-                        db.SaveChanges();
-
-                        var membersToDelete = new List<Member>();
-                        db.CorpMembers.ToList().ForEach(member =>
+                        using (var db = new ApplicationDbContext())
                         {
-                            if (!members.Any(mem => mem.ID == member.ID))
-                            {
-                                membersToDelete.Add(member);
-                            }
-                        });
+                            members.ForEach(member =>
+                                db.CorpMembers.AddOrUpdate(member)
+                            );
+                            db.SaveChanges();
 
-                        membersToDelete.ForEach(member =>
-                            db.CorpMembers.Remove(member)
-                        );
-                        settings.LastRun = DateTime.UtcNow;
-                        db.SaveChanges();
+                            var membersToDelete = new List<Member>();
+                            db.CorpMembers.ToList().ForEach(member =>
+                            {
+                                if (!members.Any(mem => mem.ID == member.ID))
+                                {
+                                    membersToDelete.Add(member);
+                                }
+                            });
+
+                            membersToDelete.ForEach(member =>
+                                db.CorpMembers.Remove(member)
+                            );
+                            settings.LastRun = DateTime.UtcNow;
+                            db.SaveChanges();
+                        }
                     }
                 }
                 catch (Exception ex)

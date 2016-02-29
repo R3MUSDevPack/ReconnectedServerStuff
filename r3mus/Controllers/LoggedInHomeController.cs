@@ -240,7 +240,7 @@ namespace r3mus.Controllers
             try
             {
                 MoodleUser mUser = new MoodleUser() { 
-                    username = HttpUtility.UrlEncode(User.Identity.Name.Replace(" ", "").ToLower()), 
+                    username = HttpUtility.UrlEncode(User.Identity.Name.Replace(@"'", "").Replace(" ", "").ToLower()), 
                     password = HttpUtility.UrlEncode("r3MuSU53r#"), 
                     email = HttpUtility.UrlEncode(UserManager.FindById(User.Identity.GetUserId()).EmailAddress),
                     firstname = nameComponents[0]

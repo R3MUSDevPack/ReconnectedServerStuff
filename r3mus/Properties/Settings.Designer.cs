@@ -25,7 +25,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("4285630")]
         public string CorpAPI {
             get {
                 return ((string)(this["CorpAPI"]));
@@ -34,7 +34,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("hmZDX0Ptrvb33GscSJVfeRy6rogh06XcymVI9GdueMahoRxZDvh0lWsOeGiBaKbS")]
         public string VCode {
             get {
                 return ((string)(this["VCode"]));

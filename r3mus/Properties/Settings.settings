@@ -3,10 +3,10 @@
   <Profiles />
   <Settings>
     <Setting Name="CorpAPI" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">4285630</Value>
     </Setting>
     <Setting Name="VCode" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">hmZDX0Ptrvb33GscSJVfeRy6rogh06XcymVI9GdueMahoRxZDvh0lWsOeGiBaKbS</Value>
     </Setting>
     <Setting Name="MoodleToken" Type="System.String" Scope="Application">
       <Value Profile="(Default)">a7c31796d590c338d13eecdf4c74ef42</Value>
