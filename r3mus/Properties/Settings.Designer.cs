@@ -293,5 +293,50 @@ namespace r3mus.Properties {
                 return ((global::System.Collections.Specialized.StringCollection)(this["DiscordLinkSlackWebhooks"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("maximus_chanlin@bladesofgrass.space")]
+        public string JabberName {
+            get {
+                return ((string)(this["JabberName"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("p33K4800")]
+        public string JabberPWd {
+            get {
+                return ((string)(this["JabberPWd"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("director_gnome@bladesofgrass.space")]
+        public string JabberBroadcaster {
+            get {
+                return ((string)(this["JabberBroadcaster"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("fleets")]
+        public string FleetRoomName {
+            get {
+                return ((string)(this["FleetRoomName"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Marvin the Paranoid Fleetbot")]
+        public string FleetBotName {
+            get {
+                return ((string)(this["FleetBotName"]));
+            }
+        }
     }
 }

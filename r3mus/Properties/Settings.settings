@@ -95,5 +95,20 @@
     <Setting Name="DiscordLinkSlackWebhooks" Type="System.Collections.Specialized.StringCollection" Scope="Application">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="JabberName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">maximus_chanlin@bladesofgrass.space</Value>
+    </Setting>
+    <Setting Name="JabberPWd" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">p33K4800</Value>
+    </Setting>
+    <Setting Name="JabberBroadcaster" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">director_gnome@bladesofgrass.space</Value>
+    </Setting>
+    <Setting Name="FleetRoomName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">fleets</Value>
+    </Setting>
+    <Setting Name="FleetBotName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Marvin the Paranoid Fleetbot</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
