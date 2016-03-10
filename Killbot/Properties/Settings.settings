@@ -20,7 +20,7 @@
     <Setting Name="Plugin" Type="System.String" Scope="Application">
       <Value Profile="(Default)">Slack</Value>
     </Setting>
-    <Setting Name="RoomName" Type="System.String" Scope="Application">
+    <Setting Name="KillRoomName" Type="System.String" Scope="Application">
       <Value Profile="(Default)">kills</Value>
     </Setting>
     <Setting Name="HipchatToken" Type="System.String" Scope="Application">
@@ -52,6 +52,12 @@
     </Setting>
     <Setting Name="CorpTicker" Type="System.String" Scope="Application">
       <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="LossRoomName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">losses</Value>
+    </Setting>
+    <Setting Name="BotName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">KillBot</Value>
     </Setting>
   </Settings>
 </SettingsFile>

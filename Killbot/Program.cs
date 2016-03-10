@@ -13,11 +13,10 @@ using eZet.EveLib.ZKillboardModule;
 using eZet.EveLib.ZKillboardModule.Models;
 
 using Hipchat_Plugin;
-using Slack_Plugin;
 using System.Text.RegularExpressions;
-using JKON.Slack;
 using eZet.EveLib.StaticDataModule;
 using eZet.EveLib.StaticDataModule.Models;
+using R3MUS.Devpack.Slack;
 
 namespace Killbot
 {
@@ -37,7 +36,7 @@ namespace Killbot
                 {
                     try
                     {
-                        SendMessage(HyperFormatLolMessage(arg));
+                        SendLossMessage(HyperFormatLolMessage(arg));
                     }
                     catch (Exception ex)
                     {
@@ -72,61 +71,7 @@ namespace Killbot
                 }
             }
         }
-
-        //private static void CheckKills()
-        //{
-        //    //string killKey = "StartDate_Kills";
-        //    //string lossKey = "StartDate_Losses";
-
-        //    //DateTime LatestKill = Convert.ToDateTime(ConfigurationSettings.AppSettings[killKey]).AddSeconds(1);
-        //    //DateTime LatestLoss = Convert.ToDateTime(ConfigurationSettings.AppSettings[lossKey]).AddSeconds(1);
-
-        //    //KeyValuePair<DateTime, List<ZkbResponse.ZkbKill>> Kills;
-        //    //KeyValuePair<DateTime, List<ZkbResponse.ZkbKill>> Losses;
-
-        //    try
-        //    {
-        //        Kills = GetZKBResponse(corpId, LatestKill, ZKBType.Kill);
-        //        if (Kills.Value.Count() > 0)
-        //        {
-        //            Kills.Value.ForEach(kill => {
-        //                //Console.WriteLine(FormatKillMessage(kill, corpName, corpId));
-        //                SendMessage(HyperFormatKillMessage(kill, corpName, corpId));
-        //            });
-
-        //            UpdateRunTime(Kills.Key, killKey);
-        //        }
-        //    }
-        //    catch (Exception Ex)
-        //    {
-        //        if (Properties.Settings.Default.Debug)
-        //        {
-        //            SendPM(Ex.Message);
-        //        }
-        //    }
-
-        //    try
-        //    {
-        //        Losses = GetZKBResponse(corpId, LatestLoss, ZKBType.Loss);
-        //        if (Losses.Value.Count() > 0)
-        //        {
-        //            Losses.Value.ForEach(kill => {
-        //                //Console.WriteLine(FormatKillMessage(kill, corpName, corpId));
-        //                SendMessage(HyperFormatKillMessage(kill, corpName, corpId));
-        //            });
-
-        //            UpdateRunTime(Losses.Key, lossKey);
-        //        }
-        //    }
-        //    catch (Exception Ex)
-        //    {
-        //        if (Properties.Settings.Default.Debug)
-        //        {
-        //            SendPM(Ex.Message);
-        //        }
-        //    }
-        //}
-
+        
         private static void CheckKills(string corpName, long corpId)
         {
             string killKey = "StartDate_Kills";
@@ -145,7 +90,7 @@ namespace Killbot
                 {
                     Kills.Value.ForEach(kill => {
                         //Console.WriteLine(FormatKillMessage(kill, corpName, corpId));
-                        SendMessage(HyperFormatKillMessage(kill, corpName, corpId));
+                        SendKillMessage(HyperFormatKillMessage(kill, corpName, corpId));
                     });
 
                     UpdateRunTime(Kills.Key, killKey);
@@ -166,7 +111,7 @@ namespace Killbot
                 {
                     Losses.Value.ForEach(kill => {
                         //Console.WriteLine(FormatKillMessage(kill, corpName, corpId));
-                        SendMessage(HyperFormatKillMessage(kill, corpName, corpId));
+                        SendLossMessage(HyperFormatKillMessage(kill, corpName, corpId));
                     });
 
                     UpdateRunTime(Losses.Key, lossKey);
@@ -211,7 +156,7 @@ namespace Killbot
             return new KeyValuePair<DateTime, List<ZkbResponse.ZkbKill>>(OrderedKills.Last().KillTime, OrderedKills);
         }
 
-        private static void SendMessage(MessagePayload message)
+        private static void SendKillMessage(MessagePayload message)
         {
             if (Properties.Settings.Default.Plugin.ToUpper() == "HIPCHAT")
             {
@@ -220,22 +165,35 @@ namespace Killbot
             else if (Properties.Settings.Default.Plugin.ToUpper() == "SLACK")
             {
                 //message = Linkify(message);
-                Slack.SendToRoom(message, Properties.Settings.Default.RoomName, Properties.Settings.Default.SlackWebhook);
+                Plugin.SendToRoom(message, Properties.Settings.Default.KillRoomName, Properties.Settings.Default.SlackWebhook, Properties.Settings.Default.BotName);
             }
         }
 
-        private static void SendMessage(string message)
+        private static void SendLossMessage(MessagePayload message)
         {
             if (Properties.Settings.Default.Plugin.ToUpper() == "HIPCHAT")
             {
-                Hipchat.SendToRoom(message, Properties.Settings.Default.RoomName, Properties.Settings.Default.HipchatToken);
+                //Hipchat.SendToRoom(message, Properties.Settings.Default.RoomName, Properties.Settings.Default.HipchatToken);
             }
             else if (Properties.Settings.Default.Plugin.ToUpper() == "SLACK")
             {
                 //message = Linkify(message);
-                Slack.SendToRoom(message, Properties.Settings.Default.RoomName, Properties.Settings.Default.SlackWebhook);
+                Plugin.SendToRoom(message, Properties.Settings.Default.LossRoomName, Properties.Settings.Default.SlackWebhook, Properties.Settings.Default.BotName);
             }
         }
+
+        //private static void SendMessage(string message)
+        //{
+        //    if (Properties.Settings.Default.Plugin.ToUpper() == "HIPCHAT")
+        //    {
+        //        Hipchat.SendToRoom(message, Properties.Settings.Default.KillRoomName, Properties.Settings.Default.HipchatToken);
+        //    }
+        //    else if (Properties.Settings.Default.Plugin.ToUpper() == "SLACK")
+        //    {
+        //        //message = Linkify(message);
+        //        Slack.SendToRoom(message, Properties.Settings.Default.KillRoomName, Properties.Settings.Default.SlackWebhook);
+        //    }
+        //}
 
         private static string Linkify(string SearchText)
         {
@@ -262,7 +220,7 @@ namespace Killbot
             }
             else if (Properties.Settings.Default.Plugin.ToUpper() == "SLACK")
             {
-                Slack.SendPM(message, "ClydeenMarland", Properties.Settings.Default.SlackWebhook);
+                Plugin.SendDirectMessage(message, "ClydeenMarland", Properties.Settings.Default.SlackWebhook);
             }
         }
 
@@ -274,7 +232,7 @@ namespace Killbot
             }
             else if (Properties.Settings.Default.Plugin.ToUpper() == "SLACK")
             {
-                Slack.SendPM(message, "ClydeenMarland", Properties.Settings.Default.SlackWebhook);
+                Plugin.SendDirectMessage(message, "ClydeenMarland", Properties.Settings.Default.SlackWebhook);
             }
         }
 

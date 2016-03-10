@@ -9,14 +9,10 @@ C:\temp\r3mus\r3mus\Killbot\bin\Debug\Hipchat_Plugin.dll
 C:\temp\r3mus\r3mus\Killbot\bin\Debug\Ionic.Zip.Reduced.dll
 C:\temp\r3mus\r3mus\Killbot\bin\Debug\JKON.EveWho.dll
 C:\temp\r3mus\r3mus\Killbot\bin\Debug\Newtonsoft.Json.dll
-C:\temp\r3mus\r3mus\Killbot\bin\Debug\SlackClient.dll
-C:\temp\r3mus\r3mus\Killbot\bin\Debug\Slack_Plugin.dll
 C:\temp\r3mus\r3mus\Killbot\bin\Debug\HipchatApiV2.dll
 C:\temp\r3mus\r3mus\Killbot\bin\Debug\ServiceStack.Text.dll
 C:\temp\r3mus\r3mus\Killbot\bin\Debug\Hipchat_Plugin.pdb
 C:\temp\r3mus\r3mus\Killbot\bin\Debug\JKON.EveWho.pdb
-C:\temp\r3mus\r3mus\Killbot\bin\Debug\SlackClient.pdb
-C:\temp\r3mus\r3mus\Killbot\bin\Debug\Slack_Plugin.pdb
 C:\temp\r3mus\r3mus\Killbot\bin\Debug\EveLib.Core.xml
 C:\temp\r3mus\r3mus\Killbot\bin\Debug\EveLib.ZKillboard.xml
 C:\temp\r3mus\r3mus\Killbot\bin\Debug\Newtonsoft.Json.xml
@@ -53,3 +49,5 @@ C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Killbot\bin\Debug\Killbot.exe
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Killbot\bin\Debug\Killbot.exe.lastcodeanalysissucceeded
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Killbot\bin\Debug\EveLib.StaticData.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Killbot\bin\Debug\EveLib.StaticData.xml
+C:\temp\r3mus\r3mus\Killbot\bin\Debug\R3MUS.Devpack.Slack.dll
+C:\temp\r3mus\r3mus\Killbot\bin\Debug\R3MUS.Devpack.Slack.pdb
