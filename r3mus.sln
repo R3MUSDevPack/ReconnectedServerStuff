@@ -59,6 +59,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvePingBot", "EvePingBot\Ev
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlackClient", "SlackClient\SlackClient.csproj", "{658B5BF5-6B66-42E3-A2C2-7F6DC08EF2D1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotlanMapTranslator", "DotlanMapTranslator\DotlanMapTranslator.csproj", "{3B0CA25B-9BE5-4010-AB20-075593A84CAD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -123,6 +125,10 @@ Global
 		{658B5BF5-6B66-42E3-A2C2-7F6DC08EF2D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{658B5BF5-6B66-42E3-A2C2-7F6DC08EF2D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{658B5BF5-6B66-42E3-A2C2-7F6DC08EF2D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B0CA25B-9BE5-4010-AB20-075593A84CAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B0CA25B-9BE5-4010-AB20-075593A84CAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B0CA25B-9BE5-4010-AB20-075593A84CAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B0CA25B-9BE5-4010-AB20-075593A84CAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -175,3 +175,6 @@ C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\obj\Debug\SiteU
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\obj\Debug\SiteUpdateBot.exe
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\obj\Debug\SiteUpdateBot.pdb
 C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\agsXMPP.dll
+C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\Microsoft.Owin.Cors.dll
+C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\System.Web.Cors.dll
+C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\Microsoft.Owin.Cors.xml
