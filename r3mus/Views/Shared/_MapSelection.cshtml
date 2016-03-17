@@ -1,0 +1,48 @@
+﻿@model r3mus.ViewModels.MapSelectionViewModel
+
+<table style="border:thin;">
+    @for(var i = 0; i < Model.Column1.Count; i++)
+    {
+        <tr>
+            <td style="border-style:ridge;">
+                @Html.ActionLink(Model.Column1[i].ToString().Replace("_", " "), "GetIntelMap", "Intel", new { map = Model.Column1[i].ToString() }, null)
+            </td>            
+            @try
+            {
+                <td style="border-style:ridge;">
+                    @Html.ActionLink(Model.Column2[i].ToString().Replace("_", " "), "GetIntelMap", "Intel", new { map = Model.Column2[i].ToString() }, null)
+                </td>
+            }
+            catch (Exception e)
+            {
+            }
+            @try
+            {
+                <td style="border-style:ridge;">
+                    @Html.ActionLink(Model.Column3[i].ToString().Replace("_", " "), "GetIntelMap", "Intel", new { map = Model.Column3[i].ToString() }, null)
+                </td>
+            }
+            catch (Exception e)
+            {
+            }
+            @try
+            {
+                <td style="border-style:ridge;">
+                    @Html.ActionLink(Model.Column4[i].ToString().Replace("_", " "), "GetIntelMap", "Intel", new { map = Model.Column4[i].ToString() }, null)
+                </td>
+            }
+            catch (Exception e)
+            {
+            }
+            @try
+            {
+                <td style="border-style:ridge;">
+                    @Html.ActionLink(Model.Column5[i].ToString().Replace("_", " "), "GetIntelMap", "Intel", new { map = Model.Column5[i].ToString() }, null)
+                </td>
+            }
+            catch (Exception e)
+            {
+            }
+        </tr>
+    }
+</table>

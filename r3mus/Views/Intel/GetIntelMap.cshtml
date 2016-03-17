@@ -10,7 +10,7 @@
         <object data="@Model.Map" id="map" type="image/svg+xml" width="95%" height="85%"></object>
     </div>
     <div class="col-lg-2">
-        <h4>@ViewBag.Title - @Model.Title</h4>
+        <h4>@ViewBag.Title - @Model.Title.Replace("_", " ")</h4>
         <h5>Status: <label id="status" style="color: orangered;">Connecting to Hub</label></h5>
         <h5>Number of Contributors Logging: <label id="loggerCount">0</label></h5>
         <div id="log" style="text-align: left; overflow-y: scroll; min-height: 80vh; height: 80vh; max-height: 80vh; min-width: 25vh;">
