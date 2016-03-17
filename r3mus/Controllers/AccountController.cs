@@ -108,7 +108,6 @@ namespace r3mus.Controllers
         {
             if (ModelState.IsValid)
             {
-
                 var user = new ApplicationUser() { UserName = model.UserName.Replace(@"'", ""), EmailAddress = model.Email };
                 user.AddApiInfo(model.ApiKey, model.VerificationCode);
                 

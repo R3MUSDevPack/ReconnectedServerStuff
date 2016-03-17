@@ -21,8 +21,6 @@ C:\temp\r3mus\r3mus\SlackBot\obj\Debug\SlackBot.pdb
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SlackBot\bin\Debug\SlackBot.exe.config
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SlackBot\bin\Debug\SlackBot.exe
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SlackBot\bin\Debug\SlackBot.pdb
-C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SlackBot\bin\Debug\SlackBot.exe.CodeAnalysisLog.xml
-C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SlackBot\bin\Debug\SlackBot.exe.lastcodeanalysissucceeded
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SlackBot\bin\Debug\EntityFramework.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SlackBot\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SlackBot\bin\Debug\Microsoft.AspNet.Identity.Core.dll

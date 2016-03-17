@@ -89,8 +89,6 @@ C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\Image
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\SiteUpdateBot.exe.config
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\SiteUpdateBot.exe
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\SiteUpdateBot.pdb
-C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\SiteUpdateBot.exe.CodeAnalysisLog.xml
-C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\SiteUpdateBot.exe.lastcodeanalysissucceeded
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\EntityFramework.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\Hipchat_Plugin.dll
@@ -178,3 +176,7 @@ C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\agsXMPP.dll
 C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\Microsoft.Owin.Cors.dll
 C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\System.Web.Cors.dll
 C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\Microsoft.Owin.Cors.xml
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\Microsoft.Owin.Cors.dll
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\System.Web.Cors.dll
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\agsXMPP.dll
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\Microsoft.Owin.Cors.xml

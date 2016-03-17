@@ -18,8 +18,6 @@ C:\temp\r3mus\r3mus\RandomQuoteBot\obj\Debug\RandomQuoteBot.pdb
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\RandomQuoteBot\bin\Debug\RandomQuoteBot.exe.config
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\RandomQuoteBot\bin\Debug\RandomQuoteBot.exe
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\RandomQuoteBot\bin\Debug\RandomQuoteBot.pdb
-C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\RandomQuoteBot\bin\Debug\RandomQuoteBot.exe.CodeAnalysisLog.xml
-C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\RandomQuoteBot\bin\Debug\RandomQuoteBot.exe.lastcodeanalysissucceeded
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\RandomQuoteBot\bin\Debug\Hipchat_Plugin.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\RandomQuoteBot\bin\Debug\SlackClient.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\RandomQuoteBot\bin\Debug\Slack_Plugin.dll

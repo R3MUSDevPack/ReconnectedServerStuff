@@ -13,6 +13,7 @@ using System.IO;
 //using eZet.EveLib.EveWhoModule.Models;
 using eZet.EveLib.EveXmlModule;
 using JKON.EveApi.Corporation.Models;
+using System.Net;
 
 namespace r3mus.Models
 {
@@ -73,54 +74,64 @@ namespace r3mus.Models
             //return true;
             bool result = false;
             bool unloadApis = false;
+            
+            var member = new ApplicationDbContext().CorpMembers.ToList<Member>()
+                .Where(memb => memb.Name == UserName).FirstOrDefault();
+            result = (member != null);
 
-            try
+            if (!result)
             {
-                        
-                long hostCorpID = GetCorpOrAllianceId(IDType.Corporation, Convert.ToInt32(Properties.Settings.Default.CorpAPI), Properties.Settings.Default.VCode);
-                long hostAllianceID = GetCorpOrAllianceId(IDType.Alliance, Convert.ToInt32(Properties.Settings.Default.CorpAPI), Properties.Settings.Default.VCode);
-
-                if(this.ApiKeys.Count == 0)
+                try
                 {
-                    unloadApis = this.LoadApiKeys();
-                }
+                    var req = WebRequest.Create("https://api.eveonline.com");
+                    req.Timeout = 2000;
+                    HttpWebResponse response = (HttpWebResponse)req.GetResponse();
 
-                foreach (ApiInfo apiInfo in this.ApiKeys)
+                    long hostCorpID = GetCorpOrAllianceId(IDType.Corporation, Convert.ToInt32(Properties.Settings.Default.CorpAPI), Properties.Settings.Default.VCode);
+                    long hostAllianceID = GetCorpOrAllianceId(IDType.Alliance, Convert.ToInt32(Properties.Settings.Default.CorpAPI), Properties.Settings.Default.VCode);
+
+                    if (this.ApiKeys.Count == 0)
+                    {
+                        unloadApis = this.LoadApiKeys();
+                    }
+
+                    foreach (ApiInfo apiInfo in this.ApiKeys)
+                    {
+                        long clientCorpId = GetCorpOrAllianceId(IDType.Corporation, apiInfo.ApiKey, apiInfo.VerificationCode);
+                        long clientAllianceId = GetCorpOrAllianceId(IDType.Alliance, apiInfo.ApiKey, apiInfo.VerificationCode);
+
+                        if (clientCorpId == hostCorpID)
+                        {
+                            MemberType = IDType.Corporation.ToString();
+                            result = apiInfo.ValidateAccessMask(IDType.Corporation);
+                        }
+                        else if ((clientAllianceId == hostAllianceID) && (clientAllianceId > 0) && (hostAllianceID > 0))
+                        {
+                            MemberType = IDType.Alliance.ToString();
+                            result = apiInfo.ValidateAccessMask(IDType.Alliance);
+                        }
+                        else
+                        {
+                            //  Get standings
+                            result = ValidateStandings(UserName, clientCorpId, clientAllianceId, Convert.ToInt32(Properties.Settings.Default.CorpAPI), Properties.Settings.Default.VCode);
+                        }
+                        if (result)
+                        {
+                            break;
+                        }
+                    }
+                    if (unloadApis)
+                    {
+                        this.UnloadApiKeys();
+                    }
+                    Errored = false;
+
+                }
+                catch (Exception ex)
                 {
-                    long clientCorpId = GetCorpOrAllianceId(IDType.Corporation, apiInfo.ApiKey, apiInfo.VerificationCode);
-                    long clientAllianceId = GetCorpOrAllianceId(IDType.Alliance, apiInfo.ApiKey, apiInfo.VerificationCode);
-
-                    if (clientCorpId == hostCorpID)
-                    {
-                        MemberType = IDType.Corporation.ToString();
-                        result = apiInfo.ValidateAccessMask(IDType.Corporation);
-                    }
-                    else if ((clientAllianceId == hostAllianceID) && (clientAllianceId > 0) && (hostAllianceID > 0))
-                    {
-                        MemberType = IDType.Alliance.ToString();
-                        result = apiInfo.ValidateAccessMask(IDType.Alliance);
-                    }
-                    else
-                    {
-                        //  Get standings
-                        result = ValidateStandings(UserName, clientCorpId, clientAllianceId, Convert.ToInt32(Properties.Settings.Default.CorpAPI), Properties.Settings.Default.VCode);
-                    }
-                    if(result)
-                    {
-                        break;
-                    }
+                    Errored = true;
+                    ErrorMessage = ex.Message;
                 }
-                if(unloadApis)
-                {
-                    this.UnloadApiKeys();
-                }
-                Errored = false;
-
-            }
-            catch(Exception ex)
-            {
-                Errored = true;
-                ErrorMessage = ex.Message;
             }
 
             return result;
@@ -427,7 +438,19 @@ namespace r3mus.Models
         [NotMapped]
         [Display(Name = "Access Mask")]
         [UIHint("AccessMaskHighlight")]
-        public long AccessMask { get { try { return EveXml.CreateApiKey(Convert.ToInt32(ApiKey), VerificationCode).Init().AccessMask; } catch (Exception ex) { return -1; } } }
+        public long AccessMask
+        {
+            get
+            {
+                try
+                {
+                    var req = WebRequest.Create("https://api.eveonline.com");
+                    req.Timeout = 2000;
+                    HttpWebResponse response = (HttpWebResponse)req.GetResponse();
+                    return EveXml.CreateApiKey(Convert.ToInt32(ApiKey), VerificationCode).Init().AccessMask;
+                }
+                catch (Exception ex) { return -1; } }
+        }
 
         public virtual ApplicationUser User { get; set; }
 
