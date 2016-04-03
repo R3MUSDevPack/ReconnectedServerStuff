@@ -153,10 +153,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/27/2015 13:49:29</publishTime>
     </File>
     <File Include="bin/R3MUS.Devpack.Slack.dll">
-      <publishTime>12/27/2015 13:48:42</publishTime>
+      <publishTime>04/02/2016 18:13:12</publishTime>
     </File>
     <File Include="bin/r3mus.dll">
-      <publishTime>03/17/2016 20:39:39</publishTime>
+      <publishTime>04/03/2016 17:34:49</publishTime>
     </File>
     <File Include="bin/ServiceStack.Text.dll">
       <publishTime>11/28/2015 17:32:03</publishTime>
@@ -744,7 +744,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/02/2016 10:06:04</publishTime>
     </File>
     <File Include="Views/Logistics/ContractStatus.cshtml">
-      <publishTime>01/19/2016 14:36:15</publishTime>
+      <publishTime>03/27/2016 19:36:52</publishTime>
     </File>
     <File Include="Views/Recruitment/AddNames.cshtml">
       <publishTime>11/14/2015 15:32:15</publishTime>

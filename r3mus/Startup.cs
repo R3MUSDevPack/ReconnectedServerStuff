@@ -32,7 +32,9 @@ namespace r3mus
                     PolicyResolver = context =>
                     {
                         var policy = new CorsPolicy();
-                        policy.Origins.Add("http://bladesofgrass.space");
+                        policy.Origins.Add("http://map.bladesofgrass.space");
+                        policy.Origins.Add("https://map.bladesofgrass.space");
+                        policy.Origins.Add("map.bladesofgrass.space");
                         policy.AllowAnyMethod = true;
                         policy.AllowAnyHeader = true;
                         policy.SupportsCredentials = true;
