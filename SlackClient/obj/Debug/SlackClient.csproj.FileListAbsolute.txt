@@ -13,3 +13,4 @@ C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SlackClient\obj\Debug\SlackCl
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SlackClient\bin\Debug\SlackClient.dll.CodeAnalysisLog.xml
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SlackClient\bin\Debug\SlackClient.dll.lastcodeanalysissucceeded
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SlackClient\obj\Debug\SlackClient.csprojResolveAssemblyReference.cache
+C:\temp\r3mus\r3mus\SlackClient\obj\Debug\SlackClient.csprojResolveAssemblyReference.cache

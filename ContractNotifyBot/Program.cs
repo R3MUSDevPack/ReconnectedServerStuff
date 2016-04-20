@@ -58,10 +58,11 @@ namespace ContractNotifyBot
                 
                 foreach (EveAI.Live.Utility.Contract Contract in Contracts)
                 {
-                    if ((Contract.Type == EveAI.Live.Utility.Contract.ContractType.Courier) && (Contract.Status == EveAI.Live.Utility.Contract.ContractStatus.Outstanding))
+                    if ((Contract.Type == EveAI.Live.Utility.Contract.ContractType.Courier) && 
+                        ((Contract.Status == EveAI.Live.Utility.Contract.ContractStatus.Outstanding) || (Contract.Status == EveAI.Live.Utility.Contract.ContractStatus.Completed)))
                     {
                         //Console.WriteLine(string.Format("Contract notification: {0}", FormatMessage(Contract, Names[Contract.IssuerID].result.characterName)));
-                        SendMessage(FormatMessage(Contract, Names[Contract.IssuerID].result.characterName));
+                        SendMessage(HyperFormatMessage(Contract, Names[Contract.IssuerID].result.characterName));
                         if (Contract.DateIssued > lastFullRunTime) { lastFullRunTime = Contract.DateIssued; }
                     }
                 }
@@ -186,6 +187,67 @@ namespace ContractNotifyBot
             return message;
         }
 
+        private static MessagePayload HyperFormatMessage(EveAI.Live.Utility.Contract contract, string IssuerName)
+        {
+            string type;
+            List<string> messageLines = new List<string>();
+            var message = new MessagePayload();
+
+            //messageLines.Add(string.Format(Properties.Settings.Default.MessageFormatLine1, contract.DateIssued.ToString("yyyy-MM-dd hh:mm:ss")));
+            messageLines.Add(string.Format(Properties.Settings.Default.MessageFormatLine2, IssuerName));
+            messageLines.Add(string.Format(Properties.Settings.Default.MessageFormatLine3, contract.Reward.ToString()));
+
+            var startStation = contract.StartStation;
+            var endStation = contract.EndStation;
+            string startStationName = string.Empty;
+            string endStationName = string.Empty;
+
+            if (startStation == null)
+            {
+                startStationName = Api.GetStation(contract.StartStationID).stationName;
+            }
+            else
+            {
+                startStationName = contract.StartStation.Name;
+            }
+            if (endStation == null)
+            {
+                endStationName = Api.GetStation(contract.EndStationID).stationName;
+            }
+            else
+            {
+                endStationName = contract.EndStation.Name;
+            }
+
+            try
+            {
+                messageLines.Add(string.Format(Properties.Settings.Default.MessageFormatLine4, startStationName, endStationName)); //, contract.StartStation.Name, contract.EndStation.Name));
+            }
+            catch (Exception ex) { }
+            messageLines.Add(string.Format(Properties.Settings.Default.MessageFormatLine5, contract.Volume.ToString()));
+
+            var colour = string.Empty;
+
+            if(contract.Status == EveAI.Live.Utility.Contract.ContractStatus.Outstanding)
+            {
+                colour = "#FF99C2";
+            }
+            else
+            {
+                colour = "#A6D785";
+            }
+
+            message.Attachments.Add(new MessagePayloadAttachment()
+            {
+                Text = String.Join("\n", messageLines.ToArray()),
+                Title = string.Format(Properties.Settings.Default.MessageFormatLine1, contract.DateIssued.ToString("yyyy-MM-dd hh:mm:ss")),
+                ThumbUrl = "http://www.r3mus.org/Images/logo.png",
+                AuthorName = Properties.Settings.Default.BotName,
+                Colour = colour
+            });
+            return message;
+        }
+
         private static void SendMessage(string message)
         {
             if (Properties.Settings.Default.Plugin.ToUpper() == "HIPCHAT")
@@ -196,6 +258,11 @@ namespace ContractNotifyBot
             {
                 Slack.SendToRoom(message, Properties.Settings.Default.RoomName, Properties.Settings.Default.SlackWebhook);
             }
+        }
+
+        private static void SendMessage(MessagePayload message)
+        {
+            Slack.SendToRoom(message, Properties.Settings.Default.RoomName, Properties.Settings.Default.SlackWebhook);
         }
 
         private static DateTime GetLastRunTime()
