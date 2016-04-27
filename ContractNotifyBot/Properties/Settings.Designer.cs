@@ -25,7 +25,7 @@ namespace ContractNotifyBot.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("hmZDX0Ptrvb33GscSJVfeRy6rogh06XcymVI9GdueMahoRxZDvh0lWsOeGiBaKbS")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string HipchatToken {
             get {
                 return ((string)(this["HipchatToken"]));
@@ -34,7 +34,7 @@ namespace ContractNotifyBot.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://hooks.slack.com/services/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")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string SlackWebhook {
             get {
                 return ((string)(this["SlackWebhook"]));
@@ -43,7 +43,7 @@ namespace ContractNotifyBot.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("4425806")]
+        [global::System.Configuration.DefaultSettingValueAttribute("5245704")]
         public int CorpAPI {
             get {
                 return ((int)(this["CorpAPI"]));
@@ -52,7 +52,7 @@ namespace ContractNotifyBot.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("sgzakeHa3MwhV7WmxQY3pH7ZGMbipr7xN1bqk5pgon7nv5ZjqFZ6ci4B49crp4Ke")]
+        [global::System.Configuration.DefaultSettingValueAttribute("edKb49SjbpAGp1eK53PffyC3V2hqpQOdil8wjGsskW4mAIX2rgnbfRktDNl1Na8n")]
         public string VCode {
             get {
                 return ((string)(this["VCode"]));
@@ -79,7 +79,7 @@ namespace ContractNotifyBot.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("M0VUS Contract Received at {0}. ")]
+        [global::System.Configuration.DefaultSettingValueAttribute("M0VUS Contract {1} at {0}. ")]
         public string MessageFormatLine1 {
             get {
                 return ((string)(this["MessageFormatLine1"]));

@@ -36,12 +36,16 @@ namespace ContractNotifyBot
             var now = DateTime.Now;
 
             DateTime lastFullRunTime = GetLastRunTime();
+            DateTime lastCompCheckTime = GetLastCompCheckTime();
             Console.WriteLine(string.Format("Start Time : {0}", lastFullRunTime.ToString("yyyy-MM-dd HH:mm:ss")));
 
             try
             {
-                api = new EveAI.Live.EveApi("Clyde en Marland's Contract Notifier", (long)Properties.Settings.Default.CorpAPI, Properties.Settings.Default.VCode);
-                Contracts = api.GetCorporationContracts().ToList().Where(contract => contract.DateIssued > lastFullRunTime).ToList();
+                api = new EveApi("Clyde en Marland's Contract Notifier", (long)Properties.Settings.Default.CorpAPI, Properties.Settings.Default.VCode);
+                Contracts = api.GetCorporationContracts().ToList().Where(contract => ((contract.DateIssued > lastFullRunTime) || (contract.DateCompleted > lastCompCheckTime))).ToList();
+                Contracts = Contracts.Where(Contract => ((Contract.Type == EveAI.Live.Utility.Contract.ContractType.Courier) &&
+                        ((Contract.Status == EveAI.Live.Utility.Contract.ContractStatus.Outstanding) || (Contract.Status == EveAI.Live.Utility.Contract.ContractStatus.Completed)))
+                ).ToList();
 
                 foreach(EveAI.Live.Utility.Contract Contract in Contracts)
                 {
@@ -58,15 +62,17 @@ namespace ContractNotifyBot
                 
                 foreach (EveAI.Live.Utility.Contract Contract in Contracts)
                 {
-                    if ((Contract.Type == EveAI.Live.Utility.Contract.ContractType.Courier) && 
-                        ((Contract.Status == EveAI.Live.Utility.Contract.ContractStatus.Outstanding) || (Contract.Status == EveAI.Live.Utility.Contract.ContractStatus.Completed)))
-                    {
+                    //if ((Contract.Type == EveAI.Live.Utility.Contract.ContractType.Courier) && 
+                    //    ((Contract.Status == EveAI.Live.Utility.Contract.ContractStatus.Outstanding) || (Contract.Status == EveAI.Live.Utility.Contract.ContractStatus.Completed)))
+                    //{
                         //Console.WriteLine(string.Format("Contract notification: {0}", FormatMessage(Contract, Names[Contract.IssuerID].result.characterName)));
                         SendMessage(HyperFormatMessage(Contract, Names[Contract.IssuerID].result.characterName));
-                        if (Contract.DateIssued > lastFullRunTime) { lastFullRunTime = Contract.DateIssued; }
-                    }
+                        if ((Contract.Status == EveAI.Live.Utility.Contract.ContractStatus.Outstanding) && (Contract.DateIssued > lastFullRunTime)) { lastFullRunTime = Contract.DateIssued; }
+                        else if ((Contract.Status == EveAI.Live.Utility.Contract.ContractStatus.Completed) && (Contract.DateCompleted > lastCompCheckTime)) { lastCompCheckTime = Contract.DateCompleted; }
+                    //}
                 }
                 UpdateRunTime(lastFullRunTime);
+                UpdateCompCheckTime(lastCompCheckTime);
             }
             catch (Exception ex)
             {
@@ -85,6 +91,16 @@ namespace ContractNotifyBot
             Console.WriteLine(string.Format("Updating Last Run Time in {0}", config.FilePath));
             config.AppSettings.Settings.Remove("LastCheckedAt");
             config.AppSettings.Settings.Add("LastCheckedAt", writeThis.ToString("yyyy-MM-dd HH:mm:ss"));
+            config.Save();
+        }
+
+        private static void UpdateCompCheckTime(DateTime writeThis)
+        {
+            Console.WriteLine(string.Format("New LastCompCheckTime: {0}", writeThis.ToString("yyyy-MM-dd HH:mm:ss")));
+            Configuration config = ConfigurationManager.OpenExeConfiguration(Assembly.GetExecutingAssembly().Location);
+            Console.WriteLine(string.Format("Updating Last Completion Check Time in {0}", config.FilePath));
+            config.AppSettings.Settings.Remove("LastCompCheckedAt");
+            config.AppSettings.Settings.Add("LastCompCheckedAt", writeThis.ToString("yyyy-MM-dd HH:mm:ss"));
             config.Save();
         }
 
@@ -227,20 +243,24 @@ namespace ContractNotifyBot
             messageLines.Add(string.Format(Properties.Settings.Default.MessageFormatLine5, contract.Volume.ToString()));
 
             var colour = string.Empty;
+            var title = string.Empty;
 
             if(contract.Status == EveAI.Live.Utility.Contract.ContractStatus.Outstanding)
             {
                 colour = "#FF99C2";
+                title = string.Format(Properties.Settings.Default.MessageFormatLine1, contract.DateIssued.ToString("yyyy-MM-dd HH:mm:ss"), "Received");
             }
             else
             {
                 colour = "#A6D785";
+                title = string.Format(Properties.Settings.Default.MessageFormatLine1, contract.DateCompleted.ToString("yyyy-MM-dd HH:mm:ss"), "Completed");
             }
-
+            message.Attachments = new List<MessagePayloadAttachment>();
+            
             message.Attachments.Add(new MessagePayloadAttachment()
             {
                 Text = String.Join("\n", messageLines.ToArray()),
-                Title = string.Format(Properties.Settings.Default.MessageFormatLine1, contract.DateIssued.ToString("yyyy-MM-dd hh:mm:ss")),
+                Title = title,
                 ThumbUrl = "http://www.r3mus.org/Images/logo.png",
                 AuthorName = Properties.Settings.Default.BotName,
                 Colour = colour
@@ -270,6 +290,18 @@ namespace ContractNotifyBot
             try
             {
                 return Convert.ToDateTime(ConfigurationSettings.AppSettings["LastCheckedAt"]);
+            }
+            catch (Exception ex)
+            {
+                return new DateTime();
+            }
+        }
+
+        private static DateTime GetLastCompCheckTime()
+        {
+            try
+            {
+                return Convert.ToDateTime(ConfigurationSettings.AppSettings["LastCompCheckedAt"]);
             }
             catch (Exception ex)
             {
