@@ -17,7 +17,7 @@ using System.Threading.Tasks;
 
 namespace r3mus.Controllers
 {
-    [Authorize(Roles = "Crew, Recruiter, Screener, Director, CEO, Admin")]
+    //[Authorize(Roles = "Crew, Recruiter, Screener, Director, CEO, Admin")]
     public class RecruitmentController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -29,6 +29,8 @@ namespace r3mus.Controllers
 
         //
         // GET: /Recruitment/
+
+        [Authorize()]
         public ActionResult Index()
         {
             var statsVM = new RecruitmentStatsViewModel();
@@ -42,6 +44,7 @@ namespace r3mus.Controllers
             return View(statsVM);
         }
 
+        [Authorize()]
         public ActionResult Home()
         {
             var statsVM = new RecruitmentStatsViewModel();
