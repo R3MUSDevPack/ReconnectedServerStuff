@@ -29,13 +29,14 @@ namespace r3mus.CRONJobs
         {
             if (settings.Enabled)
             {
+                //Plugin.SendDirectMessage("Executing Jarvis", "clydeenmarland", Properties.Settings.Default.SlackWebhook);
                 try
                 {
                     var client = new Client { UserName = DiscordEmail, Password = DiscordPassword };
                     if (client.Logon())
                     {
                         var messages = client.GetMessages(DiscordChannel);
-
+                        
                         if (settings.LastRun == null)
                         {
                             messages = messages.OrderBy(msg => msg.timestamp).ToList();
@@ -59,12 +60,19 @@ namespace r3mus.CRONJobs
                         }
                         else
                         {
+                            //Plugin.SendDirectMessage(string.Format("Last run: {0}", settings.LastRun.ToString()), "clydeenmarland", Properties.Settings.Default.SlackWebhook);
+
                             messages = messages.OrderBy(msg => msg.timestamp).ToList();
-                            messages.Where(msg =>
+                            messages = messages.Where(msg =>
                             (msg.timestamp.AddMilliseconds(-msg.timestamp.Millisecond) > settings.LastRun.Value.AddMilliseconds(-settings.LastRun.Value.Millisecond)
                             &&
                             (msg.content.Contains("To: coalition_pings"))
-                            )).ToList().ForEach(msg =>
+                            )).ToList();
+
+                           // Plugin.SendDirectMessage(string.Format("Message count: {0}", messages.Count), "clydeenmarland", Properties.Settings.Default.SlackWebhook);
+
+
+                            messages.ForEach(msg =>
                             {
                                 var payload = new MessagePayload();
                                 payload.Attachments = new List<MessagePayloadAttachment>();
@@ -90,7 +98,7 @@ namespace r3mus.CRONJobs
                 }
                 catch (Exception ex)
                 {
-
+                    //Plugin.SendDirectMessage(ex.Message, "clydeenmarland", Properties.Settings.Default.SlackWebhook);
                 }
             }
         }

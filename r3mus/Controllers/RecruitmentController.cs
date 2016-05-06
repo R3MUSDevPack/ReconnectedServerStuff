@@ -17,7 +17,7 @@ using System.Threading.Tasks;
 
 namespace r3mus.Controllers
 {
-    [Authorize(Roles = "Crew, Recruiter, Screener, Director, CEO, Admin")]
+    [Authorize]
     public class RecruitmentController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
