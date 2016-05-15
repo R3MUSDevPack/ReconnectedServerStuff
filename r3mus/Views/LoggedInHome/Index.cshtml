@@ -31,6 +31,7 @@
         <ul>
             <li class="ui-state-default ui-corner-top"><a href="#NewsTab">Latest News</a></li>
             <li class="ui-state-default ui-corner-top"><a href="#APITab">Api Keys</a></li>
+            <li class="ui-state-default ui-corner-top"><a href="#SuggestionsTab">Suggest something</a></li>
             <li class="ui-state-default ui-corner-top"><a href="#TSTab">Teamspeak</a></li>
             @*<li class="ui-state-default ui-corner-top"><a href="#HipchatTab">Hipchat</a></li>*@
             <li class="ui-state-default ui-corner-top"><a href="#SlackTab">Slack</a></li>
@@ -72,6 +73,9 @@
                     </div>
                 }
             </div>
+        </div>
+        <div id="SuggestionsTab" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
+            @Html.Partial("_Suggestions")
         </div>
         <div id="TSTab" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
             @Html.Partial("_RegisterForTeamspeak")

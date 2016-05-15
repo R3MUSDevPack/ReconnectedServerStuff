@@ -5,58 +5,38 @@
 }
 <h2>‘Hauled By Wolves Inc’ Logistics Rules &amp; Regs</h2>
 <div class="body-content">
+    <div class="col-md-12">
         <div class="col-md-12">
-            <div class="col-md-6">
-                <strong>Contract type: </strong>Courier<br />
-                <strong>Availability: </strong>Private<br />
-                <strong>Name: </strong>Hauled By Wolves Inc<br /><br />
-                <strong>Pick up/Drop Off Locations: </strong><br />
-                <ul>
-                    <li>Amarr VIII (Oris) - Emperor Family Academy</li>
-                    <li>CKX-RW VII - Intergalactic Sparkle Dragon Den</li>
-                </ul>
-                <strong>Restrictions:</strong><br />
-                <ul>
-                    <li>No collateral</li>
-                    <li>Max items value: 1 billion isk</li>
-                    <li>Max Size: 328,000 m3</li>
-                    <li>Days to accept: 7</li>
-                    <li>Days to complete: 14</li>
-                    <li>No Illegal Items, Assembled Cargo Containers, or Fitted Ships</li>
-                </ul>
-                <strong>Cost: </strong>500 isk per m3<br />
-                <h5>To calculate the reward, enter the size (m3) of your contract here</h5>
-                <input type="text" id="volume" onkeyup="calculate()" />&nbsp;<label id="cost">0 isk</label>
-            </div>
-            <div class="col-md-6" style="background-color:orange;">
-                <h3>Deployment Logisitcs</h3>
-                <h4>For the duration of our current deployment to Obe. This is a special service for obtaining combat ships and must NOT be abused.</h4>
-                <strong>Contract type: </strong>Courier<br />
-                <strong>Availability: </strong>Private<br />
-                <strong>Name: </strong>Hauled By Wolves Inc<br /><br />
-                <strong>Pick up/Drop Off Locations: </strong><br />
-                <ul>
-                    <li>Jita IV - Moon 4 - Caldari Navy Assembly Plant </li>
-                    <li>Obe VI - Moon 1 - Joint Harvesting Plantation </li>
-                </ul>
-                <strong>Restrictions:</strong><br />
-                <ul>
-                    <li>No collateral</li>
-                    <li>Max items value: 1 billion isk</li>
-                    <li>Max Size: 100,000 m3</li>
-                    <li>Days to accept: 7</li>
-                    <li>Days to complete: 14</li>
-                    <li>No Illegal Items, Assembled Cargo Containers, or Fitted Ships</li>
-                </ul>
-                <strong>Cost: </strong>0 isk per m3<br />
-            </div>
-                <h4>
-                    If you need help in setting up a contract or have any questions, please ask in the #logistics channel on Slack.
-                </h4>
-            </div>
-        <div class="col-md-12">
-            <h2>Contract Status</h2>
-            @foreach (var contract in Model.DisplayContracts)
+            <strong>Contract type: </strong>Courier<br />
+            <strong>Availability: </strong>Private<br />
+            <strong>Name: </strong>Hauled By Wolves Inc<br /><br />
+            <strong>Pick up/Drop Off Locations: </strong><br />
+            <ul>
+                <li>Jita IV - Moon 4 - Caldari Navy Assembly Plant </li>
+                <li>UB-UQZ I - UBest not be relisting</li>
+                <li>OWXT-5 IV - Anger Kidd Best FC NA - <b>ONLY FULL JUMP FREIGHTERS WILL DELIVER HERE</b></li>
+            </ul>
+            <strong>Restrictions:</strong><br />
+            <ul>
+                <li>No collateral</li>
+                <li>Max items value: 1 billion isk</li>
+                <li>Max Size: 328,000 m3</li>
+                <li>Days to accept: 14</li>
+                <li>Days to complete: 14</li>
+                <li>No Illegal Items, Assembled Cargo Containers, or Fitted Ships</li>
+            </ul>
+            <strong>Cost: </strong>500 isk per m3<br />
+            <h5>To calculate the reward, enter the size (m3) of your contract here</h5>
+            <input type="text" id="volume" onkeyup="calculate()" />&nbsp;<label id="cost">0 isk</label>
+        </div>
+    </div>
+    <h4>
+        If you need help in setting up a contract or have any questions, please ask in the #logistics channel on Slack.
+    </h4>
+</div>
+<div class="col-md-12">
+    <h2>Contract Status</h2>
+    @foreach (var contract in Model.DisplayContracts)
             {
                 string style;
                 if (contract.Status == EveAI.Live.Utility.Contract.ContractStatus.Outstanding)
@@ -128,7 +108,7 @@
                     </table>
                 </div>
                                     }
-        </div>
+</div>
     </div>
 <script type="text/javascript">
     function calculate() {

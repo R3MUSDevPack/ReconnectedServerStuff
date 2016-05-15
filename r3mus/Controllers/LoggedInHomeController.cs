@@ -22,6 +22,7 @@ using Newtonsoft.Json;
 using System.Security.Cryptography;
 using r3mus.ViewModels;
 using System.Data.Entity.Validation;
+using R3MUS.Devpack.Slack;
 
 namespace r3mus.Controllers
 {
@@ -470,6 +471,25 @@ namespace r3mus.Controllers
             {
                 TempData.Add("Message", string.Format("Could not send an invitation: unknown reason."));
             }
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult SubmitSuggestion(FormCollection form)
+        {
+            MessagePayload message = new MessagePayload();
+            message.Attachments = new List<MessagePayloadAttachment>();
+
+            message.Attachments.Add(new MessagePayloadAttachment()
+            {
+                Text = form["SuggestionText"].ToString(),
+                Title = "Begging your pardons, Sirs & Madams, but might I make a suggestion?",
+                ThumbUrl = "http://www.r3mus.org/Images/kryten.png"
+            });
+
+            Plugin.SendToRoom(message, "suggestions", Properties.Settings.Default.SlackWebhook, "Kryten");
+
+            TempData.Add("Message", "Thank you for your input.");
             return RedirectToAction("Index");
         }
 

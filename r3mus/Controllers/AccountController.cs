@@ -52,7 +52,7 @@ namespace r3mus.Controllers
                 {
                     await SignInAsync(user, model.RememberMe);
 
-                    user.GetDetails();
+                    user.GetDetails(true);
                     if(user.Titles.Count == 0)
                     {
                         using (ApplicationDbContext db = new ApplicationDbContext())
@@ -118,7 +118,7 @@ namespace r3mus.Controllers
                     {
                         await SignInAsync(user, isPersistent: false);
                         //UserManager.AddToRole(user.Id, "User");
-                        user.GetDetails();
+                        user.GetDetails(true);
 
                         await AddRolesAsync(user);
 
