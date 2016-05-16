@@ -81,7 +81,6 @@ C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\Quartz.xml
 C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\Common.Logging.Core.xml
 C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\Common.Logging.xml
 C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\R3MUS.Devpack.Discord.dll
-C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\R3MUS.Devpack.Slack.dll
 C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\Microsoft.AspNet.SignalR.Core.dll
 C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\Microsoft.AspNet.SignalR.Core.xml
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\Images\Delve_Tac_Map.png
@@ -180,3 +179,6 @@ C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\Micro
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\System.Web.Cors.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\agsXMPP.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\Microsoft.Owin.Cors.xml
+C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\R3MUS.Devpack.Slack.dll
+C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\R3MUS.Devpack.Slack.pdb
+C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\R3MUS.Devpack.Discord.pdb

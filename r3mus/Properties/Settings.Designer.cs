@@ -160,15 +160,6 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string SlackWebhook {
-            get {
-                return ((string)(this["SlackWebhook"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Someone new wants to be a Wolf!")]
         public string NewApp_MessageFormatLine1 {
             get {
@@ -336,6 +327,24 @@ namespace r3mus.Properties {
         public string FleetBotName {
             get {
                 return ((string)(this["FleetBotName"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://hooks.slack.com/services/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")]
+        public string SlackWebhook {
+            get {
+                return ((string)(this["SlackWebhook"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("suggestionbox")]
+        public string SuggestionRoomName {
+            get {
+                return ((string)(this["SuggestionRoomName"]));
             }
         }
     }

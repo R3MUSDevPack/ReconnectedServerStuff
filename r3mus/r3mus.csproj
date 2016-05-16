@@ -185,12 +185,13 @@
       <HintPath>..\packages\Quartz.2.3.1\lib\net40\Quartz.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="R3MUS.Devpack.Discord">
-      <HintPath>..\..\DiscordClient\bin\Debug\R3MUS.Devpack.Discord.dll</HintPath>
-    </Reference>
-    <Reference Include="R3MUS.Devpack.Slack, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="R3MUS.Devpack.Discord, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\SlackClient\R3MUS.Devpack.Slack\bin\Debug\R3MUS.Devpack.Slack.dll</HintPath>
+      <HintPath>..\..\..\R3MUS.Devpack.Discord\bin\Debug\R3MUS.Devpack.Discord.dll</HintPath>
+    </Reference>
+    <Reference Include="R3MUS.Devpack.Slack, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7a498929f3cf822d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\R3MUS.Devpack.Slack\R3MUS.Devpack.Slack\bin\Debug\R3MUS.Devpack.Slack.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

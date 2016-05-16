@@ -43,7 +43,5 @@ C:\temp\r3mus\r3mus\Killbot\bin\Debug\EveLib.StaticData.dll
 C:\temp\r3mus\r3mus\Killbot\bin\Debug\EveLib.StaticData.xml
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Killbot\bin\Debug\EveLib.StaticData.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Killbot\bin\Debug\EveLib.StaticData.xml
-C:\temp\r3mus\r3mus\Killbot\bin\Debug\R3MUS.Devpack.Slack.dll
-C:\temp\r3mus\r3mus\Killbot\bin\Debug\R3MUS.Devpack.Slack.pdb
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Killbot\bin\Debug\R3MUS.Devpack.Slack.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Killbot\bin\Debug\R3MUS.Devpack.Slack.pdb

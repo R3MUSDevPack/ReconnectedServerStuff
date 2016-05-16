@@ -50,8 +50,6 @@ namespace r3mus.Controllers
             {
                 ViewBag.ErrorMessage = TempData["ErrorMessage"].ToString();
             }
-            //List<ApiInfo> apis = currentUser.ApiKeys.GroupBy(api => api.ApiKey).Select(api => api.First()).ToList();
-            //var latestNewsItem = new LatestNews().LatestNewsItem.Where(newsItem => newsItem.Category == "Internal News").FirstOrDefault();
 
             var vm = new WelcomeViewModel()
             {
@@ -59,8 +57,7 @@ namespace r3mus.Controllers
                 Apis = currentUser.ApiKeys.GroupBy(api => api.ApiKey).Select(api => api.First()).ToList(),
                 LiveWardecs = db.LiveWardecs.ToList()
             };
-
-            //return View(apis);
+            
             return View(vm);
         }
 
@@ -83,8 +80,6 @@ namespace r3mus.Controllers
         [OverrideAuthorization]
         public ActionResult Create(string userId = "")
         {
-            //ApiInfo info = new ApiInfo() { User = UserManager.FindById(User.Identity.GetUserId()) };
-            //return View(info);
             if (TempData["Message"] != null)
             {
                 ViewBag.Message = TempData["Message"]; 
@@ -255,9 +250,6 @@ namespace r3mus.Controllers
                 else if (nameComponents.Length == 3){
                     mUser.lastname = string.Concat(nameComponents[1], " ", nameComponents[2]);
                 };
-                //List<MoodleUser> userList = new List<MoodleUser>();
-                //userList.Add(mUser);
-                //Array arrUsers = userList.ToArray();
  
                 String postData = String.Format("users[0][username]={0}&users[0][password]={1}&users[0][firstname]={2}&users[0][lastname]={3}&users[0][email]={4}", mUser.username, mUser.password, mUser.firstname, mUser.lastname, mUser.email);
                 string createRequest = string.Format("{0}?wstoken={1}&wsfunction={2}&moodlewsrestformat=json", moodleURL,  Properties.Settings.Default.MoodleToken, function);
@@ -299,7 +291,6 @@ namespace r3mus.Controllers
                 TempData.Add("Message", "An error occurred: Please contact Clyde en Marland with this message; ");
                 TempData.Add("ErrorMessage", ex.Message);
             }
-            //return View("Index#MoodleTab");
             return RedirectToAction("Index");
         }
 
@@ -430,66 +421,80 @@ namespace r3mus.Controllers
         [HttpPost]
         public ActionResult RegisterForSlack()
         {
-            var result = string.Empty;
-            //string URI = string.Format(Properties.Settings.Default.SlackInviteURL, UserManager.FindById(User.Identity.GetUserId()).EmailAddress, Properties.Settings.Default.SlackToken);
-            //using(WebClient client = new WebClient())
+            //var result = string.Empty;
+
+            var result = Plugin.SendUserInvite("R3MUS", Properties.Settings.Default.SlackToken, UserManager.FindById(User.Identity.GetUserId()).EmailAddress);
+
+            //using (var client = new HttpClient())
             //{
-            //    byte[] response = client.DownloadData(URI);
-            //    result = System.Text.Encoding.UTF8.GetString(response);
+            //    client.BaseAddress = new Uri(string.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Url.Authority, Url.Content("~")));
+            //    client.DefaultRequestHeaders.Accept.Clear();
+            //    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            //    try
+            //    {                    
+            //        var task = Task.Factory.StartNew(() => JsonConvert.DeserializeObject<string>(client.GetStringAsync(string.Format("api/SlackRegistry/r3mus/{0}/{1}",
+            //            UserManager.FindById(User.Identity.GetUserId()).EmailAddress,
+            //            Properties.Settings.Default.SlackToken
+            //            )).Result));
+            //        task.Wait();
+            //        result = task.Result;
+            //    }
+            //    catch(Exception ex)
+            //    {
+            //        result = string.Format("false:{0}", ex.Message);
+            //    }
             //}
 
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri(string.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Url.Authority, Url.Content("~")));
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            //if (result.Contains("false"))
+            //{
+            //    TempData.Add("Message", string.Format("Could not send an invitation: {0}", result));
+            //}
+            //else if (result.Contains("true"))
+            //{
+            //    TempData.Add("Message", string.Format("Slack invitation sent to {0}; please check your email inbox.", UserManager.FindById(User.Identity.GetUserId()).EmailAddress));
+            //}
+            //else
+            //{
+            //    TempData.Add("Message", string.Format("Could not send an invitation: unknown reason."));
+            //}
 
-                try
-                {                    
-                    var task = Task.Factory.StartNew(() => JsonConvert.DeserializeObject<string>(client.GetStringAsync(string.Format("api/SlackRegistry/r3mus/{0}/{1}",
-                        UserManager.FindById(User.Identity.GetUserId()).EmailAddress,
-                        Properties.Settings.Default.SlackToken
-                        )).Result));
-                    task.Wait();
-                    result = task.Result;
-                }
-                catch(Exception ex)
-                {
-                    result = string.Format("false:{0}", ex.Message);
-                }
-            }
-
-            if (result.Contains("false"))
+            if(result == false)
             {
-                TempData.Add("Message", string.Format("Could not send an invitation: {0}", result));
-            }
-            else if (result.Contains("true"))
-            {
-                TempData.Add("Message", string.Format("Slack invitation sent to {0}; please check your email inbox.", UserManager.FindById(User.Identity.GetUserId()).EmailAddress));
+                TempData.Add("Message", string.Format("Could not send an invitation."));
             }
             else
             {
-                TempData.Add("Message", string.Format("Could not send an invitation: unknown reason."));
+                TempData.Add("Message", string.Format("Slack invitation sent to {0}; please check your email inbox.", UserManager.FindById(User.Identity.GetUserId()).EmailAddress));
             }
+
             return RedirectToAction("Index");
         }
 
         [HttpPost]
         public ActionResult SubmitSuggestion(FormCollection form)
         {
-            MessagePayload message = new MessagePayload();
-            message.Attachments = new List<MessagePayloadAttachment>();
-
-            message.Attachments.Add(new MessagePayloadAttachment()
+            try
             {
-                Text = form["SuggestionText"].ToString(),
-                Title = "Begging your pardons, Sirs & Madams, but might I make a suggestion?",
-                ThumbUrl = "http://www.r3mus.org/Images/kryten.png"
-            });
+                MessagePayload message = new MessagePayload();
+                message.Attachments = new List<MessagePayloadAttachment>();
 
-            Plugin.SendToRoom(message, "suggestionbox", Properties.Settings.Default.SlackWebhook, "Kryten");
+                message.Attachments.Add(new MessagePayloadAttachment()
+                {
+                    Text = form["SuggestionText"].ToString(),
+                    Title = "Begging your pardons, Sirs & Madams, but might I make a suggestion?",
+                    ThumbUrl = "http://www.r3mus.org/Images/kryten.png"
+                });
 
-            TempData.Add("Message", "Thank you for your input.");
+                Plugin.SendToRoom(message, Properties.Settings.Default.SuggestionRoomName, Properties.Settings.Default.SlackWebhook, "Kryten");
+
+                TempData.Add("Message", "Thank you for your input.");
+            }
+            catch (Exception ex)
+            {
+                TempData.Add("Message", ex.Message);
+                ModelState.AddModelError("Error1", ex.Message);
+            }
             return RedirectToAction("Index");
         }
 
