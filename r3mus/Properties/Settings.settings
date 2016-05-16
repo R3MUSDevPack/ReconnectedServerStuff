@@ -107,11 +107,11 @@
     <Setting Name="FleetBotName" Type="System.String" Scope="Application">
       <Value Profile="(Default)">Marvin the Paranoid Fleetbot</Value>
     </Setting>
-    <Setting Name="SlackWebhook" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">https://hooks.slack.com/services/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</Value>
-    </Setting>
     <Setting Name="SuggestionRoomName" Type="System.String" Scope="Application">
       <Value Profile="(Default)">suggestionbox</Value>
+    </Setting>
+    <Setting Name="SlackWebhook" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

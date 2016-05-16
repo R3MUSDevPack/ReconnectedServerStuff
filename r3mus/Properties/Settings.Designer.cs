@@ -332,19 +332,19 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://hooks.slack.com/services/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")]
-        public string SlackWebhook {
+        [global::System.Configuration.DefaultSettingValueAttribute("suggestionbox")]
+        public string SuggestionRoomName {
             get {
-                return ((string)(this["SlackWebhook"]));
+                return ((string)(this["SuggestionRoomName"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("suggestionbox")]
-        public string SuggestionRoomName {
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SlackWebhook {
             get {
-                return ((string)(this["SuggestionRoomName"]));
+                return ((string)(this["SlackWebhook"]));
             }
         }
     }

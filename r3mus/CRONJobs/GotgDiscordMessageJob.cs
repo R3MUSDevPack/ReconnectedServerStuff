@@ -75,12 +75,13 @@ namespace r3mus.CRONJobs
                             messages.ForEach(msg =>
                             {
                                 var payload = new MessagePayload();
+                                payload.Text = "@channel";
                                 payload.Attachments = new List<MessagePayloadAttachment>();
                                 payload.Attachments.Add(new MessagePayloadAttachment()
                                 {
                                 //AuthorName = msg.author.username,
                                 //AuthorIcon = "http://www.r3mus.org/Images/jarvis.png",
-                                Text = msg.content.Replace("@everyone", "@channel"),
+                                    Text = msg.content.Replace("@everyone", "@channel"),
                                     Title = string.Format("{0}: Message from {1}", msg.timestamp.ToString("yyyy-MM-dd HH:mm:ss"), msg.author.username),
                                     Colour = "#ff6600"
                                 });
