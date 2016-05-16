@@ -487,7 +487,7 @@ namespace r3mus.Controllers
                 ThumbUrl = "http://www.r3mus.org/Images/kryten.png"
             });
 
-            Plugin.SendToRoom(message, "suggestions", Properties.Settings.Default.SlackWebhook, "Kryten");
+            Plugin.SendToRoom(message, "suggestionbox", Properties.Settings.Default.SlackWebhook, "Kryten");
 
             TempData.Add("Message", "Thank you for your input.");
             return RedirectToAction("Index");
