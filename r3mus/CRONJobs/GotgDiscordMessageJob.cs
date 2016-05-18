@@ -43,10 +43,11 @@ namespace r3mus.CRONJobs
                             messages.Where(msg => ((DateTime.Now - msg.timestamp).Days < 1) && (msg.content.Contains("To: coalition_pings"))).ToList().ForEach(msg =>
                             {
                                 var payload = new MessagePayload();
+                                payload.Text = "@channel";
                                 payload.Attachments = new List<MessagePayloadAttachment>();
                                 payload.Attachments.Add(new MessagePayloadAttachment()
                                 {
-                                    Text = msg.content.Replace("@everyone", "@channel"),
+                                    Text = msg.content.Replace("@everyone", "@channel").Replace("rape", "****"),
                                     Title = string.Format("{0}: Message from {1}", msg.timestamp.ToString("yyyy-MM-dd HH:mm:ss"), msg.author.username),
                                     Colour = "#ff6600"
                                 });
@@ -81,7 +82,7 @@ namespace r3mus.CRONJobs
                                 {
                                 //AuthorName = msg.author.username,
                                 //AuthorIcon = "http://www.r3mus.org/Images/jarvis.png",
-                                    Text = msg.content.Replace("@everyone", "@channel"),
+                                    Text = msg.content.Replace("@everyone", "@channel").Replace("rape", "****"),
                                     Title = string.Format("{0}: Message from {1}", msg.timestamp.ToString("yyyy-MM-dd HH:mm:ss"), msg.author.username),
                                     Colour = "#ff6600"
                                 });
