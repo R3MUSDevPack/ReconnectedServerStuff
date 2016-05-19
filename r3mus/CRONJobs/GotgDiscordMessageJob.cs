@@ -43,11 +43,11 @@ namespace r3mus.CRONJobs
                             messages.Where(msg => ((DateTime.Now - msg.timestamp).Days < 1) && (msg.content.Contains("To: coalition_pings"))).ToList().ForEach(msg =>
                             {
                                 var payload = new MessagePayload();
-                                payload.Text = "@channel";
+                                //payload.Text = string.Format("@channel: From {0}", msg.author.username);
                                 payload.Attachments = new List<MessagePayloadAttachment>();
                                 payload.Attachments.Add(new MessagePayloadAttachment()
                                 {
-                                    Text = msg.content.Replace("@everyone", "@channel").Replace("rape", "****"),
+                                    Text = new Censor().CensorText(msg.content),
                                     Title = string.Format("{0}: Message from {1}", msg.timestamp.ToString("yyyy-MM-dd HH:mm:ss"), msg.author.username),
                                     Colour = "#ff6600"
                                 });
@@ -61,28 +61,21 @@ namespace r3mus.CRONJobs
                         }
                         else
                         {
-                            //Plugin.SendDirectMessage(string.Format("Last run: {0}", settings.LastRun.ToString()), "clydeenmarland", Properties.Settings.Default.SlackWebhook);
-
                             messages = messages.OrderBy(msg => msg.timestamp).ToList();
                             messages = messages.Where(msg =>
                             (msg.timestamp.AddMilliseconds(-msg.timestamp.Millisecond) > settings.LastRun.Value.AddMilliseconds(-settings.LastRun.Value.Millisecond)
                             &&
                             (msg.content.Contains("To: coalition_pings"))
                             )).ToList();
-
-                           // Plugin.SendDirectMessage(string.Format("Message count: {0}", messages.Count), "clydeenmarland", Properties.Settings.Default.SlackWebhook);
-
-
+                            
                             messages.ForEach(msg =>
                             {
                                 var payload = new MessagePayload();
-                                payload.Text = "@channel";
+                                //payload.Text = string.Format("@channel: From {0}", msg.author.username);
                                 payload.Attachments = new List<MessagePayloadAttachment>();
                                 payload.Attachments.Add(new MessagePayloadAttachment()
                                 {
-                                //AuthorName = msg.author.username,
-                                //AuthorIcon = "http://www.r3mus.org/Images/jarvis.png",
-                                    Text = msg.content.Replace("@everyone", "@channel").Replace("rape", "****"),
+                                    Text = new Censor().CensorText(msg.content),
                                     Title = string.Format("{0}: Message from {1}", msg.timestamp.ToString("yyyy-MM-dd HH:mm:ss"), msg.author.username),
                                     Colour = "#ff6600"
                                 });
