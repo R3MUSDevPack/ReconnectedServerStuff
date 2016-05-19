@@ -399,6 +399,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ArchiveModels.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Censor.cs" />
     <Compile Include="Models\CRONJob.cs">
       <DependentUpon>r3musDBModel.tt</DependentUpon>
     </Compile>
