@@ -35,12 +35,12 @@ namespace r3mus.Controllers
         // GET: /LoggedInHome/
         public ActionResult Index()
         {
+            KeyValuePair<string, string> TSDetails = GetTSDetails();
+            ViewBag.TSName = TSDetails.Key;
+
             var currentUser = UserManager.FindById(User.Identity.GetUserId());
             currentUser.LoadApiKeys();
             ViewBag.FullAPIAccessMask = Properties.Settings.Default.FullAPIAccessMask;
-
-            KeyValuePair<string, string> TSDetails = GetTSDetails();
-            ViewBag.TSName = TSDetails.Key;
 
             if (TempData["Message"] != null)
             {

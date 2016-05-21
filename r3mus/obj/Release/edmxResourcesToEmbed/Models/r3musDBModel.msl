@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="r3mus_DBModelStoreContainer" CdmEntityContainer="r3mus_DBEntities">
+    <EntitySetMapping Name="CRONJobs">
+      <EntityTypeMapping TypeName="r3mus_DBModel.CRONJob">
+        <MappingFragment StoreEntitySet="CRONJobs">
+          <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+          <ScalarProperty Name="JobName" ColumnName="JobName" />
+          <ScalarProperty Name="Schedule" ColumnName="Schedule" />
+          <ScalarProperty Name="ScheduleUnits" ColumnName="ScheduleUnits" />
+          <ScalarProperty Name="LastRun" ColumnName="LastRun" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OnlineUsers">
+      <EntityTypeMapping TypeName="r3mus_DBModel.OnlineUser">
+        <MappingFragment StoreEntitySet="OnlineUsers">
+          <ScalarProperty Name="LastKnownDateTime" ColumnName="LastKnownDateTime" />
+          <ScalarProperty Name="LoggerName" ColumnName="LoggerName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LogMessages">
+      <EntityTypeMapping TypeName="r3mus_DBModel.LogMessage">
+        <MappingFragment StoreEntitySet="LogMessages">
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="LogDateTime" ColumnName="LogDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

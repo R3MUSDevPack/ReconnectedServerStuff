@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="r3mus_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CRONJobs">
+    <Key>
+      <PropertyRef Name="JobName" />
+    </Key>
+    <Property Name="JobName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Schedule" Type="int" Nullable="false" />
+    <Property Name="ScheduleUnits" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastRun" Type="datetime" />
+    <Property Name="Enabled" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LogMessages">
+    <Key>
+      <PropertyRef Name="LogDateTime" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="Message" />
+    </Key>
+    <Property Name="LogDateTime" Type="datetime" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Message" Type="varchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OnlineUsers">
+    <Key>
+      <PropertyRef Name="LoggerName" />
+    </Key>
+    <Property Name="LoggerName" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="LastKnownDateTime" Type="datetime" />
+  </EntityType>
+  <EntityContainer Name="r3mus_DBModelStoreContainer">
+    <EntitySet Name="CRONJobs" EntityType="Self.CRONJobs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LogMessages" EntityType="Self.LogMessages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OnlineUsers" EntityType="Self.OnlineUsers" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

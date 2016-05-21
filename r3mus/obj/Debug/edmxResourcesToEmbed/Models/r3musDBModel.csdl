@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="r3mus_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CRONJob">
+    <Key>
+      <PropertyRef Name="JobName" />
+    </Key>
+    <Property Name="JobName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Schedule" Type="Int32" Nullable="false" />
+    <Property Name="ScheduleUnits" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastRun" Type="DateTime" Precision="3" />
+    <Property Name="Enabled" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="r3mus_DBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CRONJobs" EntityType="Self.CRONJob" />
+    <EntitySet Name="OnlineUsers" EntityType="r3mus_DBModel.OnlineUser" />
+    <EntitySet Name="LogMessages" EntityType="r3mus_DBModel.LogMessage" />
+  </EntityContainer>
+  <EntityType Name="OnlineUser">
+    <Key>
+      <PropertyRef Name="LoggerName" />
+    </Key>
+    <Property Name="LoggerName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="LastKnownDateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="LogMessage">
+    <Key>
+      <PropertyRef Name="LogDateTime" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="Message" />
+    </Key>
+    <Property Name="LogDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Message" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

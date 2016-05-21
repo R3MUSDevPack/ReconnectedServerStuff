@@ -1,0 +1,8 @@
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\DotlanMapTranslator\bin\Debug\DotlanMapTranslator.exe.config
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\DotlanMapTranslator\bin\Debug\DotlanMapTranslator.exe
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\DotlanMapTranslator\bin\Debug\DotlanMapTranslator.pdb
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\DotlanMapTranslator\bin\Debug\HtmlAgilityPack.dll
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\DotlanMapTranslator\bin\Debug\HtmlAgilityPack.xml
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\DotlanMapTranslator\obj\Debug\DotlanMapTranslator.csprojResolveAssemblyReference.cache
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\DotlanMapTranslator\obj\Debug\DotlanMapTranslator.exe
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\DotlanMapTranslator\obj\Debug\DotlanMapTranslator.pdb

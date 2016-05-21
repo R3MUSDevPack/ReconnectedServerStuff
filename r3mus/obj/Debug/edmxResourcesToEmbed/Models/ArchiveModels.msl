@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="r3mus_ArchiveDBModelStoreContainer" CdmEntityContainer="r3mus_ArchiveDBEntities">
+    <EntitySetMapping Name="RecruitmentMailees">
+      <EntityTypeMapping TypeName="r3mus_ArchiveDBModel.RecruitmentMailee">
+        <MappingFragment StoreEntitySet="RecruitmentMailees">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Submitted" ColumnName="Submitted" />
+          <ScalarProperty Name="Mailed" ColumnName="Mailed" />
+          <ScalarProperty Name="SubmitterId" ColumnName="SubmitterId" />
+          <ScalarProperty Name="MailerId" ColumnName="MailerId" />
+          <ScalarProperty Name="CorpId_AtLastCheck" ColumnName="CorpId_AtLastCheck" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

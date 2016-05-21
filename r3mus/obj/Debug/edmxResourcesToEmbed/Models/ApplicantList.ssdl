@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="r3mus.Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'r3mus_DB.dbo.ApplicantList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ApplicantList">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="ApiKey" />
+      <PropertyRef Name="DateTimeCreated" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="EmailAddress" Type="nvarchar(max)" />
+    <Property Name="ApiKey" Type="int" Nullable="false" />
+    <Property Name="VerificationCode" Type="nvarchar(max)" />
+    <Property Name="Information" Type="nvarchar(max)" />
+    <Property Name="Age" Type="nvarchar(max)" />
+    <Property Name="ToonAge" Type="nvarchar(max)" />
+    <Property Name="Source" Type="nvarchar(max)" />
+    <Property Name="Applied" Type="datetime" Nullable="false" />
+    <Property Name="LastStatusUpdate" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="nvarchar(max)" />
+    <Property Name="DateTimeCreated" Type="datetime" Nullable="false" />
+    <Property Name="Notes" Type="nvarchar(max)" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <Function Name="CloseRecruitmentMailees" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Names" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="MarkRecruitmentMailees" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="UnlockRecruitmentMailees" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Names" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <EntityContainer Name="r3musModelsStoreContainer">
+    <EntitySet Name="ApplicantList" EntityType="Self.ApplicantList" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ApplicantList].[Id] AS [Id], 
+    [ApplicantList].[Name] AS [Name], 
+    [ApplicantList].[EmailAddress] AS [EmailAddress], 
+    [ApplicantList].[ApiKey] AS [ApiKey], 
+    [ApplicantList].[VerificationCode] AS [VerificationCode], 
+    [ApplicantList].[Information] AS [Information], 
+    [ApplicantList].[Age] AS [Age], 
+    [ApplicantList].[ToonAge] AS [ToonAge], 
+    [ApplicantList].[Source] AS [Source], 
+    [ApplicantList].[Applied] AS [Applied], 
+    [ApplicantList].[LastStatusUpdate] AS [LastStatusUpdate], 
+    [ApplicantList].[Status] AS [Status], 
+    [ApplicantList].[DateTimeCreated] AS [DateTimeCreated], 
+    [ApplicantList].[Notes] AS [Notes], 
+    [ApplicantList].[UserName] AS [UserName]
+    FROM [dbo].[ApplicantList] AS [ApplicantList]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
