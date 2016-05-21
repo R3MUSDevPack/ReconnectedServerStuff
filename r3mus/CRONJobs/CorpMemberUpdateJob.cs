@@ -17,6 +17,7 @@ namespace r3mus.CRONJobs
             var name = MethodBase.GetCurrentMethod().DeclaringType.Name;
             var db = new r3mus_DBEntities();
             SyncCorpMembers(db.CRONJobs.Where(job => job.JobName == name).FirstOrDefault());
+            db.SaveChanges();
         }
 
         private void SyncCorpMembers(CRONJob settings)
@@ -48,6 +49,17 @@ namespace r3mus.CRONJobs
                                 db.CorpMembers.Remove(member)
                             );
                             settings.LastRun = DateTime.UtcNow;
+                            db.SaveChanges();
+
+                            var users = db.Users.ToList();
+                            users.ForEach(usr =>
+                            {
+                                var member = members.Where(memb => memb.Name.ToLower() == usr.UserName.ToLower()).FirstOrDefault();
+                                if (member.Name != usr.UserName)
+                                {
+                                    usr.UserName = member.Name;
+                                }
+                            });
                             db.SaveChanges();
                         }
                     }

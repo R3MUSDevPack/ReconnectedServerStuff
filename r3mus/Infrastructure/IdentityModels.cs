@@ -76,8 +76,12 @@ namespace r3mus.Models
             bool unloadApis = false;
             
             var member = new ApplicationDbContext().CorpMembers.ToList<Member>()
-                .Where(memb => memb.Name == UserName).FirstOrDefault();
+                .Where(memb => memb.Name.ToLower() == UserName.ToLower()).FirstOrDefault();
             result = (member != null);
+            if(result && (member.Name != UserName))
+            {
+                UserName = member.Name;
+            }
 
             if (!result)
             {
@@ -387,7 +391,7 @@ namespace r3mus.Models
         public void GetTitles(ApiInfo liveAPI)
         {
             var corp = ((CorporationKey)EveXml.CreateApiKey(Convert.ToInt32(Properties.Settings.Default.CorpAPI), Properties.Settings.Default.VCode).Init().GetActualKey()).Corporation;
-            var titles = corp.GetMemberTracking().Result.Members.Where(member => member.CharacterName == UserName).FirstOrDefault().Title.Split(new string[] { ", " }, StringSplitOptions.RemoveEmptyEntries);
+            var titles = corp.GetMemberTracking().Result.Members.Where(member => member.CharacterName.ToLower() == UserName.ToLower()).FirstOrDefault().Title.Split(new string[] { ", " }, StringSplitOptions.RemoveEmptyEntries);
             var titleList = new List<Title>();
             foreach (var title in titles)
             {

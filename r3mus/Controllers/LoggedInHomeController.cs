@@ -35,12 +35,12 @@ namespace r3mus.Controllers
         // GET: /LoggedInHome/
         public ActionResult Index()
         {
-            KeyValuePair<string, string> TSDetails = GetTSDetails();
-            ViewBag.TSName = TSDetails.Key;
             var currentUser = UserManager.FindById(User.Identity.GetUserId());
             currentUser.LoadApiKeys();
             ViewBag.FullAPIAccessMask = Properties.Settings.Default.FullAPIAccessMask;
 
+            KeyValuePair<string, string> TSDetails = GetTSDetails();
+            ViewBag.TSName = TSDetails.Key;
 
             if (TempData["Message"] != null)
             {
@@ -329,7 +329,7 @@ namespace r3mus.Controllers
                 var siteUser = UserManager.FindById(User.Identity.GetUserId());
                 var forumRole = r3musForum.MembershipRoles.Where(role => role.RoleName == "Standard Members").FirstOrDefault();
 
-                var forumUser = r3musForum.MembershipUsers.Where(user => (user.UserName == siteUser.UserName) || (user.Email == siteUser.EmailAddress)).FirstOrDefault();
+                var forumUser = r3musForum.MembershipUsers.Where(user => (user.UserName.ToLower() == siteUser.UserName.ToLower()) || (user.Email == siteUser.EmailAddress)).FirstOrDefault();
                 string useName;
 
                 if (siteUser.UserName.IndexOf(" ") != -1)
