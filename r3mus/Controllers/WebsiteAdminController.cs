@@ -62,7 +62,7 @@ namespace r3mus.Controllers
             return View();
         }
 
-        [OutputCache(Duration = 3600)]
+        //[OutputCache(Duration = 3600)]
         public ActionResult ViewUsers(r3mus.Models.ApplicationUser.IDType memberType = r3mus.Models.ApplicationUser.IDType.Corporation, int page = 1)
         {
             var users = db.Users.Where(user => user.MemberType == memberType.ToString()).ToList<ApplicationUser>();
@@ -216,23 +216,46 @@ namespace r3mus.Controllers
                 currentUser.Titles.Add(new Title() { UserId = currentUser.Id, TitleName = "Corp Member" });
             }
 
-            return new UserProfileViewModel()
+            if (member != null)
             {
-                Id = currentUser.Id,
-                UserName = currentUser.UserName,
-                EmailAddress = currentUser.EmailAddress,
-                MemberSince = Convert.ToDateTime(currentUser.MemberSince),
-                MemberType = currentUser.MemberType,
-                Avatar = currentUser.Avatar,
-                Titles = string.Join(", ", currentUser.Titles.Select(t => t.TitleName).ToList()),
-                WebsiteRoles = string.Join(", ", currentUser.Roles.Select(role => role.RoleId).ToList()),
-                ApiKeys = db.ApiInfoes.Where(api => api.User.Id == currentUser.Id).ToList(),
-                UserRoles = userRoles,
-                AvailableRoles = roles,
-                CurrentLocation = member.Location,
-                LastLogon = Convert.ToDateTime(member.LastLogonDateTime),
-                ShipType = member.ShipType
-            };
+                return new UserProfileViewModel()
+                {
+                    Id = currentUser.Id,
+                    UserName = currentUser.UserName,
+                    EmailAddress = currentUser.EmailAddress,
+                    MemberSince = Convert.ToDateTime(currentUser.MemberSince),
+                    MemberType = currentUser.MemberType,
+                    Avatar = currentUser.Avatar,
+                    Titles = string.Join(", ", currentUser.Titles.Select(t => t.TitleName).ToList()),
+                    WebsiteRoles = string.Join(", ", currentUser.Roles.Select(role => role.RoleId).ToList()),
+                    ApiKeys = db.ApiInfoes.Where(api => api.User.Id == currentUser.Id).ToList(),
+                    UserRoles = userRoles,
+                    AvailableRoles = roles,
+                    CurrentLocation = member.Location,
+                    LastLogon = Convert.ToDateTime(member.LastLogonDateTime),
+                    ShipType = member.ShipType
+                };
+            }
+            else
+            {
+                return new UserProfileViewModel()
+                {
+                    Id = currentUser.Id,
+                    UserName = currentUser.UserName,
+                    EmailAddress = currentUser.EmailAddress,
+                    MemberSince = Convert.ToDateTime(currentUser.MemberSince),
+                    MemberType = currentUser.MemberType,
+                    Avatar = currentUser.Avatar,
+                    Titles = string.Join(", ", currentUser.Titles.Select(t => t.TitleName).ToList()),
+                    WebsiteRoles = string.Join(", ", currentUser.Roles.Select(role => role.RoleId).ToList()),
+                    ApiKeys = db.ApiInfoes.Where(api => api.User.Id == currentUser.Id).ToList(),
+                    UserRoles = userRoles,
+                    AvailableRoles = roles,
+                    CurrentLocation = "Unknown",
+                    LastLogon = new DateTime(),
+                    ShipType = "Unknown"
+                };
+            }
         }
 
         [Authorize(Roles = "CEO, Admin, Director")]

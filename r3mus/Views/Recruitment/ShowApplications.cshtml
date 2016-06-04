@@ -7,6 +7,12 @@
 <h2>Applications To Process</h2>*@
 <h2>@ViewBag.Title</h2>
 
+<div class="row">
+    <input id="searchName" type="text" onkeyup="search()" />
+    <select id="names" onchange="getUserProfile()">
+        <option value="Search">Search</option>
+    </select>
+</div>    
 <table class="table">
     <tr>
         <th>
@@ -44,3 +50,49 @@
 }
 
 </table>
+
+<script type="text/javascript">
+    function search() {
+        var name = $('#searchName').val();
+        try {
+            $.ajax({
+                url: '/api/SearchApplicants/' + name,
+                async: false,
+                type: 'GET',
+                success: function (data) {
+                    $('#names').empty();
+                    if ($(data).length > 0) {
+                        $('#names').append($('<option />').text('Names ready'));
+                        $.each(data, function (n1) {
+                            $('#names').append($('<option />').val(data[n1]).text(data[n1]));
+                        });
+                    }
+                    else {
+                        $('#names').append($('<option />').text('No names found'));
+                    }
+                },
+                failure: function(){alert('Fail');}
+            });
+        }
+        catch (e) {
+            alert(e.message);
+        }
+    }
+    function getUserProfile() {
+        var name = $('#names').val();
+        try {
+            $.ajax({
+                url: '/api/GetApplication/' + name,
+                async: false,
+                type: 'GET',
+                success: function (data) {
+                    window.location.href = data;
+                },
+                failure: function(){alert('Fail');}
+            });
+        }
+        catch (e) {
+            alert(e.message);
+        }
+    }
+</script>

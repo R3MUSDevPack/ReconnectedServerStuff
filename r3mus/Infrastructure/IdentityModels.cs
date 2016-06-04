@@ -322,7 +322,7 @@ namespace r3mus.Models
             }
             ApiInfo liveAPI = new ApiInfo();
 
-            if((MemberSince == null) || (Avatar == null) || (JustDoIt))
+            if(((MemberSince == null) || (Avatar == null) || (JustDoIt)) && (!Properties.Settings.Default.Debug))
             {
                 foreach (ApiInfo info in ApiKeys)
                 {
@@ -361,7 +361,8 @@ namespace r3mus.Models
                         }
                     }
                     catch(Exception ex)
-                    { }
+                    {
+                    }
                 }
                 if(MemberType == IDType.Corporation.ToString())
                 {
