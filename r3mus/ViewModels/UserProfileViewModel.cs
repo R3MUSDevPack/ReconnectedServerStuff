@@ -50,5 +50,8 @@ namespace r3mus.ViewModels
 
         [Display(Name = "Assigned Roles")]
         public List<string> UserRoles { get; set; }
+
+        [Display(Name = "Registered Alts")]
+        public string KnownAlts { get; set; }
     }
 }

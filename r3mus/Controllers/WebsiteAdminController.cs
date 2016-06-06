@@ -200,7 +200,6 @@ namespace r3mus.Controllers
         private UserProfileViewModel GetUserProfile(string id)
         {
             var currentUser = db.Users.Where(user => user.Id == id).FirstOrDefault();
-            //var currentUser = userManager.FindById(id);
             currentUser.LoadApiKeys();
             currentUser.Titles = db.Titles.Where(title => title.UserId == id).ToList();
 
@@ -208,13 +207,25 @@ namespace r3mus.Controllers
 
             var roles = db.Roles.Select(role => role.Name).ToList();
             var userId = currentUser.Id;
-            //var userRoles = userManager.GetRoles(userId.ToString()).ToList();
             var userRoles = db.Roles.Where(role => role.Users.Any(user => user.UserId == currentUser.Id)).Select(role => role.Name).ToList();
 
             if (currentUser.Titles.Count == 0)
             {
                 currentUser.Titles.Add(new Title() { UserId = currentUser.Id, TitleName = "Corp Member" });
             }
+
+            var knownAlts = new List<string>();
+            try
+            {
+                var apis = db.ApiInfoes.Where(api => api.User.Id == id).ToList();
+
+                apis.ForEach(api =>
+                {
+                    var alts = api.GetDetails();
+                    alts.ForEach(alt => knownAlts.Add(alt.CharacterName));
+                });
+            }
+            catch (Exception ex) { }
 
             if (member != null)
             {
@@ -233,7 +244,8 @@ namespace r3mus.Controllers
                     AvailableRoles = roles,
                     CurrentLocation = member.Location,
                     LastLogon = Convert.ToDateTime(member.LastLogonDateTime),
-                    ShipType = member.ShipType
+                    ShipType = member.ShipType,
+                    KnownAlts = string.Join(", ", knownAlts)
                 };
             }
             else
@@ -253,7 +265,8 @@ namespace r3mus.Controllers
                     AvailableRoles = roles,
                     CurrentLocation = "Unknown",
                     LastLogon = new DateTime(),
-                    ShipType = "Unknown"
+                    ShipType = "Unknown",
+                    KnownAlts = string.Join(", ", knownAlts)
                 };
             }
         }
