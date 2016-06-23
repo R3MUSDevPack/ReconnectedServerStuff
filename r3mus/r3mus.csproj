@@ -830,6 +830,7 @@
     <Content Include="Views\Shared\_MapLayout.cshtml" />
     <Content Include="Views\Shared\_MapSelection.cshtml" />
     <Content Include="Views\LoggedInHome\_Suggestions.cshtml" />
+    <Content Include="Views\Recruitment\_ViewApplicantApis.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Filters\fonts\glyphicons-halflings-regular.woff" />

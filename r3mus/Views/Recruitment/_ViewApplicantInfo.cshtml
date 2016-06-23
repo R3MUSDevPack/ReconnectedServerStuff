@@ -29,22 +29,6 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Applicant.ApiKey)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Applicant.ApiKey)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Applicant.VerificationCode)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Applicant.VerificationCode)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.Applicant.Information)
         </dt>
 
@@ -77,4 +61,11 @@
         </dd>
 
     </dl>
+    @foreach (var apiInfo in Model.Applicant.APIInfoes)
+    {
+        <dl class="dl-horizontal alert-info">
+            @{Html.RenderPartial("_ViewApplicantApis", apiInfo);}
+        </dl>
+    }
+
 </div>

@@ -345,15 +345,6 @@ namespace r3mus.Models
                                 liveAPI = info;
 
                                 MemberSince = toon.GetCharacterInfo().Result.CorporationDate;
-
-                                //var tempAvatar = ImageServer.DownloadCharacterImage(toon.CharacterId, ImageServer.ImageSize.Size128px);
-                                //using (var stream = new MemoryStream())
-                                //{
-                                //    tempAvatar.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
-                                //    Avatar = string.Format("data:image/png;base64,{0}", Convert.ToBase64String(stream.ToArray()));
-                                //}
-                                //tempAvatar.Dispose();
-
                                 Avatar = GetAvatar(toon.CharacterId, ImageServer.ImageSize.Size128px);
 
                                 break;
@@ -521,6 +512,7 @@ namespace r3mus.Models
         public System.Data.Entity.DbSet<r3mus.Models.RecruitmentMailee> RecruitmentMailees { get; set; }
 
         public System.Data.Entity.DbSet<r3mus.Models.Applicant> Applicants { get; set; }
+        public System.Data.Entity.DbSet<r3mus.Models.ApplicantApiInfo> ApplicantApiInfoes { get; set; }
 
         public System.Data.Entity.DbSet<r3mus.Models.Application> Applications { get; set; }
 

@@ -59,6 +59,7 @@ namespace r3mus.CRONJobs
                                 {
                                     usr.UserName = member.Name;
                                 }
+                                usr.GetDetails(true);
                             });
                             db.SaveChanges();
                         }
