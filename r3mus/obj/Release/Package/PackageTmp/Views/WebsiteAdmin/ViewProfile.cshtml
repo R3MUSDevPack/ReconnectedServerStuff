@@ -80,6 +80,14 @@
             @Html.DisplayFor(model => model.ShipType)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.KnownAlts)
+        </dt>
+        
+        <dd>
+            @Html.DisplayFor(model => model.KnownAlts)
+        </dd>
+
     </dl>
 
     @if(User.IsInRole("Admin") || User.IsInRole("Director") || User.IsInRole("CEO"))

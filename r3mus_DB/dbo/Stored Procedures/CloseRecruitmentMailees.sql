@@ -21,17 +21,19 @@ BEGIN
 		VALUES (@val)
 	END
 	
+	DECLARE @Now DATETIME = GETDATE();
+	
 	UPDATE [dbo].[RecruitmentMailees] 
-	SET [Mailed] = GETDATE()
+	SET [Mailed] = @Now
 	WHERE [Name] IN
 	(
 		SELECT *
 		FROM @table
 	);	
 		
-	SET IDENTITY_INSERT [$(r3mus_ArchiveDB)].[dbo].[RecruitmentMailees] ON;
+	SET IDENTITY_INSERT [r3mus_ArchiveDB].[dbo].[RecruitmentMailees] ON;
 	
-	INSERT INTO [$(r3mus_ArchiveDB)].[dbo].[RecruitmentMailees]
+	INSERT INTO [r3mus_ArchiveDB].[dbo].[RecruitmentMailees]
 	([Id]
 		  ,[Name]
 		  ,[Submitted]
@@ -45,25 +47,25 @@ BEGIN
 	SELECT [Id]
 		  ,[Name]
 		  ,[Submitted]
-		  ,[Mailed]
+		  ,@Now
 		  ,[SubmitterId]
 		  ,[MailerId]
 		  ,[CorpId_AtLastCheck]
 		  ,[DateOfBirth]
 		  ,[LastUpdated]
-	  FROM [dbo].[RecruitmentMailees] WITH (NOLOCK)
+	  FROM [r3mus_DB].[dbo].[RecruitmentMailees] WITH (NOLOCK)
 	  WHERE [MailerId] IS NOT NULL
 	  OR  NOT ([CorpId_AtLastCheck] BETWEEN 
 						  1000000 AND 1000200)
 	OR [CorpId_AtLastCheck] = -1;
 	
-	SET IDENTITY_INSERT [$(r3mus_ArchiveDB)].[dbo].[RecruitmentMailees] OFF;
+	SET IDENTITY_INSERT [r3mus_ArchiveDB].[dbo].[RecruitmentMailees] OFF;
 
-	DELETE FROM [dbo].[RecruitmentMailees]
+	DELETE FROM [r3mus_DB].[dbo].[RecruitmentMailees]
 	WHERE [Id] IN
 	(
 		SELECT [Id]
-		FROM [$(r3mus_ArchiveDB)].[dbo].[RecruitmentMailees] WITH (NOLOCK)
+		FROM [r3mus_ArchiveDB].[dbo].[RecruitmentMailees] WITH (NOLOCK)
 	);
 
 END

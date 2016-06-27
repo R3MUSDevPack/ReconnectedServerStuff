@@ -261,3 +261,5 @@ C:\temp\r3mus\r3mus\r3mus\obj\Debug\r3mus.Migrations.RecruitmentMailee_LastUpdat
 C:\temp\r3mus\r3mus\r3mus\obj\Debug\r3mus.csproj.GenerateResource.Cache
 C:\temp\r3mus\r3mus\r3mus\obj\Debug\r3mus.dll
 C:\temp\r3mus\r3mus\r3mus\obj\Debug\r3mus.pdb
+C:\temp\r3mus\r3mus\r3mus\bin\WebApi.OutputCache.Core.dll
+C:\temp\r3mus\r3mus\r3mus\bin\WebApi.OutputCache.V2.dll

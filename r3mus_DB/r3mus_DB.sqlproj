@@ -17,12 +17,13 @@
     <ModelCollation>1033, CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <TargetLanguage>CS</TargetLanguage>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -82,8 +83,6 @@
     <Build Include="dbo\Tables\Posts.sql" />
     <Build Include="dbo\Tables\OnlineUsers.sql" />
     <Build Include="dbo\Tables\MembershipUsersInRoles.sql" />
-    <Build Include="dbo\Tables\MembershipUser.sql" />
-    <Build Include="dbo\Tables\MembershipRole.sql" />
     <Build Include="dbo\Tables\Members.sql" />
     <Build Include="dbo\Tables\LogMessages.sql" />
     <Build Include="dbo\Tables\CRONJobs.sql" />
@@ -96,6 +95,7 @@
     <Build Include="dbo\Stored Procedures\UnlockRecruitmentMailees.sql" />
     <Build Include="dbo\Stored Procedures\MarkRecruitmentMailees.sql" />
     <Build Include="dbo\Stored Procedures\CloseRecruitmentMailees.sql" />
+    <Build Include="dbo\Tables\ApplicantApiInfoes.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="..\r3mus_ArchiveDB\bin\Debug\r3mus_ArchiveDB.dacpac">
@@ -103,13 +103,12 @@
       <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
       <DatabaseSqlCmdVariable>r3mus_ArchiveDB</DatabaseSqlCmdVariable>
     </ArtifactReference>
-    <ArtifactReference Include="..\r3mus_ForumDB\bin\Debug\r3mus_ForumDB.dacpac">
-      <HintPath>..\r3mus_ForumDB\bin\Debug\r3mus_ForumDB.dacpac</HintPath>
-      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
-      <DatabaseSqlCmdVariable>r3mus_ForumDB</DatabaseSqlCmdVariable>
-    </ArtifactReference>
   </ItemGroup>
   <ItemGroup>
+    <SqlCmdVariable Include="r3musForumDB">
+      <DefaultValue>r3musForumDB</DefaultValue>
+      <Value>$(SqlCmdVar__4)</Value>
+    </SqlCmdVariable>
     <SqlCmdVariable Include="r3mus_ArchiveDB">
       <DefaultValue>r3mus_ArchiveDB</DefaultValue>
       <Value>$(SqlCmdVar__2)</Value>
@@ -118,5 +117,14 @@
       <DefaultValue>r3mus_Forum</DefaultValue>
       <Value>$(SqlCmdVar__3)</Value>
     </SqlCmdVariable>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\r3musForumDB\r3musForumDB.sqlproj">
+      <Name>r3musForumDB</Name>
+      <Project>{5097950e-171f-446c-94ff-14c82a140380}</Project>
+      <Private>True</Private>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseSqlCmdVariable>r3musForumDB</DatabaseSqlCmdVariable>
+    </ProjectReference>
   </ItemGroup>
 </Project>

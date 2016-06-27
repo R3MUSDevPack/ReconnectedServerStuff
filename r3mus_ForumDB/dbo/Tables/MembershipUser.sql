@@ -22,7 +22,7 @@
     [Website]                     NVARCHAR (100)   NULL,
     [Twitter]                     NVARCHAR (60)    NULL,
     [Facebook]                    NVARCHAR (60)    NULL,
-    [Avatar]                      NVARCHAR (500)   NULL,
+    [Avatar]                      VARCHAR (MAX)    NULL,
     [FacebookAccessToken]         NVARCHAR (300)   NULL,
     [FacebookId]                  BIGINT           NULL,
     [TwitterAccessToken]          NVARCHAR (300)   NULL,
@@ -40,6 +40,6 @@
     [Latitude]                    NVARCHAR (40)    NULL,
     [Longitude]                   NVARCHAR (40)    NULL,
     [LastActivityDate]            DATETIME         NULL,
-    CONSTRAINT [PK_dbo.MembershipUser] PRIMARY KEY CLUSTERED ([Id] ASC)
+    CONSTRAINT [PK_MembershipUser] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 

@@ -3,9 +3,8 @@ C:\temp\r3mus\r3mus\r3mus_DB\obj\Debug\r3mus_DB.dll
 C:\temp\r3mus\r3mus\r3mus_DB\obj\Debug\r3mus_DB.pdb
 C:\temp\r3mus\r3mus\r3mus_DB\bin\Debug\r3mus_DB.dll
 C:\temp\r3mus\r3mus\r3mus_DB\bin\Debug\r3mus_DB.pdb
-C:\temp\r3mus\r3mus\r3mus_DB\bin\Debug\r3mus_ForumDB.dacpac
 C:\temp\r3mus\r3mus\r3mus_DB\bin\Debug\r3mus_ArchiveDB.dacpac
-C:\temp\r3mus\r3mus\r3mus_DB\obj\Debug\Model.xml
-C:\temp\r3mus\r3mus\r3mus_DB\obj\Debug\refactor.xml
-C:\temp\r3mus\r3mus\r3mus_DB\obj\Debug\postdeploy.sql
-C:\temp\r3mus\r3mus\r3mus_DB\obj\Debug\predeploy.sql
+C:\temp\r3mus\r3mus\r3mus_DB\bin\Debug\r3musForumDB.dll
+C:\temp\r3mus\r3mus\r3mus_DB\bin\Debug\r3musForumDB.pdb
+C:\temp\r3mus\r3mus\r3mus_DB\bin\Debug\r3musForumDB.dacpac
+C:\temp\r3mus\r3mus\r3mus_DB\obj\Debug\r3mus_DB.sqlprojResolveAssemblyReference.cache

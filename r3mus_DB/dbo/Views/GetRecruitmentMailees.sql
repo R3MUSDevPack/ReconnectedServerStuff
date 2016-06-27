@@ -1,33 +1,13 @@
 ﻿
-
-
-
-CREATE VIEW [dbo].[LastWeeksMailStats]
+CREATE VIEW [dbo].[GetRecruitmentMailees]
 AS
-	SELECT DISTINCT
-		RANK() OVER (ORDER BY COUNT ([Name]) ASC) AS [Id],
-		[Mailer],
-		(
-			COUNT ([Name])
-		) 
-		AS [Mailed]
-	FROM
-	(
-		SELECT [MAILEES1].[Name], [MAIL1].[UserName] AS [Mailer]
-		FROM [dbo].[RecruitmentMailees] AS [MAILEES1] WITH (NOLOCK)
-		INNER JOIN [dbo].[AspNetUsers] AS [MAIL1] WITH (NOLOCK)
-			ON [MAIL1].[Id] = [MAILEES1].[MailerId]
-		WHERE [MAILEES1].[Mailed] >= DATEADD(DD, -7, GETDATE())
-		UNION ALL
-		SELECT [MAILEES2].[Name], [MAIL2].[UserName] AS [Mailer]
-		FROM [$(r3mus_ArchiveDB)].[dbo].[RecruitmentMailees] AS [MAILEES2] WITH (NOLOCK)
-		INNER JOIN [dbo].[AspNetUsers] AS [MAIL2] WITH (NOLOCK)
-			ON [MAIL2].[Id] = [MAILEES2].[MailerId]
-		WHERE [MAILEES2].[Mailed] >= DATEADD(DD, -7, GETDATE())
-	) AS [a]
-	GROUP BY [Mailer]
+SELECT     TOP (20) Id, Name, Submitted, Mailed, SubmitterId, MailerId, CorpId_AtLastCheck, DateOfBirth, LastUpdated
+FROM         dbo.RecruitmentMailees WITH (NOLOCK)
+WHERE     (MailerId IS NULL) AND (Name NOT LIKE '%Miner%') AND (Name NOT LIKE '%Citizen%') AND (Name NOT LIKE '%Trader%') AND (CorpId_AtLastCheck BETWEEN 
+                      1000000 AND 1000200) AND (DATEDIFF(DAY, DateOfBirth, GETDATE()) < 548)
+ORDER BY Submitted
 GO
-EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 1, @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'LastWeeksMailStats';
+EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 1, @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'GetRecruitmentMailees';
 
 
 GO
@@ -102,12 +82,12 @@ Begin DesignProperties =
          Left = 0
       End
       Begin Tables = 
-         Begin Table = "a"
+         Begin Table = "RecruitmentMailees"
             Begin Extent = 
                Top = 6
                Left = 38
-               Bottom = 95
-               Right = 214
+               Bottom = 125
+               Right = 226
             End
             DisplayFlags = 280
             TopColumn = 0
@@ -121,7 +101,7 @@ Begin DesignProperties =
       End
    End
    Begin CriteriaPane = 
-      Begin ColumnWidths = 12
+      Begin ColumnWidths = 11
          Column = 1440
          Alias = 900
          Table = 1170
@@ -138,7 +118,5 @@ Begin DesignProperties =
       End
    End
 End
-', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'LastWeeksMailStats';
-
-
+', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'GetRecruitmentMailees';
 

@@ -182,3 +182,5 @@ C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\Micro
 C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\R3MUS.Devpack.Slack.dll
 C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\R3MUS.Devpack.Slack.pdb
 C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\R3MUS.Devpack.Discord.pdb
+C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\WebApi.OutputCache.V2.dll
+C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\WebApi.OutputCache.Core.dll

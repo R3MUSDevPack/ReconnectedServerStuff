@@ -61,6 +61,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlackClient", "SlackClient\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotlanMapTranslator", "DotlanMapTranslator\DotlanMapTranslator.csproj", "{3B0CA25B-9BE5-4010-AB20-075593A84CAD}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "r3musForumDB", "r3musForumDB\r3musForumDB.sqlproj", "{5097950E-171F-446C-94FF-14C82A140380}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +131,12 @@ Global
 		{3B0CA25B-9BE5-4010-AB20-075593A84CAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B0CA25B-9BE5-4010-AB20-075593A84CAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B0CA25B-9BE5-4010-AB20-075593A84CAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5097950E-171F-446C-94FF-14C82A140380}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5097950E-171F-446C-94FF-14C82A140380}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5097950E-171F-446C-94FF-14C82A140380}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{5097950E-171F-446C-94FF-14C82A140380}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5097950E-171F-446C-94FF-14C82A140380}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5097950E-171F-446C-94FF-14C82A140380}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

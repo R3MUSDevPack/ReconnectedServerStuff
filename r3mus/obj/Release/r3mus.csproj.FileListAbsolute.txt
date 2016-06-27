@@ -265,3 +265,5 @@ C:\temp\r3mus\r3mus\r3mus\bin\R3MUS.Devpack.Discord.dll
 C:\temp\r3mus\r3mus\r3mus\bin\R3MUS.Devpack.Slack.dll
 C:\temp\r3mus\r3mus\r3mus\bin\R3MUS.Devpack.Discord.pdb
 C:\temp\r3mus\r3mus\r3mus\bin\R3MUS.Devpack.Slack.pdb
+C:\temp\r3mus\r3mus\r3mus\bin\WebApi.OutputCache.Core.dll
+C:\temp\r3mus\r3mus\r3mus\bin\WebApi.OutputCache.V2.dll

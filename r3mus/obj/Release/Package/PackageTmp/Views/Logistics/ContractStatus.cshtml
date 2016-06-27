@@ -14,7 +14,7 @@
             <ul>
                 <li>Jita IV - Moon 4 - Caldari Navy Assembly Plant </li>
                 <li>UB-UQZ I - UBest not be relisting</li>
-                <li>OWXT-5 IV - Anger Kidd Best FC NA - <b>ONLY FULL JUMP FREIGHTERS WILL DELIVER HERE</b></li>
+                <li>8S28-3 III - got sikenler Kulubu</b></li>
             </ul>
             <strong>Restrictions:</strong><br />
             <ul>
@@ -25,7 +25,7 @@
                 <li>Days to complete: 14</li>
                 <li>No Illegal Items, Assembled Cargo Containers, or Fitted Ships</li>
             </ul>
-            <strong>Cost: </strong>500 isk per m3<br />
+            <strong>Cost: </strong>700 isk per m3<br />
             <h5>To calculate the reward, enter the size (m3) of your contract here</h5>
             <input type="text" id="volume" onkeyup="calculate()" />&nbsp;<label id="cost">0 isk</label>
         </div>
@@ -97,7 +97,7 @@
                         {
                             <tr>
                                 <td><strong>Value: </strong></td>
-                                @{ var correctReward = (contract.Volume * 500); }
+                                @{ var correctReward = (contract.Volume * 700); }
                                 <td>@Html.DisplayFor(c => contract.Reward) (should be @Html.DisplayFor(c => correctReward))</td>
                             </tr>
                             <tr>
@@ -114,7 +114,7 @@
     function calculate() {
         try {
             if (!isNaN($('#volume').val())) {
-                $('#cost').text(($('#volume').val() * 500).toString() + ' isk');
+                $('#cost').text(($('#volume').val() * 700).toString() + ' isk');
             }
             else {
                 $('#cost').text('Error - please check your volume');

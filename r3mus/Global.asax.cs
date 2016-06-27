@@ -40,16 +40,14 @@ namespace r3mus
             IJobDetail jobDetail;
             ITrigger trigger;
 
+
             var cronJobs = new r3mus_DBEntities().CRONJobs; //.Where(cronJob => cronJob.Enabled == true);
 
             cronJobs.ToList().ForEach(cronJob =>
             {
                 sched = new StdSchedulerFactory().GetScheduler();
                 sched.Start();
-
-                sched = new StdSchedulerFactory().GetScheduler();
-                sched.Start();
-
+                
                 jobDetail = JobBuilder.Create(Type.GetType(string.Concat("r3mus.CRONJobs.", cronJob.JobName)))
                     .WithIdentity(string.Format("{0}Instance", cronJob.JobName), string.Format("{0}Group", cronJob.JobName))
                     .Build();
@@ -59,7 +57,20 @@ namespace r3mus
                     .WithSimpleSchedule(x => x.WithIntervalInMinutes(cronJob.Schedule).RepeatForever())
                     .Build();
                 sched.ScheduleJob(jobDetail, trigger);
-            });            
+            });
+
+            sched = new StdSchedulerFactory().GetScheduler();
+            sched.Start();
+
+            //jobDetail = JobBuilder.Create(Type.GetType("r3mus.CRONJobs.PreloadInfo"))
+            //    .WithIdentity("PreloadInfoInstance", "PreloadInfoGroup")
+            //    .Build();
+            //trigger = TriggerBuilder.Create()
+            //    .WithIdentity("PreloadInfoTrigger", "PreloadInfoTriggerGroup")
+            //    .StartNow()
+            //    .WithSimpleSchedule(x => x.WithIntervalInMinutes(15).RepeatForever())
+            //    .Build();
+            //sched.ScheduleJob(jobDetail, trigger);
         }
     }
 }
