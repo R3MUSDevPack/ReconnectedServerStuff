@@ -15,7 +15,7 @@ using System.Web.Mvc;
 
 namespace r3mus.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin, Director, CEO")]
     public class LogisticsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
