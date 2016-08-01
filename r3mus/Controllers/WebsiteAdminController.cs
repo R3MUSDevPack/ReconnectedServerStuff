@@ -79,18 +79,18 @@ namespace r3mus.Controllers
             members.Where(member => (member.Title != string.Empty && (!member.Title.Contains("CEO") && !member.Title.Contains("Director")))).OrderBy(member => member.Title).OrderByDescending(member => member.LastLogonDateTime).ToList().ForEach(member => resortModels_All.Add(member));
             members.Where(member => member.Title == string.Empty).OrderByDescending(member => member.LastLogonDateTime).ToList().ForEach(member => resortModels_All.Add(member));
 
-            int minNo = ((page - 1) * 20);
-            int maxNo = (page * 20);
+            int minNo = ((page - 1) * 10);
+            int maxNo = (page * 10);
 
             var resortModels = new List<Member>();
 
-            resortModels = resortModels_All.Skip(minNo).Take(20).ToList();
+            resortModels = resortModels_All.Skip(minNo).Take(10).ToList();
 
             ViewBag.MemberType = memberType;
             ViewBag.PreviousPage = (page - 1);
             ViewBag.NextPage = (page + 1);
             ViewBag.ShowPrevious = (minNo > 0);
-            ViewBag.ShowNext = ((resortModels.Count == 20) && (minNo <= (resortModels_All.Count - 20)));
+            ViewBag.ShowNext = ((resortModels.Count == 10) && (minNo <= (resortModels_All.Count - 10)));
 
             resortModels.ForEach(member =>
             {
@@ -127,25 +127,20 @@ namespace r3mus.Controllers
                                 Titles = new List<Title>()
                             };
                         }
-                        //try
-                        //{
-                        //    user.Avatar = ApplicationUser.GetAvatar(JKON.EveWho.Api.GetCharacterID(member.Name), EveAI.Live.ImageServer.ImageSize.Size128px);
-                        //}
-                        //catch (Exception ex) { }
                     }
-                    int titleIsId;
-                    int.TryParse(member.Title, out titleIsId);
-                    if ((titleIsId > 0) && (titleIsId != null))
+                int titleIsId;
+                int.TryParse(member.Title, out titleIsId);
+                if ((titleIsId > 0) && (titleIsId != null))
+                {
+                    try
                     {
-                        try
-                        {
-                            var chkUser = Api.GetCharacter(titleIsId);
-                            member.Title = member.Title.Replace(titleIsId.ToString(), string.Format("This is {0}", chkUser.result.characterName));
-                        }
-                        catch (Exception ex1) { }
+                        var chkUser = Api.GetCharacter(titleIsId);
+                        member.Title = member.Title.Replace(titleIsId.ToString(), string.Format("This is {0}", chkUser.result.characterName));
                     }
+                    catch (Exception ex1) { }
+                }
 
-                    userModels.Add(new UserProfileViewModel()
+                userModels.Add(new UserProfileViewModel()
                     {
                         Id = user.Id,
                         MemberName = member.Name,

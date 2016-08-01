@@ -25,6 +25,7 @@
     <script>
 
         var regionName, elements, svgDoc, orig, chat, messages;
+		var bogSystems = ['52G-NZ', '5LJ-MD', '6-O5GY', 'B8O-KJ', 'KV-8SN', 'QCWA-Z', 'UB-UQZ', 'XM-4L0', 'YG-82V', 'Z-K495', '313I-B', '4DTQ-K', 'D4R-H7', 'EQI2-2', 'J9-5MQ', 'Q-4DEC'];
 
         $(window).load(function () {
             $('.jumbotron').attr('style', 'display: none;');
@@ -50,7 +51,7 @@
                         var splitMsg = message.Message.split(' ');
 
                         $.each(splitMsg, function (index, value) {
-                            if (value.replace(' ', '').length > 0) {
+                            if (value.replace(' ', '').length >= 3) {
                                 Flash(value);
                             }
                         });
@@ -118,10 +119,11 @@
 	        for(var i = 0; i < $(svgDoc.getElementsByTagName('symbol')).length; i++)
 	        {
 		        try{
-		            if ($(svgDoc.getElementsByTagName('symbol'))[i].getElementsByTagName('a')[0].getElementsByTagName('text')[0].textContent == sysName.replace('*', ''))
+		            if ($(svgDoc.getElementsByTagName('symbol'))[i].getElementsByTagName('a')[0].getElementsByTagName('text')[0].textContent.indexOf(sysName.replace('*', '')) > -1)
 		            {
 		                SetFlashy($(svgDoc.getElementsByTagName('symbol'))[i].getElementsByTagName('a')[0].getElementsByTagName('text')[0].previousElementSibling,
-						(bogSystems.indexOf(sysName.replace('*', '')) >= 0));
+						($(svgDoc.getElementsByTagName('symbol'))[i].getElementsByTagName('a')[0].getElementsByTagName('text')[0].textContent.indexOf(sysName.replace('*', '')) >= 0));
+
 			        }
 		        }
 	            catch (e) { }
