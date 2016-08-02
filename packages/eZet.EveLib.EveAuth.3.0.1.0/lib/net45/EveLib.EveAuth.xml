@@ -75,7 +75,7 @@
         </member>
         <member name="M:eZet.EveLib.EveAuthModule.EveAuthException.#ctor(System.String,System.Net.WebException)">
             <summary>
-            Initializes a new instance of the <see cref="T:eZet.EveLib.EveAuthModule.EveAuthException"/> class.
+                Initializes a new instance of the <see cref="T:eZet.EveLib.EveAuthModule.EveAuthException" /> class.
             </summary>
             <param name="message">The message.</param>
             <param name="innerException">The inner exception.</param>
@@ -97,12 +97,7 @@
         </member>
         <member name="T:eZet.EveLib.EveAuthModule.CrestScope">
             <summary>
-                Enum CrestScope
-            </summary>
-        </member>
-        <member name="F:eZet.EveLib.EveAuthModule.CrestScope.None">
-            <summary>
-                No scope
+            Enum CrestScope
             </summary>
         </member>
         <member name="F:eZet.EveLib.EveAuthModule.CrestScope.PublicData">
@@ -110,36 +105,68 @@
                 The publicData scope
             </summary>
         </member>
+        <member name="F:eZet.EveLib.EveAuthModule.CrestScope.CharacterContactsRead">
+            <summary>
+            The character contacts read
+            </summary>
+        </member>
+        <member name="F:eZet.EveLib.EveAuthModule.CrestScope.CharactersContactsWrite">
+            <summary>
+            The characters contacts write
+            </summary>
+        </member>
+        <member name="F:eZet.EveLib.EveAuthModule.CrestScope.CharacterFittingsRead">
+            <summary>
+            The character fittings read
+            </summary>
+        </member>
+        <member name="F:eZet.EveLib.EveAuthModule.CrestScope.CharacterFittingsWrite">
+            <summary>
+            The character fittings write
+            </summary>
+        </member>
+        <member name="F:eZet.EveLib.EveAuthModule.CrestScope.CharacterLocationRead">
+            <summary>
+            The character location read
+            </summary>
+        </member>
+        <member name="F:eZet.EveLib.EveAuthModule.CrestScope.CharacterNavigationWrite">
+            <summary>
+            The character navigation write
+            </summary>
+        </member>
         <member name="T:eZet.EveLib.EveAuthModule.EveAuth">
             <summary>
                 Class EveAuth. A helper class for Eve Online SSO authentication
             </summary>
         </member>
-        <member name="T:eZet.EveLib.EveAuthModule.IEveAuth">
-            <summary>
-                Interface IEveAuth
-            </summary>
-        </member>
-        <member name="M:eZet.EveLib.EveAuthModule.IEveAuth.AuthenticateAsync(System.String,System.String)">
-            <summary>
-                Authenticates the specified encoded key.
-            </summary>
-            <param name="encodedKey">The encoded key.</param>
-            <param name="authCode">The authentication code.</param>
-            <returns>Task&lt;AuthResponse&gt;.</returns>
-        </member>
-        <member name="M:eZet.EveLib.EveAuthModule.IEveAuth.RefreshAsync(System.String,System.String)">
-            <summary>
-                Refreshes the specified encoded key.
-            </summary>
-            <param name="encodedKey">The encoded key.</param>
-            <param name="refreshToken">The refresh token.</param>
-            <returns>Task&lt;AuthResponse&gt;.</returns>
-        </member>
         <member name="M:eZet.EveLib.EveAuthModule.EveAuth.#ctor">
             <summary>
-                Initializes a new instance of the <see cref="T:eZet.EveLib.EveAuthModule.EveAuth"/> class.
+                Initializes a new instance of the <see cref="T:eZet.EveLib.EveAuthModule.EveAuth" /> class.
             </summary>
+        </member>
+        <member name="M:eZet.EveLib.EveAuthModule.EveAuth.#cctor">
+            <summary>
+            Initializes static members of the <see cref="T:eZet.EveLib.EveAuthModule.EveAuth"/> class.
+            </summary>
+        </member>
+        <member name="P:eZet.EveLib.EveAuthModule.EveAuth.AllCrestScopes">
+            <summary>
+            Gets all crest scopes.
+            </summary>
+            <value>All crest scopes.</value>
+        </member>
+        <member name="P:eZet.EveLib.EveAuthModule.EveAuth.Protocol">
+            <summary>
+            Gets or sets the protocol.
+            </summary>
+            <value>The protocol.</value>
+        </member>
+        <member name="P:eZet.EveLib.EveAuthModule.EveAuth.Host">
+            <summary>
+                Gets or sets the base URI.
+            </summary>
+            <value>The base URI.</value>
         </member>
         <member name="M:eZet.EveLib.EveAuthModule.EveAuth.AuthenticateAsync(System.String,System.String)">
             <summary>
@@ -164,13 +191,24 @@
             <param name="accessToken">The access token.</param>
             <returns>Task&lt;VerifyResponse&gt;.</returns>
         </member>
-        <member name="M:eZet.EveLib.EveAuthModule.EveAuth.CreateAuthLink(System.String,System.String,eZet.EveLib.EveAuthModule.CrestScope)">
+        <member name="M:eZet.EveLib.EveAuthModule.EveAuth.CreateAuthLink(System.String,System.String,System.String,eZet.EveLib.EveAuthModule.CrestScope[])">
             <summary>
                 Creates an authentication link.
             </summary>
             <param name="clientId">The client identifier.</param>
             <param name="redirectUri">The redirect URI.</param>
             <param name="crestScope">The crest scope.</param>
+            <param name="state"></param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:eZet.EveLib.EveAuthModule.EveAuth.CreateAuthLink(System.String,System.String,System.String,System.String)">
+            <summary>
+            Creates the authentication link.
+            </summary>
+            <param name="clientId">The client identifier.</param>
+            <param name="redirectUri">The redirect URI.</param>
+            <param name="state">The state.</param>
+            <param name="scopes">The scopes.</param>
             <returns>System.String.</returns>
         </member>
         <member name="M:eZet.EveLib.EveAuthModule.EveAuth.Encode(System.String,System.String)">
@@ -181,11 +219,38 @@
             <param name="clientSecret">The client secret.</param>
             <returns>System.String.</returns>
         </member>
-        <member name="P:eZet.EveLib.EveAuthModule.EveAuth.BaseUri">
+        <member name="T:eZet.EveLib.EveAuthModule.IEveAuth">
             <summary>
-                Gets or sets the base URI.
+                Interface IEveAuth
             </summary>
-            <value>The base URI.</value>
+        </member>
+        <member name="M:eZet.EveLib.EveAuthModule.IEveAuth.AuthenticateAsync(System.String,System.String)">
+            <summary>
+                Authenticates the specified encoded key.
+            </summary>
+            <param name="encodedKey">The encoded key.</param>
+            <param name="authCode">The authentication code.</param>
+            <returns>Task&lt;AuthResponse&gt;.</returns>
+        </member>
+        <member name="M:eZet.EveLib.EveAuthModule.IEveAuth.RefreshAsync(System.String,System.String)">
+            <summary>
+                Refreshes the specified encoded key.
+            </summary>
+            <param name="encodedKey">The encoded key.</param>
+            <param name="refreshToken">The refresh token.</param>
+            <returns>Task&lt;AuthResponse&gt;.</returns>
+        </member>
+        <member name="P:eZet.EveLib.EveAuthModule.IEveAuth.Host">
+            <summary>
+            Gets or sets the host.
+            </summary>
+            <value>The host.</value>
+        </member>
+        <member name="P:eZet.EveLib.EveAuthModule.IEveAuth.Protocol">
+            <summary>
+            Gets or sets the protocol.
+            </summary>
+            <value>The protocol.</value>
         </member>
         <member name="T:eZet.EveLib.EveAuthModule.VerifyResponse">
             <summary>

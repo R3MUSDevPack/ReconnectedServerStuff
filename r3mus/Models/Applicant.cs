@@ -55,7 +55,7 @@ namespace r3mus.Models
         [NotMapped]
         [Display(Name = "Access Mask")]
         [UIHint("AccessMaskHighlight")]
-        public long AccessMask
+        public ulong AccessMask
         {
             get
             {
@@ -66,7 +66,7 @@ namespace r3mus.Models
                     HttpWebResponse response = (HttpWebResponse)req.GetResponse();
                     return EveXml.CreateApiKey(Convert.ToInt32(ApiKey), VerificationCode).Init().AccessMask;
                 }
-                catch (Exception ex) { return -1; }
+                catch (Exception ex) { return 0; }
             }
         }
 
@@ -84,9 +84,9 @@ namespace r3mus.Models
         public bool ValidateAccessMask(ApplicationUser.IDType type)
         {
             bool result = false;
-            long allianceAccessMask = 8388608;
-            long corpOldAccessMask = 268435455;
-            long corpNewAccessMask = Properties.Settings.Default.FullAPIAccessMask;
+            ulong allianceAccessMask = 8388608;
+            ulong corpOldAccessMask = 268435455;
+            ulong corpNewAccessMask = Properties.Settings.Default.FullAPIAccessMask;
 
             try
             {

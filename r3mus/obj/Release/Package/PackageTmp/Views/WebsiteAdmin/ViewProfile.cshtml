@@ -95,17 +95,19 @@
         Html.RenderPartial("_RoleManagement");
     }
 
-    <h4>API Details</h4>    
     <div class="row">
+        <div class="col-lg-4">
+            <h4>API Details</h4>
+        </div>
         <div class="col-lg-4">
             @Html.ActionLink("Add API Key", "CreateApi", new { id = Model.Id }, new { @class = "btn btn-default" })
         </div>
-        <div class="col-lg-4">
-            <a href="https://community.eveonline.com/support/api-key/CreatePredefined?accessMask=@ViewBag.FullAccessMask" class="btn btn-default" target="_blank">Create API Key</a>
-        </div>      
-        <div class="col-lg-4">
-            &nbsp;
+        <div class="row">
+            <div class="col-lg-4">
+                <a href="https://community.eveonline.com/support/api-key/CreatePredefined?accessMask=@ViewBag.FullAccessMask" class="btn btn-default" target="_blank">Create API Key</a>
+            </div>
         </div>
+    </div>
     <table class="table">
         <tr>
             <th>

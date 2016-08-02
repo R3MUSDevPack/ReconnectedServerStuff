@@ -65,7 +65,7 @@
     <Setting Name="EveWhoPilotURL" Type="System.String" Scope="Application">
       <Value Profile="(Default)">http://evewho.com/pilot/{0}</Value>
     </Setting>
-    <Setting Name="FullAPIAccessMask" Type="System.Int64" Scope="Application">
+    <Setting Name="FullAPIAccessMask" Type="System.UInt64" Scope="Application">
       <Value Profile="(Default)">1073741823</Value>
     </Setting>
     <Setting Name="AppUpdate_MessageFormatLine1" Type="System.String" Scope="Application">
@@ -85,9 +85,6 @@
 &lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
   &lt;string&gt;VO:919189056&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
-    </Setting>
-    <Setting Name="Debug" Type="System.Boolean" Scope="Application">
-      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="DiscordLinkSlackWebhooks" Type="System.Collections.Specialized.StringCollection" Scope="Application">
       <Value Profile="(Default)" />
@@ -123,6 +120,9 @@
   &lt;string&gt;wanker&lt;/string&gt;
   &lt;string&gt;twat&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="Debug" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

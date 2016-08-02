@@ -215,9 +215,9 @@ namespace r3mus.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1073741823")]
-        public long FullAPIAccessMask {
+        public ulong FullAPIAccessMask {
             get {
-                return ((long)(this["FullAPIAccessMask"]));
+                return ((ulong)(this["FullAPIAccessMask"]));
             }
         }
         
@@ -265,15 +265,6 @@ namespace r3mus.Properties {
         public global::System.Collections.Specialized.StringCollection SharedCommsCorpIDs {
             get {
                 return ((global::System.Collections.Specialized.StringCollection)(this["SharedCommsCorpIDs"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool Debug {
-            get {
-                return ((bool)(this["Debug"]));
             }
         }
         
@@ -362,6 +353,15 @@ namespace r3mus.Properties {
         public global::System.Collections.Specialized.StringCollection CensoredWords {
             get {
                 return ((global::System.Collections.Specialized.StringCollection)(this["CensoredWords"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Debug {
+            get {
+                return ((bool)(this["Debug"]));
             }
         }
     }

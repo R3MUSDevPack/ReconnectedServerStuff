@@ -36,7 +36,6 @@ C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\Microsoft.Web.Infrastructure.dll
 C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\System.Web.Razor.dll
 C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\System.Web.WebPages.Razor.dll
 C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\System.Web.WebPages.dll
-C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\EveLib.Core.dll
 C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\Microsoft.Owin.Security.OAuth.dll
 C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\TentacleSoftware.TeamSpeakQuery.dll
 C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\Ionic.Zip.Reduced.dll
@@ -69,7 +68,6 @@ C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\ServiceStack.Text.xml
 C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\System.Web.Razor.xml
 C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\System.Web.WebPages.Razor.xml
 C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\System.Web.WebPages.xml
-C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\EveLib.Core.xml
 C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\Microsoft.Owin.Security.OAuth.xml
 C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\temp\r3mus\r3mus\SiteUpdateBot\obj\Debug\SiteUpdateBot.exe
