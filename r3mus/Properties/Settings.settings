@@ -54,7 +54,7 @@
       <Value Profile="(Default)">Application from {0} was updated to {1} by {2} at {3}.</Value>
     </Setting>
     <Setting Name="ForumBaseURL" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">localhost:9666</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="LogisticsCorpAPI" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">4425806</Value>
@@ -81,22 +81,19 @@
       <Value Profile="(Default)">548</Value>
     </Setting>
     <Setting Name="SharedCommsCorpIDs" Type="System.Collections.Specialized.StringCollection" Scope="Application">
-      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;string&gt;VO:919189056&lt;/string&gt;
-&lt;/ArrayOfString&gt;</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="DiscordLinkSlackWebhooks" Type="System.Collections.Specialized.StringCollection" Scope="Application">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="JabberName" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">maximus_chanlin@bladesofgrass.space</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="JabberPWd" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">p33K4800</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="JabberBroadcaster" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">director_gnome@bladesofgrass.space</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="FleetRoomName" Type="System.String" Scope="Application">
       <Value Profile="(Default)">fleets</Value>
@@ -125,16 +122,16 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="JarvisSlackRoom" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">fleets</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="JarvisEmail" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">clydeenmarland@r3mus.org</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="JarvisPassword" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">jKoN160499</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="JarvisDiscordRoom" Type="System.Int64" Scope="Application">
-      <Value Profile="(Default)">126512244916748288</Value>
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>
