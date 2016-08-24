@@ -12,11 +12,6 @@ namespace r3mus.CRONJobs
 {
     public class GotgDiscordMessageJob : IJob
     {
-        private string SlackRoom = "fleets";
-        private string DiscordEmail = "clydeenmarland@r3mus.org";
-        private string DiscordPassword = "p33K4800";
-        private long DiscordChannel = 126512244916748288;
-
         public void Execute(IJobExecutionContext context)
         {
             var name = MethodBase.GetCurrentMethod().DeclaringType.Name;
@@ -32,10 +27,13 @@ namespace r3mus.CRONJobs
                 //Plugin.SendDirectMessage("Executing Jarvis", "clydeenmarland", Properties.Settings.Default.SlackWebhook);
                 try
                 {
-                    var client = new Client { UserName = DiscordEmail, Password = DiscordPassword };
+                    var client = new Client {
+                        UserName = Properties.Settings.Default.JarvisEmail,
+                        Password = Properties.Settings.Default.JarvisPassword
+                    };
                     if (client.Logon())
                     {
-                        var messages = client.GetMessages(DiscordChannel);
+                        var messages = client.GetMessages(Properties.Settings.Default.JarvisDiscordRoom);
                         
                         if (settings.LastRun == null)
                         {
@@ -55,11 +53,11 @@ namespace r3mus.CRONJobs
                                     //Title = string.Format("{0}: Message from {1}", msg.timestamp.ToString("yyyy-MM-dd HH:mm:ss"), msg.author.username),
                                     Colour = "#ff6600"
                                 });
-                                Plugin.SendToRoom(payload, SlackRoom, Properties.Settings.Default.SlackWebhook, msg.author.username);
+                                Plugin.SendToRoom(payload, Properties.Settings.Default.JarvisSlackRoom, Properties.Settings.Default.SlackWebhook, msg.author.username);
                                 
                                 foreach(var webhook in Properties.Settings.Default.DiscordLinkSlackWebhooks)
                                 {
-                                    Plugin.SendToRoom(payload, SlackRoom, webhook, msg.author.username);
+                                    Plugin.SendToRoom(payload, Properties.Settings.Default.JarvisSlackRoom, webhook, msg.author.username);
                                 }
                             });
                         }
@@ -86,10 +84,10 @@ namespace r3mus.CRONJobs
                                     //Title = string.Format("{0}: Message from {1}", msg.timestamp.ToString("yyyy-MM-dd HH:mm:ss"), msg.author.username),
                                     Colour = "#ff6600"
                                 });
-                                Plugin.SendToRoom(payload, SlackRoom, Properties.Settings.Default.SlackWebhook, msg.author.username);
+                                Plugin.SendToRoom(payload, Properties.Settings.Default.JarvisSlackRoom, Properties.Settings.Default.SlackWebhook, msg.author.username);
                                 foreach (var webhook in Properties.Settings.Default.DiscordLinkSlackWebhooks)
                                 {
-                                    Plugin.SendToRoom(payload, SlackRoom, webhook, msg.author.username);
+                                    Plugin.SendToRoom(payload, Properties.Settings.Default.JarvisSlackRoom, webhook, msg.author.username);
                                 }
                             });
                         }

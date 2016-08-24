@@ -10,3 +10,4 @@ C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Teamspeak+Plugin\bin\Debug\Te
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Teamspeak+Plugin\bin\Debug\TentacleSoftware.Telnet.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Teamspeak+Plugin\obj\Debug\Teamspeak+Plugin.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Teamspeak+Plugin\obj\Debug\Teamspeak+Plugin.pdb
+C:\temp\r3mus\r3mus\Teamspeak+Plugin\obj\Debug\Teamspeak_Plugin.csprojResolveAssemblyReference.cache

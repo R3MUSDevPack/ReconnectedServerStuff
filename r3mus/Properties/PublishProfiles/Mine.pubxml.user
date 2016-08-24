@@ -12,211 +12,211 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/19/2015 13:41:59</publishTime>
     </File>
     <File Include="bin/agsXMPP.dll">
-      <publishTime>06/02/2016 12:13:08</publishTime>
+      <publishTime>02/06/2016 12:13:08</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
-      <publishTime>06/02/2016 12:13:06</publishTime>
+      <publishTime>02/06/2016 12:13:06</publishTime>
     </File>
     <File Include="bin/Common.Logging.Core.dll">
-      <publishTime>06/02/2016 12:13:06</publishTime>
+      <publishTime>02/06/2016 12:13:06</publishTime>
     </File>
     <File Include="bin/Common.Logging.dll">
-      <publishTime>06/02/2016 12:13:06</publishTime>
+      <publishTime>02/06/2016 12:13:06</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
-      <publishTime>06/02/2016 12:13:06</publishTime>
+      <publishTime>02/06/2016 12:13:06</publishTime>
     </File>
     <File Include="bin/EntityFramework.SqlServer.dll">
-      <publishTime>06/02/2016 12:13:06</publishTime>
+      <publishTime>02/06/2016 12:13:06</publishTime>
     </File>
     <File Include="bin/EveAI.Core.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/EveAI.Live.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/EveLib.Core.dll">
-      <publishTime>02/08/2016 15:37:26</publishTime>
+      <publishTime>08/02/2016 15:37:26</publishTime>
     </File>
     <File Include="bin/EveLib.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/EveLib.Element43.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/EveLib.EveAuth.dll">
-      <publishTime>02/08/2016 15:38:38</publishTime>
+      <publishTime>08/02/2016 15:38:38</publishTime>
     </File>
     <File Include="bin/EveLib.EveCentral.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/EveLib.EveCrest.dll">
-      <publishTime>02/08/2016 15:38:41</publishTime>
+      <publishTime>08/02/2016 15:38:41</publishTime>
     </File>
     <File Include="bin/EveLib.EveMarketData.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/EveLib.EveWho.dll">
-      <publishTime>02/08/2016 15:38:45</publishTime>
+      <publishTime>08/02/2016 15:38:45</publishTime>
     </File>
     <File Include="bin/EveLib.EveXml.dll">
-      <publishTime>02/08/2016 15:38:49</publishTime>
+      <publishTime>08/02/2016 15:38:49</publishTime>
     </File>
     <File Include="bin/EveLib.StaticData.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/EveLib.ZKillboard.dll">
-      <publishTime>02/08/2016 15:38:52</publishTime>
+      <publishTime>08/02/2016 15:38:52</publishTime>
     </File>
     <File Include="bin/HipChat.Widget.Mvc.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/HipchatApiV2.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/Hipchat_Plugin.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/Images/Delve_Tac_Map.png">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/Images/Querious_Tac_Map.png">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/Ionic.Zip.Reduced.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/JKON.EveWho.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Identity.Core.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Identity.EntityFramework.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Identity.Owin.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.SignalR.Core.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.SignalR.SystemWeb.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Cors.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Host.SystemWeb.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Security.Cookies.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Security.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Security.Facebook.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Security.Google.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Security.MicrosoftAccount.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Security.OAuth.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Security.Twitter.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/MoreLinq.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>02/08/2016 15:38:33</publishTime>
+      <publishTime>08/02/2016 15:38:33</publishTime>
     </File>
     <File Include="bin/Nito.AsyncEx.Concurrent.dll">
-      <publishTime>02/08/2016 15:37:20</publishTime>
+      <publishTime>08/02/2016 15:37:20</publishTime>
     </File>
     <File Include="bin/Nito.AsyncEx.dll">
-      <publishTime>02/08/2016 15:37:20</publishTime>
+      <publishTime>08/02/2016 15:37:20</publishTime>
     </File>
     <File Include="bin/Nito.AsyncEx.Enlightenment.dll">
-      <publishTime>02/08/2016 15:37:20</publishTime>
+      <publishTime>08/02/2016 15:37:20</publishTime>
     </File>
     <File Include="bin/Owin.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/Quartz.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/R3MUS.Devpack.Discord.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/R3MUS.Devpack.Slack.dll">
       <publishTime>04/20/2016 16:29:39</publishTime>
     </File>
     <File Include="bin/r3mus.dll">
-      <publishTime>08/02/2016 16:09:05</publishTime>
+      <publishTime>08/24/2016 08:42:51</publishTime>
     </File>
     <File Include="bin/ServiceStack.Text.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/SlackClient.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/Slack_Plugin.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
       <publishTime>10/19/2015 13:13:30</publishTime>
     </File>
     <File Include="bin/System.Web.Cors.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/System.Web.Http.dll">
       <publishTime>10/19/2015 13:13:38</publishTime>
     </File>
     <File Include="bin/System.Web.Http.WebHost.dll">
-      <publishTime>06/02/2016 13:42:01</publishTime>
+      <publishTime>02/06/2016 13:42:01</publishTime>
     </File>
     <File Include="bin/System.Web.Mvc.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/System.Web.Optimization.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/System.Web.Razor.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.Deployment.dll">
-      <publishTime>06/02/2016 12:13:07</publishTime>
+      <publishTime>02/06/2016 12:13:07</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.dll">
-      <publishTime>06/02/2016 12:13:08</publishTime>
+      <publishTime>02/06/2016 12:13:08</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.Razor.dll">
-      <publishTime>06/02/2016 12:13:08</publishTime>
+      <publishTime>02/06/2016 12:13:08</publishTime>
     </File>
     <File Include="bin/Teamspeak+Plugin.dll">
-      <publishTime>06/02/2016 12:13:08</publishTime>
+      <publishTime>02/06/2016 12:13:08</publishTime>
     </File>
     <File Include="bin/TentacleSoftware.TeamSpeakQuery.dll">
-      <publishTime>06/02/2016 12:13:08</publishTime>
+      <publishTime>02/06/2016 12:13:08</publishTime>
     </File>
     <File Include="bin/TentacleSoftware.Telnet.dll">
-      <publishTime>06/02/2016 12:13:08</publishTime>
+      <publishTime>02/06/2016 12:13:08</publishTime>
     </File>
     <File Include="bin/WebApi.OutputCache.Core.dll">
       <publishTime>06/27/2016 13:44:37</publishTime>
@@ -225,7 +225,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/27/2016 13:44:37</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
-      <publishTime>06/02/2016 12:13:08</publishTime>
+      <publishTime>02/06/2016 12:13:08</publishTime>
     </File>
     <File Include="ClassDiagram1.cd">
       <publishTime>10/19/2015 13:41:51</publishTime>
@@ -234,43 +234,43 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/19/2015 13:41:51</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.css">
-      <publishTime>06/02/2016 14:07:47</publishTime>
+      <publishTime>02/06/2016 14:07:47</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.css.map">
-      <publishTime>06/02/2016 14:07:47</publishTime>
+      <publishTime>02/06/2016 14:07:47</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.min.css">
-      <publishTime>06/02/2016 14:07:47</publishTime>
+      <publishTime>02/06/2016 14:07:47</publishTime>
     </File>
     <File Include="Content/bootstrap.css">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Content/bootstrap.css.map">
-      <publishTime>06/02/2016 14:07:38</publishTime>
+      <publishTime>02/06/2016 14:07:38</publishTime>
     </File>
     <File Include="Content/bootstrap.min.css">
-      <publishTime>06/02/2016 14:07:38</publishTime>
+      <publishTime>02/06/2016 14:07:38</publishTime>
     </File>
     <File Include="Content/fonts/glyphicons-halflings-regular.eot">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Content/fonts/glyphicons-halflings-regular.svg">
       <publishTime>10/19/2015 13:44:59</publishTime>
     </File>
     <File Include="Content/fonts/glyphicons-halflings-regular.ttf">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Content/fonts/glyphicons-halflings-regular.woff">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Content/fonts/xirod.ttf">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Content/fonts/xirod.woff">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Content/MapStyle.css">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Content/Site.css">
       <publishTime>12/30/2015 13:45:14</publishTime>
@@ -303,43 +303,43 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/19/2015 13:45:24</publishTime>
     </File>
     <File Include="Content/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Content/themes/base/images/ui-bg_flat_75_ffffff_40x100.png">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Content/themes/base/images/ui-bg_glass_55_fbf9ee_1x400.png">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Content/themes/base/images/ui-bg_glass_65_ffffff_1x400.png">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Content/themes/base/images/ui-bg_glass_75_dadada_1x400.png">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Content/themes/base/images/ui-bg_glass_75_e6e6e6_1x400.png">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Content/themes/base/images/ui-bg_glass_95_fef1ec_1x400.png">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Content/themes/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Content/themes/base/images/ui-icons_222222_256x240.png">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Content/themes/base/images/ui-icons_2e83ff_256x240.png">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Content/themes/base/images/ui-icons_454545_256x240.png">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Content/themes/base/images/ui-icons_888888_256x240.png">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Content/themes/base/images/ui-icons_cd0a0a_256x240.png">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Content/themes/base/menu.css">
       <publishTime>10/19/2015 13:45:24</publishTime>
@@ -375,268 +375,268 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/19/2015 13:45:28</publishTime>
     </File>
     <File Include="favicon.ico">
-      <publishTime>06/02/2016 12:13:08</publishTime>
+      <publishTime>02/06/2016 12:13:08</publishTime>
     </File>
     <File Include="Filters/fonts/glyphicons-halflings-regular.eot">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Filters/fonts/glyphicons-halflings-regular.svg">
       <publishTime>10/19/2015 13:45:38</publishTime>
     </File>
     <File Include="Filters/fonts/glyphicons-halflings-regular.ttf">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Filters/fonts/glyphicons-halflings-regular.woff">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Filters/fonts/xirod.ttf">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Filters/fonts/xirod.woff">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.eot">
-      <publishTime>06/02/2016 14:07:38</publishTime>
+      <publishTime>02/06/2016 14:07:38</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.svg">
-      <publishTime>06/02/2016 14:07:38</publishTime>
+      <publishTime>02/06/2016 14:07:38</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.ttf">
-      <publishTime>06/02/2016 14:07:38</publishTime>
+      <publishTime>02/06/2016 14:07:38</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.woff">
-      <publishTime>06/02/2016 14:07:38</publishTime>
+      <publishTime>02/06/2016 14:07:38</publishTime>
     </File>
     <File Include="Global.asax">
       <publishTime>10/19/2015 13:41:52</publishTime>
     </File>
     <File Include="Images/API_Screenshot.PNG">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Images/Delve_Tac_Map.png">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Images/favicon.ico">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Images/jarvis.png">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Images/kryten.png">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Images/logo.png">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Images/Querious_Tac_Map.png">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Images/r3mus structure.jpg">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Images/r3mus structure.png">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Images/xmaslogo.png">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Maps/Aridia.svg">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Maps/Black_Rise.svg">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Maps/Branch.svg">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Maps/Cache.svg">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Maps/Catch.svg">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Maps/Cloud_Ring.svg">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Maps/Cobalt_Edge.svg">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Maps/Curse.svg">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Maps/Deklein.svg">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Maps/Delve.svg">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Maps/Derelik.svg">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Maps/Detorid.svg">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Maps/Devoid.svg">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Maps/Domain.svg">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Maps/Esoteria.svg">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Maps/Essence.svg">
-      <publishTime>06/02/2016 12:13:04</publishTime>
+      <publishTime>02/06/2016 12:13:04</publishTime>
     </File>
     <File Include="Maps/Etherium_Reach.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/Everyshore.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/Fade.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/Feythabolis.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/Fountain.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/Geminate.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/Genesis.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/Great_Wildlands.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/Heimatar.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/Immensea.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/Immensea_noJB.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/Impass.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/Insmother.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/Kador.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/Khanid.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/Lonetrek.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/Malpais.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/Metropolis.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/Molden_Heath.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/Oasa.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/Omist.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/Outer_Passage.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/Outer_Ring.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/Paragon_Soul.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/Period_Basis.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/Perrigen_Falls.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/Placid.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/Providence.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/Pure_Blind.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/Querious.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/Scalding_Pass.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/Sinq_Laison.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/Solitude.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/Stain.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/Syndicate.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/Tenal.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/Tenerifis.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/Tenerifis_noJB.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/The_Bleak_Lands.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/The_Citadel.svg">
-      <publishTime>06/02/2016 12:13:05</publishTime>
+      <publishTime>02/06/2016 12:13:05</publishTime>
     </File>
     <File Include="Maps/The_Forge.svg">
-      <publishTime>06/02/2016 12:13:06</publishTime>
+      <publishTime>02/06/2016 12:13:06</publishTime>
     </File>
     <File Include="Maps/The_Kalevala_Expanse.svg">
-      <publishTime>06/02/2016 12:13:06</publishTime>
+      <publishTime>02/06/2016 12:13:06</publishTime>
     </File>
     <File Include="Maps/The_Spire.svg">
-      <publishTime>06/02/2016 12:13:06</publishTime>
+      <publishTime>02/06/2016 12:13:06</publishTime>
     </File>
     <File Include="Maps/Tribute.svg">
-      <publishTime>06/02/2016 12:13:06</publishTime>
+      <publishTime>02/06/2016 12:13:06</publishTime>
     </File>
     <File Include="Maps/Vale_of_the_Silent.svg">
-      <publishTime>06/02/2016 12:13:06</publishTime>
+      <publishTime>02/06/2016 12:13:06</publishTime>
     </File>
     <File Include="Maps/Venal.svg">
-      <publishTime>06/02/2016 12:13:06</publishTime>
+      <publishTime>02/06/2016 12:13:06</publishTime>
     </File>
     <File Include="Maps/Verge_Vendor.svg">
-      <publishTime>06/02/2016 12:13:06</publishTime>
+      <publishTime>02/06/2016 12:13:06</publishTime>
     </File>
     <File Include="Maps/Wicked_Creek.svg">
-      <publishTime>06/02/2016 12:13:06</publishTime>
+      <publishTime>02/06/2016 12:13:06</publishTime>
     </File>
     <File Include="Models/ApplicantList.edmx.diagram">
       <publishTime>10/19/2015 13:46:11</publishTime>
     </File>
     <File Include="Models/ArchiveModels.edmx.diagram">
-      <publishTime>06/02/2016 12:13:06</publishTime>
+      <publishTime>02/06/2016 12:13:06</publishTime>
     </File>
     <File Include="Models/LastMonthStats.edmx.diagram">
       <publishTime>10/19/2015 13:46:13</publishTime>
@@ -645,16 +645,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/19/2015 13:46:17</publishTime>
     </File>
     <File Include="Models/r3musDBModel.edmx.diagram">
-      <publishTime>06/02/2016 12:13:06</publishTime>
+      <publishTime>02/06/2016 12:13:06</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>02/08/2016 15:38:54</publishTime>
+      <publishTime>08/02/2016 15:38:54</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
-      <publishTime>06/02/2016 14:07:38</publishTime>
+      <publishTime>02/06/2016 14:07:38</publishTime>
     </File>
     <File Include="Scripts/bootstrap.min.js">
-      <publishTime>06/02/2016 14:07:38</publishTime>
+      <publishTime>02/06/2016 14:07:38</publishTime>
     </File>
     <File Include="Scripts/jquery-1.10.2.js">
       <publishTime>10/19/2015 13:46:27</publishTime>
@@ -663,7 +663,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/19/2015 13:46:28</publishTime>
     </File>
     <File Include="Scripts/jquery-1.10.2.min.map">
-      <publishTime>06/02/2016 12:13:06</publishTime>
+      <publishTime>02/06/2016 12:13:06</publishTime>
     </File>
     <File Include="Scripts/jquery-ui-1.11.4.js">
       <publishTime>10/19/2015 13:46:31</publishTime>
@@ -672,7 +672,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/19/2015 13:46:31</publishTime>
     </File>
     <File Include="Scripts/jquery.signalR-2.2.0.js">
-      <publishTime>06/02/2016 12:13:06</publishTime>
+      <publishTime>02/06/2016 12:13:06</publishTime>
     </File>
     <File Include="Scripts/jquery.signalR-2.2.0.min.js">
       <publishTime>12/29/2015 13:52:17</publishTime>
@@ -690,7 +690,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/19/2015 13:46:34</publishTime>
     </File>
     <File Include="Scripts/MailingScript/R3MUS_MM.user.js">
-      <publishTime>06/02/2016 12:13:06</publishTime>
+      <publishTime>02/06/2016 12:13:06</publishTime>
     </File>
     <File Include="Scripts/modernizr-2.6.2.js">
       <publishTime>10/19/2015 13:46:36</publishTime>
@@ -702,7 +702,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/19/2015 13:46:36</publishTime>
     </File>
     <File Include="Scripts/_references.js">
-      <publishTime>06/02/2016 14:24:01</publishTime>
+      <publishTime>02/06/2016 14:24:01</publishTime>
     </File>
     <File Include="Views/Account/ExternalLoginConfirmation.cshtml">
       <publishTime>10/19/2015 13:49:06</publishTime>
@@ -747,7 +747,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/19/2015 13:49:17</publishTime>
     </File>
     <File Include="Views/Intel/GetIntelMap.cshtml">
-      <publishTime>01/08/2016 14:21:32</publishTime>
+      <publishTime>08/01/2016 14:21:32</publishTime>
     </File>
     <File Include="Views/Intel/GetIntelMap_PNG.cshtml">
       <publishTime>11/14/2015 15:32:14</publishTime>
@@ -762,13 +762,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/19/2015 13:49:21</publishTime>
     </File>
     <File Include="Views/LoggedInHome/Index.cshtml">
-      <publishTime>08/02/2016 15:52:34</publishTime>
+      <publishTime>02/08/2016 15:52:34</publishTime>
     </File>
     <File Include="Views/LoggedInHome/_RedirectToForums.cshtml">
       <publishTime>05/17/2016 12:32:31</publishTime>
     </File>
     <File Include="Views/LoggedInHome/_RedirectToMoodle.cshtml">
-      <publishTime>06/02/2016 12:13:06</publishTime>
+      <publishTime>02/06/2016 12:13:06</publishTime>
     </File>
     <File Include="Views/LoggedInHome/_RegisterForForums.cshtml">
       <publishTime>10/19/2015 13:49:23</publishTime>
@@ -783,7 +783,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/19/2015 13:49:24</publishTime>
     </File>
     <File Include="Views/LoggedInHome/_RegisterForTeamspeak.cshtml">
-      <publishTime>06/02/2016 12:13:06</publishTime>
+      <publishTime>02/06/2016 12:13:06</publishTime>
     </File>
     <File Include="Views/LoggedInHome/_Suggestions.cshtml">
       <publishTime>05/16/2016 15:20:14</publishTime>
@@ -828,7 +828,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/19/2015 13:49:36</publishTime>
     </File>
     <File Include="Views/Shared/DisplayTemplates/AccessMaskHighlight.cshtml">
-      <publishTime>10/19/2015 13:49:53</publishTime>
+      <publishTime>08/02/2016 16:16:19</publishTime>
     </File>
     <File Include="Views/Shared/DisplayTemplates/DisplayVCode.cshtml">
       <publishTime>10/19/2015 13:49:53</publishTime>
@@ -846,31 +846,31 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/29/2015 16:41:17</publishTime>
     </File>
     <File Include="Views/Shared/_CorpStructure.cshtml">
-      <publishTime>06/02/2016 12:13:06</publishTime>
+      <publishTime>02/06/2016 12:13:06</publishTime>
     </File>
     <File Include="Views/Shared/_IntServicesMenu.cshtml">
-      <publishTime>06/02/2016 12:13:06</publishTime>
+      <publishTime>02/06/2016 12:13:06</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
       <publishTime>12/30/2015 13:08:18</publishTime>
     </File>
     <File Include="Views/Shared/_LiveWardecs.cshtml">
-      <publishTime>06/02/2016 12:13:06</publishTime>
+      <publishTime>02/06/2016 12:13:06</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
       <publishTime>10/19/2015 13:49:45</publishTime>
     </File>
     <File Include="Views/Shared/_MapLayout.cshtml">
-      <publishTime>06/02/2016 12:13:06</publishTime>
+      <publishTime>02/06/2016 12:13:06</publishTime>
     </File>
     <File Include="Views/Shared/_MapSelection.cshtml">
-      <publishTime>06/02/2016 12:13:06</publishTime>
+      <publishTime>02/06/2016 12:13:06</publishTime>
     </File>
     <File Include="Views/Shared/_News.cshtml">
       <publishTime>10/22/2015 15:39:24</publishTime>
     </File>
     <File Include="Views/Shared/_RecruitmentMenu.cshtml">
-      <publishTime>06/02/2016 12:13:06</publishTime>
+      <publishTime>02/06/2016 12:13:06</publishTime>
     </File>
     <File Include="Views/Shared/_Rules.cshtml">
       <publishTime>06/27/2016 12:03:45</publishTime>
@@ -900,7 +900,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/26/2016 09:24:48</publishTime>
     </File>
     <File Include="Views/WebsiteAdmin/ViewUsers.cshtml">
-      <publishTime>06/04/2016 16:13:32</publishTime>
+      <publishTime>04/06/2016 16:13:32</publishTime>
     </File>
     <File Include="Views/WebsiteAdmin/_RoleManagement.cshtml">
       <publishTime>10/19/2015 13:50:06</publishTime>
@@ -909,7 +909,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/19/2015 13:49:06</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>02/08/2016 15:42:40</publishTime>
+      <publishTime>08/24/2016 08:42:58</publishTime>
     </File>
   </ItemGroup>
 </Project>

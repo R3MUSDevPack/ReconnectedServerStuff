@@ -124,5 +124,17 @@
     <Setting Name="Debug" Type="System.Boolean" Scope="Application">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="JarvisSlackRoom" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">fleets</Value>
+    </Setting>
+    <Setting Name="JarvisEmail" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">clydeenmarland@r3mus.org</Value>
+    </Setting>
+    <Setting Name="JarvisPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">jKoN160499</Value>
+    </Setting>
+    <Setting Name="JarvisDiscordRoom" Type="System.Int64" Scope="Application">
+      <Value Profile="(Default)">126512244916748288</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

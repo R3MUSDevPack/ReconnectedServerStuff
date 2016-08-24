@@ -364,5 +364,41 @@ namespace r3mus.Properties {
                 return ((bool)(this["Debug"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("fleets")]
+        public string JarvisSlackRoom {
+            get {
+                return ((string)(this["JarvisSlackRoom"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("clydeenmarland@r3mus.org")]
+        public string JarvisEmail {
+            get {
+                return ((string)(this["JarvisEmail"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("jKoN160499")]
+        public string JarvisPassword {
+            get {
+                return ((string)(this["JarvisPassword"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("126512244916748288")]
+        public long JarvisDiscordRoom {
+            get {
+                return ((long)(this["JarvisDiscordRoom"]));
+            }
+        }
     }
 }
