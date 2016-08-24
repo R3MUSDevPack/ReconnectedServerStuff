@@ -124,7 +124,6 @@ C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\Syste
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\System.Web.WebPages.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\Common.Logging.Core.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\Common.Logging.dll
-C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\EveLib.Core.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\Microsoft.Owin.Security.OAuth.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\TentacleSoftware.TeamSpeakQuery.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\Ionic.Zip.Reduced.dll
@@ -148,7 +147,6 @@ C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\Syste
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\Quartz.xml
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\EveLib.EveXml.xml
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\Microsoft.AspNet.SignalR.Core.xml
-C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\R3MUS.Devpack.Discord.pdb
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\R3MUS.Devpack.Slack.pdb
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\Teamspeak+Plugin.pdb
@@ -163,7 +161,6 @@ C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\Syste
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\System.Web.WebPages.xml
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\Common.Logging.Core.xml
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\Common.Logging.xml
-C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\EveLib.Core.xml
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\Microsoft.Owin.Security.OAuth.xml
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\obj\Debug\SiteUpdateBot.csprojResolveAssemblyReference.cache
@@ -182,3 +179,5 @@ C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\R3MUS.Devpack.Slack.pdb
 C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\R3MUS.Devpack.Discord.pdb
 C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\WebApi.OutputCache.V2.dll
 C:\temp\r3mus\r3mus\SiteUpdateBot\bin\Debug\WebApi.OutputCache.Core.dll
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\WebApi.OutputCache.V2.dll
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\WebApi.OutputCache.Core.dll

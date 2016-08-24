@@ -65,7 +65,7 @@ namespace r3mus.CRONJobs
                         {
                             messages = messages.OrderBy(msg => msg.timestamp).ToList();
                             messages = messages.Where(msg =>
-                            (msg.timestamp.AddMilliseconds(-msg.timestamp.Millisecond) > settings.LastRun.Value.AddMilliseconds(-settings.LastRun.Value.Millisecond)
+                            (msg.timestamp > settings.LastRun.Value
                             &&
                             (msg.content.Contains("To: coalition_pings"))
                             )).ToList();
@@ -91,7 +91,7 @@ namespace r3mus.CRONJobs
                                 }
                             });
                         }
-                        settings.LastRun = messages.LastOrDefault().timestamp.AddMinutes(1);
+                        settings.LastRun = messages.LastOrDefault().timestamp.AddMilliseconds(-messages.LastOrDefault().timestamp.Millisecond).AddMinutes(1);
 
                         client.LogOut();
                     }
