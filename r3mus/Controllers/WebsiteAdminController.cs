@@ -16,6 +16,7 @@ using Microsoft.AspNet.Identity.Owin;
 using JKON.Slack;
 using JKON.EveWho;
 using JKON.EveApi.Corporation.Models;
+using eZet.EveLib.EveXmlModule;
 
 namespace r3mus.Controllers
 {
@@ -62,22 +63,86 @@ namespace r3mus.Controllers
             return View();
         }
 
+        public List<Member> GetCorpMembers()
+        {
+            var members = db.CorpMembers.ToList<Member>();
+
+            var cKey = EveXml.CreateCorporationKey(Convert.ToInt32(Properties.Settings.Default.CorpAPI), Properties.Settings.Default.VCode);
+            var CEOName = cKey.Corporation.GetCorporationSheet().Result.CeoName;
+            var resortModels_All = members.Where(member => member.Name == CEOName).ToList();
+            members.Where(member => member.Title.Contains("XO") && !(member.Name == CEOName)).OrderBy(member => member.Title).OrderBy(member => member.MemberSince).ToList().ForEach(member => resortModels_All.Add(member));
+            members.Where(member => member.Title.Contains("Director") && !(member.Name == CEOName) && !member.Title.Contains("XO")).OrderBy(member => member.Title).OrderBy(member => member.MemberSince).ToList().ForEach(member => resortModels_All.Add(member));
+            members.Where(member => (member.Title != string.Empty && (!(member.Name == CEOName) && !member.Title.Contains("XO") && !member.Title.Contains("Director")))).OrderBy(member => member.Title).OrderByDescending(member => member.LastLogonDateTime).ToList().ForEach(member => resortModels_All.Add(member));
+            members.Where(member => member.Title == string.Empty).OrderByDescending(member => member.LastLogonDateTime).ToList().ForEach(member => resortModels_All.Add(member));
+            
+            if(!resortModels_All.FirstOrDefault().Title.Contains("CEO"))
+            {
+                if(!(resortModels_All.FirstOrDefault().Title == string.Empty))
+                {
+                    resortModels_All.FirstOrDefault().Title = string.Concat("CEO, ", resortModels_All.FirstOrDefault().Title);
+                }
+                else
+                {
+                    resortModels_All.FirstOrDefault().Title = "CEO";
+                }
+            }
+
+            var users = db.Users.Where(user => user.MemberType == ApplicationUser.IDType.Corporation.ToString()).ToList<ApplicationUser>();
+
+            List<ApiInfo> apis = new List<ApiInfo>();
+
+            resortModels_All.ForEach(member =>
+            {
+                try
+                {
+                    var user = users.Where(usr => usr.UserName == member.Name).FirstOrDefault();
+                    //if (user == null)
+                    //{
+                    //    if (apis.Count() == 0)
+                    //    {
+                    //        apis = db.ApiInfoes.ToList();
+                    //    }
+                    //    apis.ForEach(api =>
+                    //    {
+                    //        try
+                    //        {
+                    //            var chars = api.GetDetails();
+                    //            if (chars.Any(toon => toon.CharacterName == member.Name))
+                    //            {
+                    //                user = api.User;
+                    //                return;
+                    //            }
+                    //        }
+                    //        catch (Exception ex) { }
+                    //    });
+                    //}
+
+                    member.Avatar = users.Where(usr => usr.UserName == member.Name).FirstOrDefault().Avatar;
+                }
+                catch (Exception e) { }
+            });
+
+            return resortModels_All;
+        }
+
         //[OutputCache(Duration = 3600)]
         public ActionResult ViewUsers(r3mus.Models.ApplicationUser.IDType memberType = r3mus.Models.ApplicationUser.IDType.Corporation, int page = 1)
         {
             var users = db.Users.Where(user => user.MemberType == memberType.ToString()).ToList<ApplicationUser>();
 
-            var members = db.CorpMembers.ToList<Member>();
+            List<ApiInfo> apis = new List<ApiInfo>();
+
+            //var members = db.CorpMembers.ToList<Member>();
 
             var userModels = new List<UserProfileViewModel>();
 
-            List<ApiInfo> apis = new List<ApiInfo>();
+            var resortModels_All = GetCorpMembers();
 
-            //var members = Api.GetCorpMembers(Convert.ToInt64(Properties.Settings.Default.CorpAPI), Properties.Settings.Default.VCode);
-            var resortModels_All = members.Where(member => member.Title.Contains("CEO")).ToList();
-            members.Where(member => member.Title.Contains("Director") && !member.Title.Contains("CEO")).OrderBy(member => member.Title).OrderBy(member => member.MemberSince).ToList().ForEach(member => resortModels_All.Add(member));
-            members.Where(member => (member.Title != string.Empty && (!member.Title.Contains("CEO") && !member.Title.Contains("Director")))).OrderBy(member => member.Title).OrderByDescending(member => member.LastLogonDateTime).ToList().ForEach(member => resortModels_All.Add(member));
-            members.Where(member => member.Title == string.Empty).OrderByDescending(member => member.LastLogonDateTime).ToList().ForEach(member => resortModels_All.Add(member));
+            ////var members = Api.GetCorpMembers(Convert.ToInt64(Properties.Settings.Default.CorpAPI), Properties.Settings.Default.VCode);
+            //var resortModels_All = members.Where(member => member.Title.Contains("CEO")).ToList();
+            //members.Where(member => member.Title.Contains("Director") && !member.Title.Contains("CEO")).OrderBy(member => member.Title).OrderBy(member => member.MemberSince).ToList().ForEach(member => resortModels_All.Add(member));
+            //members.Where(member => (member.Title != string.Empty && (!member.Title.Contains("CEO") && !member.Title.Contains("Director")))).OrderBy(member => member.Title).OrderByDescending(member => member.LastLogonDateTime).ToList().ForEach(member => resortModels_All.Add(member));
+            //members.Where(member => member.Title == string.Empty).OrderByDescending(member => member.LastLogonDateTime).ToList().ForEach(member => resortModels_All.Add(member));
 
             int minNo = ((page - 1) * 10);
             int maxNo = (page * 10);
