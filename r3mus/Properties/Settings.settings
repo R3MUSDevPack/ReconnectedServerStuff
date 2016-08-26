@@ -3,34 +3,34 @@
   <Profiles />
   <Settings>
     <Setting Name="CorpAPI" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">4285630</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="VCode" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">hmZDX0Ptrvb33GscSJVfeRy6rogh06XcymVI9GdueMahoRxZDvh0lWsOeGiBaKbS</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="MoodleToken" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">a7c31796d590c338d13eecdf4c74ef42</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="MoodleBaseURL" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">training.r3mus.org</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="TSURL" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">r3mus.org</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="TS_CorpGroup" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Wolf</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="TS_AlliGroup" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Nagan</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="TS_Password" Type="System.String" Scope="Application">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="CorpTicker" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">R3MUS</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="AllianceTicker" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">NAGA</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="HipchatToken" Type="System.String" Scope="Application">
       <Value Profile="(Default)" />
@@ -57,10 +57,10 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="LogisticsCorpAPI" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">4425806</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="LogisticsVCode" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">sgzakeHa3MwhV7WmxQY3pH7ZGMbipr7xN1bqk5pgon7nv5ZjqFZ6ci4B49crp4Ke</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="EveWhoPilotURL" Type="System.String" Scope="Application">
       <Value Profile="(Default)">http://evewho.com/pilot/{0}</Value>
@@ -84,7 +84,8 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="DiscordLinkSlackWebhooks" Type="System.Collections.Specialized.StringCollection" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" /&gt;</Value>
     </Setting>
     <Setting Name="JabberName" Type="System.String" Scope="Application">
       <Value Profile="(Default)" />
@@ -119,7 +120,7 @@
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
     <Setting Name="Debug" Type="System.Boolean" Scope="Application">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="JarvisSlackRoom" Type="System.String" Scope="Application">
       <Value Profile="(Default)" />

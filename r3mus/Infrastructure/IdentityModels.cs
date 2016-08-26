@@ -355,8 +355,7 @@ namespace r3mus.Models
                     {
                         throw ex;
                     }
-                    
-                    if((MemberSince == null) || (Avatar == null))
+                    if ((MemberSince == null) || (Avatar == null))
                     {
                         var corpToon = JKON.EveWho.Api.GetCharacter(UserName);
                         if (corpToon != null)

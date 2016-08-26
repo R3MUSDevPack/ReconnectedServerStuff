@@ -269,3 +269,11 @@ C:\temp\r3mus\r3mus\r3mus\bin\Nito.AsyncEx.Enlightenment.dll
 C:\temp\r3mus\r3mus\r3mus\bin\Nito.AsyncEx.xml
 C:\temp\r3mus\r3mus\r3mus\bin\Nito.AsyncEx.Concurrent.xml
 C:\temp\r3mus\r3mus\r3mus\bin\Nito.AsyncEx.Enlightenment.xml
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\r3mus\bin\Nito.AsyncEx.Concurrent.dll
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\r3mus\bin\Nito.AsyncEx.dll
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\r3mus\bin\Nito.AsyncEx.Enlightenment.dll
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\r3mus\bin\WebApi.OutputCache.Core.dll
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\r3mus\bin\WebApi.OutputCache.V2.dll
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\r3mus\bin\Nito.AsyncEx.xml
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\r3mus\bin\Nito.AsyncEx.Concurrent.xml
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\r3mus\bin\Nito.AsyncEx.Enlightenment.xml

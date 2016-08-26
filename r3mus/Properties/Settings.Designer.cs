@@ -25,7 +25,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("4285630")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string CorpAPI {
             get {
                 return ((string)(this["CorpAPI"]));
@@ -34,7 +34,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("hmZDX0Ptrvb33GscSJVfeRy6rogh06XcymVI9GdueMahoRxZDvh0lWsOeGiBaKbS")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string VCode {
             get {
                 return ((string)(this["VCode"]));
@@ -43,7 +43,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("a7c31796d590c338d13eecdf4c74ef42")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string MoodleToken {
             get {
                 return ((string)(this["MoodleToken"]));
@@ -52,7 +52,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("training.r3mus.org")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string MoodleBaseURL {
             get {
                 return ((string)(this["MoodleBaseURL"]));
@@ -61,7 +61,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("r3mus.org")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string TSURL {
             get {
                 return ((string)(this["TSURL"]));
@@ -70,7 +70,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Wolf")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string TS_CorpGroup {
             get {
                 return ((string)(this["TS_CorpGroup"]));
@@ -79,7 +79,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Nagan")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string TS_AlliGroup {
             get {
                 return ((string)(this["TS_AlliGroup"]));
@@ -97,7 +97,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("R3MUS")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string CorpTicker {
             get {
                 return ((string)(this["CorpTicker"]));
@@ -106,7 +106,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("NAGA")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string AllianceTicker {
             get {
                 return ((string)(this["AllianceTicker"]));
@@ -187,7 +187,6 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("4425806")]
         public int LogisticsCorpAPI {
             get {
                 return ((int)(this["LogisticsCorpAPI"]));
@@ -196,7 +195,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("sgzakeHa3MwhV7WmxQY3pH7ZGMbipr7xN1bqk5pgon7nv5ZjqFZ6ci4B49crp4Ke")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string LogisticsVCode {
             get {
                 return ((string)(this["LogisticsVCode"]));
@@ -267,6 +266,8 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("<?xml version=\"1.0\" encoding=\"utf-16\"?>\r\n<ArrayOfString xmlns:xsi=\"http://www.w3." +
+            "org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" />")]
         public global::System.Collections.Specialized.StringCollection DiscordLinkSlackWebhooks {
             get {
                 return ((global::System.Collections.Specialized.StringCollection)(this["DiscordLinkSlackWebhooks"]));
@@ -355,7 +356,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool Debug {
             get {
                 return ((bool)(this["Debug"]));
