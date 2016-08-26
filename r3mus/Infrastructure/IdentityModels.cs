@@ -355,6 +355,16 @@ namespace r3mus.Models
                     {
                         throw ex;
                     }
+                    
+                    if((MemberSince == null) || (Avatar == null))
+                    {
+                        var corpToon = JKON.EveWho.Api.GetCharacter(UserName);
+                        if (corpToon != null)
+                        {
+                            MemberSince = corpToon.result.corporationDate;
+                            Avatar = GetAvatar(corpToon.result.characterID, ImageServer.ImageSize.Size128px);
+                        }
+                    }
                 }
                 if(MemberType == IDType.Corporation.ToString())
                 {
