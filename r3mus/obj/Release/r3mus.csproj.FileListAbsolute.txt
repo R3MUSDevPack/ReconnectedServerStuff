@@ -43,8 +43,6 @@ C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\r3mus\bin\MoreLinq.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\r3mus\bin\Newtonsoft.Json.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\r3mus\bin\Owin.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\r3mus\bin\Quartz.dll
-C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\r3mus\bin\R3MUS.Devpack.Discord.dll
-C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\r3mus\bin\R3MUS.Devpack.Slack.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\r3mus\bin\SlackClient.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\r3mus\bin\Slack_Plugin.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\r3mus\bin\System.Net.Http.Formatting.dll

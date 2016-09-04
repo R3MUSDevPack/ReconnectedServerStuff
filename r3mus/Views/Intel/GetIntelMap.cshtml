@@ -4,7 +4,6 @@
     Layout = "~/Views/Shared/_MapLayout.cshtml";
     ViewBag.Title = "Intel Map";
 }
-
 <div class="row">
     <div class="col-lg-10" style="text-align:right; left: -10vh;">
         <object data="@Model.Map" id="map" type="image/svg+xml" width="95%" height="85%"></object>
@@ -13,6 +12,7 @@
         <h4>@ViewBag.Title - @Model.Title.Replace("_", " ")</h4>
         <h5>Status: <label id="status" style="color: orangered;">Connecting to Hub</label></h5>
         <h5>Number of Contributors Logging: <label id="loggerCount">0</label></h5>
+        <h5>Number of Users Online: <label id="connectionCount">0</label></h5>
         <div id="log" style="text-align: left; overflow-y: scroll; min-height: 80vh; height: 80vh; max-height: 80vh; min-width: 25vh;">
             @*<ul id="log"></ul>*@
         </div>
@@ -67,6 +67,10 @@
 
             chat.client.pingUserCount = function (userCount) {
                 $('#loggerCount').text(userCount);
+            }
+
+            chat.client.pingConnectionCount = function (connectionCount) {
+                $('#connectionCount').text(connectionCount);
             }
 
             $.connection.hub.start().done(function () {

@@ -4,13 +4,67 @@ using System.Linq;
 using System.Web;
 using Microsoft.AspNet.SignalR;
 using System.Collections.Concurrent;
+using System.Threading.Tasks;
 
 namespace r3mus.Hubs
 {
     public class IntelHub : Hub
     {
         Models.r3mus_DBEntities db = new Models.r3mus_DBEntities();
-        
+
+        static List<string> users = new List<string>();
+
+        public override Task OnConnected()
+        {
+            string clientId = GetClientId();
+
+            if (users.IndexOf(clientId) == -1)
+            {
+                users.Add(clientId);
+            }
+            SendUserCount();
+            return base.OnConnected();
+        }
+
+        public override Task OnReconnected()
+        {
+            string clientId = GetClientId();
+            if (users.IndexOf(clientId) == -1)
+            {
+                users.Add(clientId);
+            }
+            SendUserCount();
+            return base.OnReconnected();
+        }
+
+        public override Task OnDisconnected(bool stopCalled)
+        {
+            string clientId = GetClientId();
+
+            if (users.IndexOf(clientId) > -1)
+            {
+                users.Remove(clientId);
+            }
+            SendUserCount();
+            return base.OnDisconnected(stopCalled);
+        }
+        private string GetClientId()
+        {
+            string clientId = "";
+            if (!(Context.QueryString["clientId"] == null))
+            {
+                //clientId passed from application 
+                clientId = Context.QueryString["clientId"].ToString();
+            }
+
+            if (clientId.Trim() == "")
+            {
+                //default clientId: connectionId 
+                clientId = Context.ConnectionId;
+            }            return clientId;
+
+        }
+
         public void ReportIntel(LogLine message)
         {
             if (!db.LogMessages.Any(msg => (msg.Message == message.Message) && (msg.UserName == message.UserName)))
@@ -70,6 +124,7 @@ namespace r3mus.Hubs
         {
             var baseTime = DateTime.Now.AddMinutes(-5);
             Clients.All.pingUserCount(db.OnlineUsers.Where(user => user.LastKnownDateTime > baseTime).Count());
+            Clients.All.pingConnectionCount(users.Count);
         }
         public void SendHistory()
         {
