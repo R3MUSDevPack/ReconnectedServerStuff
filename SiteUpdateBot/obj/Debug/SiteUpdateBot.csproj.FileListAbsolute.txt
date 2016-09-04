@@ -147,7 +147,6 @@ C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\Syste
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\Quartz.xml
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\EveLib.EveXml.xml
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\Microsoft.AspNet.SignalR.Core.xml
-C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\R3MUS.Devpack.Slack.pdb
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\Teamspeak+Plugin.pdb
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\Microsoft.Owin.Security.xml

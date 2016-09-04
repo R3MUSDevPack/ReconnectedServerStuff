@@ -251,6 +251,8 @@ namespace r3mus.Controllers
                 }
             }
 
+            ViewBag.FullAccessMask = Properties.Settings.Default.FullAPIAccessMask;
+
             TempData.Clear();
             TempData.Add("UserId", id);
 
