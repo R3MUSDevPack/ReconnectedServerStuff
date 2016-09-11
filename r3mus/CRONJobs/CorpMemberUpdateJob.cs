@@ -26,7 +26,7 @@ namespace r3mus.CRONJobs
             {
                 try
                 {
-                    var members = Api.GetCorpMembers(Convert.ToInt64(Properties.Settings.Default.CorpAPI), Properties.Settings.Default.VCode);
+                    List<Member> members = Api.GetCorpMembers(Convert.ToInt64(Properties.Settings.Default.CorpAPI), Properties.Settings.Default.VCode);
                     if ((members != null) && (members.Count > 0))
                     {
                         using (var db = new ApplicationDbContext())
@@ -55,11 +55,14 @@ namespace r3mus.CRONJobs
                             users.ForEach(usr =>
                             {
                                 var member = members.Where(memb => memb.Name.ToLower() == usr.UserName.ToLower()).FirstOrDefault();
-                                if (member.Name != usr.UserName)
+                                if (member != null)
                                 {
-                                    usr.UserName = member.Name;
+                                    if (member.Name != usr.UserName)
+                                    {
+                                        usr.UserName = member.Name;
+                                    }
+                                    usr.GetDetails(true);
                                 }
-                                usr.GetDetails(true);
                             });
                             db.SaveChanges();
                         }

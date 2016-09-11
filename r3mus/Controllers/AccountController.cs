@@ -121,7 +121,7 @@ namespace r3mus.Controllers
                         user.GetDetails(true);
 
                         await AddRolesAsync(user);
-
+                        
                         return RedirectToAction("Index", "LoggedInHome");
                     }
                     else
