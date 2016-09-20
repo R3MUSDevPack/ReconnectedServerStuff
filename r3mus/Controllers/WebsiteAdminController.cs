@@ -299,7 +299,7 @@ namespace r3mus.Controllers
                     MemberSince = Convert.ToDateTime(currentUser.MemberSince),
                     MemberType = currentUser.MemberType,
                     Avatar = currentUser.Avatar,
-                    Titles = string.Join(", ", currentUser.Titles.Select(t => t.TitleName).ToList()),
+                    Titles = string.Join(", ", currentUser.Titles.Select(t => t.TitleName).Distinct().ToList()),
                     WebsiteRoles = string.Join(", ", currentUser.Roles.Select(role => role.RoleId).ToList()),
                     ApiKeys = db.ApiInfoes.Where(api => api.User.Id == currentUser.Id).ToList(),
                     UserRoles = userRoles,
