@@ -87,10 +87,17 @@
             setTimeout(function () {
                 $('#status').text('Reconnecting to Hub');
                 $('#status').attr('style', 'color: orange;');
-                $.connection.hub.start().done(function () {
+                if ($.connection.hub.state === $.signalR.connectionState.disconnected)
+                {
+                    $.connection.hub.start().done(function () {
+                        $('#status').text('Connected to Hub');
+                        $('#status').attr('style', 'color: green;');
+                    });
+                }
+                else {
                     $('#status').text('Connected to Hub');
                     $('#status').attr('style', 'color: green;');
-                });
+                }
             }, 2000);
         });
 
