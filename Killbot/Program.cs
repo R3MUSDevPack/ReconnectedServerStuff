@@ -71,7 +71,14 @@ namespace Killbot
                 }
             }
         }
-        
+        public static DateTime RoundToHour(DateTime input)
+        {
+            //return new DateTime(input.Year, input.Month, input.Day, input.Hour, 0, 0);
+
+            long ticks = input.Ticks;
+            return new DateTime(ticks - ticks % 36000000000, input.Kind);
+        }
+
         private static void CheckKills(string corpName, long corpId)
         {
             string killKey = "StartDate_Kills";
@@ -80,20 +87,20 @@ namespace Killbot
             DateTime LatestKill = Convert.ToDateTime(ConfigurationSettings.AppSettings[killKey]).AddMinutes(1);
             DateTime LatestLoss = Convert.ToDateTime(ConfigurationSettings.AppSettings[lossKey]).AddMinutes(1);
             
-            KeyValuePair<DateTime, List<ZkbResponse.ZkbKill>> Kills;
-            KeyValuePair<DateTime, List<ZkbResponse.ZkbKill>> Losses;
+            List<ZkbResponse.ZkbKill> Kills;
+            List<ZkbResponse.ZkbKill> Losses;
 
             try
             {
-                Kills = GetZKBResponse(corpId, LatestKill, ZKBType.Kill);
-                if (Kills.Value.Count() > 0)
+                Kills = GetZKBResponse(corpId, RoundToHour(LatestKill), ZKBType.Kill).Value.Where(kill => kill.KillTime > LatestKill).ToList<ZkbResponse.ZkbKill>();
+                if (Kills.Count() > 0)
                 {
-                    Kills.Value.ForEach(kill => {
+                    Kills.ForEach(kill => {
                         //Console.WriteLine(FormatKillMessage(kill, corpName, corpId));
                         SendKillMessage(HyperFormatKillMessage(kill, corpName, corpId));
                     });
 
-                    UpdateRunTime(Kills.Key, killKey);
+                    UpdateRunTime(Kills.Max(kill => kill.KillTime), killKey);
                 }
             }
             catch (Exception Ex)
@@ -106,15 +113,15 @@ namespace Killbot
 
             try
             {
-                Losses = GetZKBResponse(corpId, LatestLoss, ZKBType.Loss);
-                if (Losses.Value.Count() > 0)
+                Losses = GetZKBResponse(corpId, RoundToHour(LatestLoss), ZKBType.Loss).Value.Where(kill => kill.KillTime > LatestKill).ToList<ZkbResponse.ZkbKill>();
+                if (Losses.Count() > 0)
                 {
-                    Losses.Value.ForEach(kill => {
+                    Losses.ForEach(kill => {
                         //Console.WriteLine(FormatKillMessage(kill, corpName, corpId));
                         SendLossMessage(HyperFormatKillMessage(kill, corpName, corpId));
                     });
 
-                    UpdateRunTime(Losses.Key, lossKey);
+                    UpdateRunTime(Losses.Max(kill => kill.KillTime), lossKey);
                 }
             }
             catch (Exception Ex)

@@ -25,24 +25,6 @@ namespace Killbot.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("4285630")]
-        public long CorpAPI {
-            get {
-                return ((long)(this["CorpAPI"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("hmZDX0Ptrvb33GscSJVfeRy6rogh06XcymVI9GdueMahoRxZDvh0lWsOeGiBaKbS")]
-        public string VCode {
-            get {
-                return ((string)(this["VCode"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("{0} {1} at {2}. ")]
         public string MessageFormatLine1 {
             get {
@@ -74,33 +56,6 @@ namespace Killbot.Properties {
         public string Plugin {
             get {
                 return ((string)(this["Plugin"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("kills")]
-        public string KillRoomName {
-            get {
-                return ((string)(this["KillRoomName"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("k05sP8cuu2MwPwBsXXXje0yJXRrxypE6q6SzlsQV")]
-        public string HipchatToken {
-            get {
-                return ((string)(this["HipchatToken"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://hooks.slack.com/services/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")]
-        public string SlackWebhook {
-            get {
-                return ((string)(this["SlackWebhook"]));
             }
         }
         
@@ -160,7 +115,7 @@ namespace Killbot.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("919189056")]
         public string CorpId {
             get {
                 return ((string)(this["CorpId"]));
@@ -169,7 +124,7 @@ namespace Killbot.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("VO")]
         public string CorpTicker {
             get {
                 return ((string)(this["CorpTicker"]));
@@ -191,6 +146,50 @@ namespace Killbot.Properties {
         public string BotName {
             get {
                 return ((string)(this["BotName"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("it_testing")]
+        public string KillRoomName {
+            get {
+                return ((string)(this["KillRoomName"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public long CorpAPI {
+            get {
+                return ((long)(this["CorpAPI"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string VCode {
+            get {
+                return ((string)(this["VCode"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string HipchatToken {
+            get {
+                return ((string)(this["HipchatToken"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://hooks.slack.com/services/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")]
+        public string SlackWebhook {
+            get {
+                return ((string)(this["SlackWebhook"]));
             }
         }
     }
