@@ -91,6 +91,16 @@ namespace r3mus.Controllers
             return View(vm);
         }
 
+        //
+        // GET: /Intel/
+        public ActionResult GetIntelMap_1(Map map)
+        {
+            var vm = new IntelViewModel() { Title = map.ToString(), Map = string.Concat("/maps/", map.ToString(), ".svg") };
+            //var vm = new IntelViewModel() { Title = map.ToString(), Map = string.Concat("/maps/Immensea_noJB.svg") };
+
+            return View(vm);
+        }
+
         public ActionResult MapSelection()
         {
             var q = new Queue<Map>((IEnumerable<Map>)Enum.GetValues(typeof(r3mus.Controllers.IntelController.Map)));

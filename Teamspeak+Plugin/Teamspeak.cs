@@ -26,7 +26,7 @@ namespace Teamspeak_Plugin
 
         public async Task<bool> AddClient(string name, string groupName, string TSURL, string password)
         {
-            client = new ServerQueryClient(TSURL, 10011, TimeSpan.FromSeconds(3));
+            client = new ServerQueryClient(TSURL, 4509, TimeSpan.FromSeconds(3));
             try
             {
                 ServerQueryBaseResult connected = client.Initialize().Result;

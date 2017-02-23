@@ -1,9 +1,13 @@
 ﻿@using(Html.BeginForm("RegisterForMoodle", "LoggedInHome", FormMethod.Post, new {enctype = "multipart/form-data" }))
-{    
-    <p style="font-family:Arial; font-size:small; font-weight:600">
-        This will register you with our Training Portal. When you have completed this step, you will be able to access R3MUS Training using the link at the top of the page.
-    </p>
-    <fieldset>
-        <input type="submit" value="Register" class="btn btn-default" />
-    </fieldset>
-}
+    {
+        <p style="font-family:Arial; font-size:small; font-weight:600">
+            This will register you with our Training Portal. When you have completed this step, you will be able to access R3MUS Training using the link at the top of the page.
+            <br/><b>You will only be able to access Training this way.</b>
+        </p>
+        <fieldset>
+            <input type="submit" value="Register" class="btn btn-default" />
+        </fieldset>
+    }
+    @*<p style="font-family:Arial; font-size:small; font-weight:600">
+        The training portal is currently unavailable
+    </p>*@

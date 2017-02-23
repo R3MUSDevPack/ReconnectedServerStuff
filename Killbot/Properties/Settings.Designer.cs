@@ -115,46 +115,10 @@ namespace Killbot.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("919189056")]
-        public string CorpId {
-            get {
-                return ((string)(this["CorpId"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("VO")]
-        public string CorpTicker {
-            get {
-                return ((string)(this["CorpTicker"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("losses")]
-        public string LossRoomName {
-            get {
-                return ((string)(this["LossRoomName"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("KillBot")]
         public string BotName {
             get {
                 return ((string)(this["BotName"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("it_testing")]
-        public string KillRoomName {
-            get {
-                return ((string)(this["KillRoomName"]));
             }
         }
         
@@ -190,6 +154,42 @@ namespace Killbot.Properties {
         public string SlackWebhook {
             get {
                 return ((string)(this["SlackWebhook"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("98389365")]
+        public string CorpId {
+            get {
+                return ((string)(this["CorpId"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("R3MUS")]
+        public string CorpTicker {
+            get {
+                return ((string)(this["CorpTicker"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("it_testing")]
+        public string LossRoomName {
+            get {
+                return ((string)(this["LossRoomName"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("it_testing")]
+        public string KillRoomName {
+            get {
+                return ((string)(this["KillRoomName"]));
             }
         }
     }

@@ -17,6 +17,8 @@ using System.Text.RegularExpressions;
 using eZet.EveLib.StaticDataModule;
 using eZet.EveLib.StaticDataModule.Models;
 using R3MUS.Devpack.Slack;
+using JKON.EveWho.Universe;
+using JKON.EveWho.Types;
 
 namespace Killbot
 {
@@ -84,8 +86,8 @@ namespace Killbot
             string killKey = "StartDate_Kills";
             string lossKey = "StartDate_Losses";
 
-            DateTime LatestKill = Convert.ToDateTime(ConfigurationSettings.AppSettings[killKey]).AddMinutes(1);
-            DateTime LatestLoss = Convert.ToDateTime(ConfigurationSettings.AppSettings[lossKey]).AddMinutes(1);
+            DateTime LatestKill = Convert.ToDateTime(ConfigurationSettings.AppSettings[killKey]);//.AddMinutes(1);
+            DateTime LatestLoss = Convert.ToDateTime(ConfigurationSettings.AppSettings[lossKey]);//.AddMinutes(1);
             
             List<ZkbResponse.ZkbKill> Kills;
             List<ZkbResponse.ZkbKill> Losses;
@@ -95,7 +97,8 @@ namespace Killbot
                 Kills = GetZKBResponse(corpId, RoundToHour(LatestKill), ZKBType.Kill).Value.Where(kill => kill.KillTime > LatestKill).ToList<ZkbResponse.ZkbKill>();
                 if (Kills.Count() > 0)
                 {
-                    Kills.ForEach(kill => {
+                    Kills.ForEach(kill =>
+                    {
                         //Console.WriteLine(FormatKillMessage(kill, corpName, corpId));
                         SendKillMessage(HyperFormatKillMessage(kill, corpName, corpId));
                     });
@@ -113,7 +116,8 @@ namespace Killbot
 
             try
             {
-                Losses = GetZKBResponse(corpId, RoundToHour(LatestLoss), ZKBType.Loss).Value.Where(kill => kill.KillTime > LatestKill).ToList<ZkbResponse.ZkbKill>();
+                Losses = GetZKBResponse(corpId, RoundToHour(LatestLoss), ZKBType.Loss).Value.Where(kill => kill.KillTime > LatestLoss).ToList<ZkbResponse.ZkbKill>();
+                //var check = GetZKBResponse(corpId, RoundToHour(LatestLoss), ZKBType.Loss).Value;
                 if (Losses.Count() > 0)
                 {
                     Losses.ForEach(kill => {
@@ -302,13 +306,15 @@ namespace Killbot
             {
                 type = "KILL";
             }
-            EveAI.Map.SolarSystem system = GetSolarSystem(kill.SolarSystemId);
+            //EveAI.Map.SolarSystem system = GetSolarSystem(kill.SolarSystemId);
+
+            var system = GetSolarSystem(kill.SolarSystemId);
 
             ZkbResponse.ZkbStats stats = kill.Stats;
 
             string killTitle = string.Format(Properties.Settings.Default.MessageFormatLine1, corpName, type, kill.KillTime.ToString());
             //messageLines.Add(killTitle);
-            string killLine1 = string.Format(Properties.Settings.Default.MessageFormatLine2, kill.Victim.CharacterName, GetProductType(kill.Victim.ShipTypeId).Name, system.Name, system.Region.Name);
+            string killLine1 = string.Format(Properties.Settings.Default.MessageFormatLine2, kill.Victim.CharacterName, GetProductType(kill.Victim.ShipTypeId).Name, system.Name, system.Constellation.Region.Name);
             messageLines.Add(killLine1);
 
             foreach (ZkbResponse.ZkbAttacker Attacker in kill.Attackers)
@@ -365,14 +371,16 @@ namespace Killbot
             {
                 type = "KILL";
             }
-            EveAI.Map.SolarSystem system = GetSolarSystem(kill.SolarSystemId);
+            //EveAI.Map.SolarSystem system = GetSolarSystem(kill.SolarSystemId);
+
+            var system = GetSolarSystem(kill.SolarSystemId);
 
             ZkbResponse.ZkbStats stats = kill.Stats;
 
             messageLines.Add(string.Format(Properties.Settings.Default.MessageFormatLine1, corpName, type, kill.KillTime.ToString()));
             messageLines.Add(string.Format(Properties.Settings.Default.MessageFormatLine2, kill.Victim.CharacterName, 
                 GetProductType(kill.Victim.ShipTypeId).Name, 
-                system.Name, system.Region.Name));
+                system.Name, system.Constellation.Region.Name));
 
             foreach (ZkbResponse.ZkbAttacker Attacker in kill.Attackers)
             {
@@ -399,7 +407,7 @@ namespace Killbot
             return message;
         }
 
-        private static EveAI.Map.SolarSystem GetSolarSystem(int systemId)
+        private static EveAI.Map.SolarSystem GetSolarSystem_Old (int systemId)
         {
             EveApi API;
             APIKeyInfo KeyInfo;
@@ -421,6 +429,11 @@ namespace Killbot
             return system;
         }
 
+        private static SolarSystem GetSolarSystem(long systemId)
+        {
+            return new SolarSystem(systemId);
+        }
+
         private static CorporationSheet GetCorpDetails()
         {
             EveApi API = new EveApi("Clyde en Marland's KillBot", Properties.Settings.Default.CorpAPI, Properties.Settings.Default.VCode);
@@ -433,7 +446,12 @@ namespace Killbot
             return new EveStaticData().GetInvType(productId);
         }
 
-        private static ProductType GetProductType(int shipTypeId)
+        private static ItemType GetProductType(long typeId)
+        {
+            return new ItemType(typeId);
+        }
+
+        private static ProductType GetProductType_Old(int shipTypeId)
         {
             EveApi API;
             APIKeyInfo KeyInfo;

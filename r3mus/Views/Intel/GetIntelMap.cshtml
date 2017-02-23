@@ -30,23 +30,11 @@
 
         $(window).load(function () {
 
-            pageURL = window.location.protocol + '//' +  window.location.host + '/' + window.location.pathname;
+            pageURL = window.location.protocol + '//' + window.location.host + '/' + window.location.pathname;
 
-	        $('#cright').text((new Date).getFullYear());
 	        orig = 'fill: #008000;';
-
-	        linkifyRegions();
-
-	        if(mapName != null){
-	            $('#title').text('Intel Map - ' + mapName.replace(/\_/g, ' '));
-		        //$('#map').attr('data', 'maps/' + mapName + '.svg');
-                try{
-					LoadSVG();
-                }
-	            catch (e) {
-	            }
-	        }
-			Connect();
+            
+            Connect();
         });
 
         function ShowHideMenu() {
@@ -76,15 +64,28 @@
                 if (!messageExists(message, messages)) {
                     try {
                         messages.push(message);
-                        $('#log').prepend('<h5>' + message.LogDateTime + '<br />' + message.UserName + '<br /><strong>' + message.Message + '</strong></h5>');
+                        var splitMsg = message.Message.split(' ');
 
-						var splitMsg = message.Message.split(' ');
+                        if((splitMsg.indexOf('clr') > -1)
+                            && (splitMsg.indexOf('clear') > -1)
+                            && (splitMsg.indexOf('status') > -1)){
+                                return;
+                        }                        
 
                         $.each(splitMsg, function (index, value) {
-                            if (value.replace(' ', '').length >= 3) {
-                                Flash(value);
+                            var sys = IsValidSystem(value);
+                            if (sys != null) {
+                                $('#log').prepend('<h5>' + message.LogDateTime + '<br />' + message.UserName + '<br /><strong>' + message.Message + '</strong></h5>');
+                                SetFlashy(sys,
+                                    (homeSystems1.indexOf(value.replace('*', '').toUpperCase()) >= 0),
+                                    (homeSystems2.indexOf(value.replace('*', '').toUpperCase()) >= 0));
                             }
+                            //if (value.replace(' ', '').length >= 3) {
+                            //    Flash(value);
+                            //}
                         });
+                        //$('#log').prepend('<h5>' + message.LogDateTime + '<br />' + message.UserName + '<br /><strong>' + message.Message + '</strong></h5>');
+
 
                         if ($('#log li').length > 20) {
                             $('#log li:last').remove();
@@ -101,6 +102,9 @@
                 $('#loggerCount').text(userCount);
             }
 
+            chat.client.pingConnectionCount = function (userCount) {
+                $('#connectionCount').text(userCount);
+            }
 
             $.connection.hub.start().done(function () {
                 $('#status').text('Connected to Hub');
@@ -111,6 +115,21 @@
             });
             }catch(e){
             //alert(e.message);
+            }
+        }
+
+        function IsValidSystem(sysName) {
+            if (svgDoc == null) {
+                LoadSVG();
+            }
+            for (var i = 0; i < $(svgDoc.getElementsByTagName('symbol')).length; i++) {
+                try {
+                    if ($(svgDoc.getElementsByTagName('symbol'))[i].getElementsByTagName('a')[0].getElementsByTagName('text')[0].textContent.indexOf(sysName.replace('*', '').toUpperCase()) > -1) {
+                        return $(svgDoc.getElementsByTagName('symbol'))[i].getElementsByTagName('a')[0].getElementsByTagName('text')[0].previousElementSibling;
+                    }
+                }
+                catch (e) { alert(e.message); }
+                return null;
             }
         }
 

@@ -277,6 +277,7 @@ namespace r3mus.Controllers
                     MoodleException moodleError = serializer.Deserialize<MoodleException>(contents);
 
                     TempData.Add("Message", "An error occurred: Please contact Clyde en Marland with this message; ");
+                    
                     TempData.Add("ErrorMessage", moodleError.debuginfo);
                 }
                 else
@@ -311,6 +312,7 @@ namespace r3mus.Controllers
             {
                 useName = User.Identity.Name;
             }
+            useName = useName.Replace("'", "");
 
             @ViewBag.PW = string.Concat("R3MUSUser_", useName);
             return PartialView("_RedirectToForums");
@@ -340,6 +342,7 @@ namespace r3mus.Controllers
                 {
                     useName = siteUser.UserName;
                 }
+                useName = useName.Replace("'", "");
 
                 if (forumUser != null)
                 {

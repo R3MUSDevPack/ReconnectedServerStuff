@@ -4,6 +4,7 @@ C:\temp\r3mus\r3mus\SlackClient\bin\Debug\Newtonsoft.Json.dll
 C:\temp\r3mus\r3mus\SlackClient\bin\Debug\Newtonsoft.Json.xml
 C:\temp\r3mus\r3mus\SlackClient\obj\Debug\SlackClient.dll
 C:\temp\r3mus\r3mus\SlackClient\obj\Debug\SlackClient.pdb
+C:\temp\r3mus\r3mus\SlackClient\obj\Debug\SlackClient.csprojResolveAssemblyReference.cache
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SlackClient\bin\Debug\SlackClient.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SlackClient\bin\Debug\SlackClient.pdb
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SlackClient\bin\Debug\Newtonsoft.Json.dll
@@ -11,4 +12,3 @@ C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SlackClient\bin\Debug\Newtons
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SlackClient\obj\Debug\SlackClient.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SlackClient\obj\Debug\SlackClient.pdb
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\SlackClient\obj\Debug\SlackClient.csprojResolveAssemblyReference.cache
-C:\temp\r3mus\r3mus\SlackClient\obj\Debug\SlackClient.csprojResolveAssemblyReference.cache

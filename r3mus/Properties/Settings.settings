@@ -3,28 +3,28 @@
   <Profiles />
   <Settings>
     <Setting Name="CorpAPI" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">4285630</Value>
     </Setting>
     <Setting Name="VCode" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">hmZDX0Ptrvb33GscSJVfeRy6rogh06XcymVI9GdueMahoRxZDvh0lWsOeGiBaKbS</Value>
     </Setting>
     <Setting Name="MoodleToken" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">63011862f9d44e6837878bc58d6519d0</Value>
     </Setting>
     <Setting Name="MoodleBaseURL" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">training.r3mus.org</Value>
     </Setting>
     <Setting Name="TSURL" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">r3mus.org</Value>
     </Setting>
     <Setting Name="TS_CorpGroup" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Wolf</Value>
     </Setting>
     <Setting Name="TS_AlliGroup" Type="System.String" Scope="Application">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="TS_Password" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">ciJQgm4B</Value>
     </Setting>
     <Setting Name="CorpTicker" Type="System.String" Scope="Application">
       <Value Profile="(Default)">R3MUS</Value>
@@ -106,7 +106,7 @@
       <Value Profile="(Default)">suggestionbox</Value>
     </Setting>
     <Setting Name="SlackWebhook" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">https://hooks.slack.com/services/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</Value>
     </Setting>
     <Setting Name="CensoredWords" Type="System.Collections.Specialized.StringCollection" Scope="Application">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
@@ -120,19 +120,19 @@
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
     <Setting Name="Debug" Type="System.Boolean" Scope="Application">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="JarvisSlackRoom" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">it_testing</Value>
     </Setting>
     <Setting Name="JarvisEmail" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">clydeenmarland@r3mus.org</Value>
     </Setting>
     <Setting Name="JarvisPassword" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">jKoN160499</Value>
     </Setting>
     <Setting Name="JarvisDiscordRoom" Type="System.Int64" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">126512244916748288</Value>
     </Setting>
   </Settings>
 </SettingsFile>

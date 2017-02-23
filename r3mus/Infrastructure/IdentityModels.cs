@@ -76,7 +76,7 @@ namespace r3mus.Models
             bool unloadApis = false;
             
             var member = new ApplicationDbContext().CorpMembers.ToList<Member>()
-                .Where(memb => memb.Name.ToLower() == UserName.ToLower()).FirstOrDefault();
+                .Where(memb => memb.Name.Replace(@"'", "").ToLower() == UserName.Replace(@"'", "").ToLower()).FirstOrDefault();
             result = (member != null);
             if(result && (member.Name != UserName))
             {

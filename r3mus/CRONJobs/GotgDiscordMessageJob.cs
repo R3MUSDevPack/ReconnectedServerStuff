@@ -33,8 +33,11 @@ namespace r3mus.CRONJobs
                     };
                     if (client.Logon())
                     {
+                        //Plugin.SendDirectMessage("Logged in", "clydeenmarland", Properties.Settings.Default.SlackWebhook);
                         var messages = client.GetMessages(Properties.Settings.Default.JarvisDiscordRoom);
-                        
+                        //var messages = client.GetMessages(0);
+
+                        //Plugin.SendDirectMessage(string.Format("{0} messages", messages.Count.ToString()), "clydeenmarland", Properties.Settings.Default.SlackWebhook);
                         if (settings.LastRun == null)
                         {
                             messages = messages.OrderBy(msg => msg.timestamp).ToList();
@@ -69,7 +72,8 @@ namespace r3mus.CRONJobs
                             &&
                             (msg.content.Contains("To: coalition_pings"))
                             )).ToList();
-                            
+                            //Plugin.SendDirectMessage(string.Format("{0} messages to send", messages.Count.ToString()), "clydeenmarland", Properties.Settings.Default.SlackWebhook);
+
                             messages.ForEach(msg =>
                             {
                                 var senderlines = msg.content.Split(new[] { "\n" }, StringSplitOptions.None);
@@ -94,6 +98,10 @@ namespace r3mus.CRONJobs
                         settings.LastRun = messages.LastOrDefault().timestamp.AddMilliseconds(-messages.LastOrDefault().timestamp.Millisecond).AddMinutes(1);
 
                         client.LogOut();
+                    }
+                    else
+                    {
+                        //Plugin.SendDirectMessage("Logged in failed", "clydeenmarland", Properties.Settings.Default.SlackWebhook);
                     }
                 }
                 catch (Exception ex)

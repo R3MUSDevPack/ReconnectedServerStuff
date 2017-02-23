@@ -108,11 +108,12 @@ namespace r3mus.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser() { UserName = model.UserName.Replace(@"'", ""), EmailAddress = model.Email };
+                var user = new ApplicationUser() { UserName = model.UserName, EmailAddress = model.Email };
                 user.AddApiInfo(model.ApiKey, model.VerificationCode);
                 
                 if (user.IsValid())
                 {
+                    user.UserName = user.UserName.Replace(@"'", "");
                     var result = await UserManager.CreateAsync(user, model.Password);
                     if (result.Succeeded)
                     {
