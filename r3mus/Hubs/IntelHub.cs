@@ -67,7 +67,7 @@ namespace r3mus.Hubs
 
         public void ReportIntel(LogLine message)
         {
-            if (!db.LogMessages.Any(msg => (msg.Message == message.Message) && (msg.UserName == message.UserName)))
+            if (!db.LogMessages.Any(msg => (msg.Message == message.Message) && (msg.UserName == message.UserName) && ((DateTime.UtcNow - message.LogDateTime).Minutes < 2)))
             {
                 db.LogMessages.Add(
                     new Models.LogMessage() { LogDateTime = message.LogDateTime, Message = message.Message, UserName = message.UserName }
