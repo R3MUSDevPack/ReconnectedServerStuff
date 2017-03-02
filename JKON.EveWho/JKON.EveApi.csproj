@@ -61,6 +61,8 @@
     <Compile Include="Character\Character.cs" />
     <Compile Include="Character\Models\History.cs" />
     <Compile Include="Character\Models\Info.cs" />
+    <Compile Include="Corporation\Alliance.cs" />
+    <Compile Include="Corporation\Corporation.cs" />
     <Compile Include="Corporation\Models\Member.cs" />
     <Compile Include="ESI.cs" />
     <Compile Include="Kills\Killboard.cs" />

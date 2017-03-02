@@ -1,4 +1,5 @@
-﻿using JKON.EveWho.Types;
+﻿using JKON.EveWho.Corporation;
+using JKON.EveWho.Types;
 using JKON.EveWho.Universe;
 using JKON.EveWho.Wars;
 using Newtonsoft.Json;
@@ -15,7 +16,8 @@ namespace JKON.EveWho
     public static class ESI
     {
         private static string _baseURI = "https://esi.tech.ccp.is/latest";
-        private static string _baseURITail = "?datasource=tranquility&language=en-us";
+        private static string _baseURITail = "?datasource=tranquility";
+        private static string _baseTailExtra = "&language=en-us";
 
         private static string _universe = "universe";
         private static string _regions = "regions";
@@ -23,6 +25,8 @@ namespace JKON.EveWho
         private static string _systems = "systems";
         private static string _types = "types";
         private static string _wars = "wars";
+        private static string _corp = "corporations";
+        private static string _alliance = "alliances";
 
         private static string BaseRequest(string uri)
         {
@@ -93,14 +97,16 @@ namespace JKON.EveWho
 
         public static Wars.Wars GetWars()
         {
-            var reqUri = string.Format("{0}/{1}/{2}", _baseURI, _universe, _wars, _baseURITail);
+            var reqUri = string.Format("{0}/{1}/{2}", _baseURI, _wars, _baseURITail);
 
-            return (Wars.Wars)BaseRequest(reqUri).Deserialize(typeof(Wars.Wars));
+            var warList = (List<long>)BaseRequest(reqUri).Deserialize(typeof(List<long>));
+
+            return new Wars.Wars() { WarIds = warList.ToArray<long>() };
         }
 
         public static void GetWar(this War me)
         {
-            var reqUri = string.Format("{0}/{1}/{2}/{3}", _baseURI, _universe, _wars, me.Id.ToString(), _baseURITail);
+            var reqUri = string.Format("{0}/{1}/{2}/{3}", _baseURI, _wars, me.Id.ToString(), _baseURITail);
 
             var obj = (War)BaseRequest(reqUri).Deserialize(typeof(War));
             me.Aggressor = obj.Aggressor;
@@ -109,6 +115,33 @@ namespace JKON.EveWho
             me.Mutual = obj.Mutual;
             me.OpenForAllies = obj.OpenForAllies;
             me.StartTime = obj.StartTime;
+        }
+
+        public static void GetCorporation(this Corporation.Corporation me)
+        {
+            var reqUri = string.Format("{0}/{1}/{2}/{3}", _baseURI, _corp, me.Id.ToString(), _baseURITail);
+
+            var obj = (Corporation.Corporation)BaseRequest(reqUri).Deserialize(typeof(Corporation.Corporation));
+            me.Alliance_Id = obj.Alliance_Id;
+            me.CEO_Id = obj.CEO_Id;
+            me.Creation_Date = obj.Creation_Date;
+            me.Creator_Id = obj.Creator_Id;
+            me.Corporation_Description = obj.Corporation_Description;
+            me.Member_Count = obj.Member_Count;
+            me.Corporation_Name = obj.Corporation_Name;
+            me.Tax_Rate = obj.Tax_Rate;
+            me.Ticker = obj.Ticker;
+            me.Url = obj.Url;
+        }
+        public static void GetAlliance(this Alliance me)
+        {
+            var reqUri = string.Format("{0}/{1}/{2}/{3}", _baseURI, _alliance, me.Id.ToString(), _baseURITail);
+
+            var obj = (Alliance)BaseRequest(reqUri).Deserialize(typeof(Alliance));
+            me.Executor_Corp = obj.Executor_Corp;
+            me.Date_Founded = obj.Date_Founded;
+            me.Alliance_Name = obj.Alliance_Name;
+            me.Ticker = obj.Ticker;
         }
     }
 }

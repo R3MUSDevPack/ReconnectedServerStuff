@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JKON.EveWho.Wars
 {
@@ -56,11 +54,11 @@ namespace JKON.EveWho.Wars
 
         [OptionalField]
         [DataMember(Name = "alliance_id")]
-        public long Alliance_Id;
+        public long? Alliance_Id;
 
         [OptionalField]
         [DataMember(Name = "corporation_id")]
-        public long Corporation_Id;
+        public long? Corporation_Id;
     }
 
     public class Defender
@@ -73,11 +71,11 @@ namespace JKON.EveWho.Wars
 
         [OptionalField]
         [DataMember(Name = "alliance_id")]
-        public long Alliance_Id;
+        public long? Alliance_Id;
 
         [OptionalField]
         [DataMember(Name = "corporation_id")]
-        public long Corporation_Id;
+        public long? Corporation_Id;
     }
 
     public class Wars

@@ -41,3 +41,5 @@ C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\ContractNotifyBot\bin\Debug\S
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\ContractNotifyBot\obj\Debug\ContractNotifyBot.csprojResolveAssemblyReference.cache
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\ContractNotifyBot\obj\Debug\ContractNotifyBot.exe
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\ContractNotifyBot\obj\Debug\ContractNotifyBot.pdb
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\ContractNotifyBot\obj\Debug\ContractNotifyBot.exe
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\ContractNotifyBot\obj\Debug\ContractNotifyBot.pdb
