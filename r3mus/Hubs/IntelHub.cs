@@ -67,7 +67,8 @@ namespace r3mus.Hubs
 
         public void ReportIntel(LogLine message)
         {
-            if (!db.LogMessages.Any(msg => (msg.Message == message.Message) && (msg.UserName == message.UserName) && ((DateTime.UtcNow - message.LogDateTime).Minutes < 2)))
+            if ((DateTime.UtcNow - message.LogDateTime).Minutes < 2) { 
+            if (!db.LogMessages.Any(msg => (msg.Message == message.Message) && (msg.UserName == message.UserName)))
             {
                 db.LogMessages.Add(
                     new Models.LogMessage() { LogDateTime = message.LogDateTime, Message = message.Message, UserName = message.UserName }
@@ -75,7 +76,7 @@ namespace r3mus.Hubs
                 db.SaveChangesAsync();
                 Console.WriteLine(string.Concat(message.LogDateTime.ToString("yyyy-MM-dd HH:mm:ss"), " > ", message.UserName, " > ", message.Message));
                 Clients.All.pingIntel(message);
-            }
+            }}
         }        
 
         public void ImLogging(string loggerName)
