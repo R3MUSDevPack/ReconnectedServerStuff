@@ -70,7 +70,7 @@
     <Compile Include="Stations\Api.cs" />
     <Compile Include="Stations\Models\Station.cs" />
     <Compile Include="Types\ItemType.cs" />
-    <Compile Include="Types\War.cs" />
+    <Compile Include="Universe\War.cs" />
     <Compile Include="Universe\Constellation.cs" />
     <Compile Include="Universe\Region.cs" />
     <Compile Include="Universe\SolarSystem.cs" />

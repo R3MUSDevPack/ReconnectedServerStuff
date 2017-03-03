@@ -38,7 +38,7 @@ namespace JKON.EveWho.Wars
             this.GetWar();
         }
         
-        public static List<long> GetWars(long? lastWarId)
+        public static List<long> GetWars(long? lastWarId = null)
         {
             return ESI.GetWars().WarIds.Where(warId => (lastWarId == null) || (warId > lastWarId)).ToList();
         }
