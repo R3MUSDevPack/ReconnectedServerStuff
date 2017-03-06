@@ -29,5 +29,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="DeclaredToons">
+      <EntityTypeMapping TypeName="r3mus_DBModel.DeclaredToon">
+        <MappingFragment StoreEntitySet="DeclaredToons">
+          <ScalarProperty Name="ToonName" ColumnName="ToonName" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

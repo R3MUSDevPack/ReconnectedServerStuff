@@ -14,6 +14,7 @@
     <EntitySet Name="CRONJobs" EntityType="Self.CRONJob" />
     <EntitySet Name="OnlineUsers" EntityType="r3mus_DBModel.OnlineUser" />
     <EntitySet Name="LogMessages" EntityType="r3mus_DBModel.LogMessage" />
+    <EntitySet Name="DeclaredToons" EntityType="r3mus_DBModel.DeclaredToon" />
   </EntityContainer>
   <EntityType Name="OnlineUser">
     <Key>
@@ -31,5 +32,13 @@
     <Property Name="LogDateTime" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="UserName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="Message" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="DeclaredToon">
+    <Key>
+      <PropertyRef Name="User_Id" />
+      <PropertyRef Name="ToonName" />
+    </Key>
+    <Property Name="User_Id" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ToonName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

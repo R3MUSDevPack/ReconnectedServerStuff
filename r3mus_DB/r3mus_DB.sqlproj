@@ -82,7 +82,6 @@
     <Build Include="dbo\Tables\Threads.sql" />
     <Build Include="dbo\Tables\Posts.sql" />
     <Build Include="dbo\Tables\OnlineUsers.sql" />
-    <Build Include="dbo\Tables\MembershipUsersInRoles.sql" />
     <Build Include="dbo\Tables\Members.sql" />
     <Build Include="dbo\Tables\LogMessages.sql" />
     <Build Include="dbo\Tables\CRONJobs.sql" />
@@ -96,6 +95,8 @@
     <Build Include="dbo\Stored Procedures\MarkRecruitmentMailees.sql" />
     <Build Include="dbo\Stored Procedures\CloseRecruitmentMailees.sql" />
     <Build Include="dbo\Tables\ApplicantApiInfoes.sql" />
+    <Build Include="dbo\Tables\DeclaredToons.sql" />
+    <Build Include="dbo\Views\Announcements.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="..\r3mus_ArchiveDB\bin\Debug\r3mus_ArchiveDB.dacpac">

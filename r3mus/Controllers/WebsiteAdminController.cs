@@ -163,23 +163,12 @@ namespace r3mus.Controllers
                     var user = users.Where(usr => usr.UserName == member.Name).FirstOrDefault();
                     if (user == null)
                     {
-                        if (apis.Count() == 0)
+                        var m = db.DeclaredToons.Where(t => t.ToonName == member.Name).FirstOrDefault();
+                        if(m != null)
                         {
-                            apis = db.ApiInfoes.ToList();
+                            user = db.Users.Where(w => w.Id == m.User_Id).FirstOrDefault();
                         }
-                        apis.ForEach(api =>
-                            {
-                                try
-                                {
-                                    var chars = api.GetDetails();
-                                    if (chars.Any(toon => toon.CharacterName == member.Name))
-                                    {
-                                        user = api.User;
-                                        return;
-                                    }
-                                }
-                                catch (Exception ex) { }
-                            });
+                        
                         if (user == null)
                         {
                             user = new ApplicationUser()
@@ -193,16 +182,10 @@ namespace r3mus.Controllers
                             };
                         }
                     }
-                int titleIsId;
-                int.TryParse(member.Title, out titleIsId);
-                if ((titleIsId > 0) && (titleIsId != null))
+
+                if(user != null)
                 {
-                    try
-                    {
-                        var chkUser = Api.GetCharacter(titleIsId);
-                        member.Title = member.Title.Replace(titleIsId.ToString(), string.Format("This is {0}", chkUser.result.characterName));
-                    }
-                    catch (Exception ex1) { }
+                    member.Title = string.Format("This is {0}", user.UserName);
                 }
 
                 userModels.Add(new UserProfileViewModel()

@@ -12,21 +12,24 @@ namespace r3mus.CRONJobs
 {
     public class CorpMemberUpdateJob : IJob
     {
+        private readonly string ExpiredMessage = "Key has expired. Contact key owner for access renewal.";
+
         public void Execute(IJobExecutionContext context)
         {
             var name = MethodBase.GetCurrentMethod().DeclaringType.Name;
-            var db = new r3mus_DBEntities();
+            var db = new ApplicationDbContext();
             SyncCorpMembers(db.CRONJobs.Where(job => job.JobName == name).FirstOrDefault());
             db.SaveChanges();
         }
 
         private void SyncCorpMembers(CRONJob settings)
         {
+            List<Member> members;
             if (settings.Enabled)
             {
                 try
                 {
-                    List<Member> members = Api.GetCorpMembers(Convert.ToInt64(Properties.Settings.Default.CorpAPI), Properties.Settings.Default.VCode);
+                    members = Api.GetCorpMembers(Convert.ToInt64(Properties.Settings.Default.CorpAPI), Properties.Settings.Default.VCode);
                     if ((members != null) && (members.Count > 0))
                     {
                         using (var db = new ApplicationDbContext())
@@ -49,6 +52,7 @@ namespace r3mus.CRONJobs
                                 db.CorpMembers.Remove(member)
                             );
                             settings.LastRun = DateTime.UtcNow;
+                            SyncDeclaredToons();
                             db.SaveChanges();
 
                             var users = db.Users.ToList();
@@ -71,6 +75,38 @@ namespace r3mus.CRONJobs
                 catch (Exception ex)
                 {
                 }
+            }
+        }
+
+        private void SyncDeclaredToons()
+        {
+            using (var db = new ApplicationDbContext())
+            {
+                var newToons = new List<DeclaredToon>();
+                var deleteApis = new List<ApiInfo>();
+
+                db.ApiInfoes.ToList().ForEach(api =>
+                {
+                    try
+                    {
+                        var chars = api.GetDetails().Select(s => s.CharacterName).ToList();
+                        
+                        chars.ForEach(cName => newToons.Add(new DeclaredToon() { User_Id = api.User.Id, ToonName = cName }));
+                    }
+                    catch (Exception ex)
+                    {
+                        if((ex.InnerException != null) && (ex.InnerException.Message == ExpiredMessage))
+                        {
+                            deleteApis.Add(api);
+                        }
+                    }
+                });
+                db.DeclaredToons.RemoveRange(db.DeclaredToons);
+                db.ApiInfoes.RemoveRange(deleteApis);
+                db.SaveChanges();
+                var toons = newToons.GroupBy(g => new { g.User_Id, g.ToonName }).Select(s => s.First()).ToList();
+                toons.ForEach(t => db.DeclaredToons.Add(t));
+                db.SaveChanges();
             }
         }
     }

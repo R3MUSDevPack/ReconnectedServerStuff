@@ -8,3 +8,5 @@ C:\temp\r3mus\r3mus\r3mus_DB\bin\Debug\r3musForumDB.dll
 C:\temp\r3mus\r3mus\r3mus_DB\bin\Debug\r3musForumDB.pdb
 C:\temp\r3mus\r3mus\r3mus_DB\bin\Debug\r3musForumDB.dacpac
 C:\temp\r3mus\r3mus\r3mus_DB\obj\Debug\r3mus_DB.sqlprojResolveAssemblyReference.cache
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\r3mus_DB\obj\Debug\r3mus_DB.dll
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\r3mus_DB\obj\Debug\r3mus_DB.pdb

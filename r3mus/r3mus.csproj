@@ -426,6 +426,9 @@
     <Compile Include="Models\CRONJob.cs">
       <DependentUpon>r3musDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DeclaredToon.cs">
+      <DependentUpon>r3musDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Forum.cs" />
     <Compile Include="Models\JabberListener.cs" />
     <Compile Include="Models\LastMonthsMailStat.cs">
@@ -853,6 +856,7 @@
     <Content Include="Views\Shared\_MapSelection.cshtml" />
     <Content Include="Views\LoggedInHome\_Suggestions.cshtml" />
     <Content Include="Views\Recruitment\_ViewApplicantApis.cshtml" />
+    <Content Include="Views\Shared\_toonSearch.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Filters\fonts\glyphicons-halflings-regular.woff" />

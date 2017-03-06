@@ -531,5 +531,9 @@ namespace r3mus.Models
         public DbSet<Member> CorpMembers { get; set; }
 
         public DbSet<Wardec> LiveWardecs { get; set; }
+
+        public virtual DbSet<CRONJob> CRONJobs { get; set; }
+
+        public virtual DbSet<DeclaredToon> DeclaredToons { get; set; }
     }
 }

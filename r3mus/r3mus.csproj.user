@@ -9,6 +9,7 @@
     <NameOfLastUsedPublishProfile>Mine</NameOfLastUsedPublishProfile>
     <ProjectView>ProjectFiles</ProjectView>
     <WebStackScaffolding_DbContextTypeFullName>r3mus.Models.r3mus_DBEntities</WebStackScaffolding_DbContextTypeFullName>
+    <UseIISExpress>true</UseIISExpress>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

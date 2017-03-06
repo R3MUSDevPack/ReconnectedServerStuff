@@ -6,7 +6,7 @@
 
 <h2>View Users</h2>
 
-@if(User.IsInRole("Admin"))
+@if (User.IsInRole("Admin"))
 {
     <div class="row">
         @Html.ActionLink("Test Slack", "TestSlack", null, new { @class = "btn btn-default" })
@@ -14,157 +14,115 @@
 }
 
 <div class="row">
-    <div>&nbsp;
+    <div>
+        &nbsp;
         @if (ViewBag.ShowPrevious)
-        { 
+        {
             @Html.ActionLink("Previous", "ViewUsers", "WebsiteAdmin", new { memberType = ViewBag.MemberType, page = ViewBag.PreviousPage }, null);
         }
     </div>
-    <div>&nbsp;
+    <div>
+        &nbsp;
         @if (ViewBag.ShowNext)
-        { 
+        {
             @Html.ActionLink("Next", "ViewUsers", "WebsiteAdmin", new { memberType = ViewBag.MemberType, page = ViewBag.NextPage }, null);
         }
     </div>
-    <div>
-        <input id="searchName" type="text" onkeyup="search()" />
-        <select id="names" onchange="getUserProfile()">
-            <option value="Search">Search</option>
-        </select>
-    </div>    
+
+    @{Html.RenderPartial("_toonSearch");}
+
 </div>
-    <table class="table">
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Avatar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MemberName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MemberType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Titles)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MemberSince)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastLogon)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstOrDefault().Avatar)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MemberName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UserName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MemberType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Titles)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MemberSince)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastLogon)
-            </th>
-            <th></th>
-        </tr>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @if (item.Id != 0.ToString())
+            <td>
+                @if (item.Id != 0.ToString())
+                {
+                    <a href="@Url.Action("ViewProfile", "WebsiteAdmin", new { id = @item.Id })">
+                        @if (item.Avatar != null)
                     {
-                        <a href="@Url.Action("ViewProfile", "WebsiteAdmin", new { id = @item.Id })">
-                            @if (item.Avatar != null)
-                    {
-                                <img src="@item.Avatar" />
-                            }
-                            else
-                            {
-                                <span>Image Not Yet Available</span>
-                            }
-                        </a>
-                    }
-                    else
-                    {
-                        if (item.Avatar != null)
-                        {
                             <img src="@item.Avatar" />
                         }
                         else
                         {
                             <span>Image Not Yet Available</span>
                         }
-                    }
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MemberName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.UserName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MemberType)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Titles)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MemberSince)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LastLogon)
-                </td>
-                <td>
-                    @if (item.Id != 0.ToString())
+                    </a>
+                }
+                else
+                {
+                    if (item.Avatar != null)
                     {
-                        @Html.ActionLink("Import from Eve", "UpdateApiDetails", new { id = item.Id, originator = "ViewUsers" }, new { @class = "btn btn-default" })
+                        <img src="@item.Avatar" />
                     }
                     else
                     {
-                        <span>Import Not Available</span>
+                        <span>Image Not Yet Available</span>
                     }
-                </td>
-            </tr>
-        }
-    </table>
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MemberName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MemberType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titles)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MemberSince)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastLogon)
+            </td>
+            <td>
+                @if (item.Id != 0.ToString())
+                {
+                    @Html.ActionLink("Import from Eve", "UpdateApiDetails", new { id = item.Id, originator = "ViewUsers" }, new { @class = "btn btn-default" })
+                }
+                else
+                {
+                    <span>Import Not Available</span>
+                }
+            </td>
+        </tr>
+    }
+</table>
 <div class="row">
-    @if (ViewBag.ShowPrevious) { @Html.ActionLink("Previous", "ViewUsers", "WebsiteAdmin", new { memberType = ViewBag.MemberType, page = ViewBag.PreviousPage }, null); }
+    @if (ViewBag.ShowPrevious)
+    { @Html.ActionLink("Previous", "ViewUsers", "WebsiteAdmin", new { memberType = ViewBag.MemberType, page = ViewBag.PreviousPage }, null);
+    }
 
-    @if (ViewBag.ShowNext) { @Html.ActionLink("Next", "ViewUsers", "WebsiteAdmin", new { memberType = ViewBag.MemberType, page = ViewBag.NextPage }, null); }
+    @if (ViewBag.ShowNext)
+    { @Html.ActionLink("Next", "ViewUsers", "WebsiteAdmin", new { memberType = ViewBag.MemberType, page = ViewBag.NextPage }, null);
+    }
 </div>
-<script type="text/javascript">
-    function search() {
-        var name = $('#searchName').val();
-        try {
-            $.ajax({
-                url: '/api/SearchMembers/' + name,
-                async: false,
-                type: 'GET',
-                success: function (data) {
-                    $('#names').empty();
-                    if ($(data).length > 0) {
-                        $('#names').append($('<option />').text('Names ready'));
-                        $.each(data, function (n1) {
-                            $('#names').append($('<option />').val(data[n1]).text(data[n1]));
-                        });
-                    }
-                    else {
-                        $('#names').append($('<option />').text('No names found'));
-                    }
-                },
-                failure: function(){alert('Fail');}
-            });
-        }
-        catch (e) {
-            alert(e.message);
-        }
-    }
-    function getUserProfile() {
-        var name = $('#names').val();
-        try {
-            $.ajax({
-                url: '/api/GetUserProfileUrl/' + name,
-                async: false,
-                type: 'GET',
-                success: function (data) {
-                    window.location.href = data;
-                },
-                failure: function(){alert('Fail');}
-            });
-        }
-        catch (e) {
-            alert(e.message);
-        }
-    }
-</script>

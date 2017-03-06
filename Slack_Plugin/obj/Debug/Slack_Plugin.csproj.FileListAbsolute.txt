@@ -18,3 +18,13 @@ C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Slack_Plugin\bin\Debug\Newton
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Slack_Plugin\obj\Debug\Slack_Plugin.csprojResolveAssemblyReference.cache
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Slack_Plugin\obj\Debug\Slack_Plugin.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Slack_Plugin\obj\Debug\Slack_Plugin.pdb
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\Slack_Plugin\bin\Debug\Slack_Plugin.dll.config
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\Slack_Plugin\bin\Debug\Slack_Plugin.dll
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\Slack_Plugin\bin\Debug\Slack_Plugin.pdb
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\Slack_Plugin\bin\Debug\SlackClient.dll
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\Slack_Plugin\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\Slack_Plugin\bin\Debug\SlackClient.pdb
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\Slack_Plugin\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\Slack_Plugin\obj\Debug\Slack_Plugin.csprojResolveAssemblyReference.cache
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\Slack_Plugin\obj\Debug\Slack_Plugin.dll
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\Slack_Plugin\obj\Debug\Slack_Plugin.pdb
