@@ -16,6 +16,5 @@ C:\Users\Chris\Source\Repos\ReconnectedServerStuff\SlackClient\bin\Debug\SlackCl
 C:\Users\Chris\Source\Repos\ReconnectedServerStuff\SlackClient\bin\Debug\SlackClient.pdb
 C:\Users\Chris\Source\Repos\ReconnectedServerStuff\SlackClient\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Chris\Source\Repos\ReconnectedServerStuff\SlackClient\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Chris\Source\Repos\ReconnectedServerStuff\SlackClient\obj\Debug\SlackClient.csprojResolveAssemblyReference.cache
 C:\Users\Chris\Source\Repos\ReconnectedServerStuff\SlackClient\obj\Debug\SlackClient.dll
 C:\Users\Chris\Source\Repos\ReconnectedServerStuff\SlackClient\obj\Debug\SlackClient.pdb

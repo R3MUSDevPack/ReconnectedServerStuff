@@ -34,14 +34,22 @@ namespace r3mus.Controllers
         [HttpGet]
         public IEnumerable<string> GetMembers(string partialName)
         {
-            return db.Users.Where(corpy => corpy.UserName.Contains(partialName)).Select(corpy => corpy.UserName);
+            return db.DeclaredToons.Where(corpy => corpy.ToonName.Contains(partialName)).Select(corpy => corpy.ToonName);
+            //return db.DeclaredToons.Where(corpy => corpy.ToonName.Contains(partialName)).GroupBy(corpy => corpy.ToonName).Select(c => c.First().ToonName);
         }
 
         [Route("api/GetUserProfileUrl/{name?}")]
         [HttpGet]
         public string GetUserProfileUrl(string name)
         {
-            return string.Format("/WebsiteAdmin/ViewProfile/{0}", (db.Users.Where(corpy => corpy.UserName == name).FirstOrDefault().Id));
+            if (db.Users.Where(corpy => corpy.UserName == name).FirstOrDefault() != null)
+            {
+                return string.Format("/WebsiteAdmin/ViewProfile/{0}", (db.Users.Where(corpy => corpy.UserName == name).FirstOrDefault().Id));
+            }
+            else
+            {
+                return string.Format("/WebsiteAdmin/ViewProfile/{0}", db.DeclaredToons.Where(t => t.ToonName == name).First().User_Id);
+            }
         }
 
         [Route("api/GetAllMembersInfo")]

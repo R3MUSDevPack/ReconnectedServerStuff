@@ -22,6 +22,5 @@ C:\Users\Chris\Source\Repos\ReconnectedServerStuff\Hipchat_Plugin\bin\Debug\Hipc
 C:\Users\Chris\Source\Repos\ReconnectedServerStuff\Hipchat_Plugin\bin\Debug\HipchatApiV2.dll
 C:\Users\Chris\Source\Repos\ReconnectedServerStuff\Hipchat_Plugin\bin\Debug\ServiceStack.Text.dll
 C:\Users\Chris\Source\Repos\ReconnectedServerStuff\Hipchat_Plugin\bin\Debug\ServiceStack.Text.xml
-C:\Users\Chris\Source\Repos\ReconnectedServerStuff\Hipchat_Plugin\obj\Debug\Hipchat_Plugin.csprojResolveAssemblyReference.cache
 C:\Users\Chris\Source\Repos\ReconnectedServerStuff\Hipchat_Plugin\obj\Debug\Hipchat_Plugin.dll
 C:\Users\Chris\Source\Repos\ReconnectedServerStuff\Hipchat_Plugin\obj\Debug\Hipchat_Plugin.pdb
