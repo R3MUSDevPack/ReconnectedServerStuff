@@ -35,8 +35,8 @@ namespace r3mus
                         policy.Origins.Add("http://map.bladesofgrass.space");
                         policy.Origins.Add("https://map.bladesofgrass.space");
                         policy.Origins.Add("map.bladesofgrass.space");
-                        //policy.Origins.Add("http://map.r3mus.org");
-                        //policy.Origins.Add("https://map.r3mus.org");
+                        policy.Origins.Add("http://www.r3mus.space");
+                        policy.Origins.Add("https://r3mus.space");
                         //policy.Origins.Add("map.r3mus.org");
                         policy.AllowAnyMethod = true;
                         policy.AllowAnyHeader = true;

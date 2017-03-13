@@ -49,8 +49,7 @@ namespace JKON.EveWho
             var reqUri = string.Format("{0}/{1}/{2}/{3}", _baseURI, _universe, _regions, me.Id.ToString(), _baseURITail);
 
             var obj = (Region)BaseRequest(reqUri).Deserialize(typeof(Region));
-            me.Constellation_Ids = obj.Constellation_Ids;
-            me.Name = obj.Name;
+            me.SetProperties(obj);
         }
 
         public static void GetConstellation(this Constellation me)
@@ -58,10 +57,7 @@ namespace JKON.EveWho
             var reqUri = string.Format("{0}/{1}/{2}/{3}", _baseURI, _universe, _constellations, me.Id.ToString(), _baseURITail);
 
             var obj = (Constellation)BaseRequest(reqUri).Deserialize(typeof(Constellation));
-            me.Name = obj.Name;
-            me.Position = obj.Position;
-            me.Region_Id = obj.Region_Id;
-            me.Systems = obj.Systems;
+            me.SetProperties(obj);
         }
 
         public static void GetSolarSystem(this SolarSystem me)
@@ -69,12 +65,7 @@ namespace JKON.EveWho
             var reqUri = string.Format("{0}/{1}/{2}/{3}", _baseURI, _universe, _systems, me.Id.ToString(), _baseURITail);
             
             var obj = (SolarSystem)BaseRequest(reqUri).Deserialize(typeof(SolarSystem));
-            me.Name = obj.Name;
-            me.Planets = obj.Planets;
-            me.Constellation_Id = obj.Constellation_Id;
-            me.Position = obj.Position;
-            me.SecurityStatus = obj.SecurityStatus;
-            me.Stargates = obj.Stargates;
+            me.SetProperties(obj);
         }
 
         public static void GetItemType(this ItemType me)
@@ -82,17 +73,7 @@ namespace JKON.EveWho
             var reqUri = string.Format("{0}/{1}/{2}/{3}", _baseURI, _universe, _types, me.Id.ToString(), _baseURITail);
             
             var obj = (JKON.EveWho.Types.ItemType)BaseRequest(reqUri).Deserialize(typeof(JKON.EveWho.Types.ItemType));
-            me.Capacity = obj.Capacity;
-            me.Description = obj.Description;
-            me.Dogma_Attributes = obj.Dogma_Attributes;
-            me.Dogma_Effects = obj.Dogma_Effects;
-            me.Graphic_Id = obj.Graphic_Id;
-            me.Group_Id = obj.Group_Id;
-            me.Name = obj.Name;
-            me.Portion_Size = obj.Portion_Size;
-            me.Published = obj.Published;
-            me.Radius = obj.Radius;
-            me.Volume = obj.Volume;
+            me.SetProperties(obj);
         }
 
         public static Wars.Wars GetWars()
@@ -109,12 +90,7 @@ namespace JKON.EveWho
             var reqUri = string.Format("{0}/{1}/{2}/{3}", _baseURI, _wars, me.Id.ToString(), _baseURITail);
 
             var obj = (War)BaseRequest(reqUri).Deserialize(typeof(War));
-            me.Aggressor = obj.Aggressor;
-            me.Declared = obj.Declared;
-            me.Defender = obj.Defender;
-            me.Mutual = obj.Mutual;
-            me.OpenForAllies = obj.OpenForAllies;
-            me.StartTime = obj.StartTime;
+            me.SetProperties(obj);
         }
 
         public static void GetCorporation(this Corporation.Corporation me)
@@ -122,26 +98,34 @@ namespace JKON.EveWho
             var reqUri = string.Format("{0}/{1}/{2}/{3}", _baseURI, _corp, me.Id.ToString(), _baseURITail);
 
             var obj = (Corporation.Corporation)BaseRequest(reqUri).Deserialize(typeof(Corporation.Corporation));
-            me.Alliance_Id = obj.Alliance_Id;
-            me.CEO_Id = obj.CEO_Id;
-            me.Creation_Date = obj.Creation_Date;
-            me.Creator_Id = obj.Creator_Id;
-            me.Corporation_Description = obj.Corporation_Description;
-            me.Member_Count = obj.Member_Count;
-            me.Corporation_Name = obj.Corporation_Name;
-            me.Tax_Rate = obj.Tax_Rate;
-            me.Ticker = obj.Ticker;
-            me.Url = obj.Url;
+            me.SetProperties(obj);
         }
         public static void GetAlliance(this Alliance me)
         {
             var reqUri = string.Format("{0}/{1}/{2}/{3}", _baseURI, _alliance, me.Id.ToString(), _baseURITail);
 
             var obj = (Alliance)BaseRequest(reqUri).Deserialize(typeof(Alliance));
-            me.Executor_Corp = obj.Executor_Corp;
-            me.Date_Founded = obj.Date_Founded;
-            me.Alliance_Name = obj.Alliance_Name;
-            me.Ticker = obj.Ticker;
+            me.SetProperties(obj);
+        }
+
+        private static void SetProperties(this object dest, object src)
+        {
+            if(dest.GetType() == src.GetType())
+            {
+                var srcType = src.GetType();
+                var destType = dest.GetType();
+
+                var properties = srcType.GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public).ToList();
+
+                properties.ForEach(srcProp => {
+                    var destProp = destType.GetProperty(srcProp.Name);
+                    destProp.SetValue(dest, srcProp.GetValue(src));
+                });
+            }
+            else
+            {
+                throw new Exception("Type mismatch");
+            }
         }
     }
 }
