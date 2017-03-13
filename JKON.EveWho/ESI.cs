@@ -79,10 +79,8 @@ namespace JKON.EveWho
         public static Wars.Wars GetWars()
         {
             var reqUri = string.Format("{0}/{1}/{2}", _baseURI, _wars, _baseURITail);
-
-            var warList = (List<long>)BaseRequest(reqUri).Deserialize(typeof(List<long>));
-
-            return new Wars.Wars() { WarIds = warList.ToArray<long>() };
+            
+            return new Wars.Wars() { WarIds = (List<long>)BaseRequest(reqUri).Deserialize(typeof(List<long>)) };
         }
 
         public static void GetWar(this War me)
@@ -106,6 +104,13 @@ namespace JKON.EveWho
 
             var obj = (Alliance)BaseRequest(reqUri).Deserialize(typeof(Alliance));
             me.SetProperties(obj);
+        }
+
+        public static Corporations GetAllianceCorporations(this Alliance me)
+        {
+            var reqUri = string.Format("{0}/{1}/{2}/{3}/{4}", _baseURI, _alliance, me.Id.ToString(), _corp, _baseURITail);
+            
+            return new Corporations() { CorpIds = (List<long>)BaseRequest(reqUri).Deserialize(typeof(List<long>)) };
         }
 
         private static void SetProperties(this object dest, object src)

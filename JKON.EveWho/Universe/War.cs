@@ -80,6 +80,6 @@ namespace JKON.EveWho.Wars
 
     public class Wars
     {
-        public long[] WarIds { get; set; }        
+        public List<long> WarIds { get; set; }        
     }
 }

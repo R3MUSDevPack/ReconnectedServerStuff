@@ -43,4 +43,8 @@ namespace JKON.EveWho.Corporation
         }
     }
 
+    public class Corporations
+    {
+        public List<long> CorpIds { get; set; }
+    }
 }

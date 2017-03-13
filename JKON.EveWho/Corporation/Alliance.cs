@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace JKON.EveWho.Corporation
 {
     public class Alliance
     {
+        private List<long> _corporationIds;
+        private List<Corporation> _corps = new List<Corporation>();
+
         public long Id { get; set; }
 
         [DataMember(Name = "alliance_name")]
@@ -19,6 +23,16 @@ namespace JKON.EveWho.Corporation
         [DataMember(Name = "executor_corp")]
         public int Executor_Corp { get; set; }
 
+        [IgnoreDataMember]
+        public virtual List<long> CorporationIds
+        {
+            get
+            {
+                if (_corporationIds == null) { _corporationIds = this.GetAllianceCorporations().CorpIds; }
+                return _corporationIds;
+            }
+        }
+
         public Alliance()
         {
 
@@ -27,7 +41,7 @@ namespace JKON.EveWho.Corporation
         {
             Id = id;
             this.GetAlliance();
-        }
+        }        
     }
 
 }
