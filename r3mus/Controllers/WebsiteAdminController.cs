@@ -450,6 +450,7 @@ namespace r3mus.Controllers
         }
 
         [HttpPost]
+        [OverrideAuthorization]
         public ActionResult CreateApi(ApiInfo apiInfo)
         {
             string userId = TempData["UserId"].ToString();
