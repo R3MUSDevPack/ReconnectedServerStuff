@@ -14,3 +14,11 @@ C:\temp\r3mus\r3mus\DotlanMapTranslator\bin\Debug\HtmlAgilityPack.xml
 C:\temp\r3mus\r3mus\DotlanMapTranslator\obj\Debug\DotlanMapTranslator.csprojResolveAssemblyReference.cache
 C:\temp\r3mus\r3mus\DotlanMapTranslator\obj\Debug\DotlanMapTranslator.exe
 C:\temp\r3mus\r3mus\DotlanMapTranslator\obj\Debug\DotlanMapTranslator.pdb
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\DotlanMapTranslator\bin\Debug\DotlanMapTranslator.exe.config
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\DotlanMapTranslator\bin\Debug\DotlanMapTranslator.exe
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\DotlanMapTranslator\bin\Debug\DotlanMapTranslator.pdb
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\DotlanMapTranslator\bin\Debug\HtmlAgilityPack.dll
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\DotlanMapTranslator\bin\Debug\HtmlAgilityPack.xml
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\DotlanMapTranslator\obj\Debug\DotlanMapTranslator.csprojResolveAssemblyReference.cache
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\DotlanMapTranslator\obj\Debug\DotlanMapTranslator.exe
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\DotlanMapTranslator\obj\Debug\DotlanMapTranslator.pdb

@@ -212,7 +212,6 @@ namespace r3mus.Controllers
         [OverrideAuthorization]
         public ActionResult ViewProfile(string id = "")
         {
-
             if(TempData["Message"] != null)
             {
                 ViewBag.Message = TempData["Message"];
@@ -440,6 +439,7 @@ namespace r3mus.Controllers
             return RedirectToAction("ViewProfile", new { id = userId });
         }
 
+        [OverrideAuthorization]
         public ActionResult CreateApi(string id)
         {
             var apiInfo = new ApiInfo();

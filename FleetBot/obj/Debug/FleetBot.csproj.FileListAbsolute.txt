@@ -9,3 +9,9 @@ C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\FleetBot\bin\Debug\FleetBot.e
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\FleetBot\bin\Debug\FleetBot.pdb
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\FleetBot\obj\Debug\FleetBot.exe
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\FleetBot\obj\Debug\FleetBot.pdb
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\FleetBot\bin\Debug\FleetBot.exe.config
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\FleetBot\bin\Debug\FleetBot.exe
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\FleetBot\bin\Debug\FleetBot.pdb
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\FleetBot\obj\Debug\FleetBot.csprojResolveAssemblyReference.cache
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\FleetBot\obj\Debug\FleetBot.exe
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\FleetBot\obj\Debug\FleetBot.pdb
