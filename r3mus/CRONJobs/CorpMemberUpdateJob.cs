@@ -18,6 +18,7 @@ namespace r3mus.CRONJobs
         {
             var name = MethodBase.GetCurrentMethod().DeclaringType.Name;
             var db = new ApplicationDbContext();
+            SyncDeclaredToons();
             SyncCorpMembers(db.CRONJobs.Where(job => job.JobName == name).FirstOrDefault());
             db.SaveChanges();
         }
@@ -52,7 +53,6 @@ namespace r3mus.CRONJobs
                                 db.CorpMembers.Remove(member)
                             );
                             settings.LastRun = DateTime.UtcNow;
-                            SyncDeclaredToons();
                             db.SaveChanges();
 
                             var users = db.Users.ToList();
