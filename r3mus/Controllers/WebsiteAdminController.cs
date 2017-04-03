@@ -453,14 +453,23 @@ namespace r3mus.Controllers
         [OverrideAuthorization]
         public ActionResult CreateApi(ApiInfo apiInfo)
         {
-            string userId = TempData["UserId"].ToString();
-
-            apiInfo.User = db.Users.Where(user => user.Id == userId).FirstOrDefault();
+            UserManager<ApplicationUser> usrMgr = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            if (User.Identity.IsAuthenticated)
+            {
+                usrMgr.FindById(User.Identity.GetUserId()).AddApiInfo(apiInfo.ApiKey.ToString(), apiInfo.VerificationCode);
+                apiInfo = usrMgr.FindById(User.Identity.GetUserId()).ApiKeys.Last();
+            }
+            else
+            {
+                string userID = TempData["UserID"].ToString();
+                usrMgr.FindById(userID).AddApiInfo(apiInfo.ApiKey.ToString(), apiInfo.VerificationCode);
+                apiInfo = usrMgr.FindById(userID).ApiKeys.Last();
+            }
 
             db.ApiInfoes.Add(apiInfo);
-            db.SaveChanges();            
-
-            return RedirectToAction("ViewProfile", new { id = userId });
+            db.SaveChanges();
+            
+            return RedirectToAction("ViewProfile");
         }        
 	}
 }

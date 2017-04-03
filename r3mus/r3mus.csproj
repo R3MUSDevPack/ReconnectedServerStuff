@@ -634,6 +634,7 @@
     <Content Include="Maps\Perrigen_Falls.svg" />
     <Content Include="Maps\Placid.svg" />
     <Content Include="Maps\Providence.svg" />
+    <Content Include="Maps\PureBlind_noJB.svg" />
     <Content Include="Maps\Pure_Blind.svg" />
     <Content Include="Maps\Querious.svg" />
     <Content Include="Maps\Scalding_Pass.svg" />
