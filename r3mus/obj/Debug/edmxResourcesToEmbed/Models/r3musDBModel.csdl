@@ -15,6 +15,12 @@
     <EntitySet Name="OnlineUsers" EntityType="r3mus_DBModel.OnlineUser" />
     <EntitySet Name="LogMessages" EntityType="r3mus_DBModel.LogMessage" />
     <EntitySet Name="DeclaredToons" EntityType="r3mus_DBModel.DeclaredToon" />
+    <EntitySet Name="Fleets" EntityType="r3mus_DBModel.Fleet" />
+    <EntitySet Name="FleetCompositions" EntityType="r3mus_DBModel.FleetComposition" />
+    <AssociationSet Name="FK_FleetComposition_Fleet" Association="r3mus_DBModel.FK_FleetComposition_Fleet">
+      <End Role="Fleet" EntitySet="Fleets" />
+      <End Role="FleetComposition" EntitySet="FleetCompositions" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="OnlineUser">
     <Key>
@@ -41,4 +47,34 @@
     <Property Name="User_Id" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="ToonName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
+  <EntityType Name="Fleet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Commander" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="FleetCompositions" Relationship="r3mus_DBModel.FK_FleetComposition_Fleet" FromRole="Fleet" ToRole="FleetComposition" />
+  </EntityType>
+  <EntityType Name="FleetComposition">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FleetId" Type="Int64" Nullable="false" />
+    <Property Name="MemberName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Fleet" Relationship="r3mus_DBModel.FK_FleetComposition_Fleet" FromRole="FleetComposition" ToRole="Fleet" />
+  </EntityType>
+  <Association Name="FK_FleetComposition_Fleet">
+    <End Type="r3mus_DBModel.Fleet" Role="Fleet" Multiplicity="1" />
+    <End Type="r3mus_DBModel.FleetComposition" Role="FleetComposition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fleet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FleetComposition">
+        <PropertyRef Name="FleetId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

@@ -12,18 +12,16 @@
 namespace r3mus.Models
 {
 
-    using System;
+using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
+    
+public partial class DeclaredToon
+{
 
-    public partial class DeclaredToon
-    {
-        [Key, Column(Order = 0)]
-        public string User_Id { get; set; }
+    public string User_Id { get; set; }
 
-        [Key, Column(Order = 2)]
-        public string ToonName { get; set; }
-    }
+    public string ToonName { get; set; }
+
+}
 
 }

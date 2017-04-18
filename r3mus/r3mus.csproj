@@ -177,8 +177,8 @@
       <HintPath>..\packages\morelinq.1.1.0\lib\net35\MoreLinq.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Nito.AsyncEx, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
@@ -318,6 +318,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FleetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IntelController.cs" />
     <Compile Include="Controllers\LoggedInHomeController.cs" />
@@ -429,6 +430,13 @@
     <Compile Include="Models\DeclaredToon.cs">
       <DependentUpon>r3musDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\EntityFixes.cs" />
+    <Compile Include="Models\Fleet.cs">
+      <DependentUpon>r3musDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FleetComposition.cs">
+      <DependentUpon>r3musDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Forum.cs" />
     <Compile Include="Models\JabberListener.cs" />
     <Compile Include="Models\LastMonthsMailStat.cs">
@@ -521,6 +529,7 @@
     <Compile Include="ViewModels\ApplicantViewModel.cs" />
     <Compile Include="ViewModels\ApplicationReviewViewModel.cs" />
     <Compile Include="ViewModels\CorpMemberViewModel.cs" />
+    <Compile Include="ViewModels\FleetCreationViewModel.cs" />
     <Compile Include="ViewModels\ForumViewModel.cs" />
     <Compile Include="ViewModels\IntelViewModel.cs" />
     <Compile Include="ViewModels\LogisticsContractsViewModel.cs" />
@@ -858,6 +867,9 @@
     <Content Include="Views\LoggedInHome\_Suggestions.cshtml" />
     <Content Include="Views\Recruitment\_ViewApplicantApis.cshtml" />
     <Content Include="Views\Shared\_toonSearch.cshtml" />
+    <Content Include="Views\Fleet\Index.cshtml" />
+    <Content Include="Views\Fleet\Create.cshtml" />
+    <Content Include="Views\Fleet\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Filters\fonts\glyphicons-halflings-regular.woff" />

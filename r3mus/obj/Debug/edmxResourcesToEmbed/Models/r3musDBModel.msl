@@ -37,5 +37,23 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Fleets">
+      <EntityTypeMapping TypeName="r3mus_DBModel.Fleet">
+        <MappingFragment StoreEntitySet="Fleet">
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Commander" ColumnName="Commander" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FleetCompositions">
+      <EntityTypeMapping TypeName="r3mus_DBModel.FleetComposition">
+        <MappingFragment StoreEntitySet="FleetComposition">
+          <ScalarProperty Name="MemberName" ColumnName="MemberName" />
+          <ScalarProperty Name="FleetId" ColumnName="FleetId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -40,6 +40,10 @@ public partial class r3mus_DBEntities : DbContext
 
     public virtual DbSet<DeclaredToon> DeclaredToons { get; set; }
 
+    public virtual DbSet<Fleet> Fleets { get; set; }
+
+    public virtual DbSet<FleetComposition> FleetCompositions { get; set; }
+
 }
 
 }

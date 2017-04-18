@@ -25,6 +25,22 @@ warning 6002: The table/view 'r3mus_DB.dbo.DeclaredToons' does not have a primar
           <Property Name="User_Id" Type="varchar(max)" Nullable="false" />
           <Property Name="ToonName" Type="varchar(max)" Nullable="false" />
         </EntityType>
+        <EntityType Name="Fleet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Commander" Type="varchar(max)" Nullable="false" />
+          <Property Name="Time" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FleetComposition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FleetId" Type="bigint" Nullable="false" />
+          <Property Name="MemberName" Type="varchar(max)" Nullable="false" />
+        </EntityType>
         <EntityType Name="LogMessages">
           <Key>
             <PropertyRef Name="LogDateTime" />
@@ -42,8 +58,22 @@ warning 6002: The table/view 'r3mus_DB.dbo.DeclaredToons' does not have a primar
           <Property Name="LoggerName" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="LastKnownDateTime" Type="datetime" />
         </EntityType>
+        <Association Name="FK_FleetComposition_Fleet">
+          <End Role="Fleet" Type="Self.Fleet" Multiplicity="1" />
+          <End Role="FleetComposition" Type="Self.FleetComposition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fleet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FleetComposition">
+              <PropertyRef Name="FleetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="r3mus_DBModelStoreContainer">
           <EntitySet Name="CRONJobs" EntityType="Self.CRONJobs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fleet" EntityType="Self.Fleet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FleetComposition" EntityType="Self.FleetComposition" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LogMessages" EntityType="Self.LogMessages" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OnlineUsers" EntityType="Self.OnlineUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DeclaredToons" EntityType="Self.DeclaredToons" store:Type="Tables" store:Schema="dbo">
@@ -52,6 +82,10 @@ warning 6002: The table/view 'r3mus_DB.dbo.DeclaredToons' does not have a primar
     [DeclaredToons].[ToonName] AS [ToonName]
     FROM [dbo].[DeclaredToons] AS [DeclaredToons]</DefiningQuery>
           </EntitySet>
+          <AssociationSet Name="FK_FleetComposition_Fleet" Association="Self.FK_FleetComposition_Fleet">
+            <End Role="Fleet" EntitySet="Fleet" />
+            <End Role="FleetComposition" EntitySet="FleetComposition" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -72,6 +106,12 @@ warning 6002: The table/view 'r3mus_DB.dbo.DeclaredToons' does not have a primar
           <EntitySet Name="OnlineUsers" EntityType="r3mus_DBModel.OnlineUser" />
           <EntitySet Name="LogMessages" EntityType="r3mus_DBModel.LogMessage" />
           <EntitySet Name="DeclaredToons" EntityType="r3mus_DBModel.DeclaredToon" />
+          <EntitySet Name="Fleets" EntityType="r3mus_DBModel.Fleet" />
+          <EntitySet Name="FleetCompositions" EntityType="r3mus_DBModel.FleetComposition" />
+          <AssociationSet Name="FK_FleetComposition_Fleet" Association="r3mus_DBModel.FK_FleetComposition_Fleet">
+            <End Role="Fleet" EntitySet="Fleets" />
+            <End Role="FleetComposition" EntitySet="FleetCompositions" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="OnlineUser">
           <Key>
@@ -98,6 +138,36 @@ warning 6002: The table/view 'r3mus_DB.dbo.DeclaredToons' does not have a primar
           <Property Name="User_Id" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="ToonName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="Fleet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Commander" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="FleetCompositions" Relationship="r3mus_DBModel.FK_FleetComposition_Fleet" FromRole="Fleet" ToRole="FleetComposition" />
+        </EntityType>
+        <EntityType Name="FleetComposition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FleetId" Type="Int64" Nullable="false" />
+          <Property Name="MemberName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Fleet" Relationship="r3mus_DBModel.FK_FleetComposition_Fleet" FromRole="FleetComposition" ToRole="Fleet" />
+        </EntityType>
+        <Association Name="FK_FleetComposition_Fleet">
+          <End Type="r3mus_DBModel.Fleet" Role="Fleet" Multiplicity="1" />
+          <End Type="r3mus_DBModel.FleetComposition" Role="FleetComposition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fleet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FleetComposition">
+              <PropertyRef Name="FleetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -137,6 +207,24 @@ warning 6002: The table/view 'r3mus_DB.dbo.DeclaredToons' does not have a primar
               <MappingFragment StoreEntitySet="DeclaredToons">
                 <ScalarProperty Name="ToonName" ColumnName="ToonName" />
                 <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fleets">
+            <EntityTypeMapping TypeName="r3mus_DBModel.Fleet">
+              <MappingFragment StoreEntitySet="Fleet">
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Commander" ColumnName="Commander" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FleetCompositions">
+            <EntityTypeMapping TypeName="r3mus_DBModel.FleetComposition">
+              <MappingFragment StoreEntitySet="FleetComposition">
+                <ScalarProperty Name="MemberName" ColumnName="MemberName" />
+                <ScalarProperty Name="FleetId" ColumnName="FleetId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

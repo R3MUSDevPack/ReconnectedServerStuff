@@ -18,7 +18,7 @@ namespace r3mus.CRONJobs
         {
             var name = MethodBase.GetCurrentMethod().DeclaringType.Name;
             var db = new ApplicationDbContext();
-            SyncDeclaredToons();
+            SyncDeclaredToons(db.CRONJobs.Where(job => job.JobName == name).FirstOrDefault());
             SyncCorpMembers(db.CRONJobs.Where(job => job.JobName == name).FirstOrDefault());
             db.SaveChanges();
         }
@@ -78,35 +78,38 @@ namespace r3mus.CRONJobs
             }
         }
 
-        private void SyncDeclaredToons()
+        private void SyncDeclaredToons(CRONJob settings)
         {
-            using (var db = new ApplicationDbContext())
+            if (settings.Enabled)
             {
-                var newToons = new List<DeclaredToon>();
-                var deleteApis = new List<ApiInfo>();
-
-                db.ApiInfoes.ToList().ForEach(api =>
+                using (var db = new ApplicationDbContext())
                 {
-                    try
+                    var newToons = new List<DeclaredToon>();
+                    var deleteApis = new List<ApiInfo>();
+
+                    db.ApiInfoes.ToList().ForEach(api =>
                     {
-                        var chars = api.GetDetails().Select(s => s.CharacterName).ToList();
-                        
-                        chars.ForEach(cName => newToons.Add(new DeclaredToon() { User_Id = api.User.Id, ToonName = cName }));
-                    }
-                    catch (Exception ex)
-                    {
-                        if((ex.InnerException != null) && (ex.InnerException.Message == ExpiredMessage))
+                        try
                         {
-                            deleteApis.Add(api);
+                            var chars = api.GetDetails().Select(s => s.CharacterName).ToList();
+
+                            chars.ForEach(cName => newToons.Add(new DeclaredToon() { User_Id = api.User.Id, ToonName = cName }));
                         }
-                    }
-                });
-                db.DeclaredToons.RemoveRange(db.DeclaredToons);
-                db.ApiInfoes.RemoveRange(deleteApis);
-                db.SaveChanges();
-                var toons = newToons.GroupBy(g => new { g.User_Id, g.ToonName }).Select(s => s.First()).ToList();
-                toons.ForEach(t => db.DeclaredToons.Add(t));
-                db.SaveChanges();
+                        catch (Exception ex)
+                        {
+                            if ((ex.InnerException != null) && (ex.InnerException.Message == ExpiredMessage))
+                            {
+                                deleteApis.Add(api);
+                            }
+                        }
+                    });
+                    db.DeclaredToons.RemoveRange(db.DeclaredToons);
+                    db.ApiInfoes.RemoveRange(deleteApis);
+                    db.SaveChanges();
+                    var toons = newToons.GroupBy(g => new { g.User_Id, g.ToonName }).Select(s => s.First()).ToList();
+                    toons.ForEach(t => db.DeclaredToons.Add(t));
+                    db.SaveChanges();
+                }
             }
         }
     }

@@ -12,14 +12,11 @@
 namespace r3mus.Models
 {
 
-    using System;
+using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-
-    public partial class CRONJob
+    
+public partial class CRONJob
 {
-    [Key, Column(Order = 0)]
     public string JobName { get; set; }
 
     public int Schedule { get; set; }
