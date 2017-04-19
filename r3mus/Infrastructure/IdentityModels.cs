@@ -522,7 +522,6 @@ namespace r3mus.Models
         public System.Data.Entity.DbSet<r3mus.Models.RecruitmentMailee> RecruitmentMailees { get; set; }
 
         public System.Data.Entity.DbSet<r3mus.Models.Applicant> Applicants { get; set; }
-        public System.Data.Entity.DbSet<r3mus.Models.ApplicantApiInfo> ApplicantApiInfoes { get; set; }
 
         public System.Data.Entity.DbSet<r3mus.Models.Application> Applications { get; set; }
 
@@ -531,6 +530,7 @@ namespace r3mus.Models
         public DbSet<Member> CorpMembers { get; set; }
 
         public DbSet<Wardec> LiveWardecs { get; set; }
+        public virtual DbSet<Announcement> Announcements { get; set; }
 
         public virtual DbSet<CRONJob> CRONJobs { get; set; }
 

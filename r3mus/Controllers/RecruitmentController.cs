@@ -319,11 +319,15 @@ namespace r3mus.Controllers
                 Slack.SendToRoom(message, Properties.Settings.Default.RecruitmentRoomName, Properties.Settings.Default.SlackWebhook);
             }
         }
-        public static void SendMessage(MessagePayload message)
+        public static void SendMessage(MessagePayload message, string roomName = "")
         {
+            if (roomName == string.Empty)
+            {
+                roomName = Properties.Settings.Default.RecruitmentRoomName;
+            }
             if (Properties.Settings.Default.Plugin.ToUpper() == "SLACK")
             {
-                Slack.SendToRoom(message, Properties.Settings.Default.RecruitmentRoomName, Properties.Settings.Default.SlackWebhook);
+                Slack.SendToRoom(message, roomName, Properties.Settings.Default.SlackWebhook);
             }
         }
 	}

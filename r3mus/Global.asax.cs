@@ -41,7 +41,7 @@ namespace r3mus
             ITrigger trigger;
 
 
-            var cronJobs = new r3mus_DBEntities().CRONJobs; //.Where(cronJob => cronJob.Enabled == true);
+            var cronJobs = new r3mus_DBEntities().CRONJobs.Where(cronJob => cronJob.Enabled == true);
 
             cronJobs.ToList().ForEach(cronJob =>
             {

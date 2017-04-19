@@ -270,3 +270,5 @@ C:\Users\Chris\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\Syste
 C:\Users\Chris\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\obj\Debug\SiteUpdateBot.csprojResolveAssemblyReference.cache
 C:\Users\Chris\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\obj\Debug\SiteUpdateBot.exe
 C:\Users\Chris\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\obj\Debug\SiteUpdateBot.pdb
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\MoreLinq.dll
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\SiteUpdateBot\bin\Debug\MoreLinq.xml

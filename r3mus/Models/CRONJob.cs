@@ -17,6 +17,7 @@ using System;
     
 public partial class CRONJob
 {
+
     public string JobName { get; set; }
 
     public int Schedule { get; set; }

@@ -33,6 +33,10 @@ public partial class Fleet
 
     public System.DateTime Time { get; set; }
 
+    public bool Void { get; set; }
+
+    public string Name { get; set; }
+
 
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

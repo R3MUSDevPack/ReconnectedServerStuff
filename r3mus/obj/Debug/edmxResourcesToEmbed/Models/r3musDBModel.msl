@@ -40,6 +40,8 @@
     <EntitySetMapping Name="Fleets">
       <EntityTypeMapping TypeName="r3mus_DBModel.Fleet">
         <MappingFragment StoreEntitySet="Fleet">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Void" ColumnName="Void" />
           <ScalarProperty Name="Time" ColumnName="Time" />
           <ScalarProperty Name="Commander" ColumnName="Commander" />
           <ScalarProperty Name="Id" ColumnName="Id" />
@@ -51,6 +53,50 @@
         <MappingFragment StoreEntitySet="FleetComposition">
           <ScalarProperty Name="MemberName" ColumnName="MemberName" />
           <ScalarProperty Name="FleetId" ColumnName="FleetId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Applicants">
+      <EntityTypeMapping TypeName="r3mus_DBModel.Applicant">
+        <MappingFragment StoreEntitySet="Applicants">
+          <ScalarProperty Name="TimeZone" ColumnName="TimeZone" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="ToonAge" ColumnName="ToonAge" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Information" ColumnName="Information" />
+          <ScalarProperty Name="VerificationCode" ColumnName="VerificationCode" />
+          <ScalarProperty Name="ApiKey" ColumnName="ApiKey" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecruitmentMailees">
+      <EntityTypeMapping TypeName="r3mus_DBModel.RecruitmentMailee">
+        <MappingFragment StoreEntitySet="RecruitmentMailees">
+          <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="CorpId_AtLastCheck" ColumnName="CorpId_AtLastCheck" />
+          <ScalarProperty Name="MailerId" ColumnName="MailerId" />
+          <ScalarProperty Name="SubmitterId" ColumnName="SubmitterId" />
+          <ScalarProperty Name="Mailed" ColumnName="Mailed" />
+          <ScalarProperty Name="Submitted" ColumnName="Submitted" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Announcements">
+      <EntityTypeMapping TypeName="r3mus_DBModel.Announcement">
+        <MappingFragment StoreEntitySet="Announcements">
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Post" ColumnName="Post" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Topic" ColumnName="Topic" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -12,6 +12,9 @@
         <EntityTypeShape EntityType="r3mus_DBModel.Fleet" Width="1.5" PointX="5.375" PointY="0.875" />
         <EntityTypeShape EntityType="r3mus_DBModel.FleetComposition" Width="1.5" PointX="7.625" PointY="0.875" />
         <AssociationConnector Association="r3mus_DBModel.FK_FleetComposition_Fleet" />
+        <EntityTypeShape EntityType="r3mus_DBModel.Applicant" Width="1.5" PointX="5.375" PointY="3.75" />
+        <EntityTypeShape EntityType="r3mus_DBModel.RecruitmentMailee" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="r3mus_DBModel.Announcement" Width="1.5" PointX="7.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

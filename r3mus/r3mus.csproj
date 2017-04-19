@@ -329,6 +329,7 @@
     <Compile Include="CRONJobs\CorpMemberUpdateJob.cs" />
     <Compile Include="CRONJobs\GotgDiscordMessageJob.cs" />
     <Compile Include="CRONJobs\PreloadInfo.cs" />
+    <Compile Include="CRONJobs\TownCryerJob.cs" />
     <Compile Include="Extensions\HtmlExtensions.cs" />
     <Compile Include="Filters\CustomAttributes.cs" />
     <Compile Include="Filters\Extensions.cs" />
@@ -389,7 +390,12 @@
       <DependentUpon>201510050914196_RecruitmentMailee_LastUpdated.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Applicant.cs" />
+    <Compile Include="Models\Announcement.cs">
+      <DependentUpon>r3musDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Applicant.cs">
+      <DependentUpon>r3musDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ApplicantList.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -515,7 +521,7 @@
     <Compile Include="Models\r3musForumDBContext.cs" />
     <Compile Include="Models\RecruitmentHelper.cs" />
     <Compile Include="Models\RecruitmentMailee.cs">
-      <DependentUpon>ArchiveModels.tt</DependentUpon>
+      <DependentUpon>r3musDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Thread.cs" />
     <Compile Include="Models\Wardec.cs" />
@@ -529,7 +535,9 @@
     <Compile Include="ViewModels\ApplicantViewModel.cs" />
     <Compile Include="ViewModels\ApplicationReviewViewModel.cs" />
     <Compile Include="ViewModels\CorpMemberViewModel.cs" />
+    <Compile Include="ViewModels\FleetCountViewModel.cs" />
     <Compile Include="ViewModels\FleetCreationViewModel.cs" />
+    <Compile Include="ViewModels\FleetSummaryViewModel.cs" />
     <Compile Include="ViewModels\ForumViewModel.cs" />
     <Compile Include="ViewModels\IntelViewModel.cs" />
     <Compile Include="ViewModels\LogisticsContractsViewModel.cs" />

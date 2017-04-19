@@ -1,5 +1,8 @@
 ﻿@model r3mus.ViewModels.FleetCreationViewModel
 
+@{
+    ViewBag.Title = "Fleet Create";
+}
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
@@ -8,8 +11,6 @@
             <h4>Fleet Creation</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                        @*@Html.HiddenFor(model => model.Fleet.Id)*@
-                        @*@Html.HiddenFor(model => model.Fleet.FleetCompositions)*@
             <div class="form-group">
                 @Html.LabelFor(model => model.Fleet.Time, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -22,6 +23,13 @@
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.Fleet.Commander, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Fleet.Commander, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Fleet.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Fleet.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Fleet.Name, "", new { @class = "text-danger" })
                 </div>
             </div>
             <div class="form-group">
@@ -41,5 +49,5 @@
     }
     
     <div>
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("Back to Fleet Home", "Index")
     </div>

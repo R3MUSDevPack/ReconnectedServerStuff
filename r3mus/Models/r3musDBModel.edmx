@@ -5,6 +5,21 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="r3mus_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Applicants">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="EmailAddress" Type="nvarchar(max)" />
+          <Property Name="ApiKey" Type="int" Nullable="false" />
+          <Property Name="VerificationCode" Type="nvarchar(max)" />
+          <Property Name="Information" Type="nvarchar(max)" />
+          <Property Name="Age" Type="nvarchar(max)" />
+          <Property Name="ToonAge" Type="nvarchar(max)" />
+          <Property Name="Source" Type="nvarchar(max)" />
+          <Property Name="TimeZone" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="CRONJobs">
           <Key>
             <PropertyRef Name="JobName" />
@@ -31,7 +46,9 @@ warning 6002: The table/view 'r3mus_DB.dbo.DeclaredToons' does not have a primar
           </Key>
           <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Commander" Type="varchar(max)" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="Time" Type="datetime" Nullable="false" />
+          <Property Name="Void" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="FleetComposition">
           <Key>
@@ -58,6 +75,37 @@ warning 6002: The table/view 'r3mus_DB.dbo.DeclaredToons' does not have a primar
           <Property Name="LoggerName" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="LastKnownDateTime" Type="datetime" />
         </EntityType>
+        <EntityType Name="RecruitmentMailees">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Submitted" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Mailed" Type="datetime" />
+          <Property Name="SubmitterId" Type="nvarchar(max)" />
+          <Property Name="MailerId" Type="nvarchar(max)" />
+          <Property Name="CorpId_AtLastCheck" Type="bigint" Nullable="false" />
+          <Property Name="DateOfBirth" Type="datetime2" Precision="7" />
+          <Property Name="LastUpdated" Type="datetime2" Precision="7" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'r3mus_DB.dbo.Announcements' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Announcements">
+          <Key>
+            <PropertyRef Name="Category" />
+            <PropertyRef Name="Topic" />
+            <PropertyRef Name="Post" />
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="Id" Type="bigint" />
+          <Property Name="Category" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="Topic" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="Date" Type="datetime2" Precision="0" />
+          <Property Name="Post" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Avatar" Type="nvarchar(max)" />
+        </EntityType>
         <Association Name="FK_FleetComposition_Fleet">
           <End Role="Fleet" Type="Self.Fleet" Multiplicity="1" />
           <End Role="FleetComposition" Type="Self.FleetComposition" Multiplicity="*" />
@@ -71,16 +119,29 @@ warning 6002: The table/view 'r3mus_DB.dbo.DeclaredToons' does not have a primar
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="r3mus_DBModelStoreContainer">
+          <EntitySet Name="Applicants" EntityType="Self.Applicants" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CRONJobs" EntityType="Self.CRONJobs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Fleet" EntityType="Self.Fleet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FleetComposition" EntityType="Self.FleetComposition" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LogMessages" EntityType="Self.LogMessages" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OnlineUsers" EntityType="Self.OnlineUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecruitmentMailees" EntityType="Self.RecruitmentMailees" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DeclaredToons" EntityType="Self.DeclaredToons" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [DeclaredToons].[User_Id] AS [User_Id], 
     [DeclaredToons].[ToonName] AS [ToonName]
     FROM [dbo].[DeclaredToons] AS [DeclaredToons]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Announcements" EntityType="Self.Announcements" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Announcements].[Id] AS [Id], 
+    [Announcements].[Category] AS [Category], 
+    [Announcements].[Topic] AS [Topic], 
+    [Announcements].[Date] AS [Date], 
+    [Announcements].[Post] AS [Post], 
+    [Announcements].[UserName] AS [UserName], 
+    [Announcements].[Avatar] AS [Avatar]
+    FROM [dbo].[Announcements] AS [Announcements]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_FleetComposition_Fleet" Association="Self.FK_FleetComposition_Fleet">
             <End Role="Fleet" EntitySet="Fleet" />
@@ -112,6 +173,9 @@ warning 6002: The table/view 'r3mus_DB.dbo.DeclaredToons' does not have a primar
             <End Role="Fleet" EntitySet="Fleets" />
             <End Role="FleetComposition" EntitySet="FleetCompositions" />
           </AssociationSet>
+          <EntitySet Name="Applicants" EntityType="r3mus_DBModel.Applicant" />
+          <EntitySet Name="RecruitmentMailees" EntityType="r3mus_DBModel.RecruitmentMailee" />
+          <EntitySet Name="Announcements" EntityType="r3mus_DBModel.Announcement" />
         </EntityContainer>
         <EntityType Name="OnlineUser">
           <Key>
@@ -146,6 +210,8 @@ warning 6002: The table/view 'r3mus_DB.dbo.DeclaredToons' does not have a primar
           <Property Name="Commander" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="FleetCompositions" Relationship="r3mus_DBModel.FK_FleetComposition_Fleet" FromRole="Fleet" ToRole="FleetComposition" />
+          <Property Name="Void" Type="Boolean" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="FleetComposition">
           <Key>
@@ -168,6 +234,50 @@ warning 6002: The table/view 'r3mus_DB.dbo.DeclaredToons' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Applicant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmailAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ApiKey" Type="Int32" Nullable="false" />
+          <Property Name="VerificationCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Information" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Age" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ToonAge" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Source" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TimeZone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="RecruitmentMailee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Submitted" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Mailed" Type="DateTime" Precision="3" />
+          <Property Name="SubmitterId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MailerId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CorpId_AtLastCheck" Type="Int64" Nullable="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="7" />
+          <Property Name="LastUpdated" Type="DateTime" Precision="7" />
+        </EntityType>
+        <EntityType Name="Announcement">
+          <Key>
+            <PropertyRef Name="Category" />
+            <PropertyRef Name="Topic" />
+            <PropertyRef Name="Post" />
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="Id" Type="Int64" />
+          <Property Name="Category" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="Topic" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Post" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -213,6 +323,8 @@ warning 6002: The table/view 'r3mus_DB.dbo.DeclaredToons' does not have a primar
           <EntitySetMapping Name="Fleets">
             <EntityTypeMapping TypeName="r3mus_DBModel.Fleet">
               <MappingFragment StoreEntitySet="Fleet">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Void" ColumnName="Void" />
                 <ScalarProperty Name="Time" ColumnName="Time" />
                 <ScalarProperty Name="Commander" ColumnName="Commander" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -224,6 +336,50 @@ warning 6002: The table/view 'r3mus_DB.dbo.DeclaredToons' does not have a primar
               <MappingFragment StoreEntitySet="FleetComposition">
                 <ScalarProperty Name="MemberName" ColumnName="MemberName" />
                 <ScalarProperty Name="FleetId" ColumnName="FleetId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Applicants">
+            <EntityTypeMapping TypeName="r3mus_DBModel.Applicant">
+              <MappingFragment StoreEntitySet="Applicants">
+                <ScalarProperty Name="TimeZone" ColumnName="TimeZone" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="ToonAge" ColumnName="ToonAge" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Information" ColumnName="Information" />
+                <ScalarProperty Name="VerificationCode" ColumnName="VerificationCode" />
+                <ScalarProperty Name="ApiKey" ColumnName="ApiKey" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecruitmentMailees">
+            <EntityTypeMapping TypeName="r3mus_DBModel.RecruitmentMailee">
+              <MappingFragment StoreEntitySet="RecruitmentMailees">
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="CorpId_AtLastCheck" ColumnName="CorpId_AtLastCheck" />
+                <ScalarProperty Name="MailerId" ColumnName="MailerId" />
+                <ScalarProperty Name="SubmitterId" ColumnName="SubmitterId" />
+                <ScalarProperty Name="Mailed" ColumnName="Mailed" />
+                <ScalarProperty Name="Submitted" ColumnName="Submitted" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Announcements">
+            <EntityTypeMapping TypeName="r3mus_DBModel.Announcement">
+              <MappingFragment StoreEntitySet="Announcements">
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Post" ColumnName="Post" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Topic" ColumnName="Topic" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

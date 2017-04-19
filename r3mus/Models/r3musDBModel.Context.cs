@@ -44,6 +44,12 @@ public partial class r3mus_DBEntities : DbContext
 
     public virtual DbSet<FleetComposition> FleetCompositions { get; set; }
 
+    public virtual DbSet<Applicant> Applicants { get; set; }
+
+    public virtual DbSet<RecruitmentMailee> RecruitmentMailees { get; set; }
+
+    public virtual DbSet<Announcement> Announcements { get; set; }
+
 }
 
 }

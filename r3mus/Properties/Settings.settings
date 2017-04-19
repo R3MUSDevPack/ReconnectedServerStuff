@@ -119,9 +119,6 @@
   &lt;string&gt;twat&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
-    <Setting Name="Debug" Type="System.Boolean" Scope="Application">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
     <Setting Name="JarvisSlackRoom" Type="System.String" Scope="Application">
       <Value Profile="(Default)">it_testing</Value>
     </Setting>
@@ -133,6 +130,15 @@
     </Setting>
     <Setting Name="JarvisDiscordRoom" Type="System.Int64" Scope="Application">
       <Value Profile="(Default)">126512244916748288</Value>
+    </Setting>
+    <Setting Name="Debug" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="MainRoomName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">den</Value>
+    </Setting>
+    <Setting Name="NewsRoomName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">news</Value>
     </Setting>
   </Settings>
 </SettingsFile>

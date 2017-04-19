@@ -21,6 +21,9 @@
       <End Role="Fleet" EntitySet="Fleets" />
       <End Role="FleetComposition" EntitySet="FleetCompositions" />
     </AssociationSet>
+    <EntitySet Name="Applicants" EntityType="r3mus_DBModel.Applicant" />
+    <EntitySet Name="RecruitmentMailees" EntityType="r3mus_DBModel.RecruitmentMailee" />
+    <EntitySet Name="Announcements" EntityType="r3mus_DBModel.Announcement" />
   </EntityContainer>
   <EntityType Name="OnlineUser">
     <Key>
@@ -55,6 +58,8 @@
     <Property Name="Commander" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="FleetCompositions" Relationship="r3mus_DBModel.FK_FleetComposition_Fleet" FromRole="Fleet" ToRole="FleetComposition" />
+    <Property Name="Void" Type="Boolean" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="FleetComposition">
     <Key>
@@ -77,4 +82,48 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="Applicant">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EmailAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ApiKey" Type="Int32" Nullable="false" />
+    <Property Name="VerificationCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Information" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Age" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ToonAge" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Source" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TimeZone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="RecruitmentMailee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Submitted" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="Mailed" Type="DateTime" Precision="3" />
+    <Property Name="SubmitterId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MailerId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CorpId_AtLastCheck" Type="Int64" Nullable="false" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="7" />
+    <Property Name="LastUpdated" Type="DateTime" Precision="7" />
+  </EntityType>
+  <EntityType Name="Announcement">
+    <Key>
+      <PropertyRef Name="Category" />
+      <PropertyRef Name="Topic" />
+      <PropertyRef Name="Post" />
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="Id" Type="Int64" />
+    <Property Name="Category" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="Topic" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="Post" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>
