@@ -131,14 +131,17 @@
     <Setting Name="JarvisDiscordRoom" Type="System.Int64" Scope="Application">
       <Value Profile="(Default)">126512244916748288</Value>
     </Setting>
-    <Setting Name="Debug" Type="System.Boolean" Scope="Application">
-      <Value Profile="(Default)">True</Value>
-    </Setting>
     <Setting Name="MainRoomName" Type="System.String" Scope="Application">
       <Value Profile="(Default)">den</Value>
     </Setting>
     <Setting Name="NewsRoomName" Type="System.String" Scope="Application">
       <Value Profile="(Default)">news</Value>
+    </Setting>
+    <Setting Name="Debug" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="JarvisCapitalsRoom" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">capitals</Value>
     </Setting>
   </Settings>
 </SettingsFile>

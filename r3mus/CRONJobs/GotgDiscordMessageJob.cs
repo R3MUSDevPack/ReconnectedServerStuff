@@ -33,27 +33,22 @@ namespace r3mus.CRONJobs
                     };
                     if (client.Logon())
                     {
-                        //Plugin.SendDirectMessage("Logged in", "clydeenmarland", Properties.Settings.Default.SlackWebhook);
                         var messages = client.GetMessages(Properties.Settings.Default.JarvisDiscordRoom);
-                        //var messages = client.GetMessages(0);
-
-                        //Plugin.SendDirectMessage(string.Format("{0} messages", messages.Count.ToString()), "clydeenmarland", Properties.Settings.Default.SlackWebhook);
+                        
                         if (settings.LastRun == null)
                         {
                             messages = messages.OrderBy(msg => msg.timestamp).ToList();
-                            messages.Where(msg => ((DateTime.Now - msg.timestamp).Days < 1) && (msg.content.Contains("To: coalition_pings"))).ToList().ForEach(msg =>
+                            messages.Where(msg => ((DateTime.Now - msg.timestamp).Days < 1) && ((msg.content.Contains("To: coalition_pings")))).ToList().ForEach(msg =>
                             {
                                 var senderlines = msg.content.Split(new[] { "\n" }, StringSplitOptions.None);
 
                                 var payload = new MessagePayload();
-                                //payload.Text = string.Format("@channel: From {0}", msg.author.username);
                                 payload.Text = "@channel: Coalition Broadcast";
                                 payload.Attachments = new List<MessagePayloadAttachment>();
                                 payload.Attachments.Add(new MessagePayloadAttachment()
                                 {
                                     Text = new Censor().CensorText(string.Join("\n", senderlines.Skip(1))),
                                     Title = string.Format("{0}", msg.timestamp.ToString("yyyy-MM-dd HH:mm:ss")),
-                                    //Title = string.Format("{0}: Message from {1}", msg.timestamp.ToString("yyyy-MM-dd HH:mm:ss"), msg.author.username),
                                     Colour = "#ff6600"
                                 });
                                 Plugin.SendToRoom(payload, Properties.Settings.Default.JarvisSlackRoom, Properties.Settings.Default.SlackWebhook, msg.author.username);
@@ -109,6 +104,21 @@ namespace r3mus.CRONJobs
                     //Plugin.SendDirectMessage(ex.Message, "clydeenmarland", Properties.Settings.Default.SlackWebhook);
                 }
             }
+        }
+
+        private List<Message> GetMessages(long roomId)
+        {
+            var client = new Client
+            {
+                UserName = Properties.Settings.Default.JarvisEmail,
+                Password = Properties.Settings.Default.JarvisPassword
+            };
+            return client.GetMessages(room);
+        }
+
+        private void SendMessages(List<Message> messages, string room)
+        {
+
         }
     }
 }
