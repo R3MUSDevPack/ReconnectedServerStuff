@@ -113,7 +113,7 @@ namespace r3mus.CRONJobs
                 UserName = Properties.Settings.Default.JarvisEmail,
                 Password = Properties.Settings.Default.JarvisPassword
             };
-            return client.GetMessages(room);
+            return client.GetMessages(roomId);
         }
 
         private void SendMessages(List<Message> messages, string room)

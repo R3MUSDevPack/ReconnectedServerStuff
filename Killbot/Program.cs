@@ -19,6 +19,7 @@ using eZet.EveLib.StaticDataModule.Models;
 using R3MUS.Devpack.Slack;
 using JKON.EveWho.Universe;
 using JKON.EveWho.Types;
+using System.Threading;
 
 namespace Killbot
 {
@@ -88,6 +89,12 @@ namespace Killbot
 
             DateTime LatestKill = Convert.ToDateTime(ConfigurationSettings.AppSettings[killKey]);//.AddMinutes(1);
             DateTime LatestLoss = Convert.ToDateTime(ConfigurationSettings.AppSettings[lossKey]);//.AddMinutes(1);
+
+            if(Properties.Settings.Default.Debug)
+            {
+                Console.WriteLine(string.Concat("Last Kill: ", LatestKill.ToString("yyyy-MM-dd HH:mm:ss")));
+                Console.WriteLine(string.Concat("Last Loss: ", LatestLoss.ToString("yyyy-MM-dd HH:mm:ss")));
+            }
             
             List<ZkbResponse.ZkbKill> Kills;
             List<ZkbResponse.ZkbKill> Losses;
@@ -95,6 +102,10 @@ namespace Killbot
             try
             {
                 Kills = GetZKBResponse(corpId, RoundToHour(LatestKill), ZKBType.Kill).Value.Where(kill => kill.KillTime > LatestKill).ToList<ZkbResponse.ZkbKill>();
+                if (Properties.Settings.Default.Debug)
+                {
+                    Console.WriteLine(string.Concat(Kills.Count().ToString(), " Kills"));
+                }
                 if (Kills.Count() > 0)
                 {
                     Kills.ForEach(kill =>
@@ -118,6 +129,10 @@ namespace Killbot
             {
                 Losses = GetZKBResponse(corpId, RoundToHour(LatestLoss), ZKBType.Loss).Value.Where(kill => kill.KillTime > LatestLoss).ToList<ZkbResponse.ZkbKill>();
                 //var check = GetZKBResponse(corpId, RoundToHour(LatestLoss), ZKBType.Loss).Value;
+                if (Properties.Settings.Default.Debug)
+                {
+                    Console.WriteLine(string.Concat(Losses.Count().ToString(), " Losses"));
+                }
                 if (Losses.Count() > 0)
                 {
                     Losses.ForEach(kill => {
@@ -134,6 +149,10 @@ namespace Killbot
                 {
                     SendPM(Ex.Message);
                 }
+            }
+            if (Properties.Settings.Default.Debug)
+            {
+                Console.ReadLine();
             }
         }
 
@@ -176,7 +195,10 @@ namespace Killbot
             else if (Properties.Settings.Default.Plugin.ToUpper() == "SLACK")
             {
                 //message = Linkify(message);
-                Plugin.SendToRoom(message, Properties.Settings.Default.KillRoomName, Properties.Settings.Default.SlackWebhook, Properties.Settings.Default.BotName);
+                if (Properties.Settings.Default.SlackWebhook != string.Empty)
+                {
+                    Plugin.SendToRoom(message, Properties.Settings.Default.KillRoomName, Properties.Settings.Default.SlackWebhook, Properties.Settings.Default.BotName);
+                }
             }
         }
 
@@ -262,9 +284,6 @@ namespace Killbot
             string killLine1 = string.Format("{0} lost a capsule", name, "", "Jita", "The Forge");
             messageLines.Add(killLine1);
             
-            messageLines.Add(string.Format(Properties.Settings.Default.MessageFormatLine3, "The Mittani", "Procurer"));
-            
-            messageLines.Add(string.Format(Properties.Settings.Default.MessageFormatLine4, "stelios102", "Venture"));
             messageLines.Add(string.Format(Properties.Settings.Default.MessageFormatLine4, "Vas Enyo", "Gallente Shuttle"));
 
             messageLines.Add(string.Format(Properties.Settings.Default.MessageFormatLine5, "200,000,000"));
@@ -314,7 +333,22 @@ namespace Killbot
 
             string killTitle = string.Format(Properties.Settings.Default.MessageFormatLine1, corpName, type, kill.KillTime.ToString());
             //messageLines.Add(killTitle);
-            string killLine1 = string.Format(Properties.Settings.Default.MessageFormatLine2, kill.Victim.CharacterName, GetProductType(kill.Victim.ShipTypeId).Name, system.Name, system.Constellation.Region.Name);
+
+            string useName;
+
+            switch(kill.Victim.CharacterName)
+            {
+                case null:
+                case "":
+                    useName = string.Format("{0} ({1})", kill.Victim.CorporationName,
+                        kill.Victim.AllianceName != string.Empty ? kill.Victim.AllianceName : "No Alliance");
+                    break;
+                default:
+                    useName = kill.Victim.CharacterName;
+                    break;
+            }
+
+            string killLine1 = string.Format(Properties.Settings.Default.MessageFormatLine2, useName, GetProductType(kill.Victim.ShipTypeId).Name, system.Name, system.Constellation.Region.Name);
             messageLines.Add(killLine1);
 
             foreach (ZkbResponse.ZkbAttacker Attacker in kill.Attackers)
@@ -448,7 +482,12 @@ namespace Killbot
 
         private static ItemType GetProductType(long typeId)
         {
-            return new ItemType(typeId);
+            var type = new ItemType(typeId);
+            if(type.Name.ToLower() == "#system")
+            {
+                type.Name = LookupShipName(typeId);
+            }
+            return type;
         }
 
         private static ProductType GetProductType_Old(int shipTypeId)
@@ -480,7 +519,7 @@ namespace Killbot
             return PType;
         }
         
-        private static string LookupShipName(int shipTypeId)
+        private static string LookupShipName(long shipTypeId)
         {
             string result = string.Empty;
 

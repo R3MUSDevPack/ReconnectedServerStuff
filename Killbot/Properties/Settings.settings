@@ -44,9 +44,6 @@
     <Setting Name="HipchatToken" Type="System.String" Scope="Application">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="SlackWebhook" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">https://hooks.slack.com/services/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</Value>
-    </Setting>
     <Setting Name="CorpId" Type="System.String" Scope="Application">
       <Value Profile="(Default)">98389365</Value>
     </Setting>
@@ -54,10 +51,13 @@
       <Value Profile="(Default)">R3MUS</Value>
     </Setting>
     <Setting Name="LossRoomName" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">it_testing</Value>
+      <Value Profile="(Default)">losses</Value>
     </Setting>
     <Setting Name="KillRoomName" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">it_testing</Value>
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SlackWebhook" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

@@ -150,15 +150,6 @@ namespace Killbot.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://hooks.slack.com/services/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")]
-        public string SlackWebhook {
-            get {
-                return ((string)(this["SlackWebhook"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("98389365")]
         public string CorpId {
             get {
@@ -177,7 +168,7 @@ namespace Killbot.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("it_testing")]
+        [global::System.Configuration.DefaultSettingValueAttribute("losses")]
         public string LossRoomName {
             get {
                 return ((string)(this["LossRoomName"]));
@@ -186,10 +177,19 @@ namespace Killbot.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("it_testing")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string KillRoomName {
             get {
                 return ((string)(this["KillRoomName"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SlackWebhook {
+            get {
+                return ((string)(this["SlackWebhook"]));
             }
         }
     }
