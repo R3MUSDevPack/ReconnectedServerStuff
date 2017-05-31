@@ -322,15 +322,6 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://hooks.slack.com/services/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")]
-        public string SlackWebhook {
-            get {
-                return ((string)(this["SlackWebhook"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
 <ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
   <string>gay</string>
@@ -352,24 +343,6 @@ namespace r3mus.Properties {
         public string JarvisSlackRoom {
             get {
                 return ((string)(this["JarvisSlackRoom"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("clydeenmarland@r3mus.org")]
-        public string JarvisEmail {
-            get {
-                return ((string)(this["JarvisEmail"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("jKoN160499")]
-        public string JarvisPassword {
-            get {
-                return ((string)(this["JarvisPassword"]));
             }
         }
         
@@ -420,10 +393,36 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public int LogisticsCorpAPI {
             get {
                 return ((int)(this["LogisticsCorpAPI"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SlackWebhook {
+            get {
+                return ((string)(this["SlackWebhook"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string JarvisEmail {
+            get {
+                return ((string)(this["JarvisEmail"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string JarvisPassword {
+            get {
+                return ((string)(this["JarvisPassword"]));
             }
         }
     }

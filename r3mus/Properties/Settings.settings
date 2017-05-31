@@ -102,9 +102,6 @@
     <Setting Name="SuggestionRoomName" Type="System.String" Scope="Application">
       <Value Profile="(Default)">suggestionbox</Value>
     </Setting>
-    <Setting Name="SlackWebhook" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">https://hooks.slack.com/services/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</Value>
-    </Setting>
     <Setting Name="CensoredWords" Type="System.Collections.Specialized.StringCollection" Scope="Application">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
@@ -118,12 +115,6 @@
     </Setting>
     <Setting Name="JarvisSlackRoom" Type="System.String" Scope="Application">
       <Value Profile="(Default)">it_testing</Value>
-    </Setting>
-    <Setting Name="JarvisEmail" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">clydeenmarland@r3mus.org</Value>
-    </Setting>
-    <Setting Name="JarvisPassword" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">jKoN160499</Value>
     </Setting>
     <Setting Name="JarvisDiscordRoom" Type="System.Int64" Scope="Application">
       <Value Profile="(Default)">126512244916748288</Value>
@@ -141,7 +132,16 @@
       <Value Profile="(Default)">capitals</Value>
     </Setting>
     <Setting Name="LogisticsCorpAPI" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SlackWebhook" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="JarvisEmail" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="JarvisPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>
