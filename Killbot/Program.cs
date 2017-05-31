@@ -482,12 +482,22 @@ namespace Killbot
 
         private static ItemType GetProductType(long typeId)
         {
-            var type = new ItemType(typeId);
-            if(type.Name.ToLower() == "#system")
+            try
             {
-                type.Name = LookupShipName(typeId);
+                var type = new ItemType(typeId);
+                if (type.Name.ToLower() == "#system")
+                {
+                    type.Name = LookupShipName(typeId);
+                }
+                return type;
             }
-            return type;
+            catch
+            {
+                var erroredType = new ItemType();
+                erroredType.Id = typeId;
+                erroredType.Name = GetProductType_Old((int)typeId).Name;
+                return erroredType;
+            }
         }
 
         private static ProductType GetProductType_Old(int shipTypeId)

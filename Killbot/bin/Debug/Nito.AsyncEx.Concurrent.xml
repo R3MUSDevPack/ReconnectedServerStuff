@@ -69,6 +69,16 @@
             Creates a new async-compatible producer/consumer collection.
             </summary>
         </member>
+        <member name="P:Nito.AsyncEx.AsyncCollection`1.Empty">
+            <summary>
+            Whether the collection is empty.
+            </summary>
+        </member>
+        <member name="P:Nito.AsyncEx.AsyncCollection`1.Full">
+            <summary>
+            Whether the collection is full.
+            </summary>
+        </member>
         <member name="M:Nito.AsyncEx.AsyncCollection`1.CompleteAddingAsync">
             <summary>
             Asynchronously marks the producer/consumer collection as complete for adding.
@@ -223,16 +233,6 @@
         <member name="M:Nito.AsyncEx.AsyncCollection`1.Take">
             <summary>
             Takes an item from the producer/consumer collection. Returns the item. Throws <see cref="T:System.InvalidOperationException"/> if the producer/consumer collection has completed adding and is empty, or if the take from the underlying collection failed. This method may block the calling thread.
-            </summary>
-        </member>
-        <member name="P:Nito.AsyncEx.AsyncCollection`1.Empty">
-            <summary>
-            Whether the collection is empty.
-            </summary>
-        </member>
-        <member name="P:Nito.AsyncEx.AsyncCollection`1.Full">
-            <summary>
-            Whether the collection is full.
             </summary>
         </member>
         <member name="T:Nito.AsyncEx.AsyncCollection`1.TakeResult">

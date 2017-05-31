@@ -1168,7 +1168,7 @@
             </summary>
             <param name="dateFormat">The date format.</param>
         </member>
-        <member name="M:eZet.EveLib.Core.Serializers.JsonSerializer.eZet#EveLib#Core#Serializers#ISerializer#Deserialize``1(System.String)">
+        <member name="M:eZet.EveLib.Core.Serializers.JsonSerializer.Deserialize``1(System.String)">
             <summary>
             Deserializes data.
             </summary>
