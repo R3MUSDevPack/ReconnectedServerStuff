@@ -187,14 +187,6 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public int LogisticsCorpAPI {
-            get {
-                return ((int)(this["LogisticsCorpAPI"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string LogisticsVCode {
             get {
@@ -423,6 +415,15 @@ namespace r3mus.Properties {
         public string JarvisCapitalsRoom {
             get {
                 return ((string)(this["JarvisCapitalsRoom"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int LogisticsCorpAPI {
+            get {
+                return ((int)(this["LogisticsCorpAPI"]));
             }
         }
     }

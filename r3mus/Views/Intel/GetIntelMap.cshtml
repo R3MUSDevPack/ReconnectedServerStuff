@@ -1,4 +1,4 @@
-﻿@model r3mus.ViewModels.IntelViewModel
+@model r3mus.ViewModels.IntelViewModel
 
 @{
     Layout = "~/Views/Shared/_MapLayout.cshtml";
@@ -13,6 +13,8 @@
         <h5>Status: <label id="status" style="color: orangered;">Connecting to Hub</label></h5>
         <h5>Number of Contributors Logging: <label id="loggerCount">0</label></h5>
         <h5>Number of Users Online: <label id="connectionCount">0</label></h5>
+		<!--<div><input id='test' type = 'text'/></div>
+		<div><input value='button' type = 'button' onclick = "Execute($('#test').val())"/></div>-->
         <div id="log" style="text-align: left; overflow-y: scroll; min-height: 80vh; height: 80vh; max-height: 80vh; min-width: 25vh;">
             @*<ul id="log"></ul>*@
         </div>
@@ -34,6 +36,9 @@
 
 	        orig = 'fill: #008000;';
             
+			if(svgDoc == null){
+				LoadSVG();
+			}
             Connect();
         });
 
@@ -56,7 +61,7 @@
         function Connect() {
         try{
             var conn = $.connection;
-            conn.hub.url = 'http://www.r3mus.org/signalr';
+            conn.hub.url = 'https://www.r3mus.org/signalr';
             chat = $.connection.intelHub;
             messages = new Array();
 
@@ -64,28 +69,7 @@
                 if (!messageExists(message, messages)) {
                     try {
                         messages.push(message);
-                        var splitMsg = message.Message.split(' ');
-
-                        if((splitMsg.indexOf('clr') > -1)
-                            && (splitMsg.indexOf('clear') > -1)
-                            && (splitMsg.indexOf('status') > -1)){
-                                return;
-                        }                        
-
-                        $.each(splitMsg, function (index, value) {
-                            var sys = IsValidSystem(value);
-                            if (sys != null) {
-                                $('#log').prepend('<h5>' + message.LogDateTime + '<br />' + message.UserName + '<br /><strong>' + message.Message + '</strong></h5>');
-                                SetFlashy(sys,
-                                    (homeSystems1.indexOf(value.replace('*', '').toUpperCase()) >= 0),
-                                    (homeSystems2.indexOf(value.replace('*', '').toUpperCase()) >= 0));
-                            }
-                            //if (value.replace(' ', '').length >= 3) {
-                            //    Flash(value);
-                            //}
-                        });
-                        //$('#log').prepend('<h5>' + message.LogDateTime + '<br />' + message.UserName + '<br /><strong>' + message.Message + '</strong></h5>');
-
+                        Execute(message);
 
                         if ($('#log li').length > 20) {
                             $('#log li:last').remove();
@@ -117,21 +101,25 @@
             //alert(e.message);
             }
         }
+		
+		function Execute(message){
+			var splitMsg = message.Message.split(' ');
 
-        function IsValidSystem(sysName) {
-            if (svgDoc == null) {
-                LoadSVG();
-            }
-            for (var i = 0; i < $(svgDoc.getElementsByTagName('symbol')).length; i++) {
-                try {
-                    if ($(svgDoc.getElementsByTagName('symbol'))[i].getElementsByTagName('a')[0].getElementsByTagName('text')[0].textContent.indexOf(sysName.replace('*', '').toUpperCase()) > -1) {
-                        return $(svgDoc.getElementsByTagName('symbol'))[i].getElementsByTagName('a')[0].getElementsByTagName('text')[0].previousElementSibling;
-                    }
-                }
-                catch (e) { alert(e.message); }
-                return null;
-            }
-        }
+			if((splitMsg.indexOf('clr') == -1)
+				&& (splitMsg.indexOf('clear') == -1)
+				&& (splitMsg.indexOf('status') == -1)
+				&& (splitMsg.indexOf('status?') == -1)){
+					$.each(splitMsg, function (index, value) {			
+						if(value.length >= 3){
+							if(IsValidSystem(value)){
+								Flash(value);
+								$('#log').prepend('<h5>' + message.LogDateTime + '<br />' + message.UserName + '<br /><strong>' + message.Message + '</strong></h5>');
+							}
+						}
+					});		
+			} 
+				
+		}
 
         function messageExists(message, messageArray) {
             var result = false;
@@ -171,6 +159,23 @@
 	        regionName = svgDoc.getElementById('legend').getElementsByTagName('text')[0].textContent;
         }
 
+        function IsValidSystem(sysName) {
+			if(svgDoc == null){
+				LoadSVG();
+			}
+	        for(var i = 0; i < $(svgDoc.getElementsByTagName('symbol')).length; i++)
+	        {
+		        try{
+		            if ($(svgDoc.getElementsByTagName('symbol'))[i].getElementsByTagName('a')[0].getElementsByTagName('text')[0].textContent.toUpperCase().indexOf(sysName.replace('*', '').toUpperCase()) > -1)
+		            {
+			            return true;
+			        }
+		        }
+	            catch (e) {  }
+	        }
+			return false;
+        }
+
         function Flash(sysName) {
 			if(svgDoc == null){
 				LoadSVG();
@@ -178,7 +183,7 @@
 	        for(var i = 0; i < $(svgDoc.getElementsByTagName('symbol')).length; i++)
 	        {
 		        try{
-		            if ($(svgDoc.getElementsByTagName('symbol'))[i].getElementsByTagName('a')[0].getElementsByTagName('text')[0].textContent.indexOf(sysName.replace('*', '').toUpperCase()) > -1)
+		            if ($(svgDoc.getElementsByTagName('symbol'))[i].getElementsByTagName('a')[0].getElementsByTagName('text')[0].textContent.toUpperCase().indexOf(sysName.replace('*', '').toUpperCase()) > -1)
 		            {
 			            SetFlashy($(svgDoc.getElementsByTagName('symbol'))[i].getElementsByTagName('a')[0].getElementsByTagName('text')[0].previousElementSibling,
 						(homeSystems1.indexOf(sysName.replace('*', '').toUpperCase()) >= 0),

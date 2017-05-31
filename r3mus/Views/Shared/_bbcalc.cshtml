@@ -1,17 +1,15 @@
-﻿<li class="dropdown" id="servicesMenuLi" onmouseover="servicesMenu_MouseOver()" onmouseout="servicesMenu_MouseOut()">
-    <a href="#" class="dropdown-toggle" onmouseover="servicesDropdown()" data-toggle="dropdown">Services <span class="caret"></span></a>
-    <ul class="dropdown-menu" id="servicesMenu" onmouseover="servicesMenu_MouseOver()" onmouseout="servicesMenu_MouseOut()">
-        <li><a href="https://r3mus.slack.com" target="_blank">Slack</a></li>
-        <li><a href="http://r3mus.fleet-up.com/" target="_blank">Fleet-Up</a></li>
-		<li>@Html.ActionLink("Logistics", "ContractStatus", "Logistics")</li>
-        <li>@Html.ActionLink("Forums", "RedirectToForum", "LoggedInHome")</li>
-		
-		
-		<li><a onclick="showBBCalc()" href="javascript:void(0);">
-			BB Calc
-		</a></li>
-    </ul>
-</li>
+
+
+
+<div class="col-sm-2">
+        <form>
+            <label for="jita_price">Jita Price:</label><input type="text" id="jita_price" /><br />
+            <label for="cargo_size">Cargo Size:</label><input type="text" id="cargo_size" /><br />
+            <button onclick="calc();return false;">Calculate</button>
+        </form>
+        <div><span id="calculation"></span></div>
+
+</div>
 <div id="myModal" class="modal-body" style="display: none;">
 
   <div class="modal-content">
@@ -26,18 +24,7 @@
   </div>
 
 </div>
-<link rel="stylesheet" type="text/css" href=" href="/content/modalstyle.css" media="screen" />
-<script type="text/javascript">
-
-    function servicesMenu_MouseOver() {
-        if (($("#servicesMenuLi").is(":hover") == true) || ($("#servicesMenu").is(":hover") == true)) {
-            $('#servicesMenu').finish().slideDown('fast');
-        }
-    }
-
-    function servicesMenu_MouseOut() {
-        $('#servicesMenu').finish().slideUp('fast');
-    }
+<script>
 
 // Get the modal
 var modal = document.getElementById('myModal');
@@ -73,5 +60,14 @@ window.onclick = function(event) {
      total = ((jita_price * 0.9) - (size * 900)).toFixed(0);
      document.getElementById("calculation").textContent = total.toString();
  }
+ function calc()
+ {
+     var jita_price = 0;
+     var size = 0;
+     var total = 0;
+     jita_price = parseInt(document.getElementById("jita_price").value);
+     size = parseInt(document.getElementById("cargo_size").value);
+     total = ((jita_price * 0.9) - (size * 900)).toFixed(0);
+     document.getElementById("calculation").textContent = total.toString();
+ }
 </script>
-
