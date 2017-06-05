@@ -1,14 +1,9 @@
-﻿using EveAI.Live;
-using JKON.EveApi.Corporation.Models;
+﻿using JKON.EveApi.Corporation.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Script.Serialization;
-using System.Xml;
 using System.Xml.Serialization;
 
 namespace JKON.EveWho

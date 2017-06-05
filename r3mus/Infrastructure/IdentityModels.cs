@@ -170,7 +170,7 @@ namespace r3mus.Models
                 else if ((newkey.IsValidKey()) && newkey.KeyType == (ApiKeyType.Corporation))
                 {
                     var cKey = (CorporationKey)newkey.GetActualKey();
-                    Corporation corp = cKey.Corporation;
+                    eZet.EveLib.EveXmlModule.Corporation corp = cKey.Corporation;
                     if (corp != null)
                     {
                         if (type == IDType.Corporation)
@@ -219,7 +219,7 @@ namespace r3mus.Models
                 else if ((newkey.IsValidKey()) && newkey.KeyType == (ApiKeyType.Corporation))
                 {
                     var cKey = (CorporationKey)newkey.GetActualKey();
-                    Corporation corp = cKey.Corporation;
+                    eZet.EveLib.EveXmlModule.Corporation corp = cKey.Corporation;
                     if (corp != null)
                     {
                         if (type == IDType.Corporation)

@@ -1,6 +1,9 @@
 ﻿<li class="dropdown" id="IntServicesMenuLi" onmouseover="IntServicesMenu_MouseOver()" onmouseout="IntServicesMenu_MouseOut()">
     <a href="#" class="dropdown-toggle" onmouseover="IntServicesDropdown()" data-toggle="dropdown">Intelligence Services<span class="caret"></span></a>
     <ul class="dropdown-menu" id="IntServicesMenu" onmouseover="IntServicesMenu_MouseOver()" onmouseout="IntServicesMenu_MouseOut()">
+        <li>
+            @Html.ActionLink("Fleet Home", "Index", "Fleet")
+        </li>
         <li><a href="http://downloads.r3mus.org/intellogger/r3mus.devpack.intellogger.application" target="_blank">Download Logger</a></li>
         @*@foreach (var mapName in Enum.GetValues(typeof(r3mus.Controllers.IntelController.Map)))
         {

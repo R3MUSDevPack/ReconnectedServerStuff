@@ -13,3 +13,13 @@ C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\JKON.EveWho\bin\Release\Ionic
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\JKON.EveWho\obj\Release\JKON.EveApi.csprojResolveAssemblyReference.cache
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\JKON.EveWho\obj\Release\JKON.EveWho.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\JKON.EveWho\obj\Release\JKON.EveWho.pdb
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\JKON.EveWho\bin\Release\JKON.EveWho.dll
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\JKON.EveWho\bin\Release\JKON.EveWho.pdb
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\JKON.EveWho\bin\Release\EveAI.Core.dll
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\JKON.EveWho\bin\Release\EveAI.Live.dll
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\JKON.EveWho\bin\Release\Newtonsoft.Json.dll
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\JKON.EveWho\bin\Release\Ionic.Zip.Reduced.dll
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\JKON.EveWho\bin\Release\Newtonsoft.Json.xml
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\JKON.EveWho\obj\Release\JKON.EveApi.csprojResolveAssemblyReference.cache
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\JKON.EveWho\obj\Release\JKON.EveWho.dll
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\JKON.EveWho\obj\Release\JKON.EveWho.pdb

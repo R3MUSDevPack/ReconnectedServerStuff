@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>r3mus</RootNamespace>
     <AssemblyName>r3mus</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -29,6 +29,7 @@
     </UpgradeBackupLocation>
     <OldToolsVersion>12.0</OldToolsVersion>
     <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -80,8 +81,8 @@
       <HintPath>..\packages\eZet.EveLib.3.0.0.0\lib\net45\EveLib.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EveLib.Core, Version=3.0.8.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\eZet.EveLib.Core.3.0.8\lib\net45\EveLib.Core.dll</HintPath>
+    <Reference Include="EveLib.Core, Version=3.0.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\eZet.EveLib.Core.3.0.9\lib\net45\EveLib.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EveLib.Element43, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -92,12 +93,12 @@
       <HintPath>..\packages\eZet.EveLib.EveAuth.3.0.1.0\lib\net45\EveLib.EveAuth.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EveLib.EveCentral, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\eZet.EveLib.EveCentral.3.0.0\lib\net45\EveLib.EveCentral.dll</HintPath>
+    <Reference Include="EveLib.EveCentral, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\eZet.EveLib.EveCentral.3.0.1\lib\net45\EveLib.EveCentral.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EveLib.EveCrest, Version=3.4.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\eZet.EveLib.EveCrest.3.4.3\lib\net45\EveLib.EveCrest.dll</HintPath>
+    <Reference Include="EveLib.EveCrest, Version=3.4.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\eZet.EveLib.EveCrest.3.4.4\lib\net45\EveLib.EveCrest.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EveLib.EveMarketData, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -108,16 +109,16 @@
       <HintPath>..\packages\eZet.EveLib.EveWho.3.1.0.0\lib\net45\EveLib.EveWho.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EveLib.EveXml, Version=3.0.8.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\eZet.EveLib.EveXml.3.0.8\lib\net45\EveLib.EveXml.dll</HintPath>
+    <Reference Include="EveLib.EveXml, Version=3.0.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\eZet.EveLib.EveXml.3.0.9\lib\net45\EveLib.EveXml.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EveLib.StaticData, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\eZet.EveLib.StaticData.3.0.0\lib\net45\EveLib.StaticData.dll</HintPath>
+    <Reference Include="EveLib.StaticData, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\eZet.EveLib.StaticData.3.0.1\lib\net45\EveLib.StaticData.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EveLib.ZKillboard, Version=3.0.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\eZet.EveLib.ZKillboard.3.0.4\lib\net45\EveLib.ZKillboard.dll</HintPath>
+    <Reference Include="EveLib.ZKillboard, Version=3.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\eZet.EveLib.ZKillboard.3.0.5\lib\net45\EveLib.ZKillboard.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="HipChat.Widget.Mvc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -197,9 +198,16 @@
       <HintPath>..\packages\Quartz.2.3.1\lib\net40\Quartz.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="R3MUS.Devpack.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\R3MUS.Devpack.Core.1.0.0\lib\net452\R3MUS.Devpack.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="R3MUS.Devpack.Discord, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\R3MUS.Devpack.Discord\bin\Debug\R3MUS.Devpack.Discord.dll</HintPath>
+    </Reference>
+    <Reference Include="R3MUS.Devpack.ESI">
+      <HintPath>..\..\..\..\Documents\Visual Studio 2015\Projects\R3MUS.Devpack.ESI\R3MUS.Devpack.ESI\bin\Debug\R3MUS.Devpack.ESI.dll</HintPath>
     </Reference>
     <Reference Include="R3MUS.Devpack.Slack, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7a498929f3cf822d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -207,6 +215,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
@@ -223,8 +232,7 @@
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
       <Private>True</Private>
@@ -257,9 +265,7 @@
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
@@ -277,6 +283,7 @@
     <Reference Include="System.Web.Optimization">
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebApi.OutputCache.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Strathweb.CacheOutput.WebApi2.0.9.0\lib\net45\WebApi.OutputCache.Core.dll</HintPath>
       <Private>True</Private>

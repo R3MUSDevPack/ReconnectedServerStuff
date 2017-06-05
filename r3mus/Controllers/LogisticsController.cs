@@ -1,6 +1,9 @@
 ﻿using EveAI.Live;
 using EveAI.Live.Account;
+using EveAI.Live.Utility;
 using EveAI.SpaceStation;
+using eZet.EveLib.EveXmlModule;
+using eZet.EveLib.EveXmlModule.Models.Character;
 using JKON.EveWho.Models;
 using JKON.EveWho.Stations;
 using Microsoft.AspNet.Identity;
@@ -23,7 +26,6 @@ namespace r3mus.Controllers
 
         public ActionResult ContractStatus()
         {
-            EveApi api;
             List<EveAI.Live.Utility.Contract> Contracts = new List<EveAI.Live.Utility.Contract>();
             Dictionary<long, EveCharacter> Names = new Dictionary<long, EveCharacter>();
             List<long> IDs = new List<long>();
@@ -32,19 +34,36 @@ namespace r3mus.Controllers
 
             try
             {
-                api = new EveAI.Live.EveApi("Clyde en Marland's Contract Notifier", (long)Properties.Settings.Default.LogisticsCorpAPI, Properties.Settings.Default.LogisticsVCode);
+                var api = EveXml.CreateCorporationKey((long)Properties.Settings.Default.LogisticsCorpAPI, Properties.Settings.Default.LogisticsVCode);
+                var contractResults = api.Corporation.GetContracts().Result.Contracts.Where(contract =>
+                   (contract.Type == "Courier")
+                   &&
+                   (contract.Status != ContractList.ContractStatus.Deleted)
+                   &&
+                   ((contract.DateIssued >= backDate)
+                   ||
+                   (contract.Status == ContractList.ContractStatus.Outstanding)
+                   ||
+                   (contract.Status == ContractList.ContractStatus.InProgress))).ToList();
 
-                Contracts = api.GetCorporationContracts().ToList().Where(contract =>
-                    (contract.Type == EveAI.Live.Utility.Contract.ContractType.Courier)
-                    &&
-                    (contract.Status != EveAI.Live.Utility.Contract.ContractStatus.Deleted)
-                    &&
-                    ((contract.DateIssued >= backDate)
-                    ||
-                    (contract.Status == EveAI.Live.Utility.Contract.ContractStatus.Outstanding)
-                    ||
-                    (contract.Status == EveAI.Live.Utility.Contract.ContractStatus.InProgress))).ToList();
-
+                contractResults.ForEach(c =>
+                Contracts.Add(new EveAI.Live.Utility.Contract()
+                {
+                    AcceptorID = c.AcceptorId, AssigneeID = c.AssigneeId,
+                    Availability = (Contract.ContractAvailability)c.Availability,
+                    Collateral = Convert.ToDouble(c.Collateral), ContractID = c.ContractId,
+                    DateAccepted = Convert.ToDateTime(c.DateAccepted),
+                    DateCompleted = Convert.ToDateTime(c.DateCompleted),
+                    DateIssued = Convert.ToDateTime(c.DateIssued),
+                    DateExpired = Convert.ToDateTime(c.DateExpired),
+                    EndStationID = (int)c.EndStationId, StartStationID = (int)c.StartStationId,
+                    IssuerID = c.IssuerId,
+                    NumDays = c.NumDays,
+                    Price = Convert.ToDouble(c.Price), Reward = Convert.ToDouble(c.Reward),
+                    Status = (Contract.ContractStatus)Enum.Parse(typeof(Contract.ContractStatus), c.Status.ToString()),
+                    Title = c.Title, Volume = c.Volume
+                }));
+                
                 if(!User.IsInRole("Logistics"))
                 {
                     try
@@ -72,12 +91,16 @@ namespace r3mus.Controllers
                 {
                     if(contract.StartStation == null) {
                         var startStation = Api.GetStation(contract.StartStationID);
-                        contract.StartStation = new EveAI.SpaceStation.Station() { Name = startStation.stationName };
+                        contract.StartStation = new EveAI.SpaceStation.Station() {
+                            Name = startStation != null ? startStation.stationName : string.Concat("Structure ID ", contract.StartStationID.ToString())
+                        };
                     }
                     if (contract.EndStation == null)
                     {
                         var endStation = Api.GetStation(contract.EndStationID);
-                        contract.EndStation = new EveAI.SpaceStation.Station() { Name = endStation.stationName };
+                        contract.EndStation = new EveAI.SpaceStation.Station() {
+                            Name = endStation != null ? endStation.stationName : string.Concat("Structure ID ", contract.EndStationID.ToString())
+                        };
                     }
                 });
 

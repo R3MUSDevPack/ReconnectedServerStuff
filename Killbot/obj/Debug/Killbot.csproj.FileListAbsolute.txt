@@ -86,3 +86,4 @@ C:\Users\Chris\Source\Repos\ReconnectedServerStuff\Killbot\bin\Debug\Microsoft.T
 C:\Users\Chris\Source\Repos\ReconnectedServerStuff\Killbot\bin\Debug\Microsoft.Threading.Tasks.xml
 C:\Users\Chris\Source\Repos\ReconnectedServerStuff\Killbot\bin\Debug\Microsoft.Threading.Tasks.Extensions.xml
 C:\Users\Chris\Source\Repos\ReconnectedServerStuff\Killbot\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\Killbot\bin\Debug\Hipchat_Plugin.dll.config

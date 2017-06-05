@@ -472,6 +472,24 @@
             </summary>
             <value>The month.</value>
         </member>
+        <member name="P:eZet.EveLib.ZKillboardModule.ZkbStatResponse.ZkbMonth.ShipsLost">
+            <summary>
+            Gets or sets the ships lost.
+            </summary>
+            <value>The ships lost.</value>
+        </member>
+        <member name="P:eZet.EveLib.ZKillboardModule.ZkbStatResponse.ZkbMonth.PointsLost">
+            <summary>
+            Gets or sets the points lost.
+            </summary>
+            <value>The points lost.</value>
+        </member>
+        <member name="P:eZet.EveLib.ZKillboardModule.ZkbStatResponse.ZkbMonth.IskLost">
+            <summary>
+            Gets or sets the isk lost.
+            </summary>
+            <value>The isk lost.</value>
+        </member>
         <member name="P:eZet.EveLib.ZKillboardModule.ZkbStatResponse.ZkbMonth.ShipsDestroyed">
             <summary>
             Gets or sets the ships destroyed.

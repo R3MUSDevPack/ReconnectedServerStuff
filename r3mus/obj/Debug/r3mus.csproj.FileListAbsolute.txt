@@ -270,3 +270,8 @@ C:\Users\Chris\Source\Repos\ReconnectedServerStuff\r3mus\obj\Debug\r3mus.Migrati
 C:\Users\Chris\Source\Repos\ReconnectedServerStuff\r3mus\obj\Debug\r3mus.csproj.GenerateResource.Cache
 C:\Users\Chris\Source\Repos\ReconnectedServerStuff\r3mus\obj\Debug\r3mus.dll
 C:\Users\Chris\Source\Repos\ReconnectedServerStuff\r3mus\obj\Debug\r3mus.pdb
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\r3mus\bin\R3MUS.Devpack.Core.dll
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\r3mus\bin\R3MUS.Devpack.ESI.dll
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\r3mus\bin\Hipchat_Plugin.dll.config
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\r3mus\bin\Slack_Plugin.dll.config
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\r3mus\bin\R3MUS.Devpack.ESI.pdb

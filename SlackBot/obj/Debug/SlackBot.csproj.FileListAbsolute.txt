@@ -58,3 +58,4 @@ C:\Users\Chris\Source\Repos\ReconnectedServerStuff\SlackBot\obj\Debug\SlackBot.c
 C:\Users\Chris\Source\Repos\ReconnectedServerStuff\SlackBot\obj\Debug\SlackBot.exe
 C:\Users\Chris\Source\Repos\ReconnectedServerStuff\SlackBot\obj\Debug\SlackBot.pdb
 C:\Users\Chris\Source\Repos\ReconnectedServerStuff\SlackBot\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\SlackBot\bin\Debug\Slack_Plugin.dll.config

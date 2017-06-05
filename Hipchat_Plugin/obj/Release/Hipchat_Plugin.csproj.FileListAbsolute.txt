@@ -16,3 +16,12 @@ C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Hipchat_Plugin\bin\Release\Se
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Hipchat_Plugin\obj\Release\Hipchat_Plugin.csprojResolveAssemblyReference.cache
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Hipchat_Plugin\obj\Release\Hipchat_Plugin.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\Hipchat_Plugin\obj\Release\Hipchat_Plugin.pdb
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\Hipchat_Plugin\bin\Release\Hipchat_Plugin.dll.config
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\Hipchat_Plugin\bin\Release\Hipchat_Plugin.dll
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\Hipchat_Plugin\bin\Release\Hipchat_Plugin.pdb
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\Hipchat_Plugin\bin\Release\HipchatApiV2.dll
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\Hipchat_Plugin\bin\Release\ServiceStack.Text.dll
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\Hipchat_Plugin\bin\Release\ServiceStack.Text.xml
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\Hipchat_Plugin\obj\Release\Hipchat_Plugin.csprojResolveAssemblyReference.cache
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\Hipchat_Plugin\obj\Release\Hipchat_Plugin.dll
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\Hipchat_Plugin\obj\Release\Hipchat_Plugin.pdb

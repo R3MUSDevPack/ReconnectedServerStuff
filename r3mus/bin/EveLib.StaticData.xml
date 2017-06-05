@@ -9,6 +9,16 @@
                 Class for accessing the static data API from Elemen43
             </summary>
         </member>
+        <member name="T:eZet.EveLib.StaticDataModule.EveStaticData.DataFormat">
+            <summary>
+                Represents the data formats
+            </summary>
+        </member>
+        <member name="F:eZet.EveLib.StaticDataModule.EveStaticData.DataFormat.Json">
+            <summary>
+                JSON
+            </summary>
+        </member>
         <member name="F:eZet.EveLib.StaticDataModule.EveStaticData.DefaultUri">
             <summary>
                 The default URI base.
@@ -24,6 +34,26 @@
                 Constructor
             </summary>
             <param name="format">The format to request</param>
+        </member>
+        <member name="P:eZet.EveLib.StaticDataModule.EveStaticData.Format">
+            <summary>
+                Gets the format requested by this instance.
+            </summary>
+        </member>
+        <member name="P:eZet.EveLib.StaticDataModule.EveStaticData.ApiPath">
+            <summary>
+                Gets or sets the relative path for the API.
+            </summary>
+        </member>
+        <member name="P:eZet.EveLib.StaticDataModule.EveStaticData.BaseUri">
+            <summary>
+                Gets or sets the base URI for requests.
+            </summary>
+        </member>
+        <member name="P:eZet.EveLib.StaticDataModule.EveStaticData.RequestHandler">
+            <summary>
+                Gets or sets the RequestHandler used to perform requests.
+            </summary>
         </member>
         <member name="M:eZet.EveLib.StaticDataModule.EveStaticData.SetFormat(eZet.EveLib.StaticDataModule.EveStaticData.DataFormat)">
             <summary>
@@ -58,36 +88,6 @@
             </summary>
             <param name="id">InvType ID</param>
             <returns></returns>
-        </member>
-        <member name="P:eZet.EveLib.StaticDataModule.EveStaticData.Format">
-            <summary>
-                Gets the format requested by this instance.
-            </summary>
-        </member>
-        <member name="P:eZet.EveLib.StaticDataModule.EveStaticData.ApiPath">
-            <summary>
-                Gets or sets the relative path for the API.
-            </summary>
-        </member>
-        <member name="P:eZet.EveLib.StaticDataModule.EveStaticData.BaseUri">
-            <summary>
-                Gets or sets the base URI for requests.
-            </summary>
-        </member>
-        <member name="P:eZet.EveLib.StaticDataModule.EveStaticData.RequestHandler">
-            <summary>
-                Gets or sets the RequestHandler used to perform requests.
-            </summary>
-        </member>
-        <member name="T:eZet.EveLib.StaticDataModule.EveStaticData.DataFormat">
-            <summary>
-                Represents the data formats
-            </summary>
-        </member>
-        <member name="F:eZet.EveLib.StaticDataModule.EveStaticData.DataFormat.Json">
-            <summary>
-                JSON
-            </summary>
         </member>
         <member name="T:eZet.EveLib.StaticDataModule.Models.StaticDataCollection`1">
             <summary>

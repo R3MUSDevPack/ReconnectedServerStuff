@@ -17,7 +17,26 @@ namespace JKON.EveWho.Stations
 
         public static Station GetStation(long stationID)
         {
-            return GetConquerableStations().Where(s => s.stationId == stationID).FirstOrDefault();
+            var cs = GetConquerableStations().Where(s => s.stationId == stationID).FirstOrDefault();
+            if( cs != null)
+            {
+                return cs;
+            }
+            else
+            {
+                return GetOtherStation(stationID);
+            }
+        }
+
+        public static Station GetOtherStation(long id)
+        {
+            switch (id)
+            {
+                case 60003760:
+                    return new Station() { stationId = id, stationName = "Jita IV - Moon 4 - Caldari Navy Assembly Plant " };
+                default:
+                    return null;
+            }
         }
 
         public static List<Station> GetConquerableStations()

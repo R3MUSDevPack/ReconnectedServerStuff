@@ -49,3 +49,5 @@ C:\Users\Chris\Source\Repos\ReconnectedServerStuff\RandomQuoteBot\bin\Debug\Serv
 C:\Users\Chris\Source\Repos\ReconnectedServerStuff\RandomQuoteBot\obj\Debug\RandomQuoteBot.csprojResolveAssemblyReference.cache
 C:\Users\Chris\Source\Repos\ReconnectedServerStuff\RandomQuoteBot\obj\Debug\RandomQuoteBot.exe
 C:\Users\Chris\Source\Repos\ReconnectedServerStuff\RandomQuoteBot\obj\Debug\RandomQuoteBot.pdb
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\RandomQuoteBot\bin\Debug\Hipchat_Plugin.dll.config
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\RandomQuoteBot\bin\Debug\Slack_Plugin.dll.config

@@ -472,46 +472,6 @@
             <param name="id">The identifier.</param>
             <returns>System.Threading.Tasks.Task&lt;eZet.EveLib.EveCrestModule.Models.CharacterStats&gt;.</returns>
         </member>
-        <member name="M:eZet.EveLib.EveCrestModule.EveCrest.GetIncursionsAsync">
-            <summary>
-            Returns a list of all active incursions.
-            </summary>
-            <returns>A list of all active incursions.</returns>
-        </member>
-        <member name="M:eZet.EveLib.EveCrestModule.EveCrest.GetIncursions">
-            <summary>
-            Returns a list of all active incursions.
-            </summary>
-            <returns>A list of all active incursions.</returns>
-        </member>
-        <member name="M:eZet.EveLib.EveCrestModule.EveCrest.GetAlliancesAsync(System.Int32)">
-            <summary>
-            Returns a list of all alliances.
-            </summary>
-            <param name="page">The 1-indexed page to return. Number of total pages is available in the response.</param>
-            <returns>A list of all alliances.</returns>
-        </member>
-        <member name="M:eZet.EveLib.EveCrestModule.EveCrest.GetAlliances(System.Int32)">
-            <summary>
-            Returns a list of all alliances.
-            </summary>
-            <param name="page">The 1-indexed page to return. Number of total pages is available in the repsonse.</param>
-            <returns>A list of all alliances.</returns>
-        </member>
-        <member name="M:eZet.EveLib.EveCrestModule.EveCrest.GetAllianceAsync(System.Int64)">
-            <summary>
-            Returns data about a specific alliance.
-            </summary>
-            <param name="allianceId">A valid alliance ID</param>
-            <returns>Data for specified alliance</returns>
-        </member>
-        <member name="M:eZet.EveLib.EveCrestModule.EveCrest.GetAlliance(System.Int64)">
-            <summary>
-            Returns data about a specific alliance.
-            </summary>
-            <param name="allianceId">A valid alliance ID</param>
-            <returns>Data for specified alliance</returns>
-        </member>
         <member name="M:eZet.EveLib.EveCrestModule.EveCrest.GetMarketHistoryAsync(System.Int32,System.Int32)">
             <summary>
             Returns daily price and volume history for a specific region and item type.
@@ -527,84 +487,6 @@
             <param name="regionId">Region ID</param>
             <param name="typeId">Type ID</param>
             <returns>Market history for the specified region and type.</returns>
-        </member>
-        <member name="M:eZet.EveLib.EveCrestModule.EveCrest.GetMarketPricesAsync">
-            <summary>
-            Returns the average and adjusted values for all items
-            </summary>
-            <returns>Task&lt;MarketTypePriceCollection&gt;.</returns>
-        </member>
-        <member name="M:eZet.EveLib.EveCrestModule.EveCrest.GetMarketPrices">
-            <summary>
-            Returns the average and adjusted values for all items
-            </summary>
-            <returns>MarketTypePriceCollection.</returns>
-        </member>
-        <member name="M:eZet.EveLib.EveCrestModule.EveCrest.GetWarsAsync(System.Int32)">
-            <summary>
-            Returns a list of all wars.
-            </summary>
-            <param name="page">The 1-indexed page to return. Number of total pages is available in the repsonse.</param>
-            <returns>A list of all wars.</returns>
-        </member>
-        <member name="M:eZet.EveLib.EveCrestModule.EveCrest.GetWars(System.Int32)">
-            <summary>
-            Returns a list of all wars.
-            </summary>
-            <param name="page">The 1-indexed page to return. Number of total pages is available in the repsonse.</param>
-            <returns>A list of all wars.</returns>
-        </member>
-        <member name="M:eZet.EveLib.EveCrestModule.EveCrest.GetWarAsync(System.Int32)">
-            <summary>
-            Returns data for a specific war.
-            </summary>
-            <param name="warId">War ID</param>
-            <returns>Data for the specified war.</returns>
-        </member>
-        <member name="M:eZet.EveLib.EveCrestModule.EveCrest.GetWar(System.Int32)">
-            <summary>
-            Returns data for a specific war.
-            </summary>
-            <param name="warId">War ID</param>
-            <returns>Data for the specified war.</returns>
-        </member>
-        <member name="M:eZet.EveLib.EveCrestModule.EveCrest.GetWarKillmailsAsync(System.Int32)">
-            <summary>
-            Returns a list of all killmails related to a specified war.
-            </summary>
-            <param name="warId">War ID</param>
-            <returns>A list of all killmails related to the specified war.</returns>
-        </member>
-        <member name="M:eZet.EveLib.EveCrestModule.EveCrest.GetWarKillmails(System.Int32)">
-            <summary>
-            Returns a list of all killmails related to a specified war.
-            </summary>
-            <param name="warId">War ID</param>
-            <returns>A list of all killmails related to the specified war.</returns>
-        </member>
-        <member name="M:eZet.EveLib.EveCrestModule.EveCrest.GetIndustrySystemsAsync">
-            <summary>
-            Returns a list of industry systems and prices
-            </summary>
-            <returns>Task&lt;IndustrySystemCollection&gt;.</returns>
-        </member>
-        <member name="M:eZet.EveLib.EveCrestModule.EveCrest.GetIndustrySystems">
-            <summary>
-            Returns a list of industry systems and prices
-            </summary>
-            <returns>IndustrySystemCollection.</returns>
-        </member>
-        <member name="M:eZet.EveLib.EveCrestModule.EveCrest.GetIndustryFacilitiesAsync">
-            <summary>
-            Returns a collection of all industry facilities
-            </summary>
-            <returns>Task&lt;IndustryFacilityCollection&gt;.</returns>
-        </member>
-        <member name="M:eZet.EveLib.EveCrestModule.EveCrest.GetIndustryFacilities">
-            <summary>
-            Returns a collection of all industry facilities
-            </summary>
-            <returns>IndustryFacilityCollection.</returns>
         </member>
         <member name="M:eZet.EveLib.EveCrestModule.EveCrest.tryRefreshTokenAsync(eZet.EveLib.EveCrestModule.Exceptions.EveCrestException)">
             <summary>
@@ -1398,17 +1280,39 @@
             </summary>
             <value>The vivox.</value>
         </member>
-        <member name="P:eZet.EveLib.EveCrestModule.Models.Resources.Character.Waypoints">
+        <member name="P:eZet.EveLib.EveCrestModule.Models.Resources.Character.UI">
             <summary>
-                Gets or sets the waypoints.
+                Gets or sets the UI.
             </summary>
-            <value>The waypoints.</value>
         </member>
         <member name="M:eZet.EveLib.EveCrestModule.Models.Resources.Character.Inject(eZet.EveLib.EveCrestModule.EveCrest)">
             <summary>
                 Injects the specified instance.
             </summary>
             <param name="instance">The instance.</param>
+        </member>
+        <member name="T:eZet.EveLib.EveCrestModule.Models.Resources.Character.UIRoot">
+            <summary>
+                Class UIRoot.
+            </summary>
+        </member>
+        <member name="P:eZet.EveLib.EveCrestModule.Models.Resources.Character.UIRoot.SetWaypoints">
+            <summary>
+                Gets or sets the setWaypoints.
+            </summary>
+            <value>The setWaypoints.</value>
+        </member>
+        <member name="P:eZet.EveLib.EveCrestModule.Models.Resources.Character.UIRoot.ShowContact">
+            <summary>
+                Gets or sets the showContract.
+            </summary>
+            <value>The showContracts.</value>
+        </member>
+        <member name="P:eZet.EveLib.EveCrestModule.Models.Resources.Character.UIRoot.ShowMarketDetails">
+            <summary>
+                Gets or sets the showMarketDetails.
+            </summary>
+            <value>The showMarketDetails.</value>
         </member>
         <member name="T:eZet.EveLib.EveCrestModule.Models.Resources.ConstellationCollection">
             <summary>
@@ -2525,7 +2429,7 @@
         </member>
         <member name="T:eZet.EveLib.EveCrestModule.Models.Resources.NpcCorporationsCollection.NpcCorporationData">
             <summary>
-            NPC Corporation Data Short
+            NPC Corporation Data
             </summary>
         </member>
         <member name="P:eZet.EveLib.EveCrestModule.Models.Resources.NpcCorporationsCollection.NpcCorporationData.Description">
@@ -3366,6 +3270,38 @@
                 Initializes a new instance of the <see cref="T:eZet.EveLib.EveCrestModule.Models.Resources.Tournaments.TournamentTypeBanCollection" /> class.
             </summary>
         </member>
+        <member name="T:eZet.EveLib.EveCrestModule.Models.Resources.UIContract">
+            <summary>
+                Class UIContract.
+            </summary>
+        </member>
+        <member name="M:eZet.EveLib.EveCrestModule.Models.Resources.UIContract.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:eZet.EveLib.EveCrestModule.Models.Resources.UIContract" /> class.
+            </summary>
+        </member>
+        <member name="P:eZet.EveLib.EveCrestModule.Models.Resources.UIContract.ItemType">
+            <summary>
+                Gets or sets the contract ID.
+            </summary>
+            <value>The solar system.</value>
+        </member>
+        <member name="T:eZet.EveLib.EveCrestModule.Models.Resources.UIMarketDetails">
+            <summary>
+                Class UIMarketDetails.
+            </summary>
+        </member>
+        <member name="M:eZet.EveLib.EveCrestModule.Models.Resources.UIMarketDetails.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:eZet.EveLib.EveCrestModule.Models.Resources.UIMarketDetails" /> class.
+            </summary>
+        </member>
+        <member name="P:eZet.EveLib.EveCrestModule.Models.Resources.UIMarketDetails.ItemType">
+            <summary>
+                Gets or sets the item type.
+            </summary>
+            <value>The solar system.</value>
+        </member>
         <member name="T:eZet.EveLib.EveCrestModule.Models.Resources.Constellation">
             <summary>
                 Class Constellation. This class cannot be inherited.
@@ -4112,24 +4048,6 @@
                 Initializes a new instance of the <see cref="T:eZet.EveLib.EveCrestModule.Models.Resources.CrestRoot" /> class.
             </summary>
         </member>
-        <member name="P:eZet.EveLib.EveCrestModule.Models.Resources.CrestRoot.Motd">
-            <summary>
-                The message of the day for each service
-            </summary>
-            <value>The motd.</value>
-        </member>
-        <member name="P:eZet.EveLib.EveCrestModule.Models.Resources.CrestRoot.CrestEndpoint">
-            <summary>
-                The uri for CREST base
-            </summary>
-            <value>The crest endpoint.</value>
-        </member>
-        <member name="P:eZet.EveLib.EveCrestModule.Models.Resources.CrestRoot.CorporationRoles">
-            <summary>
-                Gets or sets the corporation roles.
-            </summary>
-            <value>The corporation roles.</value>
-        </member>
         <member name="P:eZet.EveLib.EveCrestModule.Models.Resources.CrestRoot.Constellations">
             <summary>
                 Gets or sets the constellations.
@@ -4141,12 +4059,6 @@
                 Gets or sets the item groups.
             </summary>
             <value>The item groups.</value>
-        </member>
-        <member name="P:eZet.EveLib.EveCrestModule.Models.Resources.CrestRoot.Channels">
-            <summary>
-                Gets or sets the channels.
-            </summary>
-            <value>The channels.</value>
         </member>
         <member name="P:eZet.EveLib.EveCrestModule.Models.Resources.CrestRoot.Corporations">
             <summary>
@@ -4166,17 +4078,19 @@
             </summary>
             <value>The item types.</value>
         </member>
+        <member name="P:eZet.EveLib.EveCrestModule.Models.Resources.CrestRoot.UserCount">
+            <summary>
+            Gets or sets the user count.
+            </summary>
+            <value>
+            The user count.
+            </value>
+        </member>
         <member name="P:eZet.EveLib.EveCrestModule.Models.Resources.CrestRoot.Decode">
             <summary>
                 Gets or sets the decode.
             </summary>
             <value>The decode.</value>
-        </member>
-        <member name="P:eZet.EveLib.EveCrestModule.Models.Resources.CrestRoot.BattleTheatres">
-            <summary>
-                Gets or sets the battle theatres.
-            </summary>
-            <value>The battle theatres.</value>
         </member>
         <member name="P:eZet.EveLib.EveCrestModule.Models.Resources.CrestRoot.MarketPrices">
             <summary>
@@ -4226,12 +4140,6 @@
             </summary>
             <value>The tournaments.</value>
         </member>
-        <member name="P:eZet.EveLib.EveCrestModule.Models.Resources.CrestRoot.Map">
-            <summary>
-                Gets or sets the map.
-            </summary>
-            <value>The map.</value>
-        </member>
         <member name="P:eZet.EveLib.EveCrestModule.Models.Resources.CrestRoot.VirtualGoodStore">
             <summary>
                 Gets or sets the virtual good store.
@@ -4280,23 +4188,11 @@
             </summary>
             <value>The service status.</value>
         </member>
-        <member name="P:eZet.EveLib.EveCrestModule.Models.Resources.CrestRoot.UserCounts">
-            <summary>
-                The number of current users of services
-            </summary>
-            <value>The user counts.</value>
-        </member>
         <member name="P:eZet.EveLib.EveCrestModule.Models.Resources.CrestRoot.Industry">
             <summary>
                 Current Time endpoint
             </summary>
             <value>The industry.</value>
-        </member>
-        <member name="P:eZet.EveLib.EveCrestModule.Models.Resources.CrestRoot.Clients">
-            <summary>
-                Gets or sets the clients.
-            </summary>
-            <value>The clients.</value>
         </member>
         <member name="P:eZet.EveLib.EveCrestModule.Models.Resources.CrestRoot.NpcCorporations">
             <summary>
@@ -4341,23 +4237,6 @@
             </summary>
             <value>The structures.</value>
         </member>
-        <member name="T:eZet.EveLib.EveCrestModule.Models.Resources.CrestRoot.ClientLinks">
-            <summary>
-                Class ClientLinks.
-            </summary>
-        </member>
-        <member name="P:eZet.EveLib.EveCrestModule.Models.Resources.CrestRoot.ClientLinks.Dust">
-            <summary>
-                Gets or sets the dust.
-            </summary>
-            <value>The dust.</value>
-        </member>
-        <member name="P:eZet.EveLib.EveCrestModule.Models.Resources.CrestRoot.ClientLinks.Eve">
-            <summary>
-                Gets or sets the eve.
-            </summary>
-            <value>The eve.</value>
-        </member>
         <member name="T:eZet.EveLib.EveCrestModule.Models.Resources.CrestRoot.CrestIndustry">
             <summary>
                 Class CrestIndustry.
@@ -4374,69 +4253,6 @@
                 Gets or sets the systems.
             </summary>
             <value>The systems.</value>
-        </member>
-        <member name="T:eZet.EveLib.EveCrestModule.Models.Resources.CrestRoot.MessageOfTheDay">
-            <summary>
-                Represents a Motd object
-            </summary>
-        </member>
-        <member name="P:eZet.EveLib.EveCrestModule.Models.Resources.CrestRoot.MessageOfTheDay.Dust">
-            <summary>
-                Gets the MOTD for Dust 514
-            </summary>
-            <value>The dust.</value>
-        </member>
-        <member name="P:eZet.EveLib.EveCrestModule.Models.Resources.CrestRoot.MessageOfTheDay.Eve">
-            <summary>
-                Gets the MOTD for Eve Online
-            </summary>
-            <value>The eve.</value>
-        </member>
-        <member name="P:eZet.EveLib.EveCrestModule.Models.Resources.CrestRoot.MessageOfTheDay.Server">
-            <summary>
-                Gets a url for the MOTD on the server
-            </summary>
-            <value>The server.</value>
-        </member>
-        <member name="T:eZet.EveLib.EveCrestModule.Models.Resources.CrestRoot.ServerStatus">
-            <summary>
-                Represents the service status for all servers
-            </summary>
-        </member>
-        <member name="P:eZet.EveLib.EveCrestModule.Models.Resources.CrestRoot.ServerStatus.Dust">
-            <summary>
-                The service status for DUST
-            </summary>
-            <value>The dust.</value>
-        </member>
-        <member name="P:eZet.EveLib.EveCrestModule.Models.Resources.CrestRoot.ServerStatus.Eve">
-            <summary>
-                The service status for EVE Online
-            </summary>
-            <value>The eve.</value>
-        </member>
-        <member name="P:eZet.EveLib.EveCrestModule.Models.Resources.CrestRoot.ServerStatus.Server">
-            <summary>
-                The service status for the api server
-            </summary>
-            <value>The server.</value>
-        </member>
-        <member name="T:eZet.EveLib.EveCrestModule.Models.Resources.CrestRoot.UserCount">
-            <summary>
-                Represents the number of current users of services
-            </summary>
-        </member>
-        <member name="P:eZet.EveLib.EveCrestModule.Models.Resources.CrestRoot.UserCount.Dust">
-            <summary>
-                Number of currently online users for DUST
-            </summary>
-            <value>The dust.</value>
-        </member>
-        <member name="P:eZet.EveLib.EveCrestModule.Models.Resources.CrestRoot.UserCount.Eve">
-            <summary>
-                Number of currently online users for Eve Online
-            </summary>
-            <value>The eve.</value>
         </member>
         <member name="T:eZet.EveLib.EveCrestModule.Models.Resources.CrestRoot.DogmaCategory">
             <summary>
@@ -5390,7 +5206,7 @@
         </member>
         <member name="M:eZet.EveLib.EveCrestModule.Models.CollectionResource`2.Query``1(System.Func{System.Collections.Generic.IEnumerable{`1},eZet.EveLib.EveCrestModule.Models.Links.Href{``0}})">
             <summary>
-                Queries a collection resource for a single item, async.
+                Queries a collection resource for a single item.
             </summary>
             <typeparam name="TOut">The type of the t out.</typeparam>
             <param name="objFunc">The object function.</param>
