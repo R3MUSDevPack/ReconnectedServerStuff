@@ -8,37 +8,40 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using System.Xml.Linq;
+using System.Reflection;
 
 namespace JKON.EveWho.Stations
 {
     public class Api
     {
         private const string c_URL = "https://api.eveonline.com/eve/ConquerableStationList.xml.aspx";
+        private const string c_FILENAME = "/structures.xml";
 
-        public static Station GetStation(long stationID)
+        public static Structure GetStructure(long structureId)
         {
-            var cs = GetConquerableStations().Where(s => s.stationId == stationID).FirstOrDefault();
-            if( cs != null)
+            var cs = GetConquerableStations().Where(s => s.stationId == structureId).FirstOrDefault();
+            if(cs != null)
             {
-                return cs;
+                return new Structure() { Id = structureId, Name = cs.stationName };
             }
             else
             {
-                return GetOtherStation(stationID);
+                return Deserialise().Where(w => w.Id == structureId).FirstOrDefault();
             }
         }
 
-        public static Station GetOtherStation(long id)
+        public static Station GetStation(long Id)
         {
-            switch (id)
+            var structure = GetStructure(Id);
+            if (structure == null)
             {
-                case 60003760:
-                    return new Station() { stationId = id, stationName = "Jita IV - Moon 4 - Caldari Navy Assembly Plant " };
-                default:
-                    return null;
+                return null;
+            }
+            else
+            {
+                return new Station() { stationId = structure.Id, stationName = structure.Name };
             }
         }
-
         public static List<Station> GetConquerableStations()
         {
             string xml = GetResponse(c_URL);
@@ -81,6 +84,15 @@ namespace JKON.EveWho.Stations
             }
 
             return data;
+        }
+
+        private static List<Structure> Deserialise()
+        {
+            var cruncher = new XmlSerializer(typeof(List<Structure>));
+            using (var writer = new StreamReader(string.Concat(@"C:\inetpub\r3mus_a\bin", c_FILENAME)))
+            {
+                return (List<Structure>)cruncher.Deserialize(writer);
+            }
         }
     }
 }

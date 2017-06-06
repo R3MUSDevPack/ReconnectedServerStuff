@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfStructure xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Structure>
+    <Id>366659574</Id>
+    <Name>BKG-Q2 - A PVPing Frame of Mind</Name>
+  </Structure>
+  <Structure>
+    <Id>60003760</Id>
+    <Name>Jita IV - Moon 4 - Caldari Navy Assembly Plant</Name>
+  </Structure>
+  <Structure>
+    <Id>1534405770</Id>
+    <Name>3T7-M8 - Amy's Domain</Name>
+  </Structure>
+  <Structure>
+    <Id>0</Id>
+    <Name>Test</Name>
+  </Structure>
+</ArrayOfStructure>
