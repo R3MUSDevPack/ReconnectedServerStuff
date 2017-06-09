@@ -27,7 +27,8 @@ namespace r3mus.ViewModels
             [Display(Name = "Awaiting Invitation")]
             AwaitingInvitation,
             Rejected,
-            Accepted
+            Accepted,
+            Withdrawn
         }
 
         public IEnumerable<Application> ApplicationInfo { get; set; }

@@ -75,7 +75,6 @@ namespace r3mus.Controllers
         public ActionResult UpdateNamesAfterMailing(FormCollection form)
         {
             var names = form["mailees"].ToString();
-            //appent.CloseRecruitmentMailees(names);
             CloseRecruitmentMailees(names);
 
             return RedirectToAction("Home");
@@ -87,7 +86,6 @@ namespace r3mus.Controllers
         }
 
         [HttpPost]
-        //[ActionName("GetNames")]
         [r3mus.Filters.ApiKeyAttribute.MultipleButton(Name = "GetNames", Argument = "unlock")]
         public ActionResult UnlockNames(FormCollection form)
         {
@@ -106,7 +104,6 @@ namespace r3mus.Controllers
         [HttpPost]
         [Authorize()]
         [ActionName("AddNames")]
-        [Authorize()]
         public ActionResult AddNamesToDB(FormCollection form)
         {
             string[] names = form["names"].ToString().Split(new string[]{Environment.NewLine}, StringSplitOptions.None).Distinct().ToArray();
@@ -118,7 +115,6 @@ namespace r3mus.Controllers
                 if ((db.RecruitmentMailees.Where(m => m.Name == name).Any() == false) && (archive.Where(m => m.Name == name).Any() == false))
                 {
                     RecruitmentMailee mailee = new RecruitmentMailee() { Name = name, Submitted = DateTime.Now };
-                    //mailee.IsInNPCCorp();
 
                     db.RecruitmentMailees.Add(mailee);
                 }
@@ -135,6 +131,11 @@ namespace r3mus.Controllers
             var model = new ApplicantViewModel();
             @ViewBag.FullAccessMask = Properties.Settings.Default.FullAPIAccessMask.ToString();
 
+            if(User != null)
+            {
+                model.Information = string.Concat("Vouched for by ", User.Identity.Name);
+            }
+
             return View(model);
         }
 
@@ -143,10 +144,27 @@ namespace r3mus.Controllers
         [ActionName("Apply")]
         public ActionResult SubmitApplication(ApplicantViewModel model)
         {
-            var applicant = new Applicant() { Name = model.UserName, EmailAddress = model.Email, TimeZone = model.TimeZone, Information = model.Information, Age = model.Age, ToonAge = model.ToonAge, Source = model.Source };
+            ApiInfo api = new ApiInfo() { ApiKey = Convert.ToInt32(model.ApiKey),
+                VerificationCode = model.VerificationCode };
+            bool goodAccessMask;
+
+            if (User != null)
+            {
+                goodAccessMask = true;
+                if (!model.Information.Contains("Vouched for by "))
+                {
+                    model.Information = string.Concat("Vouched for by ", User.Identity.Name, ". ", model.Information);
+                }
+            }
+            else
+            {
+                goodAccessMask = api.ValidateAccessMask(ApplicationUser.IDType.Corporation);
+            }
+
+            var applicant = new Applicant() { Name = model.UserName, EmailAddress = model.Email,
+                TimeZone = model.TimeZone, Information = model.Information, Age = model.Age,
+                ToonAge = model.ToonAge, Source = model.Source };
             
-            ApiInfo api = new ApiInfo() { ApiKey = Convert.ToInt32(model.ApiKey), VerificationCode = model.VerificationCode };
-            bool goodAccessMask = api.ValidateAccessMask(ApplicationUser.IDType.Corporation);
             bool goodTZ = (model.TimeZone != "Select a Time Zone");
 
             if (goodAccessMask && goodTZ)
@@ -156,23 +174,25 @@ namespace r3mus.Controllers
 
                 db.Applicants.Add(applicant);
                 db.SaveChanges();
-
-                //applicant = db.Applicants.Where(m => m.Name == applicant.Name).Last();
-                var application = new Application() { ApplicantId = applicant.Id, Notes = "New application", Status = ApplicationReviewViewModel.ApplicationStatus.Applied.ToString(), DateTimeCreated = DateTime.Now };
+                
+                var application = new Application() { ApplicantId = applicant.Id, Notes = "New application",
+                    Status = ApplicationReviewViewModel.ApplicationStatus.Applied.ToString(),
+                    DateTimeCreated = DateTime.Now };
                 db.Applications.Add(application);
                 db.SaveChanges();
-
-                //SendMessage(string.Format(Properties.Settings.Default.NewApp_MessageFormatLine1, applicant.Name, application.DateTimeCreated.ToString("yyyy-MM-dd HH:mm:ss")));
 
                 MessagePayload message = new MessagePayload();
                 message.Attachments = new List<MessagePayloadAttachment>();
 
                 message.Attachments.Add(new MessagePayloadAttachment()
                 {
-                    Text = string.Format(Properties.Settings.Default.NewApp_MessageFormatLine2, applicant.Name, application.DateTimeCreated.ToString("yyyy-MM-dd HH:mm:ss")),
-                    TitleLink = string.Format(Properties.Settings.Default.EveWhoPilotURL, applicant.Name.Replace(" ", "+")),
+                    Text = string.Format(Properties.Settings.Default.NewApp_MessageFormatLine2, 
+                        applicant.Name, application.DateTimeCreated.ToString("yyyy-MM-dd HH:mm:ss")),
+                    TitleLink = string.Format(Properties.Settings.Default.EveWhoPilotURL, 
+                        applicant.Name.Replace(" ", "+")),
                     Title = Properties.Settings.Default.NewApp_MessageFormatLine1,
-                    ThumbUrl = string.Format(Properties.Settings.Default.CharacterImageServerURL, Api.GetCharacterID(applicant.Name), 64.ToString()),
+                    ThumbUrl = string.Format(Properties.Settings.Default.CharacterImageServerURL, 
+                        Api.GetCharacterID(applicant.Name), 64.ToString()),
                     Colour = "#FFC200"
                 });
                 RecruitmentController.SendMessage(message);
@@ -200,12 +220,20 @@ namespace r3mus.Controllers
             IQueryable<ApplicantList> apps;
             if (!review)
             {
-                apps = appent.ApplicantLists.Where(a => (a.Status != ApplicationReviewViewModel.ApplicationStatus.Accepted.ToString()) && (a.Status != ApplicationReviewViewModel.ApplicationStatus.Rejected.ToString())).OrderBy(a => a.Applied);
+                apps = appent.ApplicantLists.Where(a => 
+                    (a.Status != ApplicationReviewViewModel.ApplicationStatus.Accepted.ToString()) 
+                    && (a.Status != ApplicationReviewViewModel.ApplicationStatus.Rejected.ToString()) 
+                    && (a.Status != ApplicationReviewViewModel.ApplicationStatus.Withdrawn.ToString()))
+                    .OrderByDescending(a => a.Applied);
                 ViewBag.Title = "Applications To Process";
             }
             else
             {
-                apps = appent.ApplicantLists.Where(a => (a.Status == ApplicationReviewViewModel.ApplicationStatus.Accepted.ToString()) || (a.Status == ApplicationReviewViewModel.ApplicationStatus.Rejected.ToString())).OrderBy(a => a.Applied);
+                apps = appent.ApplicantLists.Where(a => 
+                    (a.Status == ApplicationReviewViewModel.ApplicationStatus.Accepted.ToString()) 
+                    || (a.Status == ApplicationReviewViewModel.ApplicationStatus.Rejected.ToString())
+                    || (a.Status == ApplicationReviewViewModel.ApplicationStatus.Withdrawn.ToString()))
+                    .OrderByDescending(a => a.Applied);
                 ViewBag.Title = "Processed Applications";
             }
 

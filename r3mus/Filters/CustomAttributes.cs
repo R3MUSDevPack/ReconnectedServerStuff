@@ -9,7 +9,6 @@ using System.Web.Mvc;
 
 namespace r3mus.Filters
 {
-#region "Filters"
 
     public class ApiKeyAttribute : ValidationAttribute
     {
@@ -65,6 +64,19 @@ namespace r3mus.Filters
             }
         }
     }     
-
-#endregion
+    
+    public class RequiredIfNotAuthenticatedAttribute : RequiredAttribute
+    {
+        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+        {
+            if (HttpContext.Current.User != null)
+            {
+                return ValidationResult.Success;
+            }
+            else
+            {
+                return base.IsValid(value, validationContext);
+            }
+        }
+    }
 }
