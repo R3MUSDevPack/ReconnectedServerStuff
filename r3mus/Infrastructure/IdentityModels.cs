@@ -453,7 +453,7 @@ namespace r3mus.Models
                     var req = WebRequest.Create("https://api.eveonline.com");
                     req.Timeout = 2000;
                     HttpWebResponse response = (HttpWebResponse)req.GetResponse();
-                    return EveXml.CreateApiKey(Convert.ToInt32(ApiKey), VerificationCode).Init().AccessMask;
+                    return EveXml.CreateApiKey(Convert.ToInt64(ApiKey), VerificationCode).Init().AccessMask;
                 }
                 catch (Exception ex) { return 0; } }
         }

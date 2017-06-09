@@ -16,7 +16,21 @@ namespace r3mus.Controllers
         {
             if ((User == null) || (User.Identity.IsAuthenticated == false))
             {
-                var latestNewsItem = new ApplicationDbContext().LatestNewsItem.Where(newsItem => newsItem.Category == "External News").FirstOrDefault();
+                LatestNew latestNewsItem;
+
+                try
+                {
+                    latestNewsItem = new ApplicationDbContext().LatestNewsItem.Where(newsItem => newsItem.Category == "External News").FirstOrDefault();
+                }
+                catch(Exception ex)
+                {
+                    latestNewsItem = new LatestNew() {
+                        Topic = "No news available",
+                        Date = DateTime.Now,
+                        Avatar = "No news available",
+                        Post = "", UserName = "HAL10000"
+                    };
+                }
 
                 if(TempData["Message"] != null)
                 {

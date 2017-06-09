@@ -235,7 +235,7 @@
                 The Wallet identifier. For characters this is always 1000.
             </summary>
         </member>
-        <member name="M:eZet.EveLib.EveXmlModule.Character.#ctor(System.Int32,System.String,System.Int64)">
+        <member name="M:eZet.EveLib.EveXmlModule.Character.#ctor(System.Int64,System.String,System.Int64)">
             <summary>
                 Creates a new Character using the provided key data and character id.
             </summary>
@@ -1175,7 +1175,7 @@
             <param name="apiKey">A CorporationKey</param>
             <param name="corporationId">A valid Eve Online Corporation ID</param>
         </member>
-        <member name="M:eZet.EveLib.EveXmlModule.Corporation.#ctor(System.Int32,System.String,System.Int64)">
+        <member name="M:eZet.EveLib.EveXmlModule.Corporation.#ctor(System.Int64,System.String,System.Int64)">
             <summary>
                 Creates a new corporation. This object will not be initialized.
             </summary>
@@ -1749,7 +1749,7 @@
                 Provides access to a default instance of Map
             </summary>
         </member>
-        <member name="M:eZet.EveLib.EveXmlModule.EveXml.CreateApiKey(System.Int32,System.String)">
+        <member name="M:eZet.EveLib.EveXmlModule.EveXml.CreateApiKey(System.Int64,System.String)">
             <summary>
                 Creates a new ApiKey and returns it. This is the same as invoking new ApiKey
             </summary>
@@ -1757,7 +1757,7 @@
             <param name="vCode">Eve API Verification Code (vCode)</param>
             <returns></returns>
         </member>
-        <member name="M:eZet.EveLib.EveXmlModule.EveXml.CreateCharacterKey(System.Int32,System.String)">
+        <member name="M:eZet.EveLib.EveXmlModule.EveXml.CreateCharacterKey(System.Int64,System.String)">
             <summary>
                 Creates a new CharacterKey and returns it. This is the same as invoking new CharacterKey
             </summary>
@@ -1765,7 +1765,7 @@
             <param name="vCode">Eve API Verification Code (vCode)</param>
             <returns></returns>
         </member>
-        <member name="M:eZet.EveLib.EveXmlModule.EveXml.CreateCorporationKey(System.Int32,System.String)">
+        <member name="M:eZet.EveLib.EveXmlModule.EveXml.CreateCorporationKey(System.Int64,System.String)">
             <summary>
                 Creates a new CorporationKey returns it. This is the same as invoking new CorporationKey
             </summary>
@@ -1773,7 +1773,7 @@
             <param name="vCode">Eve API Verification Code (vCode)</param>
             <returns></returns>
         </member>
-        <member name="M:eZet.EveLib.EveXmlModule.EveXml.CreateCharacter(System.Int32,System.String,System.Int64)">
+        <member name="M:eZet.EveLib.EveXmlModule.EveXml.CreateCharacter(System.Int64,System.String,System.Int64)">
             <summary>
                 Creates a new CharacterKey and Character, and returns the Character.
             </summary>
@@ -1782,7 +1782,7 @@
             <param name="characterId">Eve Online Character ID</param>
             <returns></returns>
         </member>
-        <member name="M:eZet.EveLib.EveXmlModule.EveXml.CreateCorporation(System.Int32,System.String,System.Int64)">
+        <member name="M:eZet.EveLib.EveXmlModule.EveXml.CreateCorporation(System.Int64,System.String,System.Int64)">
             <summary>
                 Creates a new CorporationKey and Corporation, and returns the Corporation.
             </summary>
@@ -6103,11 +6103,21 @@
             </summary>
             <value>The alliance identifier.</value>
         </member>
+        <member name="P:eZet.EveLib.EveXmlModule.Models.Corporation.CorporationSheet.AllianceName">
+            <summary>
+                Gets or sets the alliance name.
+            </summary>
+        </member>
         <member name="P:eZet.EveLib.EveXmlModule.Models.Corporation.CorporationSheet.FactionId">
             <summary>
                 Gets or sets the faction identifier.
             </summary>
             <value>The faction identifier.</value>
+        </member>
+        <member name="P:eZet.EveLib.EveXmlModule.Models.Corporation.CorporationSheet.FactionName">
+            <summary>
+                Gets or sets the faction name.
+            </summary>
         </member>
         <member name="P:eZet.EveLib.EveXmlModule.Models.Corporation.CorporationSheet.TaxRate">
             <summary>

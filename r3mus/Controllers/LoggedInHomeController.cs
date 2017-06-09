@@ -51,11 +51,35 @@ namespace r3mus.Controllers
                 ViewBag.ErrorMessage = TempData["ErrorMessage"].ToString();
             }
 
+            LatestNew latestNewsItem;
+            List<Wardec> wardecs = new List<Wardec>();
+
+            try
+            {
+                latestNewsItem = new ApplicationDbContext().LatestNewsItem.Where(newsItem => newsItem.Category == "Internal News").FirstOrDefault();
+            }
+            catch 
+            {
+                latestNewsItem = new LatestNew()
+                {
+                    Topic = "No news available",
+                    Date = DateTime.Now,
+                    Avatar = "No news available",
+                    Post = "",
+                    UserName = "HAL10000"
+                };
+            }
+            try
+            {
+                wardecs = db.LiveWardecs.ToList();
+            }
+            catch { }
+
             var vm = new WelcomeViewModel()
             {
-                LatestInternalNewsItem = db.LatestNewsItem.Where(newsItem => newsItem.Category == "Internal News").FirstOrDefault(),
+                LatestInternalNewsItem = latestNewsItem,
                 Apis = currentUser.ApiKeys.GroupBy(api => api.ApiKey).Select(api => api.First()).ToList(),
-                LiveWardecs = db.LiveWardecs.ToList()
+                LiveWardecs = wardecs
             };
             
             return View(vm);

@@ -22,19 +22,47 @@ namespace r3mus.CRONJobs
 
         private void CrossPost(CRONJob settings)
         {
-            if (settings.Enabled)
+            if(settings.Enabled)
             {
-                //Plugin.SendDirectMessage("Executing Jarvis", "clydeenmarland", Properties.Settings.Default.SlackWebhook);
                 try
                 {
-                    var client = new Client {
+                    var client = new Client
+                    {
+                        UserName = Properties.Settings.Default.JarvisEmail,
+                        Password = Properties.Settings.Default.JarvisPassword
+                    };
+                    if (client.Logon())
+                    {
+                        foreach (var link in Properties.Settings.Default.DiscordToSlackLinks)
+                        {
+                            var splt = link.Split('/');
+                            var discordRoom = splt[0];
+                            var slackRoom = splt[1];
+                            var filter = splt[2];
+                            
+                            SendMessages(GetMessages(discordRoom, settings.LastRun, client, filter), slackRoom);
+                        }
+                    }
+                }
+                catch { }
+            }
+        }
+
+        private void CrossPost1(CRONJob settings)
+        {
+            if (settings.Enabled)
+            {
+                try
+                {
+                    var client = new Client
+                    {
                         UserName = Properties.Settings.Default.JarvisEmail,
                         Password = Properties.Settings.Default.JarvisPassword
                     };
                     if (client.Logon())
                     {
                         var messages = client.GetMessages(Properties.Settings.Default.JarvisDiscordRoom);
-                        
+
                         if (settings.LastRun == null)
                         {
                             messages = messages.OrderBy(msg => msg.timestamp).ToList();
@@ -52,8 +80,8 @@ namespace r3mus.CRONJobs
                                     Colour = "#ff6600"
                                 });
                                 Plugin.SendToRoom(payload, Properties.Settings.Default.JarvisSlackRoom, Properties.Settings.Default.SlackWebhook, msg.author.username);
-                                
-                                foreach(var webhook in Properties.Settings.Default.DiscordLinkSlackWebhooks)
+
+                                foreach (var webhook in Properties.Settings.Default.DiscordLinkSlackWebhooks)
                                 {
                                     Plugin.SendToRoom(payload, Properties.Settings.Default.JarvisSlackRoom, webhook, msg.author.username);
                                 }
@@ -99,11 +127,40 @@ namespace r3mus.CRONJobs
                         //Plugin.SendDirectMessage("Logged in failed", "clydeenmarland", Properties.Settings.Default.SlackWebhook);
                     }
                 }
-                catch (Exception ex)
-                {
-                    //Plugin.SendDirectMessage(ex.Message, "clydeenmarland", Properties.Settings.Default.SlackWebhook);
-                }
+                catch { }
             }
+        }
+
+        private List<Message> GetMessages(string discordRoom, DateTime? last, Client client, string filter)
+        {
+            last = last.HasValue ? last : DateTime.Now.AddDays(-1);
+            return client.GetMessages(Convert.ToInt64(discordRoom)).Where(w => w.timestamp > last.Value && w.content.Contains(filter)).OrderBy(msg => msg.timestamp).ToList();
+        }
+
+        private void SendMessages(List<Message> messages, string slackRoom)
+        {
+            messages.ForEach(message =>
+            {
+                foreach (var webhook in Properties.Settings.Default.DiscordLinkSlackWebhooks)
+                {
+                    Plugin.SendToRoom(FormatMessage(message), Properties.Settings.Default.JarvisSlackRoom, webhook, message.author.username);
+                }
+            });
+        }
+
+        private MessagePayload FormatMessage(Message message)
+        {
+            var senderlines = message.content.Split(new[] { "\n" }, StringSplitOptions.None);
+            var payload = new MessagePayload();
+            payload.Text = "@channel: Coalition Broadcast";
+            payload.Attachments = new List<MessagePayloadAttachment>();
+            payload.Attachments.Add(new MessagePayloadAttachment()
+            {
+                Text = new Censor().CensorText(string.Join("\n", senderlines.Skip(1))),
+                Title = string.Format("{0}", message.timestamp.ToString("yyyy-MM-dd HH:mm:ss")),
+                Colour = "#ff6600"
+            });
+            return payload;
         }
 
         private List<Message> GetMessages(long roomId)
@@ -114,11 +171,6 @@ namespace r3mus.CRONJobs
                 Password = Properties.Settings.Default.JarvisPassword
             };
             return client.GetMessages(roomId);
-        }
-
-        private void SendMessages(List<Message> messages, string room)
-        {
-
-        }
+        }        
     }
 }

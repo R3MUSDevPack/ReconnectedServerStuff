@@ -16,7 +16,7 @@ namespace r3mus.ViewModels
         [Display(Name = "User name (Your character name from Eve)")]
         public string UserName { get; set; }
 
-        [Required]
+        [RequiredIfNotAuthenticated]
         [Display(Name = "Email Address")]
         [EmailAddress]
         public string Email { get; set; }
@@ -25,12 +25,12 @@ namespace r3mus.ViewModels
         [Display(Name = "Time Zone")]
         public string TimeZone { get; set; }
 
-        [Required]
+        [RequiredIfNotAuthenticated]
         [Display(Name = "API Key")]
         [ApiKey]
         public string ApiKey { get; set; }
 
-        [Required]
+        [RequiredIfNotAuthenticated]
         [Display(Name = "Verification Code")]
         [MinLength(64)]
         [MaxLength(64)]
