@@ -276,3 +276,5 @@ C:\Users\Chris\Source\Repos\ReconnectedServerStuff\r3mus\bin\Hipchat_Plugin.dll.
 C:\Users\Chris\Source\Repos\ReconnectedServerStuff\r3mus\bin\Slack_Plugin.dll.config
 C:\Users\Chris\Source\Repos\ReconnectedServerStuff\r3mus\bin\R3MUS.Devpack.ESI.pdb
 C:\Users\Chris\Source\Repos\ReconnectedServerStuff\r3mus\bin\structures.xml
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\r3mus\bin\structures.xml
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\r3mus\bin\R3MUS.Devpack.Core.dll

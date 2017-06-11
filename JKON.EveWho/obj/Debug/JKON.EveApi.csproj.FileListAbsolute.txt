@@ -20,3 +20,4 @@ C:\Users\Chris\Source\Repos\ReconnectedServerStuff\JKON.EveWho\bin\Debug\Newtons
 C:\Users\Chris\Source\Repos\ReconnectedServerStuff\JKON.EveWho\obj\Debug\JKON.EveWho.dll
 C:\Users\Chris\Source\Repos\ReconnectedServerStuff\JKON.EveWho\obj\Debug\JKON.EveWho.pdb
 C:\Users\Chris\Source\Repos\ReconnectedServerStuff\JKON.EveWho\bin\Debug\EveAI.Live.dll
+C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\JKON.EveWho\bin\Debug\EveAI.Live.dll

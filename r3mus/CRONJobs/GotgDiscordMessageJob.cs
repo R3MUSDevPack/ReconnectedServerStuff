@@ -24,6 +24,7 @@ namespace r3mus.CRONJobs
         {
             if(settings.Enabled)
             {
+                var messages = new List<Message>();
                 try
                 {
                     var client = new Client
@@ -39,10 +40,17 @@ namespace r3mus.CRONJobs
                             var discordRoom = splt[0];
                             var slackRoom = splt[1];
                             var filter = splt[2];
-                            
-                            SendMessages(GetMessages(discordRoom, settings.LastRun, client, filter), slackRoom);
+
+                            var localMessages = GetMessages(discordRoom, settings.LastRun, client, filter);
+
+                            SendMessages(localMessages, slackRoom);
+                            messages.AddRange(localMessages);
                         }
                     }
+                    settings.LastRun = messages.OrderByDescending(s => s.timestamp)
+                        .LastOrDefault().timestamp.AddMilliseconds(-messages.LastOrDefault().timestamp.Millisecond).AddMinutes(1);
+
+                    client.LogOut();
                 }
                 catch { }
             }

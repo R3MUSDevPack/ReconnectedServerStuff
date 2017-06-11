@@ -3,34 +3,34 @@
   <Profiles />
   <Settings>
     <Setting Name="CorpAPI" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">4285630</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="VCode" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">hmZDX0Ptrvb33GscSJVfeRy6rogh06XcymVI9GdueMahoRxZDvh0lWsOeGiBaKbS</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="MoodleToken" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">63011862f9d44e6837878bc58d6519d0</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="MoodleBaseURL" Type="System.String" Scope="Application">
       <Value Profile="(Default)">training.r3mus.org</Value>
     </Setting>
     <Setting Name="TSURL" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">r3mus.org</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="TS_CorpGroup" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Wolf</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="TS_AlliGroup" Type="System.String" Scope="Application">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="TS_Password" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">ciJQgm4B</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="CorpTicker" Type="System.String" Scope="Application">
       <Value Profile="(Default)">R3MUS</Value>
     </Setting>
     <Setting Name="AllianceTicker" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">2GTHR</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="HipchatToken" Type="System.String" Scope="Application">
       <Value Profile="(Default)" />
@@ -138,15 +138,18 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="JarvisEmail" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">clydeenmarland@r3mus.org</Value>
     </Setting>
     <Setting Name="JarvisPassword" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">jKoN160499</Value>
     </Setting>
     <Setting Name="DiscordToSlackLinks" Type="System.Collections.Specialized.StringCollection" Scope="Application">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;string&gt;126512244916748288:fleets:coalition_pings&lt;/string&gt;
+  &lt;string&gt;126512244916748288/fleets/To: coalition_pings&lt;/string&gt;
+  &lt;string&gt;194587488877150208/combat-caps/To: capitals&lt;/string&gt;
+  &lt;string&gt;291301351936229377/fleets/To: DARKNESS Pings&lt;/string&gt;
+  &lt;string&gt;320527402986110986/fleets/To: Deployment Pings&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
   </Settings>

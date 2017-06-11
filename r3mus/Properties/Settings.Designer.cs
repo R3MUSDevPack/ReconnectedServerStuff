@@ -12,7 +12,7 @@ namespace r3mus.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.1.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -25,7 +25,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("4285630")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string CorpAPI {
             get {
                 return ((string)(this["CorpAPI"]));
@@ -34,7 +34,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("hmZDX0Ptrvb33GscSJVfeRy6rogh06XcymVI9GdueMahoRxZDvh0lWsOeGiBaKbS")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string VCode {
             get {
                 return ((string)(this["VCode"]));
@@ -43,7 +43,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("63011862f9d44e6837878bc58d6519d0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string MoodleToken {
             get {
                 return ((string)(this["MoodleToken"]));
@@ -61,7 +61,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("r3mus.org")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string TSURL {
             get {
                 return ((string)(this["TSURL"]));
@@ -70,7 +70,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Wolf")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string TS_CorpGroup {
             get {
                 return ((string)(this["TS_CorpGroup"]));
@@ -88,7 +88,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("ciJQgm4B")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string TS_Password {
             get {
                 return ((string)(this["TS_Password"]));
@@ -106,7 +106,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2GTHR")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string AllianceTicker {
             get {
                 return ((string)(this["AllianceTicker"]));
@@ -410,7 +410,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("clydeenmarland@r3mus.org")]
         public string JarvisEmail {
             get {
                 return ((string)(this["JarvisEmail"]));
@@ -419,7 +419,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("jKoN160499")]
         public string JarvisPassword {
             get {
                 return ((string)(this["JarvisPassword"]));
@@ -428,9 +428,13 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("<?xml version=\"1.0\" encoding=\"utf-16\"?>\r\n<ArrayOfString xmlns:xsi=\"http://www.w3." +
-            "org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\r\n  <s" +
-            "tring>126512244916748288:fleets:coalition_pings</string>\r\n</ArrayOfString>")]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+  <string>126512244916748288/fleets/To: coalition_pings</string>
+  <string>194587488877150208/combat-caps/To: capitals</string>
+  <string>291301351936229377/fleets/To: DARKNESS Pings</string>
+  <string>320527402986110986/fleets/To: Deployment Pings</string>
+</ArrayOfString>")]
         public global::System.Collections.Specialized.StringCollection DiscordToSlackLinks {
             get {
                 return ((global::System.Collections.Specialized.StringCollection)(this["DiscordToSlackLinks"]));
