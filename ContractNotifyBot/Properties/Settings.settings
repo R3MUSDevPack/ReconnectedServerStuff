@@ -9,16 +9,16 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="CorpAPI" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">5245704</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="VCode" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">edKb49SjbpAGp1eK53PffyC3V2hqpQOdil8wjGsskW4mAIX2rgnbfRktDNl1Na8n</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Plugin" Type="System.String" Scope="Application">
       <Value Profile="(Default)">Slack</Value>
     </Setting>
     <Setting Name="RoomName" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Logistics</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="MessageFormatLine1" Type="System.String" Scope="Application">
       <Value Profile="(Default)">M0VUS Contract {1} at {0}. </Value>

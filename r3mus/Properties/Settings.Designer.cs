@@ -295,7 +295,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("fleets")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string FleetRoomName {
             get {
                 return ((string)(this["FleetRoomName"]));
@@ -313,7 +313,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("suggestionbox")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string SuggestionRoomName {
             get {
                 return ((string)(this["SuggestionRoomName"]));
@@ -339,7 +339,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("it_testing")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string JarvisSlackRoom {
             get {
                 return ((string)(this["JarvisSlackRoom"]));
@@ -348,7 +348,6 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("126512244916748288")]
         public long JarvisDiscordRoom {
             get {
                 return ((long)(this["JarvisDiscordRoom"]));
@@ -357,7 +356,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("den")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string MainRoomName {
             get {
                 return ((string)(this["MainRoomName"]));
@@ -366,7 +365,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("news")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string NewsRoomName {
             get {
                 return ((string)(this["NewsRoomName"]));
@@ -375,7 +374,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool Debug {
             get {
                 return ((bool)(this["Debug"]));
@@ -384,7 +383,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("capitals")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string JarvisCapitalsRoom {
             get {
                 return ((string)(this["JarvisCapitalsRoom"]));
@@ -410,7 +409,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("clydeenmarland@r3mus.org")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string JarvisEmail {
             get {
                 return ((string)(this["JarvisEmail"]));
@@ -419,7 +418,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("jKoN160499")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string JarvisPassword {
             get {
                 return ((string)(this["JarvisPassword"]));

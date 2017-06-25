@@ -43,7 +43,6 @@ namespace ContractNotifyBot.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("5245704")]
         public int CorpAPI {
             get {
                 return ((int)(this["CorpAPI"]));
@@ -52,7 +51,7 @@ namespace ContractNotifyBot.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("edKb49SjbpAGp1eK53PffyC3V2hqpQOdil8wjGsskW4mAIX2rgnbfRktDNl1Na8n")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string VCode {
             get {
                 return ((string)(this["VCode"]));
@@ -70,7 +69,7 @@ namespace ContractNotifyBot.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Logistics")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string RoomName {
             get {
                 return ((string)(this["RoomName"]));

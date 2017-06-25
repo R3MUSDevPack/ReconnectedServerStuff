@@ -18,7 +18,7 @@ using System.Web.Mvc;
 
 namespace r3mus.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class LogisticsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

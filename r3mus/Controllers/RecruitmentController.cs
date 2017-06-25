@@ -131,7 +131,7 @@ namespace r3mus.Controllers
             var model = new ApplicantViewModel();
             @ViewBag.FullAccessMask = Properties.Settings.Default.FullAPIAccessMask.ToString();
 
-            if(User != null)
+            if(User.Identity.IsAuthenticated)
             {
                 model.Information = string.Concat("Vouched for by ", User.Identity.Name);
             }

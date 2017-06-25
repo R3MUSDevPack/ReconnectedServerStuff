@@ -17,6 +17,8 @@ using JKON.EveWho.Stations;
 using System.Configuration;
 using System.Reflection;
 using JKON.Slack;
+using eZet.EveLib.EveXmlModule;
+using eZet.EveLib.EveXmlModule.Models.Character;
 
 namespace ContractNotifyBot
 {
@@ -29,8 +31,8 @@ namespace ContractNotifyBot
 
         private static void CheckContracts()
         {
-            EveApi api;
-            List<EveAI.Live.Utility.Contract> Contracts;
+            //EveApi api;
+            //List<EveAI.Live.Utility.Contract> Contracts;
             Dictionary<long, EveCharacter> Names = new Dictionary<long, EveCharacter>();
             List<long> IDs = new List<long>();
             var now = DateTime.Now;
@@ -41,15 +43,21 @@ namespace ContractNotifyBot
 
             try
             {
-                api = new EveApi("Clyde en Marland's Contract Notifier", (long)Properties.Settings.Default.CorpAPI, Properties.Settings.Default.VCode);
-                Contracts = api.GetCorporationContracts().ToList().Where(contract => ((contract.DateIssued > lastFullRunTime) || (contract.DateCompleted > lastCompCheckTime))).ToList();
-                Contracts = Contracts.Where(Contract => ((Contract.Type == EveAI.Live.Utility.Contract.ContractType.Courier) &&
-                        ((Contract.Status == EveAI.Live.Utility.Contract.ContractStatus.Outstanding) || (Contract.Status == EveAI.Live.Utility.Contract.ContractStatus.Completed)))
-                ).ToList();
+                var api = EveXml.CreateCorporationKey((long)Properties.Settings.Default.CorpAPI, Properties.Settings.Default.VCode);
+                var Contracts = api.Corporation.GetContracts().Result.Contracts.Where(contract => 
+                    ((contract.DateIssued > lastFullRunTime) || (contract.DateCompleted > lastCompCheckTime))
+                    && ((contract.Status == ContractList.ContractStatus.Outstanding) || (contract.Status == ContractList.ContractStatus.Completed))
+                    ).ToList();
 
-                foreach(EveAI.Live.Utility.Contract Contract in Contracts)
+                //api = new EveApi("Clyde en Marland's Contract Notifier", (long)Properties.Settings.Default.CorpAPI, Properties.Settings.Default.VCode);
+                //Contracts = api.GetCorporationContracts().ToList().Where(contract => ((contract.DateIssued > lastFullRunTime) || (contract.DateCompleted > lastCompCheckTime))).ToList();
+                //Contracts = Contracts.Where(Contract => ((Contract.Type == EveAI.Live.Utility.Contract.ContractType.Courier) &&
+                //        ((Contract.Status == EveAI.Live.Utility.Contract.ContractStatus.Outstanding) || (Contract.Status == EveAI.Live.Utility.Contract.ContractStatus.Completed)))
+                //).ToList();
+
+                foreach(var Contract in Contracts)
                 {
-                    IDs.Add(Contract.IssuerID);
+                    IDs.Add(Contract.IssuerId);
                 }
 
                 foreach (long Id in IDs)
@@ -60,15 +68,17 @@ namespace ContractNotifyBot
                     }
                 }
                 
-                foreach (EveAI.Live.Utility.Contract Contract in Contracts)
+                foreach (var Contract in Contracts)
                 {
+                    Contract.StartStationId = (int)Contract.StartStationId;
+                    Contract.EndStationId = (int)Contract.EndStationId;
                     //if ((Contract.Type == EveAI.Live.Utility.Contract.ContractType.Courier) && 
                     //    ((Contract.Status == EveAI.Live.Utility.Contract.ContractStatus.Outstanding) || (Contract.Status == EveAI.Live.Utility.Contract.ContractStatus.Completed)))
                     //{
-                        //Console.WriteLine(string.Format("Contract notification: {0}", FormatMessage(Contract, Names[Contract.IssuerID].result.characterName)));
-                        SendMessage(HyperFormatMessage(Contract, Names[Contract.IssuerID].result.characterName));
-                        if ((Contract.Status == EveAI.Live.Utility.Contract.ContractStatus.Outstanding) && (Contract.DateIssued > lastFullRunTime)) { lastFullRunTime = Contract.DateIssued; }
-                        else if ((Contract.Status == EveAI.Live.Utility.Contract.ContractStatus.Completed) && (Contract.DateCompleted > lastCompCheckTime)) { lastCompCheckTime = Contract.DateCompleted; }
+                    //Console.WriteLine(string.Format("Contract notification: {0}", FormatMessage(Contract, Names[Contract.IssuerID].result.characterName)));
+                    SendMessage(HyperFormatMessage(Contract, Names[Contract.IssuerId].result.characterName));
+                        if ((Contract.Status == ContractList.ContractStatus.Outstanding) && (Contract.DateIssued > lastFullRunTime)) { lastFullRunTime = Contract.DateIssued.Value; }
+                        else if ((Contract.Status == ContractList.ContractStatus.Completed) && (Contract.DateCompleted > lastCompCheckTime)) { lastCompCheckTime = Contract.DateCompleted.Value; }
                     //}
                 }
                 UpdateRunTime(lastFullRunTime);
@@ -203,7 +213,7 @@ namespace ContractNotifyBot
             return message;
         }
 
-        private static MessagePayload HyperFormatMessage(EveAI.Live.Utility.Contract contract, string IssuerName)
+        private static MessagePayload HyperFormatMessage(ContractList.Contract contract, string IssuerName)
         {
             string type;
             List<string> messageLines = new List<string>();
@@ -213,27 +223,27 @@ namespace ContractNotifyBot
             messageLines.Add(string.Format(Properties.Settings.Default.MessageFormatLine2, IssuerName));
             messageLines.Add(string.Format(Properties.Settings.Default.MessageFormatLine3, contract.Reward.ToString()));
 
-            var startStation = contract.StartStation;
-            var endStation = contract.EndStation;
-            string startStationName = string.Empty;
-            string endStationName = string.Empty;
+            //var startStation = contract.StartStation;
+            //var endStation = contract.EndStation;
+            string startStationName = Api.GetStation(contract.StartStationId).stationName;
+            string endStationName = Api.GetStation(contract.EndStationId).stationName;
 
-            if (startStation == null)
-            {
-                startStationName = Api.GetStation(contract.StartStationID).stationName;
-            }
-            else
-            {
-                startStationName = contract.StartStation.Name;
-            }
-            if (endStation == null)
-            {
-                endStationName = Api.GetStation(contract.EndStationID).stationName;
-            }
-            else
-            {
-                endStationName = contract.EndStation.Name;
-            }
+            //if (startStation == null)
+            //{
+            //    startStationName = Api.GetStation(contract.StartStationID).stationName;
+            //}
+            //else
+            //{
+            //    startStationName = contract.StartStation.Name;
+            //}
+            //if (endStation == null)
+            //{
+            //    endStationName = Api.GetStation(contract.EndStationID).stationName;
+            //}
+            //else
+            //{
+            //    endStationName = contract.EndStation.Name;
+            //}
 
             try
             {
@@ -245,15 +255,15 @@ namespace ContractNotifyBot
             var colour = string.Empty;
             var title = string.Empty;
 
-            if(contract.Status == EveAI.Live.Utility.Contract.ContractStatus.Outstanding)
+            if(contract.Status == ContractList.ContractStatus.Outstanding)
             {
                 colour = "#FF99C2";
-                title = string.Format(Properties.Settings.Default.MessageFormatLine1, contract.DateIssued.ToString("yyyy-MM-dd HH:mm:ss"), "Received");
+                title = string.Format(Properties.Settings.Default.MessageFormatLine1, contract.DateIssued.Value.ToString("yyyy-MM-dd HH:mm:ss"), "Received");
             }
             else
             {
                 colour = "#A6D785";
-                title = string.Format(Properties.Settings.Default.MessageFormatLine1, contract.DateCompleted.ToString("yyyy-MM-dd HH:mm:ss"), "Completed");
+                title = string.Format(Properties.Settings.Default.MessageFormatLine1, contract.DateCompleted.Value.ToString("yyyy-MM-dd HH:mm:ss"), "Completed");
             }
             message.Attachments = new List<MessagePayloadAttachment>();
             
@@ -293,7 +303,7 @@ namespace ContractNotifyBot
             }
             catch (Exception ex)
             {
-                return new DateTime();
+                return DateTime.UtcNow.AddDays(-1);
             }
         }
 
@@ -305,7 +315,7 @@ namespace ContractNotifyBot
             }
             catch (Exception ex)
             {
-                return new DateTime();
+                return DateTime.UtcNow.AddDays(-1);
             }
         }
     }
