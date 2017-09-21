@@ -82,6 +82,10 @@ namespace r3mus.Models
             {
                 UserName = member.Name;
             }
+            if(result)
+            {
+                CorpTicker = Properties.Settings.Default.CorpTicker;
+            }
 
             if (!result)
             {
@@ -93,7 +97,7 @@ namespace r3mus.Models
 
                     long hostCorpID = GetCorpOrAllianceId(IDType.Corporation, Convert.ToInt32(Properties.Settings.Default.CorpAPI), Properties.Settings.Default.VCode);
                     long hostAllianceID = GetCorpOrAllianceId(IDType.Alliance, Convert.ToInt32(Properties.Settings.Default.CorpAPI), Properties.Settings.Default.VCode);
-
+                    
                     if (this.ApiKeys.Count == 0)
                     {
                         unloadApis = this.LoadApiKeys();
@@ -108,11 +112,13 @@ namespace r3mus.Models
                         {
                             MemberType = IDType.Corporation.ToString();
                             result = apiInfo.ValidateAccessMask(IDType.Corporation);
+                            CorpTicker = Properties.Settings.Default.CorpTicker;
                         }
                         else if ((clientAllianceId == hostAllianceID) && (clientAllianceId > 0) && (hostAllianceID > 0))
                         {
                             MemberType = IDType.Alliance.ToString();
                             result = apiInfo.ValidateAccessMask(IDType.Alliance);
+                            CorpTicker = Properties.Settings.Default.AllianceTicker;
                         }
                         else
                         {

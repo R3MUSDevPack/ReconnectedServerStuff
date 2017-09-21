@@ -15,10 +15,10 @@
       <Value Profile="(Default)">training.r3mus.org</Value>
     </Setting>
     <Setting Name="TSURL" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">r3mus.org</Value>
     </Setting>
     <Setting Name="TS_CorpGroup" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Wolf</Value>
     </Setting>
     <Setting Name="TS_AlliGroup" Type="System.String" Scope="Application">
       <Value Profile="(Default)" />
@@ -57,7 +57,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="LogisticsVCode" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">jgsGEQhrbSET078srZpOMUlnjGfp59OmFE1S8ZMlykXFAc81sMhOz3UTHrDCJeKr</Value>
     </Setting>
     <Setting Name="EveWhoPilotURL" Type="System.String" Scope="Application">
       <Value Profile="(Default)">http://evewho.com/pilot/{0}</Value>
@@ -126,13 +126,13 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Debug" Type="System.Boolean" Scope="Application">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="JarvisCapitalsRoom" Type="System.String" Scope="Application">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="LogisticsCorpAPI" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">6275468</Value>
     </Setting>
     <Setting Name="SlackWebhook" Type="System.String" Scope="Application">
       <Value Profile="(Default)" />

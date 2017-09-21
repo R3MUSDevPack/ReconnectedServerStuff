@@ -23,6 +23,7 @@ using System.Security.Cryptography;
 using r3mus.ViewModels;
 using System.Data.Entity.Validation;
 using R3MUS.Devpack.Slack;
+using r3mus.ActionFilters;
 
 namespace r3mus.Controllers
 {
@@ -32,6 +33,7 @@ namespace r3mus.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
         protected UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
         
+        [UriInterceptFilter]
         // GET: /LoggedInHome/
         public ActionResult Index()
         {

@@ -124,7 +124,8 @@ namespace r3mus.Hubs
         public void SendUserCount()
         {
             var baseTime = DateTime.Now.AddMinutes(-5);
-            Clients.All.pingUserCount(db.OnlineUsers.Where(user => user.LastKnownDateTime > baseTime).Count());
+            Clients.All.pingUserCount(db.OnlineUsers.Where(user => user.LastKnownDateTime > baseTime 
+                && !user.LoggerName.ToLower().Equals("rifte torin")).Count());
             Clients.All.pingConnectionCount(users.Count);
         }
         public void SendHistory()

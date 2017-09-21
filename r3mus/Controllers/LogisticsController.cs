@@ -8,6 +8,7 @@ using JKON.EveWho.Models;
 using JKON.EveWho.Stations;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using MoreLinq;
 using r3mus.Models;
 using r3mus.ViewModels;
 using System;
@@ -23,7 +24,8 @@ namespace r3mus.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         protected UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
-
+        
+        [OverrideAuthorization]
         public ActionResult ContractStatus()
         {
             List<EveAI.Live.Utility.Contract> Contracts = new List<EveAI.Live.Utility.Contract>();
@@ -64,7 +66,7 @@ namespace r3mus.Controllers
                     Title = c.Title, Volume = c.Volume
                 }));
                 
-                if(!User.IsInRole("Logistics"))
+                if(User.Identity.IsAuthenticated && !User.IsInRole("Logistics"))
                 {
                     try
                     {
@@ -76,7 +78,7 @@ namespace r3mus.Controllers
 
                         apiKeys.ForEach(apiKey => toons.AddRange(JKON.EveWho.EveWho.GetCharacters(apiKey.ApiKey, apiKey.VerificationCode)));
 
-                        Contracts = Contracts.Where(contract => toons.Any(toon => toon.CharacterID.Equals(contract.IssuerID))).ToList();                                                
+                        Contracts = Contracts.Where(contract => toons.Any(toon => toon.CharacterID.Equals(contract.IssuerID))).ToList();
                     }
                     catch(Exception ex)
                     {
@@ -166,7 +168,26 @@ namespace r3mus.Controllers
             {
             }
 
-            return View(new LogisticsContractsViewModel() { DisplayContracts = Contracts, CharacterInfos = Names });
+            var result = new LogisticsContractsViewModel()
+            {
+                CharacterInfos = Names,
+                TotalVolumeOutstanding = Contracts.Where(w => w.Status == Contract.ContractStatus.Outstanding).Sum(s => s.Volume),
+                DeliveryPoints = new List<DestinationDeliveryModel>()
+            }; ;
+            var deliveryPoints = Contracts.GroupBy(g => g.EndStationID).Select(s => s.First()).Select(s => s.EndStation);
+            deliveryPoints.ForEach(f =>
+            {
+                result.DeliveryPoints.Add(new DestinationDeliveryModel()
+                {
+                    Id = Contracts.Where(w => w.EndStation.Name == f.Name).First().EndStationID,
+                    Destination = f.Name,
+                    TotalVolume = Contracts.Where(w => w.EndStation.Name == f.Name && w.Status == Contract.ContractStatus.Outstanding).Sum(s => s.Volume),
+                    DisplayContracts = User.Identity.IsAuthenticated ?
+                        Contracts.Where(w => w.EndStation.Name == f.Name).ToList() : new List<Contract>()
+                });
+            });
+
+            return View(result);
         }
 
         private EveAI.Live.Utility.Contract.ContractStatus GetStatus()

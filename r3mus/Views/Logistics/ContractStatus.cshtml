@@ -4,9 +4,7 @@
     ViewBag.Title = "Contract Status";
 }
 <h2>‘Hauled By Wolves Inc’ Logistics Rules &amp; Regs</h2>
-<div class="body-content">
-    <div class="col-md-12">
-        <div class="col-md-12">
+    <div class="col-md-6">
             <strong>Contract type: </strong>Courier<br />
             <strong>Availability: </strong>Private<br />
             <strong>Name: </strong>Hauled By Wolves Inc<br /><br />
@@ -25,100 +23,69 @@
                 <li>Days to complete: 14</li>
                 <li>No Illegal Items, Assembled Cargo Containers, or Fitted Ships</li>
             </ul>
-            <strong>Cost: </strong>550 isk per m3 (minimum contract fee: 1,000,000 isk)<br />
+            <strong>Cost: </strong>550 isk per m3 (minimum contract fee: 1,000,000 isk to a maximum of 110,000,000 isk)<br />
             <h5>To calculate the reward, enter the size (m3) of your contract here</h5>
             <input type="text" id="volume" onkeyup="calculate()" />&nbsp;<label id="cost">0 isk</label>
-        </div>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <h4>
+                If you need help in setting up a contract or have any questions, please ask in the #logistics channel on Slack.
+            </h4>
+        }
     </div>
-    <h4>
-        If you need help in setting up a contract or have any questions, please ask in the #logistics channel on Slack.
-    </h4>
-</div>
-<div class="col-md-12">
-    <h2>Contract Status</h2>
-    @foreach (var contract in Model.DisplayContracts)
-    {
-        string style;
-        if (contract.Collateral > 0)
+    <div class="col-md-6">
+        <h3>@Html.LabelFor(f => f.TotalVolumeOutstanding) @Model.TotalVolumeOutstanding.ToString()</h3>
+        @foreach (var deliveryPoint in Model.DeliveryPoints)
         {
-            style = "background-color: yellow;";
-        }
-        else if (contract.Status == EveAI.Live.Utility.Contract.ContractStatus.Outstanding)
-        {
-            style = "background-color: red;";
-        }
-        else if (contract.Status == EveAI.Live.Utility.Contract.ContractStatus.InProgress)
-        {
-            style = "background-color: orange;";
-        }
-        else
-        {
-            style = "background-color: lightgreen;";
-        }
-
-        <div class="panel-body" style='@style'>
-            <table>
-                <thead><strong>@Html.DisplayFor(c => contract.Title)</strong></thead>
-                <tr>
-                    <td><strong>Issuer: </strong></td>
-                    <td>@Html.DisplayFor(c => Model.CharacterInfos.Where(info => info.Key == contract.IssuerID).First().Value.result.characterName)</td>
-                </tr>
-                <tr>
-                    <td><strong>Route: </strong></td>
-                    <td>@Html.DisplayFor(c => contract.StartStation.Name) to @Html.DisplayFor(c => contract.EndStation.Name)</td>
-                </tr>
-                <tr>
-                    <td><strong>Date Issued: </strong></td>
-                    <td>@Html.DisplayFor(c => contract.DateIssued)</td>
-                </tr>
-                <tr>
-                    <td><strong>Status: </strong></td>
-                    <td>@Html.DisplayForEnum(c => contract.Status)</td>
-                </tr>
-                @if (contract.Status == EveAI.Live.Utility.Contract.ContractStatus.InProgress)
-                {
-                    <tr>
-                        <td><strong>Date Accepted: </strong></td>
-                        <td>@Html.DisplayFor(c => contract.DateAccepted)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Hauler: </strong></td>
-                        <td>@Html.DisplayFor(c => Model.CharacterInfos.Where(info => info.Key == contract.AcceptorID).First().Value.result.characterName)</td>
-                    </tr>
-                }
-                else if (contract.Status == EveAI.Live.Utility.Contract.ContractStatus.Completed)
-                {
-                    <tr>
-                        <td><strong>Date Completed: </strong></td>
-                        <td>@Html.DisplayFor(c => contract.DateCompleted)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Hauler: </strong></td>
-                        <td>@Html.DisplayFor(c => Model.CharacterInfos.Where(info => info.Key == contract.AcceptorID).First().Value.result.characterName)</td>
-                    </tr>
-                }
-                else if (contract.Status == EveAI.Live.Utility.Contract.ContractStatus.Outstanding)
-                {
-                    <tr>
-                        <td><strong>Value: </strong></td>
-                        @{ var correctReward = (contract.Volume * 550); }
-                        <td>@Html.DisplayFor(c => contract.Reward) (should be @Html.DisplayFor(c => correctReward))</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Volume: </strong></td>
-                        <td>@Html.DisplayFor(c => contract.Volume)</td>
-                    </tr>
-                            }
-            </table>
-        </div>
-                            }
-</div>
-    </div>
+            <div id="dp_@deliveryPoint.Id" class="delivery-point" data-toggle="modal" data-target="#modal_@deliveryPoint.Id">
+                <h4>@Html.LabelFor(f => f.DeliveryPoints.FirstOrDefault().Destination) @Html.DisplayFor(f => deliveryPoint.Destination)</h4>
+                <h4>@Html.LabelFor(f => f.DeliveryPoints.FirstOrDefault().TotalVolume) @Html.DisplayFor(f => deliveryPoint.TotalVolume)</h4>
+            </div>
+            if (User.Identity.IsAuthenticated)
+            {
+            <div id="modal_@deliveryPoint.Id" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            @foreach (var contract in deliveryPoint.DisplayContracts)
+                            {
+                                string style;
+                                if (contract.Collateral > 0)
+                                {
+                                    style = "background-color: yellow;";
+                                }
+                                else if (contract.Status == EveAI.Live.Utility.Contract.ContractStatus.Outstanding)
+                                {
+                                    style = "background-color: red;";
+                                }
+                                else if (contract.Status == EveAI.Live.Utility.Contract.ContractStatus.InProgress)
+                                {
+                                    style = "background-color: orange;";
+                                }
+                                else
+                                {
+                                    style = "background-color: lightgreen;";
+                                }
+                                <div style='@style'>
+                                    <div>
+                                        <strong>@contract.Status.ToString(): @Html.DisplayFor(c => Model.CharacterInfos.Where(info => info.Key == contract.IssuerID).First().Value.result.characterName) - @contract.Title</strong>
+                                        <br />
+                                        @contract.Volume m<sup>3</sup>  - @contract.Reward isk (should be @{ var correctReward = Math.Min(Math.Max(contract.Volume * 550, 1000000), 110000000); }@Html.DisplayFor(c => correctReward))
+                                    </div>
+                                </div>
+                                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+                                                }
+                                            };
+    </div> 
 <script type="text/javascript">
     function calculate() {
         try {
             if (!isNaN($('#volume').val())) {
-                $('#cost').text((Math.max(($('#volume').val() * 550), 1000000)).toString() + ' isk');
+                $('#cost').text((Math.min(Math.max(($('#volume').val() * 550), 1000000), 110000000)).toString() + ' isk');
             }
             else {
                 $('#cost').text('Error - please check your volume');

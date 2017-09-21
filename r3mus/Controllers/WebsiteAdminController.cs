@@ -345,6 +345,7 @@ namespace r3mus.Controllers
             return RedirectToAction("ViewProfile", new { id = currentUser.Id });
         }
 
+        [OverrideAuthorization]
         public ActionResult UpdateApiDetails(string originator, string id = "")
         {
             ApplicationUser currentUser = new ApplicationUser();

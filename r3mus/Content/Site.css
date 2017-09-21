@@ -64,6 +64,14 @@ ul.listRoles li
   margin: 0 auto;
   width: 90%;
 }
+.delivery-point{
+    border: solid;
+    border-radius: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: 5px;
+    cursor: pointer;
+}
 
 @font-face {
     font-family: 'Xirod';

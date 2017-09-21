@@ -1,14 +1,15 @@
 ﻿using JKON.EveWho.Models;
-using System;
+using r3mus.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.ComponentModel;
 
 namespace r3mus.ViewModels
 {
     public class LogisticsContractsViewModel
     {
-        public List<EveAI.Live.Utility.Contract> DisplayContracts { get; set; }
         public Dictionary<long, EveCharacter> CharacterInfos { get; set; }
+        public List<DestinationDeliveryModel> DeliveryPoints { get; set; }
+        [DisplayName("Total Volume Outstanding: ")]
+        public double TotalVolumeOutstanding { get; set; }
     }
 }

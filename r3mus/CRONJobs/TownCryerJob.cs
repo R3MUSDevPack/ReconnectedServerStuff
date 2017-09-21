@@ -22,19 +22,19 @@ namespace r3mus.CRONJobs
             try
             {
                 MakeAnnoucements(db.CRONJobs.Where(job => job.JobName == name).FirstOrDefault());
-                db.SaveChanges();
             }
             catch(Exception ex)
             {
                 //RecruitmentController.SendMessage(ex.Message);
             }
+            db.SaveChanges();
         }
 
         private void MakeAnnoucements(CRONJob settings)
         {
             if (settings.Enabled)
             {
-                var announcements = db.Announcements//.Where(ann => ann.Date > settings.LastRun).OrderBy(o => o.Date)
+                var announcements = db.Announcements.Where(ann => ann.Date > settings.LastRun).OrderBy(o => o.Date)
                     .ToList();
 
                 if (announcements.Any())

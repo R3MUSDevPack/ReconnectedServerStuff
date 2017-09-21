@@ -26,7 +26,7 @@ namespace Teamspeak_Plugin
 
         public async Task<bool> AddClient(string name, string groupName, string TSURL, string password)
         {
-            client = new ServerQueryClient(TSURL, 4509, TimeSpan.FromSeconds(3));
+            client = new ServerQueryClient(TSURL, 10011, TimeSpan.FromSeconds(3));
             try
             {
                 ServerQueryBaseResult connected = client.Initialize().Result;
@@ -63,6 +63,7 @@ namespace Teamspeak_Plugin
             catch (Exception ex)
             {
                 SuccessType = AddSuccess.Fail;
+                Message = string.Format("Something went wrong: {0}",ex.Message);
             }
             finally
             {
@@ -104,6 +105,53 @@ namespace Teamspeak_Plugin
             {
                 SuccessType = AddSuccess.Fail;
                 Message = string.Concat("Teamspeak Registration Unsuccessful: ", resultText.Response);
+            }
+        }
+
+        public async Task CheckUserNames(List<string> validNames, string TSURL, string password)
+        {
+            client = new ServerQueryClient(TSURL, 10011, TimeSpan.FromSeconds(3));
+            try
+            {
+                ServerQueryBaseResult connected = client.Initialize().Result;
+                if (connected.Success)
+                {
+                    ServerQueryBaseResult login = client.Login("serveradmin", password).Result;
+                    if (login.Success)
+                    {
+                        ServerQueryBaseResult use = client.Use(UseServerBy.Port, 9987).Result;
+
+                        if (use.Success)
+                        {
+                            client.KeepAlive(TimeSpan.FromMinutes(2));
+                            clientList = client.ClientList().Result;
+                            var t1= Task.Run(() => client.SendCommandAsync("clientupdate client_nickname=HAL"));
+                            t1.Wait();
+
+                            clientList.Values.ForEach(f =>
+                            {
+                                if (!validNames.Contains(f.ClientNickname))
+                                {
+                                    var command = string.Format("clientpoke clid={0} msg={1}", f.ClientId.ToString(),
+                                        @"Your\sTS3\snickname\sis\sincorrect.\sThis\swarning\swill\scontinue\suntil\sit\sis\scorrect.");
+                                    var t = Task.Run(() => client.SendCommandAsync(command));
+                                    t.Wait();
+                                }
+                            });
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                SuccessType = AddSuccess.Fail;
+                Message = string.Format("Something went wrong: {0}", ex.Message);
+            }
+            finally
+            {
+                ServerQueryBaseResult unregister = client.ServerNotifyUnregister().Result;
+                ServerQueryBaseResult logout = client.Logout().Result;
+                ServerQueryBaseResult quit = client.Quit().Result;
             }
         }
     }

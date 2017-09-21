@@ -319,6 +319,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionFilters\UriInterceptFilter.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -337,6 +338,7 @@
     <Compile Include="CRONJobs\GotgDiscordMessageJob.cs" />
     <Compile Include="CRONJobs\PreloadInfo.cs" />
     <Compile Include="CRONJobs\TownCryerJob.cs" />
+    <Compile Include="CRONJobs\TSUsernameJob.cs" />
     <Compile Include="Extensions\HtmlExtensions.cs" />
     <Compile Include="Filters\CustomAttributes.cs" />
     <Compile Include="Filters\Extensions.cs" />
@@ -443,6 +445,7 @@
     <Compile Include="Models\DeclaredToon.cs">
       <DependentUpon>r3musDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DestinationDeliveryModel.cs" />
     <Compile Include="Models\EntityFixes.cs" />
     <Compile Include="Models\Fleet.cs">
       <DependentUpon>r3musDBModel.tt</DependentUpon>

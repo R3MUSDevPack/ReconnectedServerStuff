@@ -1,5 +1,4 @@
-﻿@*@model IEnumerable<r3mus.Models.ApiInfo>*@
-@model r3mus.ViewModels.WelcomeViewModel
+﻿@model r3mus.ViewModels.WelcomeViewModel
 
 @{
     ViewBag.Title = "Index";
@@ -10,7 +9,6 @@
 <link rel="stylesheet" href="/resources/demos/style.css">
 
 <div class="row">
-    @*@{Html.RenderPartial("_News", Model.LatestInternalNewsItem);}*@
     @{Html.RenderPartial("_LiveWardecs", Model.LiveWardecs);}
 </div>
     @if (ViewBag.Message != string.Empty)
@@ -37,6 +35,7 @@
             <li class="ui-state-default ui-corner-top"><a href="#SlackTab">Slack</a></li>
             <li class="ui-state-default ui-corner-top"><a href="#MoodleTab">Training</a></li>
             <li class="ui-state-default ui-corner-top"><a href="#ForumTab">Forums</a></li>
+            <li class="ui-state-default ui-corner-top"><a href="#UriTab">URI</a></li>
         </ul>
         <div id="NewsTab" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
     @{Html.RenderPartial("_News", Model.LatestInternalNewsItem);}
@@ -91,6 +90,9 @@
         </div>
         <div id="ForumTab" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
             @Html.Partial("_RegisterForForums")
+        </div>
+        <div id="UriTab" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
+            <div>@Session["originalUri"].ToString()</div>
         </div>
     </div>
     <script>
