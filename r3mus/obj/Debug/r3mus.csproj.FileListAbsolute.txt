@@ -278,3 +278,5 @@ C:\Users\Chris\Source\Repos\ReconnectedServerStuff\r3mus\bin\R3MUS.Devpack.ESI.p
 C:\Users\Chris\Source\Repos\ReconnectedServerStuff\r3mus\bin\structures.xml
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\r3mus\bin\structures.xml
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\r3mus\bin\R3MUS.Devpack.Core.dll
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\r3mus\bin\R3MUS.Devpack.Slack.dll
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\r3mus\bin\R3MUS.Devpack.Slack.pdb

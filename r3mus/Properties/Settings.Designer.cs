@@ -12,7 +12,7 @@ namespace r3mus.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.1.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -20,33 +20,6 @@ namespace r3mus.Properties {
         public static Settings Default {
             get {
                 return defaultInstance;
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string CorpAPI {
-            get {
-                return ((string)(this["CorpAPI"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string VCode {
-            get {
-                return ((string)(this["VCode"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string MoodleToken {
-            get {
-                return ((string)(this["MoodleToken"]));
             }
         }
         
@@ -88,15 +61,6 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string TS_Password {
-            get {
-                return ((string)(this["TS_Password"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("R3MUS")]
         public string CorpTicker {
             get {
@@ -107,36 +71,9 @@ namespace r3mus.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string AllianceTicker {
-            get {
-                return ((string)(this["AllianceTicker"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string HipchatToken {
             get {
                 return ((string)(this["HipchatToken"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string SlackToken {
-            get {
-                return ((string)(this["SlackToken"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string SlackInviteURL {
-            get {
-                return ((string)(this["SlackInviteURL"]));
             }
         }
         
@@ -182,15 +119,6 @@ namespace r3mus.Properties {
         public string ForumBaseURL {
             get {
                 return ((string)(this["ForumBaseURL"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("jgsGEQhrbSET078srZpOMUlnjGfp59OmFE1S8ZMlykXFAc81sMhOz3UTHrDCJeKr")]
-        public string LogisticsVCode {
-            get {
-                return ((string)(this["LogisticsVCode"]));
             }
         }
         
@@ -258,8 +186,10 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("<?xml version=\"1.0\" encoding=\"utf-16\"?>\r\n<ArrayOfString xmlns:xsi=\"http://www.w3." +
-            "org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" />")]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+  <string>https://hooks.slack.com/services/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</string>
+</ArrayOfString>")]
         public global::System.Collections.Specialized.StringCollection DiscordLinkSlackWebhooks {
             get {
                 return ((global::System.Collections.Specialized.StringCollection)(this["DiscordLinkSlackWebhooks"]));
@@ -295,7 +225,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("fleets")]
         public string FleetRoomName {
             get {
                 return ((string)(this["FleetRoomName"]));
@@ -308,15 +238,6 @@ namespace r3mus.Properties {
         public string FleetBotName {
             get {
                 return ((string)(this["FleetBotName"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string SuggestionRoomName {
-            get {
-                return ((string)(this["SuggestionRoomName"]));
             }
         }
         
@@ -339,42 +260,7 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string JarvisSlackRoom {
-            get {
-                return ((string)(this["JarvisSlackRoom"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public long JarvisDiscordRoom {
-            get {
-                return ((long)(this["JarvisDiscordRoom"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string MainRoomName {
-            get {
-                return ((string)(this["MainRoomName"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string NewsRoomName {
-            get {
-                return ((string)(this["NewsRoomName"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool Debug {
             get {
                 return ((bool)(this["Debug"]));
@@ -392,6 +278,87 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("clydeenmarland@r3mus.org")]
+        public string JarvisEmail {
+            get {
+                return ((string)(this["JarvisEmail"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("jKoN160499")]
+        public string JarvisPassword {
+            get {
+                return ((string)(this["JarvisPassword"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("4285630")]
+        public string CorpAPI {
+            get {
+                return ((string)(this["CorpAPI"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("hmZDX0Ptrvb33GscSJVfeRy6rogh06XcymVI9GdueMahoRxZDvh0lWsOeGiBaKbS")]
+        public string VCode {
+            get {
+                return ((string)(this["VCode"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("63011862f9d44e6837878bc58d6519d0")]
+        public string MoodleToken {
+            get {
+                return ((string)(this["MoodleToken"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ciJQgm4B")]
+        public string TS_Password {
+            get {
+                return ((string)(this["TS_Password"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2GTHR")]
+        public string AllianceTicker {
+            get {
+                return ((string)(this["AllianceTicker"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("xoxs-4459251457-4460324675-108093058887-630024ddfe")]
+        public string SlackToken {
+            get {
+                return ((string)(this["SlackToken"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://{0}.slack.com/api/users.admin.invite")]
+        public string SlackInviteURL {
+            get {
+                return ((string)(this["SlackInviteURL"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("6275468")]
         public int LogisticsCorpAPI {
             get {
@@ -401,7 +368,25 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("jgsGEQhrbSET078srZpOMUlnjGfp59OmFE1S8ZMlykXFAc81sMhOz3UTHrDCJeKr")]
+        public string LogisticsVCode {
+            get {
+                return ((string)(this["LogisticsVCode"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("suggestionbox")]
+        public string SuggestionRoomName {
+            get {
+                return ((string)(this["SuggestionRoomName"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://hooks.slack.com/services/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")]
         public string SlackWebhook {
             get {
                 return ((string)(this["SlackWebhook"]));
@@ -410,19 +395,37 @@ namespace r3mus.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string JarvisEmail {
+        [global::System.Configuration.DefaultSettingValueAttribute("fleets")]
+        public string JarvisSlackRoom {
             get {
-                return ((string)(this["JarvisEmail"]));
+                return ((string)(this["JarvisSlackRoom"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string JarvisPassword {
+        [global::System.Configuration.DefaultSettingValueAttribute("126512244916748288")]
+        public long JarvisDiscordRoom {
             get {
-                return ((string)(this["JarvisPassword"]));
+                return ((long)(this["JarvisDiscordRoom"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("den")]
+        public string MainRoomName {
+            get {
+                return ((string)(this["MainRoomName"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("news")]
+        public string NewsRoomName {
+            get {
+                return ((string)(this["NewsRoomName"]));
             }
         }
         
@@ -430,10 +433,10 @@ namespace r3mus.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
 <ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
-  <string>126512244916748288/fleets/To: coalition_pings</string>
-  <string>194587488877150208/combat-caps/To: capitals</string>
-  <string>291301351936229377/fleets/To: DARKNESS Pings</string>
-  <string>320527402986110986/fleets/To: Deployment Pings</string>
+  <string>126512244916748288/it_testing/To: coalition_pings</string>
+  <string>194587488877150208/it_testing/To: capitals</string>
+  <string>291301351936229377/it_testing/To: DARKNESS Pings</string>
+  <string>320527402986110986/it_testing/To: Deployment Pings</string>
 </ArrayOfString>")]
         public global::System.Collections.Specialized.StringCollection DiscordToSlackLinks {
             get {

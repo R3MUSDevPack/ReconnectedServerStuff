@@ -21,3 +21,4 @@ C:\Users\Chris\Source\Repos\ReconnectedServerStuff\JKON.EveWho\obj\Debug\JKON.Ev
 C:\Users\Chris\Source\Repos\ReconnectedServerStuff\JKON.EveWho\bin\Debug\EveAI.Live.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\JKON.EveWho\bin\Debug\EveAI.Live.dll
 C:\Users\Clyde\Source\Repos\ReconnectedServerStuff\JKON.EveWho\obj\Debug\JKON.EveApi.csprojResolveAssemblyReference.cache
+C:\Users\Chris\Source\Repos\ReconnectedServerStuff\JKON.EveWho\obj\Debug\JKON.EveApi.csprojResolveAssemblyReference.cache

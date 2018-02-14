@@ -2,15 +2,6 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="r3mus.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="CorpAPI" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="VCode" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="MoodleToken" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
-    </Setting>
     <Setting Name="MoodleBaseURL" Type="System.String" Scope="Application">
       <Value Profile="(Default)">training.r3mus.org</Value>
     </Setting>
@@ -23,22 +14,10 @@
     <Setting Name="TS_AlliGroup" Type="System.String" Scope="Application">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="TS_Password" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
-    </Setting>
     <Setting Name="CorpTicker" Type="System.String" Scope="Application">
       <Value Profile="(Default)">R3MUS</Value>
     </Setting>
-    <Setting Name="AllianceTicker" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
-    </Setting>
     <Setting Name="HipchatToken" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="SlackToken" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="SlackInviteURL" Type="System.String" Scope="Application">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="RecruitmentRoomName" Type="System.String" Scope="Application">
@@ -55,9 +34,6 @@
     </Setting>
     <Setting Name="ForumBaseURL" Type="System.String" Scope="Application">
       <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="LogisticsVCode" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">jgsGEQhrbSET078srZpOMUlnjGfp59OmFE1S8ZMlykXFAc81sMhOz3UTHrDCJeKr</Value>
     </Setting>
     <Setting Name="EveWhoPilotURL" Type="System.String" Scope="Application">
       <Value Profile="(Default)">http://evewho.com/pilot/{0}</Value>
@@ -82,7 +58,9 @@
     </Setting>
     <Setting Name="DiscordLinkSlackWebhooks" Type="System.Collections.Specialized.StringCollection" Scope="Application">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" /&gt;</Value>
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;https://hooks.slack.com/services/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&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
     </Setting>
     <Setting Name="JabberName" Type="System.String" Scope="Application">
       <Value Profile="(Default)" />
@@ -94,13 +72,10 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="FleetRoomName" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">fleets</Value>
     </Setting>
     <Setting Name="FleetBotName" Type="System.String" Scope="Application">
       <Value Profile="(Default)">Marvin the Paranoid Fleetbot</Value>
-    </Setting>
-    <Setting Name="SuggestionRoomName" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="CensoredWords" Type="System.Collections.Specialized.StringCollection" Scope="Application">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
@@ -113,43 +88,70 @@
   &lt;string&gt;twat&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
-    <Setting Name="JarvisSlackRoom" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="JarvisDiscordRoom" Type="System.Int64" Scope="Application">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="MainRoomName" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="NewsRoomName" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
-    </Setting>
     <Setting Name="Debug" Type="System.Boolean" Scope="Application">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="JarvisCapitalsRoom" Type="System.String" Scope="Application">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="JarvisEmail" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">clydeenmarland@r3mus.org</Value>
+    </Setting>
+    <Setting Name="JarvisPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">jKoN160499</Value>
+    </Setting>
+    <Setting Name="CorpAPI" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">4285630</Value>
+    </Setting>
+    <Setting Name="VCode" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">hmZDX0Ptrvb33GscSJVfeRy6rogh06XcymVI9GdueMahoRxZDvh0lWsOeGiBaKbS</Value>
+    </Setting>
+    <Setting Name="MoodleToken" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">63011862f9d44e6837878bc58d6519d0</Value>
+    </Setting>
+    <Setting Name="TS_Password" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ciJQgm4B</Value>
+    </Setting>
+    <Setting Name="AllianceTicker" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">2GTHR</Value>
+    </Setting>
+    <Setting Name="SlackToken" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">xoxs-4459251457-4460324675-108093058887-630024ddfe</Value>
+    </Setting>
+    <Setting Name="SlackInviteURL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://{0}.slack.com/api/users.admin.invite</Value>
+    </Setting>
     <Setting Name="LogisticsCorpAPI" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">6275468</Value>
     </Setting>
+    <Setting Name="LogisticsVCode" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">jgsGEQhrbSET078srZpOMUlnjGfp59OmFE1S8ZMlykXFAc81sMhOz3UTHrDCJeKr</Value>
+    </Setting>
+    <Setting Name="SuggestionRoomName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">suggestionbox</Value>
+    </Setting>
     <Setting Name="SlackWebhook" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">https://hooks.slack.com/services/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</Value>
     </Setting>
-    <Setting Name="JarvisEmail" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+    <Setting Name="JarvisSlackRoom" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">fleets</Value>
     </Setting>
-    <Setting Name="JarvisPassword" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+    <Setting Name="JarvisDiscordRoom" Type="System.Int64" Scope="Application">
+      <Value Profile="(Default)">126512244916748288</Value>
+    </Setting>
+    <Setting Name="MainRoomName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">den</Value>
+    </Setting>
+    <Setting Name="NewsRoomName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">news</Value>
     </Setting>
     <Setting Name="DiscordToSlackLinks" Type="System.Collections.Specialized.StringCollection" Scope="Application">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;string&gt;126512244916748288/fleets/To: coalition_pings&lt;/string&gt;
-  &lt;string&gt;194587488877150208/combat-caps/To: capitals&lt;/string&gt;
-  &lt;string&gt;291301351936229377/fleets/To: DARKNESS Pings&lt;/string&gt;
-  &lt;string&gt;320527402986110986/fleets/To: Deployment Pings&lt;/string&gt;
+  &lt;string&gt;126512244916748288/it_testing/To: coalition_pings&lt;/string&gt;
+  &lt;string&gt;194587488877150208/it_testing/To: capitals&lt;/string&gt;
+  &lt;string&gt;291301351936229377/it_testing/To: DARKNESS Pings&lt;/string&gt;
+  &lt;string&gt;320527402986110986/it_testing/To: Deployment Pings&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
   </Settings>
