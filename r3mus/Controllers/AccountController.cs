@@ -52,7 +52,7 @@ namespace r3mus.Controllers
                 {
                     await SignInAsync(user, model.RememberMe);
 
-                    user.GetDetails(true);
+                    //user.GetDetails(true);
                     if(user.Titles.Count == 0)
                     {
                         using (ApplicationDbContext db = new ApplicationDbContext())

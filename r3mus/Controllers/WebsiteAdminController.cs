@@ -67,8 +67,8 @@ namespace r3mus.Controllers
         {
             var members = db.CorpMembers.ToList<Member>();
 
-            var cKey = EveXml.CreateCorporationKey(Convert.ToInt32(Properties.Settings.Default.CorpAPI), Properties.Settings.Default.VCode);
-            var CEOName = cKey.Corporation.GetCorporationSheet().Result.CeoName;
+            //var cKey = EveXml.CreateCorporationKey(Convert.ToInt32(Properties.Settings.Default.CorpAPI), Properties.Settings.Default.VCode);
+            var CEOName = "Deepfry Audeles";// cKey.Corporation.GetCorporationSheet().Result.CeoName;
             var resortModels_All = members.Where(member => member.Name == CEOName).ToList();
             members.Where(member => member.Title.Contains("XO") && !(member.Name == CEOName)).OrderBy(member => member.Title).OrderBy(member => member.MemberSince).ToList().ForEach(member => resortModels_All.Add(member));
             members.Where(member => member.Title.Contains("Director") && !(member.Name == CEOName) && !member.Title.Contains("XO")).OrderBy(member => member.Title).OrderBy(member => member.MemberSince).ToList().ForEach(member => resortModels_All.Add(member));
@@ -270,49 +270,25 @@ namespace r3mus.Controllers
                 });
             }
             catch (Exception ex) { }
-
-            if (member != null)
+            
+            return new UserProfileViewModel()
             {
-                return new UserProfileViewModel()
-                {
-                    Id = currentUser.Id,
-                    UserName = currentUser.UserName,
-                    EmailAddress = currentUser.EmailAddress,
-                    MemberSince = Convert.ToDateTime(currentUser.MemberSince),
-                    MemberType = currentUser.MemberType,
-                    Avatar = currentUser.Avatar,
-                    Titles = string.Join(", ", currentUser.Titles.Select(t => t.TitleName).Distinct().ToList()),
-                    WebsiteRoles = string.Join(", ", currentUser.Roles.Select(role => role.RoleId).ToList()),
-                    ApiKeys = db.ApiInfoes.Where(api => api.User.Id == currentUser.Id).ToList(),
-                    UserRoles = userRoles,
-                    AvailableRoles = roles,
-                    CurrentLocation = member.Location,
-                    LastLogon = Convert.ToDateTime(member.LastLogonDateTime),
-                    ShipType = member.ShipType,
-                    KnownAlts = string.Join(", ", knownAlts)
-                };
-            }
-            else
-            {
-                return new UserProfileViewModel()
-                {
-                    Id = currentUser.Id,
-                    UserName = currentUser.UserName,
-                    EmailAddress = currentUser.EmailAddress,
-                    MemberSince = Convert.ToDateTime(currentUser.MemberSince),
-                    MemberType = currentUser.MemberType,
-                    Avatar = currentUser.Avatar,
-                    Titles = string.Join(", ", currentUser.Titles.Select(t => t.TitleName).ToList()),
-                    WebsiteRoles = string.Join(", ", currentUser.Roles.Select(role => role.RoleId).ToList()),
-                    ApiKeys = db.ApiInfoes.Where(api => api.User.Id == currentUser.Id).ToList(),
-                    UserRoles = userRoles,
-                    AvailableRoles = roles,
-                    CurrentLocation = "Unknown",
-                    LastLogon = new DateTime(),
-                    ShipType = "Unknown",
-                    KnownAlts = string.Join(", ", knownAlts)
-                };
-            }
+                Id = currentUser.Id,
+                UserName = currentUser.UserName,
+                EmailAddress = currentUser.EmailAddress,
+                MemberSince = Convert.ToDateTime(currentUser.MemberSince),
+                MemberType = currentUser.MemberType,
+                Avatar = currentUser.Avatar,
+                Titles = string.Join(", ", currentUser.Titles.Select(t => t.TitleName).Distinct().ToList()),
+                WebsiteRoles = string.Join(", ", currentUser.Roles.Select(role => role.RoleId).ToList()),
+                ApiKeys = db.ApiInfoes.Where(api => api.User.Id == currentUser.Id).ToList(),
+                UserRoles = userRoles,
+                AvailableRoles = roles,
+                CurrentLocation = member != null ? member.Location : "Unknown",
+                LastLogon = member != null ? Convert.ToDateTime(member.LastLogonDateTime) : new DateTime(),
+                ShipType = member != null ? member.ShipType : "Unknown",
+                KnownAlts = string.Join(", ", knownAlts)
+            };
         }
 
         [Authorize(Roles = "CEO, Admin, Director")]

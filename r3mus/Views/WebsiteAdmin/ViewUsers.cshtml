@@ -105,14 +105,14 @@
                 @Html.DisplayFor(modelItem => item.LastLogon)
             </td>
             <td>
-                @if (item.Id != 0.ToString())
+                @*@if (item.Id != 0.ToString())
                 {
                     @Html.ActionLink("Import from Eve", "UpdateApiDetails", new { id = item.Id, originator = "ViewUsers" }, new { @class = "btn btn-default" })
                 }
                 else
-                {
+                {*@
                     <span>Import Not Available</span>
-                }
+                @*}*@
             </td>
         </tr>
     }
